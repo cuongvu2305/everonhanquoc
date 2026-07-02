@@ -16,6 +16,7 @@ const {
   Menu,
   Radio,
   Row,
+  Segmented,
   Select,
   Skeleton,
   Space,

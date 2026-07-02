@@ -1,40 +1,19 @@
 function App() {
-  const [store, setStore] = useState(null);
   const [activeCategory, setActiveCategory] = useState("Tất cả");
   const [activePage, setActivePage] = useState(getPageFromHash());
   const [activeCategorySlug, setActiveCategorySlug] = useState(getCategorySlugFromHash());
   const [query, setQuery] = useState("");
   const [lang, setLang] = useState(getStoredLang());
-  const [storeLoading, setStoreLoading] = useState(true);
-  const [localeLoading, setLocaleLoading] = useState(true);
-  const [localeDict, setLocaleDict] = useState(null);
+  const { store, loading: storeLoading } = useStorefront(lang);
+  const { localeDict, loading: localeLoading } = useLocale(lang);
   const langTools = useI18n(lang, localeDict);
   const { dict, labelCategory } = langTools;
-
-  useEffect(() => {
-    localStorage.setItem("everonhanquoc-lang", lang);
-    document.documentElement.lang = lang;
-    setLocaleLoading(true);
-    fetch(`/locales/${lang}.json?v=locale-1`)
-      .then((response) => { if (!response.ok) throw new Error("Locale error"); return response.json(); })
-      .then(setLocaleDict)
-      .catch(() => message.error(lang === "en" ? "Could not load locale data" : "Không tải được dữ liệu ngôn ngữ"))
-      .finally(() => setLocaleLoading(false));
-  }, [lang]);
 
   useEffect(() => {
     const updatePage = () => { setActivePage(getPageFromHash()); setActiveCategorySlug(getCategorySlugFromHash()); };
     window.addEventListener("hashchange", updatePage);
     return () => window.removeEventListener("hashchange", updatePage);
   }, []);
-
-  useEffect(() => {
-    fetch("/api/storefront")
-      .then((response) => { if (!response.ok) throw new Error("API error"); return response.json(); })
-      .then(setStore)
-      .catch(() => message.error(lang === "en" ? "Could not load storefront data" : "Không tải được API storefront"))
-      .finally(() => setStoreLoading(false));
-  }, [lang]);
 
   useEffect(() => {
     if (!store || activePage !== "category") return;
@@ -77,15 +56,14 @@ function App() {
   };
 
   return (
-    <ConfigProvider theme={{ token: { borderRadius: 6, colorPrimary: "#16842c", colorInfo: "#16842c", colorSuccess: "#16842c", colorError: "#d71920", colorText: "#243126", colorTextSecondary: "#657268", colorBorder: "#d9e5dc", fontFamily: "Arial, Helvetica, sans-serif" } }}>
+    <ConfigProvider theme={globalTheme}>
       <Layout className="app-shell">
         <Flex className="top-strip" align="center" justify="space-between" gap={18}><Space><Icon name="MapPin" /><Text>{dict.address}</Text></Space><Text strong><Icon name="Phone" /> {dict.hotline}</Text></Flex>
         <Header className="site-header">
           <Button className="brand" type="link" href="#home" aria-label="Everon Hàn Quốc"><Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></Button>
           <Input.Search className="search-box" allowClear placeholder={dict.searchPlaceholder} value={query} onChange={(event) => setQuery(event.target.value)} onSearch={setQuery} />
           <Space className="header-actions">
-            <Button className={lang === "vi" ? "lang-active" : ""} onClick={() => setLang("vi")}>VI</Button>
-            <Button className={lang === "en" ? "lang-active" : ""} onClick={() => setLang("en")}>EN</Button>
+            <LanguageSelector value={lang} onChange={setLang} />
             <Button
               aria-label="Facebook"
               href="https://www.facebook.com/everondongda/"

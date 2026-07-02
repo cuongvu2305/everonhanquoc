@@ -5,10 +5,14 @@ const appRuntime = new URL("./public/app.jsx", import.meta.url);
 const storefrontDataUrl = new URL("./backend/data/storefront.json", import.meta.url);
 const frontendParts = [
   "src/app/globals.jsx",
+  "src/lib/antd-theme.jsx",
   "src/constants/navigation.jsx",
   "src/lib/runtime.jsx",
+  "src/services/api/storefront.service.jsx",
   "src/components/icons/Icon.jsx",
   "src/hooks/use-i18n.jsx",
+  "src/hooks/use-storefront.jsx",
+  "src/components/language/LanguageSelector.jsx",
   "src/components/product/ProductCard.jsx",
   "src/components/layout/PageHeader.jsx",
   "src/components/product/ProductGrid.jsx",

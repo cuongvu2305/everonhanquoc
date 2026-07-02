@@ -16,6 +16,7 @@ const {
   Menu,
   Radio,
   Row,
+  Segmented,
   Select,
   Skeleton,
   Space,
@@ -28,6 +29,49 @@ const {
 const { Header, Content, Sider, Footer } = Layout;
 const { Title, Text, Paragraph } = Typography;
 const { useEffect, useMemo, useState } = React;
+
+const colors = {
+  brand: {
+    primary: "#16842c",
+    primaryDark: "#0f6321",
+    primarySoft: "#eaf6ed",
+    accent: "#d71920",
+    accentSoft: "#fde9e9",
+  },
+  neutral: {
+    page: "#f5faf5",
+    surface: "#ffffff",
+    text: "#243126",
+    muted: "#657268",
+    border: "#d9e5dc",
+  },
+};
+
+const globalTheme = {
+  token: {
+    borderRadius: 6,
+    colorPrimary: colors.brand.primary,
+    colorInfo: colors.brand.primary,
+    colorSuccess: colors.brand.primary,
+    colorError: colors.brand.accent,
+    colorText: colors.neutral.text,
+    colorTextSecondary: colors.neutral.muted,
+    colorBorder: colors.neutral.border,
+    colorBgLayout: colors.neutral.page,
+    fontFamily: "Arial, Helvetica, sans-serif",
+  },
+  components: {
+    Button: {
+      controlHeight: 38,
+    },
+    Menu: {
+      itemBorderRadius: 0,
+    },
+    Card: {
+      borderRadiusLG: 6,
+    },
+  },
+};
 
 const topPages = [
   { key: "home", icon: "Home" },
@@ -76,6 +120,23 @@ function formatPrice(value) {
 function getStoredLang() {
   return localStorage.getItem("everonhanquoc-lang") === "en" ? "en" : "vi";
 }
+
+async function requestJson(url, fallbackMessage) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(fallbackMessage);
+  }
+  return response.json();
+}
+
+const storefrontService = {
+  getStorefront() {
+    return requestJson("/api/storefront", "Unable to load storefront data");
+  },
+  getLocale(lang) {
+    return requestJson(`/locales/${lang}.json?v=locale-1`, "Unable to load locale data");
+  },
+};
 
 function Icon({ name, size = 18 }) {
   const ref = React.useRef(null);
@@ -148,6 +209,63 @@ function useI18n(lang, localeDict) {
   const labelTile = (tile) => dict.tileMap[tile.name] ?? tile.name;
   const labelPolicy = (policy) => dict.policyMap[policy] ?? policy;
   return { dict, labelCategory, labelProduct, labelTile, labelPolicy };
+}
+
+function useStorefront(lang) {
+  const [store, setStore] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let active = true;
+    setLoading(true);
+    storefrontService
+      .getStorefront()
+      .then((data) => { if (active) setStore(data); })
+      .catch(() => message.error(lang === "en" ? "Could not load storefront data" : "Không tải được API storefront"))
+      .finally(() => { if (active) setLoading(false); });
+    return () => { active = false; };
+  }, [lang]);
+
+  return { store, loading };
+}
+
+function useLocale(lang) {
+  const [localeDict, setLocaleDict] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let active = true;
+    localStorage.setItem("everonhanquoc-lang", lang);
+    document.documentElement.lang = lang;
+    setLoading(true);
+    storefrontService
+      .getLocale(lang)
+      .then((data) => { if (active) setLocaleDict(data); })
+      .catch(() => message.error(lang === "en" ? "Could not load locale data" : "Không tải được dữ liệu ngôn ngữ"))
+      .finally(() => { if (active) setLoading(false); });
+    return () => { active = false; };
+  }, [lang]);
+
+  return { localeDict, loading };
+}
+
+const LANGUAGES = {
+  vi: { value: "vi", label: "VI" },
+  en: { value: "en", label: "EN" },
+};
+
+function LanguageSelector({ value, onChange }) {
+  return (
+    <Segmented
+      className="language-selector"
+      value={value}
+      onChange={onChange}
+      options={Object.values(LANGUAGES).map((language) => ({
+        value: language.value,
+        label: <Text strong>{language.label}</Text>,
+      }))}
+    />
+  );
 }
 
 function ProductCard({ product, labelProduct }) {
@@ -371,42 +489,21 @@ function AboutPage({ dict }) {
 }
 
 function App() {
-  const [store, setStore] = useState(null);
   const [activeCategory, setActiveCategory] = useState("Tất cả");
   const [activePage, setActivePage] = useState(getPageFromHash());
   const [activeCategorySlug, setActiveCategorySlug] = useState(getCategorySlugFromHash());
   const [query, setQuery] = useState("");
   const [lang, setLang] = useState(getStoredLang());
-  const [storeLoading, setStoreLoading] = useState(true);
-  const [localeLoading, setLocaleLoading] = useState(true);
-  const [localeDict, setLocaleDict] = useState(null);
+  const { store, loading: storeLoading } = useStorefront(lang);
+  const { localeDict, loading: localeLoading } = useLocale(lang);
   const langTools = useI18n(lang, localeDict);
   const { dict, labelCategory } = langTools;
-
-  useEffect(() => {
-    localStorage.setItem("everonhanquoc-lang", lang);
-    document.documentElement.lang = lang;
-    setLocaleLoading(true);
-    fetch(`/locales/${lang}.json?v=locale-1`)
-      .then((response) => { if (!response.ok) throw new Error("Locale error"); return response.json(); })
-      .then(setLocaleDict)
-      .catch(() => message.error(lang === "en" ? "Could not load locale data" : "Không tải được dữ liệu ngôn ngữ"))
-      .finally(() => setLocaleLoading(false));
-  }, [lang]);
 
   useEffect(() => {
     const updatePage = () => { setActivePage(getPageFromHash()); setActiveCategorySlug(getCategorySlugFromHash()); };
     window.addEventListener("hashchange", updatePage);
     return () => window.removeEventListener("hashchange", updatePage);
   }, []);
-
-  useEffect(() => {
-    fetch("/api/storefront")
-      .then((response) => { if (!response.ok) throw new Error("API error"); return response.json(); })
-      .then(setStore)
-      .catch(() => message.error(lang === "en" ? "Could not load storefront data" : "Không tải được API storefront"))
-      .finally(() => setStoreLoading(false));
-  }, [lang]);
 
   useEffect(() => {
     if (!store || activePage !== "category") return;
@@ -449,15 +546,14 @@ function App() {
   };
 
   return (
-    <ConfigProvider theme={{ token: { borderRadius: 6, colorPrimary: "#16842c", colorInfo: "#16842c", colorSuccess: "#16842c", colorError: "#d71920", colorText: "#243126", colorTextSecondary: "#657268", colorBorder: "#d9e5dc", fontFamily: "Arial, Helvetica, sans-serif" } }}>
+    <ConfigProvider theme={globalTheme}>
       <Layout className="app-shell">
         <Flex className="top-strip" align="center" justify="space-between" gap={18}><Space><Icon name="MapPin" /><Text>{dict.address}</Text></Space><Text strong><Icon name="Phone" /> {dict.hotline}</Text></Flex>
         <Header className="site-header">
           <Button className="brand" type="link" href="#home" aria-label="Everon Hàn Quốc"><Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></Button>
           <Input.Search className="search-box" allowClear placeholder={dict.searchPlaceholder} value={query} onChange={(event) => setQuery(event.target.value)} onSearch={setQuery} />
           <Space className="header-actions">
-            <Button className={lang === "vi" ? "lang-active" : ""} onClick={() => setLang("vi")}>VI</Button>
-            <Button className={lang === "en" ? "lang-active" : ""} onClick={() => setLang("en")}>EN</Button>
+            <LanguageSelector value={lang} onChange={setLang} />
             <Button
               aria-label="Facebook"
               href="https://www.facebook.com/everondongda/"
