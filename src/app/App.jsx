@@ -2,8 +2,8 @@ function App() {
   const [activeCategory, setActiveCategory] = useState("Tất cả");
   const [activePage, setActivePage] = useState(getPageFromHash());
   const [activeCategorySlug, setActiveCategorySlug] = useState(getCategorySlugFromHash());
-  const [searchText, setSearchText] = useState("");
-  const [query, setQuery] = useState("");
+  const [searchText, setSearchText] = useState(getSearchQueryFromLocation());
+  const [query, setQuery] = useState(getSearchQueryFromLocation());
   const [lang, setLang] = useState(getStoredLang());
   const { store, loading: storeLoading } = useStorefront(lang);
   const { localeDict, loading: localeLoading } = useLocale(lang);
@@ -11,9 +11,19 @@ function App() {
   const { dict, labelCategory } = langTools;
 
   useEffect(() => {
-    const updatePage = () => { setActivePage(getPageFromHash()); setActiveCategorySlug(getCategorySlugFromHash()); };
+    const updatePage = () => {
+      setActivePage(getPageFromHash());
+      setActiveCategorySlug(getCategorySlugFromHash());
+      const urlQuery = getSearchQueryFromLocation();
+      setQuery(urlQuery);
+      setSearchText(urlQuery);
+    };
     window.addEventListener("hashchange", updatePage);
-    return () => window.removeEventListener("hashchange", updatePage);
+    window.addEventListener("popstate", updatePage);
+    return () => {
+      window.removeEventListener("hashchange", updatePage);
+      window.removeEventListener("popstate", updatePage);
+    };
   }, []);
 
   useEffect(() => {
@@ -21,15 +31,6 @@ function App() {
     const category = store.categories.find((item) => slugifyCategory(item) === activeCategorySlug);
     setActiveCategory(category ?? "Tất cả");
   }, [activeCategorySlug, activePage, store]);
-
-  useEffect(() => {
-    const nextQuery = searchText.trim();
-    if (query === nextQuery) return;
-    const timeoutId = window.setTimeout(() => {
-      setQuery(nextQuery);
-    }, 300);
-    return () => window.clearTimeout(timeoutId);
-  }, [query, searchText]);
 
   const loading = storeLoading || localeLoading;
   const products = store?.products ?? [];
@@ -53,6 +54,17 @@ function App() {
     return { category, products: products.filter((product) => product.category === category) };
   }, [activeCategorySlug, products, store]);
 
+  const submitSearch = () => {
+    const nextQuery = searchText.trim();
+    if (!nextQuery) return;
+    window.history.pushState({}, "", buildSearchUrl(nextQuery));
+    setActivePage("search");
+    setActiveCategorySlug("");
+    setActiveCategory("Tất cả");
+    setQuery(nextQuery);
+    setSearchText(nextQuery);
+  };
+
   const renderPage = () => {
     if (!store) return null;
     if (activePage === "news") return <NewsPage dict={dict} />;
@@ -61,6 +73,7 @@ function App() {
     if (activePage === "contact") return <ContactPage dict={dict} />;
     if (activePage === "about") return <AboutPage dict={dict} />;
     if (activePage === "checkout") return <CheckoutPage products={products} langTools={langTools} />;
+    if (activePage === "search") return <SearchPage products={products} query={query} langTools={langTools} />;
     if (activePage === "category" && categoryPage) return <CategoryPage category={categoryPage.category} products={categoryPage.products} siblingCategories={store.categories} langTools={langTools} />;
     return <HomePage activeCategory={activeCategory} filteredProducts={filteredProducts} menuItems={menuItems} setActiveCategory={setActiveCategory} store={store} langTools={langTools} />;
   };
@@ -71,7 +84,7 @@ function App() {
         <Flex className="top-strip" align="center" justify="space-between" gap={18}><Space><Icon name="MapPin" /><Text>{dict.address}</Text></Space><Text strong><Icon name="Phone" /> {dict.hotline}</Text></Flex>
         <Header className="site-header">
           <Button className="brand" type="link" href="#home" aria-label="Everon Hàn Quốc"><Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></Button>
-          <Input className="search-box" allowClear maxLength={255} prefix={<Icon name="Search" size={16} />} placeholder={dict.searchPlaceholder} value={searchText} onChange={(event) => setSearchText(event.target.value.slice(0, 255))} />
+          <Input className="search-box" allowClear maxLength={255} prefix={<Icon name="Search" size={16} />} placeholder={dict.searchPlaceholder} value={searchText} onChange={(event) => setSearchText(event.target.value.slice(0, 255))} onPressEnter={submitSearch} />
           <Space className="header-actions">
             <LanguageSelector value={lang} onChange={setLang} />
             <Button

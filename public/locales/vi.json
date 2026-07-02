@@ -96,13 +96,34 @@
   "tileMap": {},
   "policyMap": {},
   "newsPosts": [
-    ["Cách chọn đệm phù hợp cho phòng ngủ nhỏ", "Ưu tiên độ cao vừa phải, chất liệu thoáng và gam màu sáng để phòng ngủ nhẹ hơn."],
-    ["Khi nào nên thay ruột gối và ruột chăn", "Nếu ruột gối xẹp, vón hoặc gây bí nóng, nên đổi mới để giữ giấc ngủ sạch và ổn định."],
-    ["Phối chăn ga theo mùa", "Mùa hè hợp cotton thoáng mát, mùa lạnh nên chọn chất liệu mềm ấm và màu dịu."]
+    [
+      "Cách chọn đệm phù hợp cho phòng ngủ nhỏ",
+      "Ưu tiên độ cao vừa phải, chất liệu thoáng và gam màu sáng để phòng ngủ nhẹ hơn."
+    ],
+    [
+      "Khi nào nên thay ruột gối và ruột chăn",
+      "Nếu ruột gối xẹp, vón hoặc gây bí nóng, nên đổi mới để giữ giấc ngủ sạch và ổn định."
+    ],
+    [
+      "Phối chăn ga theo mùa",
+      "Mùa hè hợp cotton thoáng mát, mùa lạnh nên chọn chất liệu mềm ấm và màu dịu."
+    ]
   ],
   "aboutCards": [
-    ["Sản phẩm rõ nguồn gốc", "Dữ liệu sản phẩm được tổ chức theo danh mục, giá và ưu đãi để khách dễ so sánh."],
-    ["Tư vấn theo phòng ngủ", "Tập trung vào kích thước đệm, chất liệu vải và màu sắc phù hợp không gian."],
-    ["Trải nghiệm mua sắm gọn", "Frontend React + AntD giúp các trang danh mục, liên hệ và thông tin vận hành nhất quán."]
-  ]
+    [
+      "Sản phẩm rõ nguồn gốc",
+      "Dữ liệu sản phẩm được tổ chức theo danh mục, giá và ưu đãi để khách dễ so sánh."
+    ],
+    [
+      "Tư vấn theo phòng ngủ",
+      "Tập trung vào kích thước đệm, chất liệu vải và màu sắc phù hợp không gian."
+    ],
+    [
+      "Trải nghiệm mua sắm gọn",
+      "Frontend React + AntD giúp các trang danh mục, liên hệ và thông tin vận hành nhất quán."
+    ]
+  ],
+  "searchResultsTitle": "Kết quả tìm kiếm",
+  "searchResultsDesc": "Các sản phẩm phù hợp với từ khóa \"{query}\".",
+  "emptySearchResults": "Không tìm thấy sản phẩm phù hợp"
 }

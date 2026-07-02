@@ -115,13 +115,34 @@
     "Nhiều ưu đãi theo bộ sản phẩm": "Bundle promotions available"
   },
   "newsPosts": [
-    ["How to choose a mattress for a small bedroom", "Prioritize moderate height, breathable materials, and lighter tones to keep the room calm."],
-    ["When to replace pillow and duvet inserts", "If inserts are flat, clumped, or too warm, replacing them helps keep sleep clean and stable."],
-    ["Seasonal bedding styling", "Cotton works well in summer, while colder months call for softer warmth and muted colors."]
+    [
+      "How to choose a mattress for a small bedroom",
+      "Prioritize moderate height, breathable materials, and lighter tones to keep the room calm."
+    ],
+    [
+      "When to replace pillow and duvet inserts",
+      "If inserts are flat, clumped, or too warm, replacing them helps keep sleep clean and stable."
+    ],
+    [
+      "Seasonal bedding styling",
+      "Cotton works well in summer, while colder months call for softer warmth and muted colors."
+    ]
   ],
   "aboutCards": [
-    ["Clearly organized products", "Product data is grouped by category, price, and promotion for easier comparison."],
-    ["Bedroom-focused consultation", "Advice focuses on mattress size, fabric material, and colors that fit the room."],
-    ["Clean shopping experience", "React + AntD keeps category, contact, and checkout pages consistent."]
-  ]
+    [
+      "Clearly organized products",
+      "Product data is grouped by category, price, and promotion for easier comparison."
+    ],
+    [
+      "Bedroom-focused consultation",
+      "Advice focuses on mattress size, fabric material, and colors that fit the room."
+    ],
+    [
+      "Clean shopping experience",
+      "React + AntD keeps category, contact, and checkout pages consistent."
+    ]
+  ],
+  "searchResultsTitle": "Search results",
+  "searchResultsDesc": "Products matching \"{query}\".",
+  "emptySearchResults": "No matching products found"
 }
