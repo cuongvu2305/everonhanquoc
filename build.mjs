@@ -56,6 +56,14 @@ await mkdir(client, { recursive: true });
 await mkdir(server, { recursive: true });
 await cp(new URL("./public/", import.meta.url), client, { recursive: true });
 
+const staticApi = new URL("./dist/client/api/", import.meta.url);
+await mkdir(staticApi, { recursive: true });
+await writeFile(new URL("./dist/client/api/storefront", import.meta.url), storefrontJson);
+await writeFile(
+  new URL("./dist/client/api/health", import.meta.url),
+  JSON.stringify({ ok: true, service: "everonhanquoc-static-upload" }),
+);
+
 if (existsSync(new URL("./.openai/hosting.json", import.meta.url))) {
   await mkdir(new URL("./dist/.openai/", import.meta.url), { recursive: true });
   await cp(
