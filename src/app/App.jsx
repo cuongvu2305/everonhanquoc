@@ -82,7 +82,7 @@ function App() {
         <Flex className="top-strip" align="center" justify="space-between" gap={18}><Space><Icon name="MapPin" /><Text>{dict.address}</Text></Space><Text strong><Icon name="Phone" /> {dict.hotline}</Text></Flex>
         <Header className="site-header">
           <Button className="brand" type="link" href="#home" aria-label="Everon Hàn Quốc"><Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></Button>
-          <Input.Search className="search-box" allowClear enterButton={<Button type="primary" icon={<Icon name="Search" />}>{dict.searchButton}</Button>} placeholder={dict.searchPlaceholder} value={query} onChange={(event) => setQuery(event.target.value)} />
+          <Input.Search className="search-box" allowClear placeholder={dict.searchPlaceholder} value={query} onChange={(event) => setQuery(event.target.value)} onSearch={setQuery} />
           <Space className="header-actions">
             <Button className={lang === "vi" ? "lang-active" : ""} onClick={() => setLang("vi")}>VI</Button>
             <Button className={lang === "en" ? "lang-active" : ""} onClick={() => setLang("en")}>EN</Button>
