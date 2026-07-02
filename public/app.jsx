@@ -7,7 +7,9 @@ const {
   ConfigProvider,
   Divider,
   Empty,
+  Flex,
   Form,
+  Image,
   Input,
   Layout,
   List,
@@ -151,7 +153,7 @@ function useI18n(lang, localeDict) {
 function ProductCard({ product, labelProduct }) {
   return (
     <Badge.Ribbon text={product.sale} color="#d71920">
-      <Card hoverable className="product-card" cover={<img src={product.image} alt="" />}>
+      <Card hoverable className="product-card" cover={<Image preview={false} src={product.image} alt={labelProduct(product)} />}>
         <Title level={5}>{labelProduct(product)}</Title>
         <Space wrap>
           <Text className="price">{product.price}</Text>
@@ -164,14 +166,16 @@ function ProductCard({ product, labelProduct }) {
 
 function PageHeader({ icon, title, description, extra }) {
   return (
-    <section className="page-hero">
-      <div className="page-hero-icon"><Icon name={icon} size={24} /></div>
-      <div>
-        <Title level={2}>{title}</Title>
-        <Paragraph>{description}</Paragraph>
-        {extra ? <div className="page-hero-extra">{extra}</div> : null}
-      </div>
-    </section>
+    <Card className="page-hero">
+      <Flex align="flex-start" gap={16}>
+        <Flex className="page-hero-icon" align="center" justify="center"><Icon name={icon} size={24} /></Flex>
+        <Flex vertical flex={1}>
+          <Title level={2}>{title}</Title>
+          <Paragraph>{description}</Paragraph>
+          {extra ? <Flex className="page-hero-extra" wrap="wrap">{extra}</Flex> : null}
+        </Flex>
+      </Flex>
+    </Card>
   );
 }
 
@@ -190,13 +194,9 @@ function ProductGrid({ products, labelProduct, emptyText }) {
 
 function PolicyGrid({ policies, labelPolicy }) {
   return (
-    <section className="policy-grid">
-      {policies.map((policy) => (
-        <Card key={policy}>
-          <Space><Icon name="CheckCircle2" /><Text strong>{labelPolicy(policy)}</Text></Space>
-        </Card>
-      ))}
-    </section>
+    <Flex className="policy-grid" gap={12} wrap="wrap">
+      {policies.map((policy) => <Card key={policy}><Space><Icon name="ShieldCheck" /> <Text>{labelPolicy(policy)}</Text></Space></Card>)}
+    </Flex>
   );
 }
 
@@ -204,8 +204,8 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
   const { dict, labelProduct, labelTile, labelPolicy } = langTools;
   return (
     <>
-      <section className="hero">
-        <div>
+      <Card className="hero">
+        <Flex vertical align="flex-start">
           <Tag color="#d71920">{dict.heroTag}</Tag>
           <Title>{dict.heroTitle}</Title>
           <Paragraph>{dict.heroText}</Paragraph>
@@ -213,21 +213,21 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
             <Button type="primary" href="#sale" icon={<Icon name="ShoppingBag" />}>{dict.viewDeals}</Button>
             <Button href="#contact" icon={<Icon name="Truck" />}>{dict.deliveryPolicy}</Button>
           </Space>
-        </div>
-      </section>
+        </Flex>
+      </Card>
 
       <Row gutter={[12, 12]} className="tile-grid">
         {store.tiles.map((tile) => (
           <Col xs={12} sm={8} md={8} xl={4} key={tile.name}>
-            <Card hoverable className="category-card" cover={<img src={tile.image} alt="" />}>
+            <Card hoverable className="category-card" cover={<Image preview={false} src={tile.image} alt={labelTile(tile)} />}>
               <Text strong>{labelTile(tile)}</Text>
             </Card>
           </Col>
         ))}
       </Row>
 
-      <section className="section-panel">
-        <div className="section-title">
+      <Card className="section-panel">
+        <Flex className="section-title" align="center" justify="space-between" gap={16}>
           <Title level={3}>{dict.featuredProducts}</Title>
           <Select
             value={activeCategory}
@@ -237,10 +237,10 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
             }}
             options={menuItems}
           />
-        </div>
+        </Flex>
         <Divider />
         <ProductGrid products={filteredProducts} labelProduct={labelProduct} emptyText={dict.emptyCategory} />
-      </section>
+      </Card>
 
       <PolicyGrid policies={store.policies} labelPolicy={labelPolicy} />
     </>
@@ -269,12 +269,12 @@ function NewsPage({ dict }) {
 
 function SalePage({ products, langTools }) {
   const { dict, labelProduct } = langTools;
-  return <section className="section-panel page-panel"><PageHeader icon="BadgePercent" title={dict.saleTitle} description={dict.saleDesc} /><ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} /></section>;
+  return <Card className="section-panel page-panel"><PageHeader icon="BadgePercent" title={dict.saleTitle} description={dict.saleDesc} /><ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} /></Card>;
 }
 
 function RetailPage({ products, langTools }) {
   const { dict, labelProduct } = langTools;
-  return <section className="section-panel page-panel"><PageHeader icon="PackageOpen" title={dict.retailTitle} description={dict.retailDesc} /><ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} /></section>;
+  return <Card className="section-panel page-panel"><PageHeader icon="PackageOpen" title={dict.retailTitle} description={dict.retailDesc} /><ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} /></Card>;
 }
 
 function CategoryPage({ category, products, siblingCategories, langTools }) {
@@ -282,7 +282,7 @@ function CategoryPage({ category, products, siblingCategories, langTools }) {
   const relatedCategories = siblingCategories.filter((item) => item !== category);
   const displayCategory = labelCategory(category);
   return (
-    <section className="section-panel page-panel category-page">
+    <Card className="section-panel page-panel category-page">
       <PageHeader
         icon="Layers3"
         title={displayCategory}
@@ -291,12 +291,12 @@ function CategoryPage({ category, products, siblingCategories, langTools }) {
       />
       <ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} />
       {relatedCategories.length > 0 ? (
-        <div className="related-categories">
+        <Flex className="related-categories" vertical>
           <Title level={4}>{dict.relatedCategories}</Title>
           <Space wrap>{relatedCategories.slice(0, 8).map((item) => <Button key={item} href={`#category-${slugifyCategory(item)}`}>{labelCategory(item)}</Button>)}</Space>
-        </div>
+        </Flex>
       ) : null}
-    </section>
+    </Card>
   );
 }
 
@@ -334,12 +334,12 @@ function CheckoutPage({ products, langTools }) {
         </Col>
         <Col xs={24} lg={9}>
           <Card className="order-summary" title={dict.orderSummary}>
-            <List itemLayout="horizontal" dataSource={cartItems} renderItem={(item) => <List.Item><List.Item.Meta avatar={<img className="cart-thumb" src={item.image} alt="" />} title={labelProduct(item)} description={`${dict.quantity}: ${item.quantity}`} /><Text strong>{formatPrice(parsePrice(item.price) * item.quantity)}</Text></List.Item>} />
+            <List itemLayout="horizontal" dataSource={cartItems} renderItem={(item) => <List.Item><List.Item.Meta avatar={<Image className="cart-thumb" preview={false} src={item.image} alt={labelProduct(item)} />} title={labelProduct(item)} description={`${dict.quantity}: ${item.quantity}`} /><Text strong>{formatPrice(parsePrice(item.price) * item.quantity)}</Text></List.Item>} />
             <Divider />
-            <div className="summary-row"><Text>{dict.subtotal}</Text><Text>{formatPrice(subtotal)}</Text></div>
-            <div className="summary-row"><Text>{dict.shippingFee}</Text><Text>{shippingFee === 0 ? dict.freeShipping : formatPrice(shippingFee)}</Text></div>
-            <div className="summary-row"><Text>{dict.discount}</Text><Text>-{formatPrice(discount)}</Text></div>
-            <div className="summary-row total-row"><Text strong>{dict.total}</Text><Text strong>{formatPrice(total)}</Text></div>
+            <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.subtotal}</Text><Text>{formatPrice(subtotal)}</Text></Flex>
+            <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.shippingFee}</Text><Text>{shippingFee === 0 ? dict.freeShipping : formatPrice(shippingFee)}</Text></Flex>
+            <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.discount}</Text><Text>-{formatPrice(discount)}</Text></Flex>
+            <Flex className="summary-row total-row" align="center" justify="space-between" gap={12}><Text strong>{dict.total}</Text><Text strong>{formatPrice(total)}</Text></Flex>
             <Button block type="primary" size="large" icon={<Icon name="CheckCircle2" />}>{dict.placeOrder}</Button>
             <Button block href="#retail" className="continue-shopping">{dict.continueShopping}</Button>
           </Card>
@@ -427,6 +427,7 @@ function App() {
   }, [activeCategory, products, query, lang]);
 
   const menuItems = useMemo(() => ["Tất cả", ...(store?.categories ?? [])].map((category) => ({ key: category, label: category === "Tất cả" ? dict.all : labelCategory(category) })), [store, lang]);
+  const navItems = useMemo(() => topPages.map((page) => ({ key: page.key, icon: <Icon name={page.icon} size={16} />, label: dict.topPages[page.key] })), [dict]);
   const saleProducts = useMemo(() => products.filter((product) => product.sale !== "-"), [products]);
   const categoryPage = useMemo(() => {
     if (!store) return null;
@@ -450,9 +451,9 @@ function App() {
   return (
     <ConfigProvider theme={{ token: { borderRadius: 6, colorPrimary: "#16842c", colorInfo: "#16842c", colorSuccess: "#16842c", colorError: "#d71920", colorText: "#243126", colorTextSecondary: "#657268", colorBorder: "#d9e5dc", fontFamily: "Arial, Helvetica, sans-serif" } }}>
       <Layout className="app-shell">
-        <div className="top-strip"><div><Icon name="MapPin" /><span>{dict.address}</span></div><strong><Icon name="Phone" /> {dict.hotline}</strong></div>
+        <Flex className="top-strip" align="center" justify="space-between" gap={18}><Space><Icon name="MapPin" /><Text>{dict.address}</Text></Space><Text strong><Icon name="Phone" /> {dict.hotline}</Text></Flex>
         <Header className="site-header">
-          <a className="brand" href="#home" aria-label="Everon Hàn Quốc"><img src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></a>
+          <Button className="brand" type="link" href="#home" aria-label="Everon Hàn Quốc"><Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></Button>
           <Input.Search className="search-box" allowClear enterButton={<Button type="primary" icon={<Icon name="Search" />}>{dict.searchButton}</Button>} placeholder={dict.searchPlaceholder} value={query} onChange={(event) => setQuery(event.target.value)} />
           <Space className="header-actions">
             <Button className={lang === "vi" ? "lang-active" : ""} onClick={() => setLang("vi")}>VI</Button>
@@ -476,10 +477,10 @@ function App() {
             <Badge count={3}><Button href="#checkout" shape="circle" icon={<Icon name="ShoppingCart" />} /></Badge>
           </Space>
         </Header>
-        <nav className="nav-bar">{topPages.map((page) => <a className={activePage === page.key ? "active" : ""} href={`#${page.key}`} key={page.key}><Icon name={page.icon} size={16} /><span>{dict.topPages[page.key]}</span></a>)}</nav>
+        <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => { window.location.hash = key; }} />
         <Layout className="main-layout">
           <Sider width={268} className="category-sider" breakpoint="lg" collapsedWidth="0">
-            <div className="sider-title"><Icon name="Menu" /><span>{dict.productCategories}</span></div>
+            <Flex className="sider-title" align="center" gap={10}><Icon name="Menu" /><Text>{dict.productCategories}</Text></Flex>
             {loading ? <Skeleton active paragraph={{ rows: 8 }} /> : <Menu mode="inline" selectedKeys={[activeCategory]} items={menuItems} onClick={({ key }) => { setActiveCategory(key); window.location.hash = key === "Tất cả" ? "home" : `category-${slugifyCategory(key)}`; }} />}
           </Sider>
           <Content className="content-area">{loading ? <Skeleton active paragraph={{ rows: 10 }} /> : <>{renderPage()}<Alert className="backend-note" type="info" showIcon message={dict.backendNote} /></>}</Content>

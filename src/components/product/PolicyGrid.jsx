@@ -1,12 +1,7 @@
 function PolicyGrid({ policies, labelPolicy }) {
   return (
-    <section className="policy-grid">
-      {policies.map((policy) => (
-        <Card key={policy}>
-          <Space><Icon name="CheckCircle2" /><Text strong>{labelPolicy(policy)}</Text></Space>
-        </Card>
-      ))}
-    </section>
+    <Flex className="policy-grid" gap={12} wrap="wrap">
+      {policies.map((policy) => <Card key={policy}><Space><Icon name="ShieldCheck" /> <Text>{labelPolicy(policy)}</Text></Space></Card>)}
+    </Flex>
   );
 }
-

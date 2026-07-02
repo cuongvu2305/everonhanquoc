@@ -2,8 +2,8 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
   const { dict, labelProduct, labelTile, labelPolicy } = langTools;
   return (
     <>
-      <section className="hero">
-        <div>
+      <Card className="hero">
+        <Flex vertical align="flex-start">
           <Tag color="#d71920">{dict.heroTag}</Tag>
           <Title>{dict.heroTitle}</Title>
           <Paragraph>{dict.heroText}</Paragraph>
@@ -11,21 +11,21 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
             <Button type="primary" href="#sale" icon={<Icon name="ShoppingBag" />}>{dict.viewDeals}</Button>
             <Button href="#contact" icon={<Icon name="Truck" />}>{dict.deliveryPolicy}</Button>
           </Space>
-        </div>
-      </section>
+        </Flex>
+      </Card>
 
       <Row gutter={[12, 12]} className="tile-grid">
         {store.tiles.map((tile) => (
           <Col xs={12} sm={8} md={8} xl={4} key={tile.name}>
-            <Card hoverable className="category-card" cover={<img src={tile.image} alt="" />}>
+            <Card hoverable className="category-card" cover={<Image preview={false} src={tile.image} alt={labelTile(tile)} />}>
               <Text strong>{labelTile(tile)}</Text>
             </Card>
           </Col>
         ))}
       </Row>
 
-      <section className="section-panel">
-        <div className="section-title">
+      <Card className="section-panel">
+        <Flex className="section-title" align="center" justify="space-between" gap={16}>
           <Title level={3}>{dict.featuredProducts}</Title>
           <Select
             value={activeCategory}
@@ -35,10 +35,10 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
             }}
             options={menuItems}
           />
-        </div>
+        </Flex>
         <Divider />
         <ProductGrid products={filteredProducts} labelProduct={labelProduct} emptyText={dict.emptyCategory} />
-      </section>
+      </Card>
 
       <PolicyGrid policies={store.policies} labelPolicy={labelPolicy} />
     </>

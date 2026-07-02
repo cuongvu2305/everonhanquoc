@@ -32,12 +32,12 @@ function CheckoutPage({ products, langTools }) {
         </Col>
         <Col xs={24} lg={9}>
           <Card className="order-summary" title={dict.orderSummary}>
-            <List itemLayout="horizontal" dataSource={cartItems} renderItem={(item) => <List.Item><List.Item.Meta avatar={<img className="cart-thumb" src={item.image} alt="" />} title={labelProduct(item)} description={`${dict.quantity}: ${item.quantity}`} /><Text strong>{formatPrice(parsePrice(item.price) * item.quantity)}</Text></List.Item>} />
+            <List itemLayout="horizontal" dataSource={cartItems} renderItem={(item) => <List.Item><List.Item.Meta avatar={<Image className="cart-thumb" preview={false} src={item.image} alt={labelProduct(item)} />} title={labelProduct(item)} description={`${dict.quantity}: ${item.quantity}`} /><Text strong>{formatPrice(parsePrice(item.price) * item.quantity)}</Text></List.Item>} />
             <Divider />
-            <div className="summary-row"><Text>{dict.subtotal}</Text><Text>{formatPrice(subtotal)}</Text></div>
-            <div className="summary-row"><Text>{dict.shippingFee}</Text><Text>{shippingFee === 0 ? dict.freeShipping : formatPrice(shippingFee)}</Text></div>
-            <div className="summary-row"><Text>{dict.discount}</Text><Text>-{formatPrice(discount)}</Text></div>
-            <div className="summary-row total-row"><Text strong>{dict.total}</Text><Text strong>{formatPrice(total)}</Text></div>
+            <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.subtotal}</Text><Text>{formatPrice(subtotal)}</Text></Flex>
+            <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.shippingFee}</Text><Text>{shippingFee === 0 ? dict.freeShipping : formatPrice(shippingFee)}</Text></Flex>
+            <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.discount}</Text><Text>-{formatPrice(discount)}</Text></Flex>
+            <Flex className="summary-row total-row" align="center" justify="space-between" gap={12}><Text strong>{dict.total}</Text><Text strong>{formatPrice(total)}</Text></Flex>
             <Button block type="primary" size="large" icon={<Icon name="CheckCircle2" />}>{dict.placeOrder}</Button>
             <Button block href="#retail" className="continue-shopping">{dict.continueShopping}</Button>
           </Card>

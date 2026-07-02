@@ -55,6 +55,7 @@ function App() {
   }, [activeCategory, products, query, lang]);
 
   const menuItems = useMemo(() => ["Tất cả", ...(store?.categories ?? [])].map((category) => ({ key: category, label: category === "Tất cả" ? dict.all : labelCategory(category) })), [store, lang]);
+  const navItems = useMemo(() => topPages.map((page) => ({ key: page.key, icon: <Icon name={page.icon} size={16} />, label: dict.topPages[page.key] })), [dict]);
   const saleProducts = useMemo(() => products.filter((product) => product.sale !== "-"), [products]);
   const categoryPage = useMemo(() => {
     if (!store) return null;
@@ -78,9 +79,9 @@ function App() {
   return (
     <ConfigProvider theme={{ token: { borderRadius: 6, colorPrimary: "#16842c", colorInfo: "#16842c", colorSuccess: "#16842c", colorError: "#d71920", colorText: "#243126", colorTextSecondary: "#657268", colorBorder: "#d9e5dc", fontFamily: "Arial, Helvetica, sans-serif" } }}>
       <Layout className="app-shell">
-        <div className="top-strip"><div><Icon name="MapPin" /><span>{dict.address}</span></div><strong><Icon name="Phone" /> {dict.hotline}</strong></div>
+        <Flex className="top-strip" align="center" justify="space-between" gap={18}><Space><Icon name="MapPin" /><Text>{dict.address}</Text></Space><Text strong><Icon name="Phone" /> {dict.hotline}</Text></Flex>
         <Header className="site-header">
-          <a className="brand" href="#home" aria-label="Everon Hàn Quốc"><img src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></a>
+          <Button className="brand" type="link" href="#home" aria-label="Everon Hàn Quốc"><Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></Button>
           <Input.Search className="search-box" allowClear enterButton={<Button type="primary" icon={<Icon name="Search" />}>{dict.searchButton}</Button>} placeholder={dict.searchPlaceholder} value={query} onChange={(event) => setQuery(event.target.value)} />
           <Space className="header-actions">
             <Button className={lang === "vi" ? "lang-active" : ""} onClick={() => setLang("vi")}>VI</Button>
@@ -104,10 +105,10 @@ function App() {
             <Badge count={3}><Button href="#checkout" shape="circle" icon={<Icon name="ShoppingCart" />} /></Badge>
           </Space>
         </Header>
-        <nav className="nav-bar">{topPages.map((page) => <a className={activePage === page.key ? "active" : ""} href={`#${page.key}`} key={page.key}><Icon name={page.icon} size={16} /><span>{dict.topPages[page.key]}</span></a>)}</nav>
+        <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => { window.location.hash = key; }} />
         <Layout className="main-layout">
           <Sider width={268} className="category-sider" breakpoint="lg" collapsedWidth="0">
-            <div className="sider-title"><Icon name="Menu" /><span>{dict.productCategories}</span></div>
+            <Flex className="sider-title" align="center" gap={10}><Icon name="Menu" /><Text>{dict.productCategories}</Text></Flex>
             {loading ? <Skeleton active paragraph={{ rows: 8 }} /> : <Menu mode="inline" selectedKeys={[activeCategory]} items={menuItems} onClick={({ key }) => { setActiveCategory(key); window.location.hash = key === "Tất cả" ? "home" : `category-${slugifyCategory(key)}`; }} />}
           </Sider>
           <Content className="content-area">{loading ? <Skeleton active paragraph={{ rows: 10 }} /> : <>{renderPage()}<Alert className="backend-note" type="info" showIcon message={dict.backendNote} /></>}</Content>

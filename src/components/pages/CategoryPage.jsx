@@ -3,7 +3,7 @@ function CategoryPage({ category, products, siblingCategories, langTools }) {
   const relatedCategories = siblingCategories.filter((item) => item !== category);
   const displayCategory = labelCategory(category);
   return (
-    <section className="section-panel page-panel category-page">
+    <Card className="section-panel page-panel category-page">
       <PageHeader
         icon="Layers3"
         title={displayCategory}
@@ -12,12 +12,12 @@ function CategoryPage({ category, products, siblingCategories, langTools }) {
       />
       <ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} />
       {relatedCategories.length > 0 ? (
-        <div className="related-categories">
+        <Flex className="related-categories" vertical>
           <Title level={4}>{dict.relatedCategories}</Title>
           <Space wrap>{relatedCategories.slice(0, 8).map((item) => <Button key={item} href={`#category-${slugifyCategory(item)}`}>{labelCategory(item)}</Button>)}</Space>
-        </div>
+        </Flex>
       ) : null}
-    </section>
+    </Card>
   );
 }
 
