@@ -1,5 +1,51 @@
-import { cp, mkdir, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
+
+const appRuntime = new URL("./public/app.jsx", import.meta.url);
+const storefrontDataUrl = new URL("./backend/data/storefront.json", import.meta.url);
+const frontendParts = [
+  "src/app/globals.jsx",
+  "src/constants/navigation.jsx",
+  "src/lib/runtime.jsx",
+  "src/components/icons/Icon.jsx",
+  "src/hooks/use-i18n.jsx",
+  "src/components/product/ProductCard.jsx",
+  "src/components/layout/PageHeader.jsx",
+  "src/components/product/ProductGrid.jsx",
+  "src/components/product/PolicyGrid.jsx",
+  "src/components/pages/HomePage.jsx",
+  "src/components/pages/NewsPage.jsx",
+  "src/components/pages/SalePage.jsx",
+  "src/components/pages/RetailPage.jsx",
+  "src/components/pages/CategoryPage.jsx",
+  "src/components/pages/CheckoutPage.jsx",
+  "src/components/pages/ContactPage.jsx",
+  "src/components/pages/AboutPage.jsx",
+  "src/app/App.jsx",
+];
+
+const bundledFrontend = [];
+for (const part of frontendParts) {
+  const partUrl = new URL(`./${part}`, import.meta.url);
+  if (!existsSync(partUrl)) {
+    throw new Error(`Missing frontend source part: ${part}`);
+  }
+  const source = await readFile(partUrl, "utf8");
+  bundledFrontend.push(source.trim().replace(/\n{3,}/g, "\n\n"));
+}
+await writeFile(appRuntime, `${bundledFrontend.join("\n\n")}\n`);
+
+const storefrontData = JSON.parse(await readFile(storefrontDataUrl, "utf8"));
+const storefrontJson = JSON.stringify(storefrontData);
+
+const localeFiles = ["vi", "en"];
+await mkdir(new URL("./public/locales/", import.meta.url), { recursive: true });
+for (const locale of localeFiles) {
+  await cp(
+    new URL(`./src/locales/${locale}/storefront.json`, import.meta.url),
+    new URL(`./public/locales/${locale}.json`, import.meta.url),
+  );
+}
 
 const dist = new URL("./dist/", import.meta.url);
 const client = new URL("./dist/client/", import.meta.url);
@@ -31,9 +77,24 @@ await writeFile(
   ".webp": "image/webp",
 };
 
+const STOREFRONT_DATA = ${storefrontJson};
+
+function jsonResponse(payload) {
+  return new Response(JSON.stringify(payload), {
+    headers: { "content-type": "application/json; charset=utf-8" },
+  });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === "/api/health") {
+      return jsonResponse({ ok: true, service: "everonhanquoc-sites-worker" });
+    }
+    if (url.pathname === "/api/storefront") {
+      return jsonResponse(STOREFRONT_DATA);
+    }
+
     let path = url.pathname === "/" ? "/index.html" : url.pathname;
     const asset = await env.ASSETS.fetch(new URL(path, url.origin));
     if (asset.status !== 404) {

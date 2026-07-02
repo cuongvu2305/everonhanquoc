@@ -3,216 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Everon Han Quoc - Chan ga goi dem</title>
+    <title>everonhanquoc</title>
     <meta
       name="description"
-      content="Storefront chan ga goi dem phong cach dai ly Everon Han Quoc."
+      content="everonhanquoc - storefront React JSX dùng Ant Design, Lucide icons và backend Python."
     />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/antd@5.22.7/dist/reset.css" />
+    <link rel="stylesheet" href="/styles.css?v=social-1" />
   </head>
   <body>
-    <div class="top-strip">
-      <div class="container top-strip-inner">
-        <span>Dia chi: So 234 Ton Duc Thang - Dong Da - Ha Noi</span>
-        <strong>Hotline: 0966452111</strong>
-      </div>
-    </div>
+    <div id="root"></div>
 
-    <header class="main-header">
-      <div class="container header-grid">
-        <a class="brand" href="#">
-          <span class="brand-mark">E</span>
-          <span><strong>EVERON</strong><small>Han Quoc</small></span>
-        </a>
-
-        <form class="search" action="#">
-          <select aria-label="Danh muc">
-            <option>Tat ca danh muc</option>
-            <option>Dem Everon</option>
-            <option>Chan ga goi</option>
-          </select>
-          <input aria-label="Tim kiem" placeholder="Tim kiem" />
-          <button type="submit">Tim kiem</button>
-        </form>
-
-        <div class="header-actions" aria-label="Lien ket">
-          <a href="#">f</a><a href="#">t</a><a href="#">y</a><a href="#">@</a>
-          <button type="button">0</button>
-        </div>
-      </div>
-
-      <nav class="nav-bar">
-        <div class="container nav-list">
-          <a href="#">Trang chu</a>
-          <a href="#">Tin tuc Everon</a>
-          <a href="#">San pham giam gia</a>
-          <a href="#">San pham ban le</a>
-          <a href="#">Lien he</a>
-          <a href="#">Ve chung toi</a>
-        </div>
-      </nav>
-    </header>
-
-    <main class="container page-grid">
-      <aside class="sidebar">
-        <h2>Danh muc san pham</h2>
-        <ul>
-          <li><a href="#">San pham giam gia</a></li>
-          <li><a href="#">Ruot goi everon</a></li>
-          <li><a href="#">Ruot chan everon</a></li>
-          <li><a href="#">Chan - ga - goi everon</a></li>
-          <li><a href="#">Bo Everon 2026</a></li>
-          <li><a href="#">Bo Everon 2025</a></li>
-          <li><a href="#">Bo Everon 2024</a></li>
-          <li><a href="#">Bo san pham cao cap Artemis</a></li>
-          <li><a href="#">Dem Everon</a></li>
-          <li><a href="#">Dem bong ep everon</a></li>
-          <li><a href="#">Dem lo xo everon - kingkoil</a></li>
-          <li><a href="#">Dem cao su Everon</a></li>
-        </ul>
-      </aside>
-
-      <section class="content">
-        <section class="hero">
-          <div>
-            <p>Tong dai ly chan ga goi dem</p>
-            <h1>Everon Han Quoc</h1>
-            <span>Mau moi, uu dai tot, giao hang nhanh tai Ha Noi.</span>
-          </div>
-        </section>
-
-        <section class="tile-grid" aria-label="Danh muc noi bat">
-          <a class="category-tile" href="#">
-            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80" alt="" />
-            <span>Dem lo xo</span>
-          </a>
-          <a class="category-tile" href="#">
-            <img src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=700&q=80" alt="" />
-            <span>Dem bong ep</span>
-          </a>
-          <a class="category-tile" href="#">
-            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80" alt="" />
-            <span>Chan ga goi Everon</span>
-          </a>
-          <a class="category-tile" href="#">
-            <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=700&q=80" alt="" />
-            <span>Ruot chan</span>
-          </a>
-          <a class="category-tile" href="#">
-            <img src="https://images.unsplash.com/photo-1582582621959-48d27397dc69?auto=format&fit=crop&w=700&q=80" alt="" />
-            <span>Ruot goi</span>
-          </a>
-          <a class="category-tile" href="#">
-            <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=700&q=80" alt="" />
-            <span>Dem cao su thien nhien</span>
-          </a>
-        </section>
-
-        <section class="product-section">
-          <div class="section-heading"><h2>San pham noi bat</h2></div>
-          <div class="product-grid featured-grid">
-            <article class="product-card">
-              <div class="product-image-wrap">
-                <img class="product-image" src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80" alt="" />
-                <span class="sale-badge">-50%</span>
-              </div>
-              <h3>Bo chan ga ESM-22013 giam gia</h3>
-              <p class="price-row"><span>2.715.000d</span><del>5.430.000d</del></p>
-            </article>
-            <article class="product-card">
-              <div class="product-image-wrap">
-                <img class="product-image" src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=700&q=80" alt="" />
-                <span class="sale-badge">-50%</span>
-              </div>
-              <h3>Bo chan ga ESTR-23054</h3>
-              <p class="price-row"><span>724.500d</span><del>1.449.000d</del></p>
-            </article>
-            <article class="product-card">
-              <div class="product-image-wrap">
-                <img class="product-image" src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=700&q=80" alt="" />
-                <span class="sale-badge">-50%</span>
-              </div>
-              <h3>Bo chan ga ESM-23013</h3>
-              <p class="price-row"><span>2.924.500d</span><del>5.849.000d</del></p>
-            </article>
-            <article class="product-card">
-              <div class="product-image-wrap">
-                <img class="product-image" src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=700&q=80" alt="" />
-                <span class="sale-badge">-50%</span>
-              </div>
-              <h3>Bo chan ga goi ESB-22051</h3>
-              <p class="price-row"><span>2.740.000d</span><del>5.480.000d</del></p>
-            </article>
-            <article class="product-card">
-              <div class="product-image-wrap">
-                <img class="product-image" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80" alt="" />
-                <span class="sale-badge">-20%</span>
-              </div>
-              <h3>Dem bong ep Standard</h3>
-              <p class="price-row"><span>1.932.000d</span><del>2.415.000d</del></p>
-            </article>
-            <article class="product-card">
-              <div class="product-image-wrap">
-                <img class="product-image" src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=700&q=80" alt="" />
-                <span class="sale-badge">-20%</span>
-              </div>
-              <h3>Dem cao su Natural Charcoal</h3>
-              <p class="price-row"><span>7.600.000d</span><del>9.500.000d</del></p>
-            </article>
-          </div>
-        </section>
-
-        <section class="product-section">
-          <div class="section-heading section-heading-split">
-            <h2>Dem Everon</h2><a href="#">Xem tat ca</a>
-          </div>
-          <div class="product-grid">
-            <article class="product-card compact"><h3>Dem bong ep Everon</h3><p class="price-row"><span>1.932.000d</span><del>2.415.000d</del></p></article>
-            <article class="product-card compact"><h3>Dem Topplus New</h3><p class="price-row"><span>5.520.000d</span><del>6.900.000d</del></p></article>
-            <article class="product-card compact"><h3>Dem Foam Artemis</h3><p class="price-row"><span>7.920.000d</span><del>9.900.000d</del></p></article>
-            <article class="product-card compact"><h3>Dem foam Gentle Dream</h3><p class="price-row"><span>9.520.000d</span><del>11.900.000d</del></p></article>
-          </div>
-        </section>
-
-        <section class="product-section">
-          <div class="section-heading section-heading-split">
-            <h2>Bo Everon 2026</h2><a href="#">Xem tat ca</a>
-          </div>
-          <div class="product-grid">
-            <article class="product-card compact"><h3>Bo chan ga ESTC-26003</h3><p class="price-row"><span>1.394.100d</span><del>1.549.000d</del></p></article>
-            <article class="product-card compact"><h3>Bo chan ga EPC-26014</h3><p class="price-row"><span>1.385.100d</span><del>1.539.000d</del></p></article>
-            <article class="product-card compact"><h3>Bo chan ga EPTC-26018</h3><p class="price-row"><span>1.511.100d</span><del>1.679.000d</del></p></article>
-            <article class="product-card compact"><h3>Bo chan ga EPTC-26017</h3><p class="price-row"><span>1.511.100d</span><del>1.679.000d</del></p></article>
-          </div>
-        </section>
-
-        <section class="info-band">
-          <div><span></span><strong>Hang chinh hang, mau moi cap nhat</strong></div>
-          <div><span></span><strong>Tu van kich thuoc mien phi</strong></div>
-          <div><span></span><strong>Giao hang nhanh trong noi thanh</strong></div>
-          <div><span></span><strong>Nhieu chuong trinh uu dai theo bo</strong></div>
-        </section>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container footer-grid">
-        <div>
-          <h2>Everon Han Quoc</h2>
-          <p>Mo phong storefront dai ly chan ga goi dem voi danh muc, san pham noi bat, gia uu dai va thong tin lien he ro rang.</p>
-        </div>
-        <div>
-          <h3>Thong tin cua hang</h3>
-          <p>234 Ton Duc Thang, Dong Da, Ha Noi</p>
-          <p>Hotline: 0966452111</p>
-        </div>
-        <div>
-          <h3>Danh muc</h3>
-          <p>Dem Everon</p>
-          <p>Chan ga goi</p>
-          <p>Ruot chan va ruot goi</p>
-        </div>
-      </div>
-    </footer>
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/dayjs@1.11.13/dayjs.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.26.4/babel.min.js"></script>
+    <script src="https://unpkg.com/antd@5.22.7/dist/antd.min.js"></script>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script type="text/babel" data-presets="react" src="/app.jsx?v=locale-1"></script>
   </body>
 </html>

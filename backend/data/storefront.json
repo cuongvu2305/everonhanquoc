@@ -1,0 +1,98 @@
+{
+  "categories": [
+    "Sản phẩm giảm giá",
+    "Ruột gối Everon",
+    "Ruột chăn Everon",
+    "Chăn - ga - gối Everon",
+    "Bộ Everon 2026",
+    "Bộ Everon 2025",
+    "Bộ Everon 2024",
+    "Bộ Artemis cao cấp",
+    "Đệm Everon",
+    "Đệm bông ép",
+    "Đệm lò xo Kingkoil",
+    "Đệm cao su"
+  ],
+  "tiles": [
+    {
+      "name": "Đệm lò xo",
+      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Đệm bông ép",
+      "image": "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Chăn ga gối",
+      "image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Ruột chăn",
+      "image": "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Ruột gối",
+      "image": "https://images.unsplash.com/photo-1582582621959-48d27397dc69?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Đệm cao su",
+      "image": "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=700&q=80"
+    }
+  ],
+  "products": [
+    {
+      "name": "Bộ chăn ga ESM-22013 giảm giá",
+      "category": "Sản phẩm giảm giá",
+      "sale": "-50%",
+      "price": "2.715.000đ",
+      "oldPrice": "5.430.000đ",
+      "image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Bộ chăn ga ESTR-23054",
+      "category": "Sản phẩm giảm giá",
+      "sale": "-50%",
+      "price": "724.500đ",
+      "oldPrice": "1.449.000đ",
+      "image": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Bộ chăn ga ESM-23013",
+      "category": "Chăn - ga - gối Everon",
+      "sale": "-50%",
+      "price": "2.924.500đ",
+      "oldPrice": "5.849.000đ",
+      "image": "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Đệm bông ép Standard",
+      "category": "Đệm Everon",
+      "sale": "-20%",
+      "price": "1.932.000đ",
+      "oldPrice": "2.415.000đ",
+      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Đệm cao su Natural Charcoal",
+      "category": "Đệm cao su",
+      "sale": "-20%",
+      "price": "7.600.000đ",
+      "oldPrice": "9.500.000đ",
+      "image": "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "name": "Ruột gối Micro",
+      "category": "Ruột gối Everon",
+      "sale": "-10%",
+      "price": "333.000đ",
+      "oldPrice": "370.000đ",
+      "image": "https://images.unsplash.com/photo-1582582621959-48d27397dc69?auto=format&fit=crop&w=700&q=80"
+    }
+  ],
+  "policies": [
+    "Hàng chính hãng, mẫu mới cập nhật",
+    "Tư vấn kích thước miễn phí",
+    "Giao hàng nhanh trong nội thành",
+    "Nhiều ưu đãi theo bộ sản phẩm"
+  ]
+}
