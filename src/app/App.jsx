@@ -2,6 +2,7 @@ function App() {
   const [activeCategory, setActiveCategory] = useState("Tất cả");
   const [activePage, setActivePage] = useState(getPageFromHash());
   const [activeCategorySlug, setActiveCategorySlug] = useState(getCategorySlugFromHash());
+  const [searchText, setSearchText] = useState("");
   const [query, setQuery] = useState("");
   const [lang, setLang] = useState(getStoredLang());
   const { store, loading: storeLoading } = useStorefront(lang);
@@ -20,6 +21,15 @@ function App() {
     const category = store.categories.find((item) => slugifyCategory(item) === activeCategorySlug);
     setActiveCategory(category ?? "Tất cả");
   }, [activeCategorySlug, activePage, store]);
+
+  useEffect(() => {
+    const nextQuery = searchText.trim();
+    if (query === nextQuery) return;
+    const timeoutId = window.setTimeout(() => {
+      setQuery(nextQuery);
+    }, 300);
+    return () => window.clearTimeout(timeoutId);
+  }, [query, searchText]);
 
   const loading = storeLoading || localeLoading;
   const products = store?.products ?? [];
@@ -61,7 +71,7 @@ function App() {
         <Flex className="top-strip" align="center" justify="space-between" gap={18}><Space><Icon name="MapPin" /><Text>{dict.address}</Text></Space><Text strong><Icon name="Phone" /> {dict.hotline}</Text></Flex>
         <Header className="site-header">
           <Button className="brand" type="link" href="#home" aria-label="Everon Hàn Quốc"><Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></Button>
-          <Input.Search className="search-box" allowClear placeholder={dict.searchPlaceholder} value={query} onChange={(event) => setQuery(event.target.value)} onSearch={setQuery} />
+          <Input className="search-box" allowClear maxLength={255} prefix={<Icon name="Search" size={16} />} placeholder={dict.searchPlaceholder} value={searchText} onChange={(event) => setSearchText(event.target.value.slice(0, 255))} />
           <Space className="header-actions">
             <LanguageSelector value={lang} onChange={setLang} />
             <Button
