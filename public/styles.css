@@ -1,15 +1,15 @@
 :root {
-  --page: #f4f7f6;
+  --page: #f5faf5;
   --surface: #ffffff;
-  --surface-soft: #eef4f2;
-  --text: #273331;
-  --muted: #64736f;
-  --brand: #6f8f7a;
-  --brand-dark: #587362;
-  --accent: #c9828f;
-  --accent-soft: #f7e9ec;
-  --footer: #3d5149;
-  --line: #dce6e2;
+  --surface-soft: #eaf6ed;
+  --text: #243126;
+  --muted: #657268;
+  --brand: #16842c;
+  --brand-dark: #0f6321;
+  --accent: #d71920;
+  --accent-soft: #fde9e9;
+  --footer: #103f1c;
+  --line: #d9e5dc;
 }
 
 body {
@@ -38,8 +38,8 @@ body {
   gap: 18px;
   min-height: 34px;
   padding: 0 max(14px, calc((100vw - 1180px) / 2));
-  background: #e9f0ed;
-  color: #3d5149;
+  background: #edf7ef;
+  color: #244c2b;
   font-size: 13px;
 }
 
@@ -52,7 +52,7 @@ body {
 
 .site-header {
   display: grid;
-  grid-template-columns: 230px minmax(280px, 1fr) auto;
+  grid-template-columns: 190px minmax(280px, 1fr) auto;
   align-items: center;
   gap: 22px;
   height: auto;
@@ -65,37 +65,16 @@ body {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  color: var(--brand-dark);
+  width: 166px;
+  min-width: 0;
   text-decoration: none;
 }
 
-.brand-mark {
-  display: grid;
-  width: 54px;
-  height: 54px;
-  place-items: center;
-  border: 3px solid currentColor;
-  border-radius: 50%;
-  font-size: 32px;
-  font-weight: 800;
-}
-
-.brand strong,
-.brand small {
+.brand img {
   display: block;
-  line-height: 1.05;
-}
-
-.brand strong {
-  font-size: 25px;
-  letter-spacing: 0;
-}
-
-.brand small {
-  margin-top: 3px;
-  color: var(--muted);
-  font-size: 15px;
+  width: 150px;
+  height: auto;
+  object-fit: contain;
 }
 
 .ant-btn-primary {
@@ -121,7 +100,7 @@ body {
   min-height: 44px;
   padding: 0 max(14px, calc((100vw - 1180px) / 2));
   overflow-x: auto;
-  background: #dfe9e5;
+  background: #e3f2e6;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -129,7 +108,7 @@ body {
 .nav-bar a {
   flex: 0 0 auto;
   padding: 14px 17px;
-  color: #43584f;
+  color: #23522c;
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
@@ -137,8 +116,8 @@ body {
 }
 
 .nav-bar a:hover {
-  background: #cfded8;
-  color: #2e4039;
+  background: #cce8d2;
+  color: #0f6321;
 }
 
 
@@ -149,8 +128,8 @@ body {
 }
 
 .nav-bar a.active {
-  background: #cfded8;
-  color: #2e4039;
+  background: #cce8d2;
+  color: #0f6321;
 }
 
 .page-hero {
@@ -160,7 +139,7 @@ body {
   margin-bottom: 18px;
   padding: 24px;
   border: 1px solid var(--line);
-  background: linear-gradient(135deg, #ffffff, #eef4f2);
+  background: linear-gradient(135deg, #ffffff, #eef8ee);
 }
 
 .page-hero-icon {
@@ -254,7 +233,7 @@ body {
   padding: 38px 42px;
   color: #ffffff;
   background:
-    linear-gradient(90deg, rgba(61, 81, 73, 0.72), rgba(201, 130, 143, 0.16)),
+    linear-gradient(90deg, rgba(16, 63, 28, 0.76), rgba(215, 25, 32, 0.18)),
     url("https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1500&q=80")
       center / cover;
 }
@@ -347,8 +326,8 @@ body {
 }
 
 .ant-card-hoverable:hover {
-  border-color: #bfd1ca;
-  box-shadow: 0 10px 24px rgba(61, 81, 73, 0.1);
+  border-color: #b7d8be;
+  box-shadow: 0 10px 24px rgba(15, 99, 33, 0.12);
 }
 
 .ant-menu-light .ant-menu-item-selected {
@@ -379,7 +358,7 @@ body {
 
 .footer {
   padding: 34px max(14px, calc((100vw - 1180px) / 2));
-  border-top: 4px solid #cbded5;
+  border-top: 4px solid #d71920;
   background: var(--footer);
 }
 
@@ -389,12 +368,20 @@ body {
 }
 
 .footer .ant-typography {
-  color: #d1d5db;
+  color: #d9eadb;
 }
 
 @media (max-width: 991px) {
   .site-header {
     grid-template-columns: 1fr;
+  }
+
+  .brand {
+    width: 154px;
+  }
+
+  .brand img {
+    width: 144px;
   }
 
   .header-actions {
@@ -409,8 +396,8 @@ body {
 }
 
 .nav-bar a.active {
-  background: #cfded8;
-  color: #2e4039;
+  background: #cce8d2;
+  color: #0f6321;
 }
 
 .page-hero {
@@ -420,7 +407,7 @@ body {
   margin-bottom: 18px;
   padding: 24px;
   border: 1px solid var(--line);
-  background: linear-gradient(135deg, #ffffff, #eef4f2);
+  background: linear-gradient(135deg, #ffffff, #eef8ee);
 }
 
 .page-hero-icon {
@@ -499,6 +486,14 @@ body {
   .nav-bar a {
     padding: 13px 12px;
     font-size: 12px;
+  }
+
+  .brand {
+    width: 138px;
+  }
+
+  .brand img {
+    width: 132px;
   }
 
   .hero {

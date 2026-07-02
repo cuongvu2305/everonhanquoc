@@ -76,11 +76,11 @@ function App() {
   };
 
   return (
-    <ConfigProvider theme={{ token: { borderRadius: 6, colorPrimary: "#6f8f7a", colorInfo: "#6f8f7a", colorSuccess: "#6f8f7a", colorText: "#273331", colorTextSecondary: "#64736f", colorBorder: "#dce6e2", fontFamily: "Arial, Helvetica, sans-serif" } }}>
+    <ConfigProvider theme={{ token: { borderRadius: 6, colorPrimary: "#16842c", colorInfo: "#16842c", colorSuccess: "#16842c", colorError: "#d71920", colorText: "#243126", colorTextSecondary: "#657268", colorBorder: "#d9e5dc", fontFamily: "Arial, Helvetica, sans-serif" } }}>
       <Layout className="app-shell">
         <div className="top-strip"><div><Icon name="MapPin" /><span>{dict.address}</span></div><strong><Icon name="Phone" /> {dict.hotline}</strong></div>
         <Header className="site-header">
-          <a className="brand" href="#home"><span className="brand-mark">E</span><span><strong>EVERON</strong><small>{lang === "en" ? "Korea" : "Hàn Quốc"}</small></span></a>
+          <a className="brand" href="#home" aria-label="Everon Hàn Quốc"><img src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></a>
           <Input.Search className="search-box" allowClear enterButton={<Button type="primary" icon={<Icon name="Search" />}>{dict.searchButton}</Button>} placeholder={dict.searchPlaceholder} value={query} onChange={(event) => setQuery(event.target.value)} />
           <Space className="header-actions">
             <Button className={lang === "vi" ? "lang-active" : ""} onClick={() => setLang("vi")}>VI</Button>

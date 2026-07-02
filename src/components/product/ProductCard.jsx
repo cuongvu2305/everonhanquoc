@@ -1,6 +1,6 @@
 function ProductCard({ product, labelProduct }) {
   return (
-    <Badge.Ribbon text={product.sale} color="#c9828f">
+    <Badge.Ribbon text={product.sale} color="#d71920">
       <Card hoverable className="product-card" cover={<img src={product.image} alt="" />}>
         <Title level={5}>{labelProduct(product)}</Title>
         <Space wrap>

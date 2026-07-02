@@ -8,7 +8,7 @@ function CategoryPage({ category, products, siblingCategories, langTools }) {
         icon="Layers3"
         title={displayCategory}
         description={dict.categoryDesc(displayCategory)}
-        extra={<Space wrap><Tag color="#6f8f7a">{dict.productCount(products.length)}</Tag><Button size="small" href="#retail" icon={<Icon name="PackageOpen" />}>{dict.viewAllProducts}</Button></Space>}
+        extra={<Space wrap><Tag color="#16842c">{dict.productCount(products.length)}</Tag><Button size="small" href="#retail" icon={<Icon name="PackageOpen" />}>{dict.viewAllProducts}</Button></Space>}
       />
       <ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} />
       {relatedCategories.length > 0 ? (

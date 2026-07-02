@@ -6,7 +6,7 @@ function NewsPage({ dict }) {
         {dict.newsPosts.map(([title, text]) => (
           <Col xs={24} md={8} key={title}>
             <Card className="content-card">
-              <Tag color="#6f8f7a">{dict.advice}</Tag>
+              <Tag color="#16842c">{dict.advice}</Tag>
               <Title level={4}>{title}</Title>
               <Paragraph>{text}</Paragraph>
               <Button type="link">{dict.readMore}</Button>

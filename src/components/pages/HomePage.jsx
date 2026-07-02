@@ -4,7 +4,7 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
     <>
       <section className="hero">
         <div>
-          <Tag color="#c9828f">{dict.heroTag}</Tag>
+          <Tag color="#d71920">{dict.heroTag}</Tag>
           <Title>{dict.heroTitle}</Title>
           <Paragraph>{dict.heroText}</Paragraph>
           <Space wrap>

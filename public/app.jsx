@@ -150,7 +150,7 @@ function useI18n(lang, localeDict) {
 
 function ProductCard({ product, labelProduct }) {
   return (
-    <Badge.Ribbon text={product.sale} color="#c9828f">
+    <Badge.Ribbon text={product.sale} color="#d71920">
       <Card hoverable className="product-card" cover={<img src={product.image} alt="" />}>
         <Title level={5}>{labelProduct(product)}</Title>
         <Space wrap>
@@ -206,7 +206,7 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
     <>
       <section className="hero">
         <div>
-          <Tag color="#c9828f">{dict.heroTag}</Tag>
+          <Tag color="#d71920">{dict.heroTag}</Tag>
           <Title>{dict.heroTitle}</Title>
           <Paragraph>{dict.heroText}</Paragraph>
           <Space wrap>
@@ -255,7 +255,7 @@ function NewsPage({ dict }) {
         {dict.newsPosts.map(([title, text]) => (
           <Col xs={24} md={8} key={title}>
             <Card className="content-card">
-              <Tag color="#6f8f7a">{dict.advice}</Tag>
+              <Tag color="#16842c">{dict.advice}</Tag>
               <Title level={4}>{title}</Title>
               <Paragraph>{text}</Paragraph>
               <Button type="link">{dict.readMore}</Button>
@@ -287,7 +287,7 @@ function CategoryPage({ category, products, siblingCategories, langTools }) {
         icon="Layers3"
         title={displayCategory}
         description={dict.categoryDesc(displayCategory)}
-        extra={<Space wrap><Tag color="#6f8f7a">{dict.productCount(products.length)}</Tag><Button size="small" href="#retail" icon={<Icon name="PackageOpen" />}>{dict.viewAllProducts}</Button></Space>}
+        extra={<Space wrap><Tag color="#16842c">{dict.productCount(products.length)}</Tag><Button size="small" href="#retail" icon={<Icon name="PackageOpen" />}>{dict.viewAllProducts}</Button></Space>}
       />
       <ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} />
       {relatedCategories.length > 0 ? (
@@ -448,11 +448,11 @@ function App() {
   };
 
   return (
-    <ConfigProvider theme={{ token: { borderRadius: 6, colorPrimary: "#6f8f7a", colorInfo: "#6f8f7a", colorSuccess: "#6f8f7a", colorText: "#273331", colorTextSecondary: "#64736f", colorBorder: "#dce6e2", fontFamily: "Arial, Helvetica, sans-serif" } }}>
+    <ConfigProvider theme={{ token: { borderRadius: 6, colorPrimary: "#16842c", colorInfo: "#16842c", colorSuccess: "#16842c", colorError: "#d71920", colorText: "#243126", colorTextSecondary: "#657268", colorBorder: "#d9e5dc", fontFamily: "Arial, Helvetica, sans-serif" } }}>
       <Layout className="app-shell">
         <div className="top-strip"><div><Icon name="MapPin" /><span>{dict.address}</span></div><strong><Icon name="Phone" /> {dict.hotline}</strong></div>
         <Header className="site-header">
-          <a className="brand" href="#home"><span className="brand-mark">E</span><span><strong>EVERON</strong><small>{lang === "en" ? "Korea" : "Hàn Quốc"}</small></span></a>
+          <a className="brand" href="#home" aria-label="Everon Hàn Quốc"><img src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></a>
           <Input.Search className="search-box" allowClear enterButton={<Button type="primary" icon={<Icon name="Search" />}>{dict.searchButton}</Button>} placeholder={dict.searchPlaceholder} value={query} onChange={(event) => setQuery(event.target.value)} />
           <Space className="header-actions">
             <Button className={lang === "vi" ? "lang-active" : ""} onClick={() => setLang("vi")}>VI</Button>
