@@ -17,6 +17,7 @@ const frontendParts = [
   "src/components/product/ProductCard.jsx",
   "src/components/layout/PageHeader.jsx",
   "src/components/product/ProductGrid.jsx",
+  "src/components/product/ProductCarousel.jsx",
   "src/components/product/PolicyGrid.jsx",
   "src/components/pages/HomePage.jsx",
   "src/components/pages/NewsPage.jsx",

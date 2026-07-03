@@ -1,16 +1,10 @@
 function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCategory, store, langTools }) {
   const { dict, labelProduct, labelTile, labelPolicy } = langTools;
-  const tileCategoryMap = {
-    "Đệm lò xo": "Đệm lò xo Kingkoil",
-    "Đệm bông ép": "Đệm bông ép",
-    "Chăn ga gối": "Chăn - ga - gối Everon",
-    "Ruột chăn": "Ruột chăn Everon",
-    "Ruột gối": "Ruột gối Everon",
-    "Đệm cao su": "Đệm cao su",
-  };
+  const tileCategoryMap = {};
   const openTileCategory = (tileName) => {
     navigateToCategory(tileCategoryMap[tileName] ?? tileName);
   };
+  const productsByCategory = (category) => store.products.filter((product) => product.category === category || product.categories?.includes(category));
   return (
     <>
       <Card className="hero">
@@ -50,25 +44,18 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
         ))}
       </Row>
 
-      <Card className="section-panel">
-        <Flex className="section-title" align="center" justify="space-between" gap={16}>
-          <Title level={3}>{dict.featuredProducts}</Title>
-          <Select
-            value={activeCategory}
-            onChange={(category) => {
-              setActiveCategory(category);
-              if (category === "Tất cả") {
-                navigateToTopPage("home");
-                return;
-              }
-              navigateToCategory(category);
-            }}
-            options={menuItems}
+      <Flex className="home-product-sections" vertical gap={16}>
+        {store.tiles.map((tile) => (
+          <ProductCarousel
+            key={tile.name}
+            title={labelTile(tile)}
+            products={productsByCategory(tile.name)}
+            labelProduct={labelProduct}
+            emptyText={dict.emptyCategory}
+            onViewAll={() => openTileCategory(tile.name)}
           />
-        </Flex>
-        <Divider />
-        <ProductGrid products={filteredProducts} labelProduct={labelProduct} emptyText={dict.emptyCategory} />
-      </Card>
+        ))}
+      </Flex>
 
       <PolicyGrid policies={store.policies} labelPolicy={labelPolicy} />
     </>

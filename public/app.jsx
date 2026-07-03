@@ -14,6 +14,7 @@ const {
   Layout,
   List,
   Menu,
+  Pagination,
   Radio,
   Row,
   Select,
@@ -27,7 +28,7 @@ const {
 
 const { Header, Content, Sider, Footer } = Layout;
 const { Title, Text, Paragraph } = Typography;
-const { useEffect, useMemo, useState } = React;
+const { useEffect, useMemo, useRef, useState } = React;
 
 const colors = {
   brand: {
@@ -343,17 +344,63 @@ function PageHeader({ icon, title, description, extra }) {
   );
 }
 
-function ProductGrid({ products, labelProduct, emptyText }) {
+function ProductGrid({ products, labelProduct, emptyText, paginated = false, pageSize = 9 }) {
+  const [currentPage, setCurrentPage] = useState(1);
   if (products.length === 0) return <Empty description={emptyText} />;
+  const visibleProducts = paginated ? products.slice((currentPage - 1) * pageSize, currentPage * pageSize) : products;
   return (
-    <Row gutter={[16, 16]}>
-      {products.map((product) => (
-        <Col xs={24} sm={12} lg={8} xl={8} key={product.name}>
-          <ProductCard product={product} labelProduct={labelProduct} />
-        </Col>
-      ))}
-    </Row>
+    <>
+      <Row gutter={[16, 16]}>
+        {visibleProducts.map((product) => (
+          <Col xs={24} sm={12} lg={8} xl={8} key={product.sourceUrl || product.name}>
+            <ProductCard product={product} labelProduct={labelProduct} />
+          </Col>
+        ))}
+      </Row>
+      {paginated && products.length > pageSize ? (
+        <Flex className="product-pagination" justify="center">
+          <Pagination current={currentPage} pageSize={pageSize} total={products.length} showSizeChanger={false} onChange={setCurrentPage} />
+        </Flex>
+      ) : null}
+    </>
   );
+}
+
+function ProductCarousel({ title, products, labelProduct, emptyText, onViewAll }) {
+  const scrollerRef = useRef(null);
+  const scrollProducts = (direction) => {
+    const node = scrollerRef.current;
+    if (!node) return;
+    node.scrollBy({ left: direction * Math.max(320, node.clientWidth * 0.88), behavior: "smooth" });
+  };
+
+  return (
+    <Card className="product-carousel-section">
+      <Flex className="product-carousel-header" align="center" justify="space-between" gap={12}>
+        <Title level={4}>{title}</Title>
+        <Space>
+          {onViewAll ? <Button size="small" onClick={onViewAll}>{dictViewAllLabel()}</Button> : null}
+          <Button aria-label={`Xem sản phẩm trước trong ${title}`} icon={<Icon name="ChevronLeft" />} onClick={() => scrollProducts(-1)} />
+          <Button aria-label={`Xem sản phẩm tiếp trong ${title}`} icon={<Icon name="ChevronRight" />} onClick={() => scrollProducts(1)} />
+        </Space>
+      </Flex>
+      {products.length === 0 ? (
+        <Empty description={emptyText} />
+      ) : (
+        <div className="product-carousel-track" ref={scrollerRef}>
+          {products.map((product) => (
+            <div className="product-carousel-item" key={product.sourceUrl || product.name}>
+              <ProductCard product={product} labelProduct={labelProduct} />
+            </div>
+          ))}
+        </div>
+      )}
+    </Card>
+  );
+}
+
+function dictViewAllLabel() {
+  return "Xem tất cả";
 }
 
 function PolicyGrid({ policies, labelPolicy }) {
@@ -366,17 +413,11 @@ function PolicyGrid({ policies, labelPolicy }) {
 
 function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCategory, store, langTools }) {
   const { dict, labelProduct, labelTile, labelPolicy } = langTools;
-  const tileCategoryMap = {
-    "Đệm lò xo": "Đệm lò xo Kingkoil",
-    "Đệm bông ép": "Đệm bông ép",
-    "Chăn ga gối": "Chăn - ga - gối Everon",
-    "Ruột chăn": "Ruột chăn Everon",
-    "Ruột gối": "Ruột gối Everon",
-    "Đệm cao su": "Đệm cao su",
-  };
+  const tileCategoryMap = {};
   const openTileCategory = (tileName) => {
     navigateToCategory(tileCategoryMap[tileName] ?? tileName);
   };
+  const productsByCategory = (category) => store.products.filter((product) => product.category === category || product.categories?.includes(category));
   return (
     <>
       <Card className="hero">
@@ -416,25 +457,18 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
         ))}
       </Row>
 
-      <Card className="section-panel">
-        <Flex className="section-title" align="center" justify="space-between" gap={16}>
-          <Title level={3}>{dict.featuredProducts}</Title>
-          <Select
-            value={activeCategory}
-            onChange={(category) => {
-              setActiveCategory(category);
-              if (category === "Tất cả") {
-                navigateToTopPage("home");
-                return;
-              }
-              navigateToCategory(category);
-            }}
-            options={menuItems}
+      <Flex className="home-product-sections" vertical gap={16}>
+        {store.tiles.map((tile) => (
+          <ProductCarousel
+            key={tile.name}
+            title={labelTile(tile)}
+            products={productsByCategory(tile.name)}
+            labelProduct={labelProduct}
+            emptyText={dict.emptyCategory}
+            onViewAll={() => openTileCategory(tile.name)}
           />
-        </Flex>
-        <Divider />
-        <ProductGrid products={filteredProducts} labelProduct={labelProduct} emptyText={dict.emptyCategory} />
-      </Card>
+        ))}
+      </Flex>
 
       <PolicyGrid policies={store.policies} labelPolicy={labelPolicy} />
     </>
@@ -483,7 +517,7 @@ function CategoryPage({ category, products, siblingCategories, langTools }) {
         description={dict.categoryDesc(displayCategory)}
         extra={<Space wrap><Tag color="#16842c">{dict.productCount(products.length)}</Tag><Button size="small" onClick={() => navigateToTopPage("retail")} icon={<Icon name="PackageOpen" />}>{dict.viewAllProducts}</Button></Space>}
       />
-      <ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} />
+      <ProductGrid key={category} products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} paginated pageSize={9} />
       {relatedCategories.length > 0 ? (
         <Flex className="related-categories" vertical>
           <Title level={4}>{dict.relatedCategories}</Title>
