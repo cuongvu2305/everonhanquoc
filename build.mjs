@@ -1,8 +1,10 @@
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
+import { execSync } from "node:child_process";
 
 const appRuntime = new URL("./public/app.jsx", import.meta.url);
 const storefrontDataUrl = new URL("./backend/data/storefront.json", import.meta.url);
+const buildInfoUrl = new URL("./public/build-info.json", import.meta.url);
 const frontendParts = [
   "src/app/globals.jsx",
   "src/lib/antd-theme.jsx",
@@ -47,6 +49,19 @@ await cp(new URL("./public/index.html", import.meta.url), new URL("./public/prod
 
 const storefrontData = JSON.parse(await readFile(storefrontDataUrl, "utf8"));
 const storefrontJson = JSON.stringify(storefrontData);
+const builtAt = new Date();
+let commit = "local";
+try {
+  commit = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
+} catch {
+  commit = "local";
+}
+const buildInfo = {
+  tag: `build-${builtAt.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z")}-${commit}`,
+  builtAt: builtAt.toISOString(),
+  commit,
+};
+await writeFile(buildInfoUrl, `${JSON.stringify(buildInfo, null, 2)}\n`);
 
 const localeFiles = ["vi"];
 await rm(new URL("./public/locales/", import.meta.url), { recursive: true, force: true });

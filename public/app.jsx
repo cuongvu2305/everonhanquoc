@@ -790,6 +790,7 @@ function App() {
   const [activePolicySlug, setActivePolicySlug] = useState(getPolicySlugFromLocation());
   const [searchText, setSearchText] = useState(getSearchQueryFromLocation());
   const [query, setQuery] = useState(getSearchQueryFromLocation());
+  const [buildInfo, setBuildInfo] = useState(null);
   const { store, loading: storeLoading } = useStorefront("vi");
   const { localeDict, loading: localeLoading } = useLocale("vi");
   const langTools = useI18n("vi", localeDict);
@@ -818,6 +819,13 @@ function App() {
     const category = store.categories.find((item) => slugifyCategory(item) === activeCategorySlug);
     setActiveCategory(category ?? "Tất cả");
   }, [activeCategorySlug, activePage, store]);
+
+  useEffect(() => {
+    fetch("/build-info.json", { cache: "no-store" })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((data) => { if (data?.tag) setBuildInfo(data); })
+      .catch(() => {});
+  }, []);
 
   const loading = storeLoading || localeLoading;
   const products = store?.products ?? [];
@@ -977,6 +985,7 @@ function App() {
           <Button className="floating-chat floating-messenger" shape="circle" href="https://www.facebook.com/everondongda/" target="_blank" rel="noopener noreferrer" icon={<BrandIcon name="facebook" />} />
           <Button className="floating-hotline" type="primary" href="tel:0966452111">0966.452.111</Button>
           <Button className="floating-zalo" shape="circle" href="https://zalo.me/0966452111" target="_blank" rel="noopener noreferrer">Zalo</Button>
+          {buildInfo ? <Text className="build-tag">#{buildInfo.tag}</Text> : null}
         </Footer>
       </Layout>
     </ConfigProvider>

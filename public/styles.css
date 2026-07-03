@@ -604,6 +604,14 @@ body {
   color: #ffffff;
 }
 
+.build-tag.ant-typography {
+  display: block;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 11px;
+  text-align: right;
+}
+
 .floating-chat,
 .floating-hotline,
 .floating-zalo {
