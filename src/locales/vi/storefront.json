@@ -5,7 +5,7 @@
   "searchButton": "Tìm kiếm",
   "all": "Tất cả",
   "productCategories": "Danh mục sản phẩm",
-  "backendNote": "Backend Python đang cấp dữ liệu qua /api/storefront",
+  "backendNote": "",
   "topPages": {
     "home": "Trang chủ",
     "news": "Tin tức Everon",
@@ -17,7 +17,7 @@
   },
   "heroTag": "Tổng đại lý chăn ga gối đệm",
   "heroTitle": "Everon Hàn Quốc",
-  "heroText": "Giao diện React JSX dùng Ant Design, icon Lucide và dữ liệu sản phẩm lấy từ backend Python.",
+  "heroText": "Chăn ga gối đệm chính hãng, tư vấn tận nơi và giao hàng nhanh tại Hà Nội.",
   "viewDeals": "Xem ưu đãi",
   "deliveryPolicy": "Chính sách giao hàng",
   "featuredProducts": "Sản phẩm nổi bật",
@@ -76,7 +76,7 @@
   "total": "Tổng cộng",
   "placeOrder": "Xác nhận đặt hàng",
   "continueShopping": "Tiếp tục mua sắm",
-  "footerText": "Storefront mô phỏng kiểu đại lý chăn ga gối đệm, triển khai bằng Python backend và React JSX frontend.",
+  "footerText": "Chăn ga gối đệm chính hãng, mẫu mã đa dạng và nhiều ưu đãi theo mùa.",
   "tech": "Công nghệ",
   "categoryMap": {
     "Sản phẩm giảm giá": "Sản phẩm giảm giá",
@@ -125,5 +125,14 @@
   ],
   "searchResultsTitle": "Kết quả tìm kiếm",
   "searchResultsDesc": "Các sản phẩm phù hợp với từ khóa \"{query}\".",
-  "emptySearchResults": "Không tìm thấy sản phẩm phù hợp"
+  "emptySearchResults": "Không tìm thấy sản phẩm phù hợp",
+  "productDetailDesc": "Sản phẩm được chọn cho không gian phòng ngủ gọn gàng, dễ phối màu và phù hợp nhu cầu sử dụng hằng ngày.",
+  "productCode": "Mã sản phẩm",
+  "productCategory": "Danh mục",
+  "productStatus": "Tình trạng",
+  "inStock": "Còn hàng",
+  "addToCart": "Thêm vào giỏ",
+  "contactConsulting": "Tư vấn ngay",
+  "relatedProducts": "Sản phẩm cùng danh mục",
+  "productNotFound": "Không tìm thấy sản phẩm"
 }

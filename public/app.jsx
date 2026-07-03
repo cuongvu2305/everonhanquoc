@@ -98,9 +98,16 @@ function getHashKey() {
   return window.location.hash.replace("#", "");
 }
 
+function getCleanPath() {
+  return window.location.pathname.replace(/\/$/, "");
+}
+
 function isSearchPath() {
-  const path = window.location.pathname.replace(/\/$/, "");
-  return path === "/search";
+  return getCleanPath() === "/search";
+}
+
+function isProductPath() {
+  return getCleanPath() === "/product";
 }
 
 function getSearchQueryFromLocation() {
@@ -108,11 +115,50 @@ function getSearchQueryFromLocation() {
   return (searchParams.get("q") ?? "").trim();
 }
 
+function getProductSlugFromLocation() {
+  const searchParams = new URLSearchParams(window.location.search);
+  return (searchParams.get("slug") ?? "").trim();
+}
+
+function extractProductCode(product) {
+  const match = product.name.match(/[A-Z]{2,}-\d{4,}/);
+  return match ? match[0] : slugifyCategory(product.name).slice(0, 32);
+}
+
+function slugifyProduct(product) {
+  return slugifyCategory(product.name);
+}
+
+function buildProductUrl(product) {
+  const slug = slugifyProduct(product);
+  const code = extractProductCode(product);
+  return `/product/?slug=${encodeURIComponent(slug)}&code=${encodeURIComponent(code)}`;
+}
+
+function navigateToUrl(url) {
+  window.history.pushState({}, "", url);
+  window.dispatchEvent(new PopStateEvent("popstate"));
+}
+
+function navigateToProduct(product) {
+  navigateToUrl(buildProductUrl(product));
+}
+
+function navigateToCategory(category) {
+  navigateToUrl(`/#category-${slugifyCategory(category)}`);
+}
+
+function navigateToTopPage(key) {
+  navigateToUrl(key === "home" ? "/" : `/#${key}`);
+}
+
 function getPageFromHash() {
-  if (isSearchPath()) return "search";
   const key = getHashKey();
   if (key.startsWith("category-")) return "category";
-  return topPages.some((page) => page.key === key) ? key : "home";
+  if (topPages.some((page) => page.key === key)) return key;
+  if (isSearchPath()) return "search";
+  if (isProductPath()) return "product";
+  return "home";
 }
 
 function getCategorySlugFromHash() {
@@ -286,7 +332,7 @@ function LanguageSelector({ value, onChange }) {
 function ProductCard({ product, labelProduct }) {
   return (
     <Badge.Ribbon text={product.sale} color="#d71920">
-      <Card hoverable className="product-card" cover={<Image preview={false} src={product.image} alt={labelProduct(product)} />}>
+      <Card hoverable className="product-card" onClick={() => navigateToProduct(product)} cover={<Image preview={false} src={product.image} alt={labelProduct(product)} />}>
         <Title level={5}>{labelProduct(product)}</Title>
         <Space wrap>
           <Text className="price">{product.price}</Text>
@@ -335,6 +381,17 @@ function PolicyGrid({ policies, labelPolicy }) {
 
 function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCategory, store, langTools }) {
   const { dict, labelProduct, labelTile, labelPolicy } = langTools;
+  const tileCategoryMap = {
+    "Đệm lò xo": "Đệm lò xo Kingkoil",
+    "Đệm bông ép": "Đệm bông ép",
+    "Chăn ga gối": "Chăn - ga - gối Everon",
+    "Ruột chăn": "Ruột chăn Everon",
+    "Ruột gối": "Ruột gối Everon",
+    "Đệm cao su": "Đệm cao su",
+  };
+  const openTileCategory = (tileName) => {
+    navigateToCategory(tileCategoryMap[tileName] ?? tileName);
+  };
   return (
     <>
       <Card className="hero">
@@ -343,8 +400,8 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
           <Title>{dict.heroTitle}</Title>
           <Paragraph>{dict.heroText}</Paragraph>
           <Space wrap>
-            <Button type="primary" href="#sale" icon={<Icon name="ShoppingBag" />}>{dict.viewDeals}</Button>
-            <Button href="#contact" icon={<Icon name="Truck" />}>{dict.deliveryPolicy}</Button>
+            <Button type="primary" onClick={() => navigateToTopPage("sale")} icon={<Icon name="ShoppingBag" />}>{dict.viewDeals}</Button>
+            <Button onClick={() => navigateToTopPage("contact")} icon={<Icon name="Truck" />}>{dict.deliveryPolicy}</Button>
           </Space>
         </Flex>
       </Card>
@@ -352,8 +409,23 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
       <Row gutter={[12, 12]} className="tile-grid">
         {store.tiles.map((tile) => (
           <Col xs={12} sm={8} md={8} xl={4} key={tile.name}>
-            <Card hoverable className="category-card" cover={<Image preview={false} src={tile.image} alt={labelTile(tile)} />}>
-              <Text strong>{labelTile(tile)}</Text>
+            <Card
+              hoverable
+              className="category-card"
+              onClick={() => openTileCategory(tile.name)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  openTileCategory(tile.name);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              cover={<Image preview={false} src={tile.image} alt={labelTile(tile)} />}
+            >
+              <Button type="link" className="category-card-title" onClick={(event) => { event.stopPropagation(); openTileCategory(tile.name); }}>
+                {labelTile(tile)}
+              </Button>
             </Card>
           </Col>
         ))}
@@ -366,7 +438,11 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
             value={activeCategory}
             onChange={(category) => {
               setActiveCategory(category);
-              if (category !== "Tất cả") window.location.hash = `category-${slugifyCategory(category)}`;
+              if (category === "Tất cả") {
+                navigateToTopPage("home");
+                return;
+              }
+              navigateToCategory(category);
             }}
             options={menuItems}
           />
@@ -420,13 +496,13 @@ function CategoryPage({ category, products, siblingCategories, langTools }) {
         icon="Layers3"
         title={displayCategory}
         description={dict.categoryDesc(displayCategory)}
-        extra={<Space wrap><Tag color="#16842c">{dict.productCount(products.length)}</Tag><Button size="small" href="#retail" icon={<Icon name="PackageOpen" />}>{dict.viewAllProducts}</Button></Space>}
+        extra={<Space wrap><Tag color="#16842c">{dict.productCount(products.length)}</Tag><Button size="small" onClick={() => navigateToTopPage("retail")} icon={<Icon name="PackageOpen" />}>{dict.viewAllProducts}</Button></Space>}
       />
       <ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} />
       {relatedCategories.length > 0 ? (
         <Flex className="related-categories" vertical>
           <Title level={4}>{dict.relatedCategories}</Title>
-          <Space wrap>{relatedCategories.slice(0, 8).map((item) => <Button key={item} href={`#category-${slugifyCategory(item)}`}>{labelCategory(item)}</Button>)}</Space>
+          <Space wrap>{relatedCategories.slice(0, 8).map((item) => <Button key={item} onClick={() => navigateToCategory(item)}>{labelCategory(item)}</Button>)}</Space>
         </Flex>
       ) : null}
     </Card>
@@ -451,6 +527,60 @@ function SearchPage({ products, query, langTools }) {
         extra={<Space wrap><Tag color="#16842c">{dict.productCount(results.length)}</Tag><Button size="small" href="/" icon={<Icon name="Home" />}>{dict.topPages.home}</Button></Space>}
       />
       <ProductGrid products={results} labelProduct={labelProduct} emptyText={dict.emptySearchResults} />
+    </Card>
+  );
+}
+
+function ProductDetailPage({ product, relatedProducts, langTools }) {
+  const { dict, labelCategory, labelProduct } = langTools;
+
+  if (!product) {
+    return (
+      <Card className="section-panel page-panel">
+        <Empty description={dict.productNotFound} />
+      </Card>
+    );
+  }
+
+  return (
+    <Card className="section-panel page-panel product-detail-page">
+      <Row gutter={[24, 24]} align="top">
+        <Col xs={24} lg={11}>
+          <Image className="product-detail-image" preview={false} src={product.image} alt={labelProduct(product)} />
+        </Col>
+        <Col xs={24} lg={13}>
+          <Flex vertical gap={14}>
+            <Space wrap>
+              <Tag color="#16842c">{labelCategory(product.category)}</Tag>
+              <Tag color="#d71920">{product.sale}</Tag>
+            </Space>
+            <Title level={2}>{labelProduct(product)}</Title>
+            <Space align="baseline" wrap>
+              <Text className="product-detail-price">{product.price}</Text>
+              <Text delete type="secondary">{product.oldPrice}</Text>
+            </Space>
+            <Paragraph className="product-detail-desc">{dict.productDetailDesc}</Paragraph>
+            <div className="product-detail-info">
+              <Flex vertical gap={10}>
+                <Flex justify="space-between" gap={16}><Text type="secondary">{dict.productCode}</Text><Text strong>{extractProductCode(product)}</Text></Flex>
+                <Flex justify="space-between" gap={16}><Text type="secondary">{dict.productCategory}</Text><Button type="link" onClick={() => navigateToCategory(product.category)}>{labelCategory(product.category)}</Button></Flex>
+                <Flex justify="space-between" gap={16}><Text type="secondary">{dict.productStatus}</Text><Text>{dict.inStock}</Text></Flex>
+              </Flex>
+            </div>
+            <Space wrap>
+              <Button type="primary" size="large" icon={<Icon name="ShoppingCart" />}>{dict.addToCart}</Button>
+              <Button size="large" onClick={() => navigateToTopPage("contact")} icon={<Icon name="PhoneCall" />}>{dict.contactConsulting}</Button>
+            </Space>
+          </Flex>
+        </Col>
+      </Row>
+
+      {relatedProducts.length > 0 ? (
+        <section className="related-products">
+          <Title level={3}>{dict.relatedProducts}</Title>
+          <ProductGrid products={relatedProducts} labelProduct={labelProduct} emptyText={dict.emptyCategory} />
+        </section>
+      ) : null}
     </Card>
   );
 }
@@ -496,7 +626,7 @@ function CheckoutPage({ products, langTools }) {
             <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.discount}</Text><Text>-{formatPrice(discount)}</Text></Flex>
             <Flex className="summary-row total-row" align="center" justify="space-between" gap={12}><Text strong>{dict.total}</Text><Text strong>{formatPrice(total)}</Text></Flex>
             <Button block type="primary" size="large" icon={<Icon name="CheckCircle2" />}>{dict.placeOrder}</Button>
-            <Button block href="#retail" className="continue-shopping">{dict.continueShopping}</Button>
+            <Button block onClick={() => navigateToTopPage("retail")} className="continue-shopping">{dict.continueShopping}</Button>
           </Card>
         </Col>
       </Row>
@@ -529,6 +659,7 @@ function App() {
   const [activeCategory, setActiveCategory] = useState("Tất cả");
   const [activePage, setActivePage] = useState(getPageFromHash());
   const [activeCategorySlug, setActiveCategorySlug] = useState(getCategorySlugFromHash());
+  const [activeProductSlug, setActiveProductSlug] = useState(getProductSlugFromLocation());
   const [searchText, setSearchText] = useState(getSearchQueryFromLocation());
   const [query, setQuery] = useState(getSearchQueryFromLocation());
   const [lang, setLang] = useState(getStoredLang());
@@ -541,6 +672,7 @@ function App() {
     const updatePage = () => {
       setActivePage(getPageFromHash());
       setActiveCategorySlug(getCategorySlugFromHash());
+      setActiveProductSlug(getProductSlugFromLocation());
       const urlQuery = getSearchQueryFromLocation();
       setQuery(urlQuery);
       setSearchText(urlQuery);
@@ -581,12 +713,20 @@ function App() {
     return { category, products: products.filter((product) => product.category === category) };
   }, [activeCategorySlug, products, store]);
 
+  const productPage = useMemo(() => {
+    if (!store || activePage !== "product") return null;
+    const product = products.find((item) => slugifyProduct(item) === activeProductSlug);
+    const relatedProducts = product ? products.filter((item) => item.category === product.category && item.name !== product.name).slice(0, 3) : [];
+    return { product, relatedProducts };
+  }, [activePage, activeProductSlug, products, store]);
+
   const submitSearch = () => {
     const nextQuery = searchText.trim();
     if (!nextQuery) return;
     window.history.pushState({}, "", buildSearchUrl(nextQuery));
     setActivePage("search");
     setActiveCategorySlug("");
+    setActiveProductSlug("");
     setActiveCategory("Tất cả");
     setQuery(nextQuery);
     setSearchText(nextQuery);
@@ -601,16 +741,29 @@ function App() {
     if (activePage === "about") return <AboutPage dict={dict} />;
     if (activePage === "checkout") return <CheckoutPage products={products} langTools={langTools} />;
     if (activePage === "search") return <SearchPage products={products} query={query} langTools={langTools} />;
+    if (activePage === "product") return <ProductDetailPage product={productPage?.product} relatedProducts={productPage?.relatedProducts ?? []} langTools={langTools} />;
     if (activePage === "category" && categoryPage) return <CategoryPage category={categoryPage.category} products={categoryPage.products} siblingCategories={store.categories} langTools={langTools} />;
     return <HomePage activeCategory={activeCategory} filteredProducts={filteredProducts} menuItems={menuItems} setActiveCategory={setActiveCategory} store={store} langTools={langTools} />;
   };
+  const footerPolicies = ["Chính sách bảo mật", "Chính sách bảo hành", "Mua hàng và thanh toán", "Chính sách đổi trả", "Chính sách giao hàng", "Chính sách kiểm hàng"];
+  const footerContacts = [
+    { icon: "MapPin", text: "Địa chỉ: 234 Tôn Đức Thắng, Q. Đống Đa, Tp. Hà Nội" },
+    { icon: "PhoneCall", text: "Hotline: 024.3999.4555 - 0966.452.111" },
+    { icon: "Mail", text: "Email: everonngogiatu@gmail.com" },
+    { icon: "Globe", text: "Website: http://everonlongbien.com.vn/" },
+  ];
+  const footerQuickLinks = [
+    { icon: <BrandIcon name="facebook" />, label: "Facebook", href: "https://www.facebook.com/everondongda/" },
+    { icon: <Icon name="MapPinned" />, label: "Xem chỉ đường", href: "https://www.google.com/maps/search/?api=1&query=234%20T%C3%B4n%20%C4%90%E1%BB%A9c%20Th%E1%BA%AFng%20%C4%90%E1%BB%91ng%20%C4%90a%20H%C3%A0%20N%E1%BB%99i" },
+    { icon: <Icon name="Store" />, label: "Hệ thống đại lý", action: () => navigateToTopPage("retail") },
+  ];
 
   return (
     <ConfigProvider theme={globalTheme}>
       <Layout className="app-shell">
         <Flex className="top-strip" align="center" justify="space-between" gap={18}><Space><Icon name="MapPin" /><Text>{dict.address}</Text></Space><Text strong><Icon name="Phone" /> {dict.hotline}</Text></Flex>
         <Header className="site-header">
-          <Button className="brand" type="link" href="#home" aria-label="Everon Hàn Quốc"><Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></Button>
+          <Button className="brand" type="link" onClick={() => navigateToTopPage("home")} aria-label="Everon Hàn Quốc"><Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></Button>
           <Input className="search-box" allowClear maxLength={255} prefix={<Icon name="Search" size={16} />} placeholder={dict.searchPlaceholder} value={searchText} onChange={(event) => setSearchText(event.target.value.slice(0, 255))} onPressEnter={submitSearch} />
           <Space className="header-actions">
             <LanguageSelector value={lang} onChange={setLang} />
@@ -630,18 +783,73 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             />
-            <Badge count={3}><Button href="#checkout" shape="circle" icon={<Icon name="ShoppingCart" />} /></Badge>
+            <Badge count={3}><Button onClick={() => navigateToTopPage("checkout")} shape="circle" icon={<Icon name="ShoppingCart" />} /></Badge>
           </Space>
         </Header>
-        <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => { window.location.hash = key; }} />
+        <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => navigateToTopPage(key)} />
         <Layout className="main-layout">
           <Sider width={268} className="category-sider" breakpoint="lg" collapsedWidth="0">
             <Flex className="sider-title" align="center" gap={10}><Icon name="Menu" /><Text>{dict.productCategories}</Text></Flex>
-            {loading ? <Skeleton active paragraph={{ rows: 8 }} /> : <Menu mode="inline" selectedKeys={[activeCategory]} items={menuItems} onClick={({ key }) => { setActiveCategory(key); window.location.hash = key === "Tất cả" ? "home" : `category-${slugifyCategory(key)}`; }} />}
+            {loading ? <Skeleton active paragraph={{ rows: 8 }} /> : <Menu mode="inline" selectedKeys={[activeCategory]} items={menuItems} onClick={({ key }) => { setActiveCategory(key); key === "Tất cả" ? navigateToTopPage("home") : navigateToCategory(key); }} />}
           </Sider>
-          <Content className="content-area">{loading ? <Skeleton active paragraph={{ rows: 10 }} /> : <>{renderPage()}<Alert className="backend-note" type="info" showIcon message={dict.backendNote} /></>}</Content>
+          <Content className="content-area">{loading ? <Skeleton active paragraph={{ rows: 10 }} /> : renderPage()}</Content>
         </Layout>
-        <Footer className="footer"><Row gutter={[24, 24]}><Col xs={24} md={10}><Title level={4}>{dict.heroTitle}</Title><Paragraph>{dict.footerText}</Paragraph></Col><Col xs={24} md={7}><Title level={5}>{dict.storeInfo}</Title><Paragraph>{dict.address}</Paragraph><Paragraph>{dict.hotline}</Paragraph></Col><Col xs={24} md={7}><Title level={5}>{dict.tech}</Title><Paragraph>Python HTTP API</Paragraph><Paragraph>React JSX + Ant Design + Lucide</Paragraph></Col></Row></Footer>
+        <Footer className="footer">
+          <Row gutter={[20, 20]} align="stretch">
+            <Col xs={24} lg={10}>
+              <Card className="footer-card footer-company-card" bordered={false}>
+                <Image className="footer-logo" preview={false} src="/assets/logo-everon.png" alt="Everon" />
+                <List
+                  className="footer-contact-list"
+                  dataSource={footerContacts}
+                  renderItem={(item) => (
+                    <List.Item>
+                      <Space align="start" size={10}><Icon name={item.icon} /><Text>{item.text}</Text></Space>
+                    </List.Item>
+                  )}
+                />
+                <Divider className="footer-divider" />
+                <Card className="footer-business-card" size="small" bordered={false}>
+                  <Flex vertical gap={8}>
+                    <Space align="center"><Icon name="Bookmark" /><Text strong>HỘ KINH DOANH PHẠM QUANG NAM</Text></Space>
+                    <Text>Giấy chứng nhận đăng ký kinh doanh</Text>
+                    <Space wrap size={8}><Tag color="green">Số: 01N8016282</Tag><Tag color="red">Cấp ngày: 30/4/2020</Tag></Space>
+                    <Text>UBND Q. Long Biên - TP. Hà Nội</Text>
+                    <Text>Người Đại Diện: Phạm Quang Nam</Text>
+                  </Flex>
+                </Card>
+              </Card>
+            </Col>
+            <Col xs={24} md={12} lg={7}>
+              <Card className="footer-card" bordered={false}>
+                <Title level={4}>CHÍNH SÁCH BÁN HÀNG</Title>
+                <List className="footer-policy-list" dataSource={footerPolicies} renderItem={(item) => <List.Item><Button type="link" icon={<Icon name="ChevronRight" />} onClick={() => navigateToTopPage("about")}>{item}</Button></List.Item>} />
+              </Card>
+            </Col>
+            <Col xs={24} md={12} lg={7}>
+              <Card className="footer-card" bordered={false}>
+                <Title level={4}>LIÊN KẾT NHANH</Title>
+                <List
+                  className="footer-quick-list"
+                  dataSource={footerQuickLinks}
+                  renderItem={(item) => (
+                    <List.Item>
+                      <Button className="footer-quick-button" href={item.href} target={item.href ? "_blank" : undefined} rel={item.href ? "noopener noreferrer" : undefined} onClick={item.action} icon={item.icon}>
+                        {item.label}
+                      </Button>
+                    </List.Item>
+                  )}
+                />
+                <Card className="footer-bct" size="small" bordered={false}>
+                  <Space align="center" size={12}><Icon name="BadgeCheck" size={42} /><Text strong>ĐÃ THÔNG BÁO<br />BỘ CÔNG THƯƠNG</Text></Space>
+                </Card>
+              </Card>
+            </Col>
+          </Row>
+          <Button className="floating-chat floating-messenger" shape="circle" href="https://www.facebook.com/everondongda/" target="_blank" rel="noopener noreferrer" icon={<BrandIcon name="facebook" />} />
+          <Button className="floating-hotline" type="primary" href="tel:0966452111">0966.452.111</Button>
+          <Button className="floating-zalo" shape="circle" href="https://zalo.me/0966452111" target="_blank" rel="noopener noreferrer">Zalo</Button>
+        </Footer>
       </Layout>
     </ConfigProvider>
   );

@@ -13,9 +13,16 @@ function getHashKey() {
   return window.location.hash.replace("#", "");
 }
 
+function getCleanPath() {
+  return window.location.pathname.replace(/\/$/, "");
+}
+
 function isSearchPath() {
-  const path = window.location.pathname.replace(/\/$/, "");
-  return path === "/search";
+  return getCleanPath() === "/search";
+}
+
+function isProductPath() {
+  return getCleanPath() === "/product";
 }
 
 function getSearchQueryFromLocation() {
@@ -23,11 +30,50 @@ function getSearchQueryFromLocation() {
   return (searchParams.get("q") ?? "").trim();
 }
 
+function getProductSlugFromLocation() {
+  const searchParams = new URLSearchParams(window.location.search);
+  return (searchParams.get("slug") ?? "").trim();
+}
+
+function extractProductCode(product) {
+  const match = product.name.match(/[A-Z]{2,}-\d{4,}/);
+  return match ? match[0] : slugifyCategory(product.name).slice(0, 32);
+}
+
+function slugifyProduct(product) {
+  return slugifyCategory(product.name);
+}
+
+function buildProductUrl(product) {
+  const slug = slugifyProduct(product);
+  const code = extractProductCode(product);
+  return `/product/?slug=${encodeURIComponent(slug)}&code=${encodeURIComponent(code)}`;
+}
+
+function navigateToUrl(url) {
+  window.history.pushState({}, "", url);
+  window.dispatchEvent(new PopStateEvent("popstate"));
+}
+
+function navigateToProduct(product) {
+  navigateToUrl(buildProductUrl(product));
+}
+
+function navigateToCategory(category) {
+  navigateToUrl(`/#category-${slugifyCategory(category)}`);
+}
+
+function navigateToTopPage(key) {
+  navigateToUrl(key === "home" ? "/" : `/#${key}`);
+}
+
 function getPageFromHash() {
-  if (isSearchPath()) return "search";
   const key = getHashKey();
   if (key.startsWith("category-")) return "category";
-  return topPages.some((page) => page.key === key) ? key : "home";
+  if (topPages.some((page) => page.key === key)) return key;
+  if (isSearchPath()) return "search";
+  if (isProductPath()) return "product";
+  return "home";
 }
 
 function getCategorySlugFromHash() {
@@ -50,4 +96,3 @@ function formatPrice(value) {
 function getStoredLang() {
   return localStorage.getItem("everonhanquoc-lang") === "en" ? "en" : "vi";
 }
-

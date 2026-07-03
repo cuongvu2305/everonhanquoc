@@ -5,7 +5,7 @@
   "searchButton": "Search",
   "all": "All",
   "productCategories": "Product categories",
-  "backendNote": "Python backend is serving data from /api/storefront",
+  "backendNote": "",
   "topPages": {
     "home": "Home",
     "news": "Everon News",
@@ -17,7 +17,7 @@
   },
   "heroTag": "Bedding and mattress retailer",
   "heroTitle": "Everon Korea",
-  "heroText": "React JSX storefront using Ant Design, Lucide icons, and product data from a Python backend.",
+  "heroText": "Authentic bedding and mattress products with in-store guidance and fast delivery.",
   "viewDeals": "View deals",
   "deliveryPolicy": "Delivery policy",
   "featuredProducts": "Featured products",
@@ -76,7 +76,7 @@
   "total": "Total",
   "placeOrder": "Place order",
   "continueShopping": "Continue shopping",
-  "footerText": "A bedding and mattress storefront built with a Python backend and React JSX frontend.",
+  "footerText": "Authentic bedding and mattress products with seasonal offers and practical guidance.",
   "tech": "Technology",
   "categoryMap": {
     "Sản phẩm giảm giá": "Sale products",
@@ -144,5 +144,14 @@
   ],
   "searchResultsTitle": "Search results",
   "searchResultsDesc": "Products matching \"{query}\".",
-  "emptySearchResults": "No matching products found"
+  "emptySearchResults": "No matching products found",
+  "productDetailDesc": "Selected for calm bedroom spaces, easy styling, and everyday comfort.",
+  "productCode": "Product code",
+  "productCategory": "Category",
+  "productStatus": "Status",
+  "inStock": "In stock",
+  "addToCart": "Add to cart",
+  "contactConsulting": "Contact us",
+  "relatedProducts": "Related products",
+  "productNotFound": "Product not found"
 }

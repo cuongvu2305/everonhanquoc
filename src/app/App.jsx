@@ -2,6 +2,7 @@ function App() {
   const [activeCategory, setActiveCategory] = useState("Tất cả");
   const [activePage, setActivePage] = useState(getPageFromHash());
   const [activeCategorySlug, setActiveCategorySlug] = useState(getCategorySlugFromHash());
+  const [activeProductSlug, setActiveProductSlug] = useState(getProductSlugFromLocation());
   const [searchText, setSearchText] = useState(getSearchQueryFromLocation());
   const [query, setQuery] = useState(getSearchQueryFromLocation());
   const [lang, setLang] = useState(getStoredLang());
@@ -14,6 +15,7 @@ function App() {
     const updatePage = () => {
       setActivePage(getPageFromHash());
       setActiveCategorySlug(getCategorySlugFromHash());
+      setActiveProductSlug(getProductSlugFromLocation());
       const urlQuery = getSearchQueryFromLocation();
       setQuery(urlQuery);
       setSearchText(urlQuery);
@@ -54,12 +56,20 @@ function App() {
     return { category, products: products.filter((product) => product.category === category) };
   }, [activeCategorySlug, products, store]);
 
+  const productPage = useMemo(() => {
+    if (!store || activePage !== "product") return null;
+    const product = products.find((item) => slugifyProduct(item) === activeProductSlug);
+    const relatedProducts = product ? products.filter((item) => item.category === product.category && item.name !== product.name).slice(0, 3) : [];
+    return { product, relatedProducts };
+  }, [activePage, activeProductSlug, products, store]);
+
   const submitSearch = () => {
     const nextQuery = searchText.trim();
     if (!nextQuery) return;
     window.history.pushState({}, "", buildSearchUrl(nextQuery));
     setActivePage("search");
     setActiveCategorySlug("");
+    setActiveProductSlug("");
     setActiveCategory("Tất cả");
     setQuery(nextQuery);
     setSearchText(nextQuery);
@@ -74,16 +84,29 @@ function App() {
     if (activePage === "about") return <AboutPage dict={dict} />;
     if (activePage === "checkout") return <CheckoutPage products={products} langTools={langTools} />;
     if (activePage === "search") return <SearchPage products={products} query={query} langTools={langTools} />;
+    if (activePage === "product") return <ProductDetailPage product={productPage?.product} relatedProducts={productPage?.relatedProducts ?? []} langTools={langTools} />;
     if (activePage === "category" && categoryPage) return <CategoryPage category={categoryPage.category} products={categoryPage.products} siblingCategories={store.categories} langTools={langTools} />;
     return <HomePage activeCategory={activeCategory} filteredProducts={filteredProducts} menuItems={menuItems} setActiveCategory={setActiveCategory} store={store} langTools={langTools} />;
   };
+  const footerPolicies = ["Chính sách bảo mật", "Chính sách bảo hành", "Mua hàng và thanh toán", "Chính sách đổi trả", "Chính sách giao hàng", "Chính sách kiểm hàng"];
+  const footerContacts = [
+    { icon: "MapPin", text: "Địa chỉ: 234 Tôn Đức Thắng, Q. Đống Đa, Tp. Hà Nội" },
+    { icon: "PhoneCall", text: "Hotline: 024.3999.4555 - 0966.452.111" },
+    { icon: "Mail", text: "Email: everonngogiatu@gmail.com" },
+    { icon: "Globe", text: "Website: http://everonlongbien.com.vn/" },
+  ];
+  const footerQuickLinks = [
+    { icon: <BrandIcon name="facebook" />, label: "Facebook", href: "https://www.facebook.com/everondongda/" },
+    { icon: <Icon name="MapPinned" />, label: "Xem chỉ đường", href: "https://www.google.com/maps/search/?api=1&query=234%20T%C3%B4n%20%C4%90%E1%BB%A9c%20Th%E1%BA%AFng%20%C4%90%E1%BB%91ng%20%C4%90a%20H%C3%A0%20N%E1%BB%99i" },
+    { icon: <Icon name="Store" />, label: "Hệ thống đại lý", action: () => navigateToTopPage("retail") },
+  ];
 
   return (
     <ConfigProvider theme={globalTheme}>
       <Layout className="app-shell">
         <Flex className="top-strip" align="center" justify="space-between" gap={18}><Space><Icon name="MapPin" /><Text>{dict.address}</Text></Space><Text strong><Icon name="Phone" /> {dict.hotline}</Text></Flex>
         <Header className="site-header">
-          <Button className="brand" type="link" href="#home" aria-label="Everon Hàn Quốc"><Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></Button>
+          <Button className="brand" type="link" onClick={() => navigateToTopPage("home")} aria-label="Everon Hàn Quốc"><Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></Button>
           <Input className="search-box" allowClear maxLength={255} prefix={<Icon name="Search" size={16} />} placeholder={dict.searchPlaceholder} value={searchText} onChange={(event) => setSearchText(event.target.value.slice(0, 255))} onPressEnter={submitSearch} />
           <Space className="header-actions">
             <LanguageSelector value={lang} onChange={setLang} />
@@ -103,18 +126,73 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             />
-            <Badge count={3}><Button href="#checkout" shape="circle" icon={<Icon name="ShoppingCart" />} /></Badge>
+            <Badge count={3}><Button onClick={() => navigateToTopPage("checkout")} shape="circle" icon={<Icon name="ShoppingCart" />} /></Badge>
           </Space>
         </Header>
-        <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => { window.location.hash = key; }} />
+        <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => navigateToTopPage(key)} />
         <Layout className="main-layout">
           <Sider width={268} className="category-sider" breakpoint="lg" collapsedWidth="0">
             <Flex className="sider-title" align="center" gap={10}><Icon name="Menu" /><Text>{dict.productCategories}</Text></Flex>
-            {loading ? <Skeleton active paragraph={{ rows: 8 }} /> : <Menu mode="inline" selectedKeys={[activeCategory]} items={menuItems} onClick={({ key }) => { setActiveCategory(key); window.location.hash = key === "Tất cả" ? "home" : `category-${slugifyCategory(key)}`; }} />}
+            {loading ? <Skeleton active paragraph={{ rows: 8 }} /> : <Menu mode="inline" selectedKeys={[activeCategory]} items={menuItems} onClick={({ key }) => { setActiveCategory(key); key === "Tất cả" ? navigateToTopPage("home") : navigateToCategory(key); }} />}
           </Sider>
-          <Content className="content-area">{loading ? <Skeleton active paragraph={{ rows: 10 }} /> : <>{renderPage()}<Alert className="backend-note" type="info" showIcon message={dict.backendNote} /></>}</Content>
+          <Content className="content-area">{loading ? <Skeleton active paragraph={{ rows: 10 }} /> : renderPage()}</Content>
         </Layout>
-        <Footer className="footer"><Row gutter={[24, 24]}><Col xs={24} md={10}><Title level={4}>{dict.heroTitle}</Title><Paragraph>{dict.footerText}</Paragraph></Col><Col xs={24} md={7}><Title level={5}>{dict.storeInfo}</Title><Paragraph>{dict.address}</Paragraph><Paragraph>{dict.hotline}</Paragraph></Col><Col xs={24} md={7}><Title level={5}>{dict.tech}</Title><Paragraph>Python HTTP API</Paragraph><Paragraph>React JSX + Ant Design + Lucide</Paragraph></Col></Row></Footer>
+        <Footer className="footer">
+          <Row gutter={[20, 20]} align="stretch">
+            <Col xs={24} lg={10}>
+              <Card className="footer-card footer-company-card" bordered={false}>
+                <Image className="footer-logo" preview={false} src="/assets/logo-everon.png" alt="Everon" />
+                <List
+                  className="footer-contact-list"
+                  dataSource={footerContacts}
+                  renderItem={(item) => (
+                    <List.Item>
+                      <Space align="start" size={10}><Icon name={item.icon} /><Text>{item.text}</Text></Space>
+                    </List.Item>
+                  )}
+                />
+                <Divider className="footer-divider" />
+                <Card className="footer-business-card" size="small" bordered={false}>
+                  <Flex vertical gap={8}>
+                    <Space align="center"><Icon name="Bookmark" /><Text strong>HỘ KINH DOANH PHẠM QUANG NAM</Text></Space>
+                    <Text>Giấy chứng nhận đăng ký kinh doanh</Text>
+                    <Space wrap size={8}><Tag color="green">Số: 01N8016282</Tag><Tag color="red">Cấp ngày: 30/4/2020</Tag></Space>
+                    <Text>UBND Q. Long Biên - TP. Hà Nội</Text>
+                    <Text>Người Đại Diện: Phạm Quang Nam</Text>
+                  </Flex>
+                </Card>
+              </Card>
+            </Col>
+            <Col xs={24} md={12} lg={7}>
+              <Card className="footer-card" bordered={false}>
+                <Title level={4}>CHÍNH SÁCH BÁN HÀNG</Title>
+                <List className="footer-policy-list" dataSource={footerPolicies} renderItem={(item) => <List.Item><Button type="link" icon={<Icon name="ChevronRight" />} onClick={() => navigateToTopPage("about")}>{item}</Button></List.Item>} />
+              </Card>
+            </Col>
+            <Col xs={24} md={12} lg={7}>
+              <Card className="footer-card" bordered={false}>
+                <Title level={4}>LIÊN KẾT NHANH</Title>
+                <List
+                  className="footer-quick-list"
+                  dataSource={footerQuickLinks}
+                  renderItem={(item) => (
+                    <List.Item>
+                      <Button className="footer-quick-button" href={item.href} target={item.href ? "_blank" : undefined} rel={item.href ? "noopener noreferrer" : undefined} onClick={item.action} icon={item.icon}>
+                        {item.label}
+                      </Button>
+                    </List.Item>
+                  )}
+                />
+                <Card className="footer-bct" size="small" bordered={false}>
+                  <Space align="center" size={12}><Icon name="BadgeCheck" size={42} /><Text strong>ĐÃ THÔNG BÁO<br />BỘ CÔNG THƯƠNG</Text></Space>
+                </Card>
+              </Card>
+            </Col>
+          </Row>
+          <Button className="floating-chat floating-messenger" shape="circle" href="https://www.facebook.com/everondongda/" target="_blank" rel="noopener noreferrer" icon={<BrandIcon name="facebook" />} />
+          <Button className="floating-hotline" type="primary" href="tel:0966452111">0966.452.111</Button>
+          <Button className="floating-zalo" shape="circle" href="https://zalo.me/0966452111" target="_blank" rel="noopener noreferrer">Zalo</Button>
+        </Footer>
       </Layout>
     </ConfigProvider>
   );

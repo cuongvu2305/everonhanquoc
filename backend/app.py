@@ -15,6 +15,9 @@ class StorefrontHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(PUBLIC_DIR), **kwargs)
 
+    def log_message(self, format, *args):
+        return
+
     def do_GET(self):
         path = urlparse(self.path).path
         if path == "/api/health":

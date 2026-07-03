@@ -23,6 +23,7 @@ const frontendParts = [
   "src/components/pages/RetailPage.jsx",
   "src/components/pages/CategoryPage.jsx",
   "src/components/pages/SearchPage.jsx",
+  "src/components/pages/ProductDetailPage.jsx",
   "src/components/pages/CheckoutPage.jsx",
   "src/components/pages/ContactPage.jsx",
   "src/components/pages/AboutPage.jsx",
@@ -41,6 +42,8 @@ for (const part of frontendParts) {
 await writeFile(appRuntime, `${bundledFrontend.join("\n\n")}\n`);
 await mkdir(new URL("./public/search/", import.meta.url), { recursive: true });
 await cp(new URL("./public/index.html", import.meta.url), new URL("./public/search/index.html", import.meta.url));
+await mkdir(new URL("./public/product/", import.meta.url), { recursive: true });
+await cp(new URL("./public/index.html", import.meta.url), new URL("./public/product/index.html", import.meta.url));
 
 const storefrontData = JSON.parse(await readFile(storefrontDataUrl, "utf8"));
 const storefrontJson = JSON.stringify(storefrontData);

@@ -1,5 +1,16 @@
 function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCategory, store, langTools }) {
   const { dict, labelProduct, labelTile, labelPolicy } = langTools;
+  const tileCategoryMap = {
+    "Đệm lò xo": "Đệm lò xo Kingkoil",
+    "Đệm bông ép": "Đệm bông ép",
+    "Chăn ga gối": "Chăn - ga - gối Everon",
+    "Ruột chăn": "Ruột chăn Everon",
+    "Ruột gối": "Ruột gối Everon",
+    "Đệm cao su": "Đệm cao su",
+  };
+  const openTileCategory = (tileName) => {
+    navigateToCategory(tileCategoryMap[tileName] ?? tileName);
+  };
   return (
     <>
       <Card className="hero">
@@ -8,8 +19,8 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
           <Title>{dict.heroTitle}</Title>
           <Paragraph>{dict.heroText}</Paragraph>
           <Space wrap>
-            <Button type="primary" href="#sale" icon={<Icon name="ShoppingBag" />}>{dict.viewDeals}</Button>
-            <Button href="#contact" icon={<Icon name="Truck" />}>{dict.deliveryPolicy}</Button>
+            <Button type="primary" onClick={() => navigateToTopPage("sale")} icon={<Icon name="ShoppingBag" />}>{dict.viewDeals}</Button>
+            <Button onClick={() => navigateToTopPage("contact")} icon={<Icon name="Truck" />}>{dict.deliveryPolicy}</Button>
           </Space>
         </Flex>
       </Card>
@@ -17,8 +28,23 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
       <Row gutter={[12, 12]} className="tile-grid">
         {store.tiles.map((tile) => (
           <Col xs={12} sm={8} md={8} xl={4} key={tile.name}>
-            <Card hoverable className="category-card" cover={<Image preview={false} src={tile.image} alt={labelTile(tile)} />}>
-              <Text strong>{labelTile(tile)}</Text>
+            <Card
+              hoverable
+              className="category-card"
+              onClick={() => openTileCategory(tile.name)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  openTileCategory(tile.name);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              cover={<Image preview={false} src={tile.image} alt={labelTile(tile)} />}
+            >
+              <Button type="link" className="category-card-title" onClick={(event) => { event.stopPropagation(); openTileCategory(tile.name); }}>
+                {labelTile(tile)}
+              </Button>
             </Card>
           </Col>
         ))}
@@ -31,7 +57,11 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
             value={activeCategory}
             onChange={(category) => {
               setActiveCategory(category);
-              if (category !== "Tất cả") window.location.hash = `category-${slugifyCategory(category)}`;
+              if (category === "Tất cả") {
+                navigateToTopPage("home");
+                return;
+              }
+              navigateToCategory(category);
             }}
             options={menuItems}
           />
@@ -44,4 +74,3 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
     </>
   );
 }
-

@@ -39,11 +39,10 @@ function CheckoutPage({ products, langTools }) {
             <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.discount}</Text><Text>-{formatPrice(discount)}</Text></Flex>
             <Flex className="summary-row total-row" align="center" justify="space-between" gap={12}><Text strong>{dict.total}</Text><Text strong>{formatPrice(total)}</Text></Flex>
             <Button block type="primary" size="large" icon={<Icon name="CheckCircle2" />}>{dict.placeOrder}</Button>
-            <Button block href="#retail" className="continue-shopping">{dict.continueShopping}</Button>
+            <Button block onClick={() => navigateToTopPage("retail")} className="continue-shopping">{dict.continueShopping}</Button>
           </Card>
         </Col>
       </Row>
     </>
   );
 }
-
