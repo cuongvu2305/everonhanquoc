@@ -8,7 +8,16 @@
     ],
     "headers": [
       {
-        "source": "**/*.@(js|jsx|css|png|jpg|jpeg|webp|svg)",
+        "source": "**/*.@(html|js|jsx|css|json)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(png|jpg|jpeg|webp|svg)",
         "headers": [
           {
             "key": "Cache-Control",
