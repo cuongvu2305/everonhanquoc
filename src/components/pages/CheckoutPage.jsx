@@ -1,10 +1,28 @@
 function CheckoutPage({ products, langTools }) {
   const { dict, labelProduct } = langTools;
+  const [form] = Form.useForm();
+  const [paymentMethod, setPaymentMethod] = useState("cod");
+  const [orderResult, setOrderResult] = useState(null);
   const cartItems = products.slice(0, 3).map((product, index) => ({ ...product, quantity: index === 0 ? 1 : 2 }));
   const subtotal = cartItems.reduce((sum, item) => sum + parsePrice(item.price) * item.quantity, 0);
   const shippingFee = subtotal > 3000000 ? 0 : 80000;
   const discount = Math.round(subtotal * 0.05);
   const total = subtotal + shippingFee - discount;
+  const paymentMessages = {
+    cod: "Đơn hàng đã được ghi nhận. Nhân viên sẽ gọi xác nhận và quý khách thanh toán khi nhận hàng.",
+    transfer: "Đơn hàng đã được ghi nhận. Nhân viên sẽ gửi thông tin chuyển khoản và xác nhận sau khi nhận thanh toán.",
+    store: "Đơn hàng đã được giữ tại cửa hàng. Quý khách có thể đến thanh toán và nhận tư vấn trực tiếp.",
+  };
+  const submitOrder = async () => {
+    try {
+      const values = await form.validateFields();
+      setOrderResult({ values, paymentMethod, message: paymentMessages[paymentMethod] });
+      message.success("Đã xác nhận thông tin thanh toán");
+    } catch (error) {
+      setOrderResult(null);
+      message.error("Vui lòng nhập đủ họ tên, số điện thoại và địa chỉ giao hàng");
+    }
+  };
 
   return (
     <>
@@ -13,12 +31,12 @@ function CheckoutPage({ products, langTools }) {
       <Row gutter={[18, 18]} className="checkout-grid">
         <Col xs={24} lg={15}>
           <Card className="checkout-card" title={dict.shippingInfo}>
-            <Form layout="vertical">
+            <Form form={form} layout="vertical" requiredMark>
               <Row gutter={[12, 0]}>
-                <Col xs={24} md={12}><Form.Item label={dict.recipientName}><Input placeholder={dict.recipientPlaceholder} /></Form.Item></Col>
-                <Col xs={24} md={12}><Form.Item label={dict.phone}><Input placeholder={dict.phonePlaceholder} /></Form.Item></Col>
+                <Col xs={24} md={12}><Form.Item label={dict.recipientName} name="recipientName" rules={[{ required: true, message: "Vui lòng nhập họ tên" }]}><Input placeholder={dict.recipientPlaceholder} /></Form.Item></Col>
+                <Col xs={24} md={12}><Form.Item label={dict.phone} name="phone" rules={[{ required: true, message: "Vui lòng nhập số điện thoại" }]}><Input placeholder={dict.phonePlaceholder} /></Form.Item></Col>
               </Row>
-              <Form.Item label={dict.shippingAddress}><Input placeholder={dict.addressPlaceholder} /></Form.Item>
+              <Form.Item label={dict.shippingAddress} name="shippingAddress" rules={[{ required: true, message: "Vui lòng nhập địa chỉ giao hàng" }]}><Input placeholder={dict.addressPlaceholder} /></Form.Item>
               <Row gutter={[12, 0]}>
                 <Col xs={24} md={12}><Form.Item label={dict.province}><Select defaultValue="ha-noi" options={[{ value: "ha-noi", label: dict.all === "All" ? "Hanoi" : "Hà Nội" }, { value: "hcm", label: dict.all === "All" ? "Ho Chi Minh City" : "TP. Hồ Chí Minh" }, { value: "other", label: langTools.dict.all === "All" ? "Other province" : "Tỉnh/Thành khác" }]} /></Form.Item></Col>
                 <Col xs={24} md={12}><Form.Item label={dict.deliveryTime}><Select defaultValue="today" options={[{ value: "today", label: dict.today }, { value: "tomorrow", label: dict.tomorrow }, { value: "schedule", label: dict.schedule }]} /></Form.Item></Col>
@@ -27,7 +45,8 @@ function CheckoutPage({ products, langTools }) {
             </Form>
           </Card>
           <Card className="checkout-card" title={dict.paymentMethod}>
-            <Radio.Group defaultValue="cod" className="payment-options"><Radio value="cod">{dict.cod}</Radio><Radio value="transfer">{dict.transfer}</Radio><Radio value="store">{dict.storePayment}</Radio></Radio.Group>
+            <Radio.Group value={paymentMethod} onChange={(event) => setPaymentMethod(event.target.value)} className="payment-options"><Radio value="cod">{dict.cod}</Radio><Radio value="transfer">{dict.transfer}</Radio><Radio value="store">{dict.storePayment}</Radio></Radio.Group>
+            {orderResult ? <Alert className="checkout-result" type="success" showIcon message="Xác nhận thanh toán" description={orderResult.message} /> : null}
           </Card>
         </Col>
         <Col xs={24} lg={9}>
@@ -38,7 +57,7 @@ function CheckoutPage({ products, langTools }) {
             <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.shippingFee}</Text><Text>{shippingFee === 0 ? dict.freeShipping : formatPrice(shippingFee)}</Text></Flex>
             <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.discount}</Text><Text>-{formatPrice(discount)}</Text></Flex>
             <Flex className="summary-row total-row" align="center" justify="space-between" gap={12}><Text strong>{dict.total}</Text><Text strong>{formatPrice(total)}</Text></Flex>
-            <Button block type="primary" size="large" icon={<Icon name="CheckCircle2" />}>{dict.placeOrder}</Button>
+            <Button block type="primary" size="large" icon={<Icon name="CheckCircle2" />} onClick={submitOrder}>{dict.placeOrder}</Button>
             <Button block onClick={() => navigateToTopPage("retail")} className="continue-shopping">{dict.continueShopping}</Button>
           </Card>
         </Col>

@@ -25,6 +25,11 @@ function isProductPath() {
   return getCleanPath() === "/product";
 }
 
+function getPolicySlugFromLocation() {
+  const path = getCleanPath().replace(/^\//, "");
+  return path.endsWith("-pt.html") ? path.replace(".html", "") : "";
+}
+
 function getSearchQueryFromLocation() {
   const searchParams = new URLSearchParams(window.location.search);
   return (searchParams.get("q") ?? "").trim();
@@ -67,12 +72,17 @@ function navigateToTopPage(key) {
   navigateToUrl(key === "home" ? "/" : `/#${key}`);
 }
 
+function navigateToPolicy(slug) {
+  navigateToUrl(`/${slug}.html`);
+}
+
 function getPageFromHash() {
   const key = getHashKey();
   if (key.startsWith("category-")) return "category";
   if (topPages.some((page) => page.key === key)) return key;
   if (isSearchPath()) return "search";
   if (isProductPath()) return "product";
+  if (getPolicySlugFromLocation()) return "policy";
   return "home";
 }
 

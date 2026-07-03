@@ -3,6 +3,7 @@ function App() {
   const [activePage, setActivePage] = useState(getPageFromHash());
   const [activeCategorySlug, setActiveCategorySlug] = useState(getCategorySlugFromHash());
   const [activeProductSlug, setActiveProductSlug] = useState(getProductSlugFromLocation());
+  const [activePolicySlug, setActivePolicySlug] = useState(getPolicySlugFromLocation());
   const [searchText, setSearchText] = useState(getSearchQueryFromLocation());
   const [query, setQuery] = useState(getSearchQueryFromLocation());
   const [lang, setLang] = useState(getStoredLang());
@@ -16,6 +17,7 @@ function App() {
       setActivePage(getPageFromHash());
       setActiveCategorySlug(getCategorySlugFromHash());
       setActiveProductSlug(getProductSlugFromLocation());
+      setActivePolicySlug(getPolicySlugFromLocation());
       const urlQuery = getSearchQueryFromLocation();
       setQuery(urlQuery);
       setSearchText(urlQuery);
@@ -85,10 +87,11 @@ function App() {
     if (activePage === "checkout") return <CheckoutPage products={products} langTools={langTools} />;
     if (activePage === "search") return <SearchPage products={products} query={query} langTools={langTools} />;
     if (activePage === "product") return <ProductDetailPage product={productPage?.product} relatedProducts={productPage?.relatedProducts ?? []} langTools={langTools} />;
+    if (activePage === "policy") return <PolicyPage slug={activePolicySlug} />;
     if (activePage === "category" && categoryPage) return <CategoryPage category={categoryPage.category} products={categoryPage.products} siblingCategories={store.categories} langTools={langTools} />;
     return <HomePage activeCategory={activeCategory} filteredProducts={filteredProducts} menuItems={menuItems} setActiveCategory={setActiveCategory} store={store} langTools={langTools} />;
   };
-  const footerPolicies = ["Chính sách bảo mật", "Chính sách bảo hành", "Mua hàng và thanh toán", "Chính sách đổi trả", "Chính sách giao hàng", "Chính sách kiểm hàng"];
+  const footerPolicies = policyPages.map((item) => ({ label: item.title, slug: item.slug }));
   const footerContacts = [
     { icon: "MapPin", text: "Địa chỉ: 234 Tôn Đức Thắng, Q. Đống Đa, Tp. Hà Nội" },
     { icon: "PhoneCall", text: "Hotline: 024.3999.4555 - 0966.452.111" },
@@ -166,7 +169,7 @@ function App() {
             <Col xs={24} md={12} lg={7}>
               <Card className="footer-card" bordered={false}>
                 <Title level={4}>CHÍNH SÁCH BÁN HÀNG</Title>
-                <List className="footer-policy-list" dataSource={footerPolicies} renderItem={(item) => <List.Item><Button type="link" icon={<Icon name="ChevronRight" />} onClick={() => navigateToTopPage("about")}>{item}</Button></List.Item>} />
+                <List className="footer-policy-list" dataSource={footerPolicies} renderItem={(item) => <List.Item><Button type="link" icon={<Icon name="ChevronRight" />} onClick={() => navigateToPolicy(item.slug)}>{item.label}</Button></List.Item>} />
               </Card>
             </Col>
             <Col xs={24} md={12} lg={7}>

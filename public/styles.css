@@ -408,6 +408,38 @@ body {
   color: var(--text);
 }
 
+.policy-page .page-hero {
+  margin-bottom: 18px;
+}
+
+.policy-section-card {
+  height: 100%;
+}
+
+.policy-section-card .ant-card-head-title {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.policy-section-card .ant-list-item {
+  align-items: flex-start;
+  padding: 10px 0;
+}
+
+.policy-section-card .ant-list-item::before {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  margin: 8px 10px 0 0;
+  border-radius: 50%;
+  background: var(--brand);
+  content: "";
+}
+
+.policy-contact-note {
+  margin-top: 18px;
+}
+
 .ant-card {
   border-color: var(--line);
 }
@@ -823,6 +855,10 @@ body {
 .payment-options {
   display: grid;
   gap: 12px;
+}
+
+.checkout-result {
+  margin-top: 16px;
 }
 
 .cart-thumb,

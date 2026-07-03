@@ -24,6 +24,7 @@ const frontendParts = [
   "src/components/pages/CategoryPage.jsx",
   "src/components/pages/SearchPage.jsx",
   "src/components/pages/ProductDetailPage.jsx",
+  "src/components/pages/PolicyPage.jsx",
   "src/components/pages/CheckoutPage.jsx",
   "src/components/pages/ContactPage.jsx",
   "src/components/pages/AboutPage.jsx",
@@ -44,6 +45,17 @@ await mkdir(new URL("./public/search/", import.meta.url), { recursive: true });
 await cp(new URL("./public/index.html", import.meta.url), new URL("./public/search/index.html", import.meta.url));
 await mkdir(new URL("./public/product/", import.meta.url), { recursive: true });
 await cp(new URL("./public/index.html", import.meta.url), new URL("./public/product/index.html", import.meta.url));
+const policyStaticPages = [
+  "chinh-sach-bao-mat-pt.html",
+  "chinh-sach-bao-hanh-pt.html",
+  "mua-hang-va-thanh-toan-pt.html",
+  "chinh-sach-doi-tra-pt.html",
+  "chinh-sach-giao-hang-pt.html",
+  "chinh-sach-kiem-hang-pt.html",
+];
+for (const policyPage of policyStaticPages) {
+  await cp(new URL("./public/index.html", import.meta.url), new URL(`./public/${policyPage}`, import.meta.url));
+}
 
 const storefrontData = JSON.parse(await readFile(storefrontDataUrl, "utf8"));
 const storefrontJson = JSON.stringify(storefrontData);
