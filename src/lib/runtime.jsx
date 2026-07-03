@@ -102,7 +102,3 @@ function parsePrice(value) {
 function formatPrice(value) {
   return `${value.toLocaleString("vi-VN")}đ`;
 }
-
-function getStoredLang() {
-  return localStorage.getItem("everonhanquoc-lang") === "en" ? "en" : "vi";
-}

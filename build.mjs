@@ -12,7 +12,6 @@ const frontendParts = [
   "src/components/icons/Icon.jsx",
   "src/hooks/use-i18n.jsx",
   "src/hooks/use-storefront.jsx",
-  "src/components/language/LanguageSelector.jsx",
   "src/components/product/ProductCard.jsx",
   "src/components/layout/PageHeader.jsx",
   "src/components/product/ProductGrid.jsx",
@@ -49,7 +48,8 @@ await cp(new URL("./public/index.html", import.meta.url), new URL("./public/prod
 const storefrontData = JSON.parse(await readFile(storefrontDataUrl, "utf8"));
 const storefrontJson = JSON.stringify(storefrontData);
 
-const localeFiles = ["vi", "en"];
+const localeFiles = ["vi"];
+await rm(new URL("./public/locales/", import.meta.url), { recursive: true, force: true });
 await mkdir(new URL("./public/locales/", import.meta.url), { recursive: true });
 for (const locale of localeFiles) {
   await cp(

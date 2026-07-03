@@ -1,4 +1,4 @@
-function useStorefront(lang) {
+function useStorefront() {
   const [store, setStore] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -8,10 +8,10 @@ function useStorefront(lang) {
     storefrontService
       .getStorefront()
       .then((data) => { if (active) setStore(data); })
-      .catch(() => message.error(lang === "en" ? "Could not load storefront data" : "Không tải được API storefront"))
+      .catch(() => message.error("Không tải được API storefront"))
       .finally(() => { if (active) setLoading(false); });
     return () => { active = false; };
-  }, [lang]);
+  }, []);
 
   return { store, loading };
 }
@@ -22,13 +22,12 @@ function useLocale(lang) {
 
   useEffect(() => {
     let active = true;
-    localStorage.setItem("everonhanquoc-lang", lang);
     document.documentElement.lang = lang;
     setLoading(true);
     storefrontService
       .getLocale(lang)
       .then((data) => { if (active) setLocaleDict(data); })
-      .catch(() => message.error(lang === "en" ? "Could not load locale data" : "Không tải được dữ liệu ngôn ngữ"))
+      .catch(() => message.error("Không tải được dữ liệu ngôn ngữ"))
       .finally(() => { if (active) setLoading(false); });
     return () => { active = false; };
   }, [lang]);

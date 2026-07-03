@@ -19,8 +19,17 @@ CREATE TABLE IF NOT EXISTS products (
   price TEXT NOT NULL,
   old_price TEXT,
   image TEXT NOT NULL,
+  source_url TEXT,
   sort_order INTEGER NOT NULL DEFAULT 0,
   FOREIGN KEY (category_id) REFERENCES categories(id)
+);
+
+CREATE TABLE IF NOT EXISTS product_categories (
+  product_id INTEGER NOT NULL,
+  category_id INTEGER NOT NULL,
+  PRIMARY KEY (product_id, category_id),
+  FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+  FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS policies (

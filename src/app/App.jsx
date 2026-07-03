@@ -6,10 +6,9 @@ function App() {
   const [activePolicySlug, setActivePolicySlug] = useState(getPolicySlugFromLocation());
   const [searchText, setSearchText] = useState(getSearchQueryFromLocation());
   const [query, setQuery] = useState(getSearchQueryFromLocation());
-  const [lang, setLang] = useState(getStoredLang());
-  const { store, loading: storeLoading } = useStorefront(lang);
-  const { localeDict, loading: localeLoading } = useLocale(lang);
-  const langTools = useI18n(lang, localeDict);
+  const { store, loading: storeLoading } = useStorefront("vi");
+  const { localeDict, loading: localeLoading } = useLocale("vi");
+  const langTools = useI18n("vi", localeDict);
   const { dict, labelCategory } = langTools;
 
   useEffect(() => {
@@ -42,26 +41,26 @@ function App() {
     const normalizedQuery = query.trim().toLowerCase();
     return products.filter((product) => {
       const displayName = langTools.labelProduct(product).toLowerCase();
-      const matchCategory = activeCategory === "Tất cả" || product.category === activeCategory;
+      const matchCategory = activeCategory === "Tất cả" || product.category === activeCategory || product.categories?.includes(activeCategory);
       const matchQuery = normalizedQuery.length === 0 || product.name.toLowerCase().includes(normalizedQuery) || displayName.includes(normalizedQuery);
       return matchCategory && matchQuery;
     });
-  }, [activeCategory, products, query, lang]);
+  }, [activeCategory, products, query, langTools]);
 
-  const menuItems = useMemo(() => ["Tất cả", ...(store?.categories ?? [])].map((category) => ({ key: category, label: category === "Tất cả" ? dict.all : labelCategory(category) })), [store, lang]);
+  const menuItems = useMemo(() => ["Tất cả", ...(store?.categories ?? [])].map((category) => ({ key: category, label: category === "Tất cả" ? dict.all : labelCategory(category) })), [store, dict.all, labelCategory]);
   const navItems = useMemo(() => topPages.map((page) => ({ key: page.key, icon: <Icon name={page.icon} size={16} />, label: dict.topPages[page.key] })), [dict]);
   const saleProducts = useMemo(() => products.filter((product) => product.sale !== "-"), [products]);
   const categoryPage = useMemo(() => {
     if (!store) return null;
     const category = store.categories.find((item) => slugifyCategory(item) === activeCategorySlug);
     if (!category) return null;
-    return { category, products: products.filter((product) => product.category === category) };
+    return { category, products: products.filter((product) => product.category === category || product.categories?.includes(category)) };
   }, [activeCategorySlug, products, store]);
 
   const productPage = useMemo(() => {
     if (!store || activePage !== "product") return null;
     const product = products.find((item) => slugifyProduct(item) === activeProductSlug);
-    const relatedProducts = product ? products.filter((item) => item.category === product.category && item.name !== product.name).slice(0, 3) : [];
+    const relatedProducts = product ? products.filter((item) => (item.category === product.category || item.categories?.includes(product.category)) && item.name !== product.name).slice(0, 3) : [];
     return { product, relatedProducts };
   }, [activePage, activeProductSlug, products, store]);
 
@@ -112,7 +111,6 @@ function App() {
           <Button className="brand" type="link" onClick={() => navigateToTopPage("home")} aria-label="Everon Hàn Quốc"><Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></Button>
           <Input className="search-box" allowClear maxLength={255} prefix={<Icon name="Search" size={16} />} placeholder={dict.searchPlaceholder} value={searchText} onChange={(event) => setSearchText(event.target.value.slice(0, 255))} onPressEnter={submitSearch} />
           <Space className="header-actions">
-            <LanguageSelector value={lang} onChange={setLang} />
             <Button
               aria-label="Facebook"
               href="https://www.facebook.com/everondongda/"

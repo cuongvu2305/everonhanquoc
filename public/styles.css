@@ -98,16 +98,6 @@ body {
   justify-content: flex-end;
 }
 
-.language-selector.ant-segmented {
-  background: var(--surface-soft);
-  border: 1px solid var(--line);
-}
-
-.language-selector .ant-segmented-item-selected {
-  color: var(--brand-dark);
-  font-weight: 700;
-}
-
 .nav-bar.ant-menu {
   display: flex;
   gap: 2px;
@@ -890,13 +880,6 @@ body {
 
 .continue-shopping {
   margin-top: 10px;
-}
-
-.lang-active {
-  border-color: var(--brand-dark) !important;
-  background: var(--surface-soft) !important;
-  color: var(--brand-dark) !important;
-  font-weight: 700;
 }
 
 .brand-icon {

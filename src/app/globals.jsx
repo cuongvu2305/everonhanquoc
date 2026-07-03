@@ -16,7 +16,6 @@ const {
   Menu,
   Radio,
   Row,
-  Segmented,
   Select,
   Skeleton,
   Space,
@@ -29,4 +28,3 @@ const {
 const { Header, Content, Sider, Footer } = Layout;
 const { Title, Text, Paragraph } = Typography;
 const { useEffect, useMemo, useState } = React;
-
