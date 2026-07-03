@@ -26,6 +26,8 @@ class StorefrontHandler(SimpleHTTPRequestHandler):
         if path == "/api/storefront":
             self.send_json(load_storefront_data())
             return
+        if path.endswith("-pt.html"):
+            self.path = "/index.html"
         return super().do_GET()
 
     def send_json(self, payload):
