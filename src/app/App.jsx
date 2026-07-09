@@ -1,4 +1,5 @@
 function App() {
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("Tất cả");
   const [activePage, setActivePage] = useState(getPageFromHash());
   const [activeCategorySlug, setActiveCategorySlug] = useState(getCategorySlugFromHash());
@@ -30,6 +31,10 @@ function App() {
       window.removeEventListener("popstate", updatePage);
     };
   }, []);
+
+  useEffect(() => {
+    setMobileNavOpen(false);
+  }, [activePage, activeCategorySlug, activeProductSlug, activePolicySlug, query]);
 
   useEffect(() => {
     if (!store || activePage !== "category") return;
@@ -115,6 +120,17 @@ function App() {
     setSearchText(nextQuery);
   };
 
+  const handleNavigateTopPage = (key) => {
+    navigateToTopPage(key);
+    setMobileNavOpen(false);
+  };
+
+  const handleNavigateCategory = (key) => {
+    setActiveCategory(key);
+    key === "Tất cả" ? navigateToTopPage("home") : navigateToCategory(key);
+    setMobileNavOpen(false);
+  };
+
   const renderPage = () => {
     if (!store) return null;
     if (activePage === "news") return <NewsPage dict={dict} />;
@@ -146,34 +162,31 @@ function App() {
     <ConfigProvider theme={globalTheme}>
       <Layout className="app-shell">
         <Flex className="top-strip" align="center" justify="space-between" gap={18}><Space><Icon name="MapPin" /><Text>{dict.address}</Text></Space><Text strong><Icon name="Phone" /> {dict.hotline}</Text></Flex>
-        <Header className="site-header">
-          <Button className="brand" type="link" onClick={() => navigateToTopPage("home")} aria-label="Everon Hàn Quốc"><Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" /></Button>
-          <Input className="search-box" allowClear maxLength={255} prefix={<Icon name="Search" size={16} />} placeholder={dict.searchPlaceholder} value={searchText} onChange={(event) => setSearchText(event.target.value.slice(0, 255))} onPressEnter={submitSearch} />
-          <Space className="header-actions">
-            <Button
-              aria-label="Facebook"
-              href="https://www.facebook.com/everondongda/"
-              icon={<BrandIcon name="facebook" />}
-              shape="circle"
-              target="_blank"
-              rel="noopener noreferrer"
-            />
-            <Button
-              aria-label="YouTube"
-              href="https://www.youtube.com/channel/UCW8R-hC2rCWSm-T2fFyQcFw"
-              icon={<BrandIcon name="youtube" />}
-              shape="circle"
-              target="_blank"
-              rel="noopener noreferrer"
-            />
-            <Badge count={cartCount}><Button onClick={() => navigateToTopPage("checkout")} shape="circle" icon={<Icon name="ShoppingCart" />} /></Badge>
-          </Space>
-        </Header>
+        <SiteHeader
+          dict={dict}
+          cartCount={cartCount}
+          searchText={searchText}
+          setSearchText={setSearchText}
+          submitSearch={submitSearch}
+          onOpenMobileNav={() => setMobileNavOpen(true)}
+        />
         <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => navigateToTopPage(key)} />
+        <MobileNavDrawer
+          open={mobileNavOpen}
+          onClose={() => setMobileNavOpen(false)}
+          navItems={navItems}
+          menuItems={menuItems}
+          activePage={activePage}
+          activeCategory={activeCategory}
+          loading={loading}
+          dict={dict}
+          onNavigateTopPage={handleNavigateTopPage}
+          onNavigateCategory={handleNavigateCategory}
+        />
         <Layout className="main-layout">
           <Sider width={268} className="category-sider" breakpoint="lg" collapsedWidth="0">
             <Flex className="sider-title" align="center" gap={10}><Icon name="Menu" /><Text>{dict.productCategories}</Text></Flex>
-            {loading ? <Skeleton active paragraph={{ rows: 8 }} /> : <Menu mode="inline" selectedKeys={[activeCategory]} items={menuItems} onClick={({ key }) => { setActiveCategory(key); key === "Tất cả" ? navigateToTopPage("home") : navigateToCategory(key); }} />}
+            {loading ? <Skeleton active paragraph={{ rows: 8 }} /> : <Menu mode="inline" selectedKeys={[activeCategory]} items={menuItems} onClick={({ key }) => handleNavigateCategory(key)} />}
           </Sider>
           <Content className="content-area">{loading ? <Skeleton active paragraph={{ rows: 10 }} /> : renderPage()}</Content>
         </Layout>
