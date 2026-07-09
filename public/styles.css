@@ -1074,6 +1074,23 @@ body {
   .page-hero-body {
     align-items: flex-start;
     flex-direction: column;
+    gap: 12px;
+  }
+
+  .page-hero-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .related-categories .ant-space,
+  .page-hero-extra {
+    width: 100%;
+  }
+
+  .product-detail-actions {
+    display: grid;
+    width: 100%;
+    gap: 10px;
   }
 
   .payment-options {

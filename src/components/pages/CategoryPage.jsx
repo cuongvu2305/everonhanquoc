@@ -8,7 +8,14 @@ function CategoryPage({ category, products, siblingCategories, langTools }) {
         icon="Layers3"
         title={displayCategory}
         description={dict.categoryDesc(displayCategory)}
-        extra={<Space wrap><Tag color="#16842c">{dict.productCount(products.length)}</Tag><Button size="small" onClick={() => navigateToTopPage("retail")} icon={<Icon name="PackageOpen" />}>{dict.viewAllProducts}</Button></Space>}
+        extra={
+          <Space wrap size={[8, 8]}>
+            <Tag color="#16842c">{dict.productCount(products.length)}</Tag>
+            <Button size="small" onClick={() => navigateToTopPage("retail")} icon={<Icon name="PackageOpen" />}>
+              {dict.viewAllProducts}
+            </Button>
+          </Space>
+        }
       />
       <ProductGrid key={category} products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} paginated pageSize={9} />
       {relatedCategories.length > 0 ? (

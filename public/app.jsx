@@ -352,7 +352,9 @@ function PageHeader({ icon, title, description, extra }) {
   return (
     <Card className="page-hero">
       <Flex className="page-hero-body" align="flex-start" gap={16}>
-        <Flex className="page-hero-icon" align="center" justify="center"><Icon name={icon} size={24} /></Flex>
+        <Flex className="page-hero-icon" align="center" justify="center">
+          <Icon name={icon} size={24} />
+        </Flex>
         <Flex className="page-hero-copy" vertical>
           <Title level={2}>{title}</Title>
           <Paragraph>{description}</Paragraph>
@@ -463,7 +465,7 @@ function ProductGrid({ products, labelProduct, emptyText, paginated = false, pag
     <>
       <Row gutter={[16, 16]}>
         {visibleProducts.map((product) => (
-          <Col xs={24} sm={12} lg={8} xl={8} key={product.sourceUrl || product.name}>
+          <Col xs={12} sm={12} lg={8} xl={8} key={product.sourceUrl || product.name}>
             <ProductCard product={product} labelProduct={labelProduct} />
           </Col>
         ))}
@@ -635,7 +637,14 @@ function CategoryPage({ category, products, siblingCategories, langTools }) {
         icon="Layers3"
         title={displayCategory}
         description={dict.categoryDesc(displayCategory)}
-        extra={<Space wrap><Tag color="#16842c">{dict.productCount(products.length)}</Tag><Button size="small" onClick={() => navigateToTopPage("retail")} icon={<Icon name="PackageOpen" />}>{dict.viewAllProducts}</Button></Space>}
+        extra={
+          <Space wrap size={[8, 8]}>
+            <Tag color="#16842c">{dict.productCount(products.length)}</Tag>
+            <Button size="small" onClick={() => navigateToTopPage("retail")} icon={<Icon name="PackageOpen" />}>
+              {dict.viewAllProducts}
+            </Button>
+          </Space>
+        }
       />
       <ProductGrid key={category} products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} paginated pageSize={9} />
       {relatedCategories.length > 0 ? (
@@ -663,7 +672,14 @@ function SearchPage({ products, query, langTools }) {
         icon="Search"
         title={dict.searchResultsTitle}
         description={dict.searchResultsDesc.replace("{query}", query || "...")}
-        extra={<Space wrap><Tag color="#16842c">{dict.productCount(results.length)}</Tag><Button size="small" href="/" icon={<Icon name="Home" />}>{dict.topPages.home}</Button></Space>}
+        extra={
+          <Space wrap size={[8, 8]}>
+            <Tag color="#16842c">{dict.productCount(results.length)}</Tag>
+            <Button size="small" href="/" icon={<Icon name="Home" />}>
+              {dict.topPages.home}
+            </Button>
+          </Space>
+        }
       />
       <ProductGrid products={results} labelProduct={labelProduct} emptyText={dict.emptySearchResults} />
     </Card>
@@ -698,6 +714,14 @@ function ProductDetailPage({ product, relatedProducts, langTools, onAddToCart })
               <Text className="product-detail-price">{product.price}</Text>
               <Text delete type="secondary">{product.oldPrice}</Text>
             </Space>
+            <Space wrap className="product-detail-actions">
+              <Button type="primary" size="large" icon={<Icon name="ShoppingCart" />} onClick={() => onAddToCart(product)}>
+                {dict.addToCart}
+              </Button>
+              <Button size="large" onClick={() => navigateToTopPage("contact")} icon={<Icon name="PhoneCall" />}>
+                {dict.contactConsulting}
+              </Button>
+            </Space>
             <Paragraph className="product-detail-desc">{dict.productDetailDesc}</Paragraph>
             <div className="product-detail-info">
               <Flex vertical gap={10}>
@@ -706,10 +730,6 @@ function ProductDetailPage({ product, relatedProducts, langTools, onAddToCart })
                 <Flex justify="space-between" gap={16}><Text type="secondary">{dict.productStatus}</Text><Text>{dict.inStock}</Text></Flex>
               </Flex>
             </div>
-            <Space wrap>
-              <Button type="primary" size="large" icon={<Icon name="ShoppingCart" />} onClick={() => onAddToCart(product)}>{dict.addToCart}</Button>
-              <Button size="large" onClick={() => navigateToTopPage("contact")} icon={<Icon name="PhoneCall" />}>{dict.contactConsulting}</Button>
-            </Space>
           </Flex>
         </Col>
       </Row>

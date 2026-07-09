@@ -13,7 +13,14 @@ function SearchPage({ products, query, langTools }) {
         icon="Search"
         title={dict.searchResultsTitle}
         description={dict.searchResultsDesc.replace("{query}", query || "...")}
-        extra={<Space wrap><Tag color="#16842c">{dict.productCount(results.length)}</Tag><Button size="small" href="/" icon={<Icon name="Home" />}>{dict.topPages.home}</Button></Space>}
+        extra={
+          <Space wrap size={[8, 8]}>
+            <Tag color="#16842c">{dict.productCount(results.length)}</Tag>
+            <Button size="small" href="/" icon={<Icon name="Home" />}>
+              {dict.topPages.home}
+            </Button>
+          </Space>
+        }
       />
       <ProductGrid products={results} labelProduct={labelProduct} emptyText={dict.emptySearchResults} />
     </Card>

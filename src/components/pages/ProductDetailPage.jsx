@@ -26,6 +26,14 @@ function ProductDetailPage({ product, relatedProducts, langTools, onAddToCart })
               <Text className="product-detail-price">{product.price}</Text>
               <Text delete type="secondary">{product.oldPrice}</Text>
             </Space>
+            <Space wrap className="product-detail-actions">
+              <Button type="primary" size="large" icon={<Icon name="ShoppingCart" />} onClick={() => onAddToCart(product)}>
+                {dict.addToCart}
+              </Button>
+              <Button size="large" onClick={() => navigateToTopPage("contact")} icon={<Icon name="PhoneCall" />}>
+                {dict.contactConsulting}
+              </Button>
+            </Space>
             <Paragraph className="product-detail-desc">{dict.productDetailDesc}</Paragraph>
             <div className="product-detail-info">
               <Flex vertical gap={10}>
@@ -34,10 +42,6 @@ function ProductDetailPage({ product, relatedProducts, langTools, onAddToCart })
                 <Flex justify="space-between" gap={16}><Text type="secondary">{dict.productStatus}</Text><Text>{dict.inStock}</Text></Flex>
               </Flex>
             </div>
-            <Space wrap>
-              <Button type="primary" size="large" icon={<Icon name="ShoppingCart" />} onClick={() => onAddToCart(product)}>{dict.addToCart}</Button>
-              <Button size="large" onClick={() => navigateToTopPage("contact")} icon={<Icon name="PhoneCall" />}>{dict.contactConsulting}</Button>
-            </Space>
           </Flex>
         </Col>
       </Row>
