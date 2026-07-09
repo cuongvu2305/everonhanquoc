@@ -1,30 +1,39 @@
 function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCategory, store, langTools }) {
   const { dict, labelProduct, labelTile } = langTools;
   const tileCategoryMap = {};
+  const tileIconMap = {
+    "Đệm lò xo everon - kingkoil": "Building2",
+    "Đệm bông ép everon": "BedDouble",
+    "Chăn - ga - gối everon": "BedSingle",
+    "Ruột chăn everon": "PackageOpen",
+    "Ruột gối everon": "Package",
+    "Đệm cao su Everon": "Layers3",
+  };
+  const categoryEntryTiles = store.tiles.map((tile) => ({
+    ...tile,
+    iconName: tileIconMap[tile.name] ?? "PackageOpen",
+  }));
   const openTileCategory = (tileName) => {
     navigateToCategory(tileCategoryMap[tileName] ?? tileName);
   };
   const productsByCategory = (category) => store.products.filter((product) => product.category === category || product.categories?.includes(category));
   return (
     <>
-      <Card className="hero">
-        <Flex vertical align="flex-start">
+      <Card className="hero hero-compact">
+        <Flex vertical align="flex-start" gap={10}>
           <Tag color="#d71920">{dict.heroTag}</Tag>
-          <Title>{dict.heroTitle}</Title>
+          <Title level={1}>{dict.heroTitle}</Title>
           <Paragraph>{dict.heroText}</Paragraph>
-          <Space wrap>
-            <Button type="primary" onClick={() => navigateToTopPage("sale")} icon={<Icon name="ShoppingBag" />}>{dict.viewDeals}</Button>
-            <Button onClick={() => navigateToTopPage("contact")} icon={<Icon name="Truck" />}>{dict.deliveryPolicy}</Button>
-          </Space>
         </Flex>
       </Card>
 
-      <Row gutter={[12, 12]} className="tile-grid">
-        {store.tiles.map((tile) => (
-          <Col xs={12} sm={8} md={8} xl={4} key={tile.name}>
+      <section className="home-category-entry">
+        <div className="home-category-entry-track">
+          {categoryEntryTiles.map((tile) => (
             <Card
+              key={tile.name}
               hoverable
-              className="category-card"
+              className="category-card category-entry-card"
               onClick={() => openTileCategory(tile.name)}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
@@ -34,15 +43,17 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
               }}
               role="button"
               tabIndex={0}
-              cover={<Image preview={false} src={tile.image} alt={labelTile(tile)} />}
             >
+              <div className="category-card-icon category-entry-card-icon" aria-hidden="true">
+                <Icon name={tile.iconName} size={42} />
+              </div>
               <Button type="link" className="category-card-title" onClick={(event) => { event.stopPropagation(); openTileCategory(tile.name); }}>
                 {labelTile(tile)}
               </Button>
             </Card>
-          </Col>
-        ))}
-      </Row>
+          ))}
+        </div>
+      </section>
 
       <Flex className="home-product-sections" vertical gap={16}>
         {store.tiles.map((tile) => (
