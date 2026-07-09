@@ -814,15 +814,17 @@ function CheckoutPage({ cartItems, langTools, onRemoveCartItem, onUpdateCartQuan
                         <Text type="secondary">{dict.quantity}: {item.quantity}</Text>
                       </div>
                     </div>
-                    <div className="order-item-actions">
-                      <Space size={10} wrap>
-                        <Button shape="circle" icon={<Icon name="Minus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity - 1)} />
-                        <Text className="order-item-qty">{item.quantity}</Text>
-                        <Button shape="circle" icon={<Icon name="Plus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity + 1)} />
-                        <Button danger type="text" icon={<Icon name="Trash2" size={16} />} onClick={() => onRemoveCartItem(item.slug)}>{dict.remove}</Button>
-                      </Space>
+                    <div className="order-item-meta">
+                      <div className="order-item-actions">
+                        <Space size={10} wrap>
+                          <Button shape="circle" icon={<Icon name="Minus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity - 1)} />
+                          <Text className="order-item-qty">{item.quantity}</Text>
+                          <Button shape="circle" icon={<Icon name="Plus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity + 1)} />
+                          <Button danger type="text" icon={<Icon name="Trash2" size={16} />} onClick={() => onRemoveCartItem(item.slug)}>{dict.remove}</Button>
+                        </Space>
+                      </div>
+                      <Text strong className="order-item-total">{formatPrice(parsePrice(item.price) * item.quantity)}</Text>
                     </div>
-                    <Text strong className="order-item-total">{formatPrice(parsePrice(item.price) * item.quantity)}</Text>
                   </List.Item>
                 )}
               />

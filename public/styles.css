@@ -1006,9 +1006,9 @@ body {
 }
 
 .order-summary-item.ant-list-item {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   gap: 14px;
   padding: 0 0 14px;
 }
@@ -1032,11 +1032,20 @@ body {
   margin: 0;
   line-height: 1.4;
   white-space: normal;
-  word-break: break-word;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.order-item-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
 .order-item-actions {
-  justify-self: center;
+  min-width: 0;
 }
 
 .order-item-qty.ant-typography {
@@ -1086,13 +1095,9 @@ body {
 }
 
 @media (max-width: 767px) {
-  .order-summary-item.ant-list-item {
-    grid-template-columns: 1fr;
-    justify-items: stretch;
-  }
-
-  .order-item-actions {
-    justify-self: start;
+  .order-item-meta {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .order-item-total.ant-typography {
