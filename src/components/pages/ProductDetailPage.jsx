@@ -1,4 +1,4 @@
-function ProductDetailPage({ product, relatedProducts, langTools }) {
+function ProductDetailPage({ product, relatedProducts, langTools, onAddToCart }) {
   const { dict, labelCategory, labelProduct } = langTools;
 
   if (!product) {
@@ -35,7 +35,7 @@ function ProductDetailPage({ product, relatedProducts, langTools }) {
               </Flex>
             </div>
             <Space wrap>
-              <Button type="primary" size="large" icon={<Icon name="ShoppingCart" />}>{dict.addToCart}</Button>
+              <Button type="primary" size="large" icon={<Icon name="ShoppingCart" />} onClick={() => onAddToCart(product)}>{dict.addToCart}</Button>
               <Button size="large" onClick={() => navigateToTopPage("contact")} icon={<Icon name="PhoneCall" />}>{dict.contactConsulting}</Button>
             </Space>
           </Flex>

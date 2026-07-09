@@ -26,7 +26,8 @@ class StorefrontHandler(SimpleHTTPRequestHandler):
         if path == "/api/storefront":
             self.send_json(load_storefront_data())
             return
-        if path.endswith("-pt.html"):
+        last_segment = path.rsplit("/", 1)[-1]
+        if path != "/" and "." not in last_segment:
             self.path = "/index.html"
         return super().do_GET()
 

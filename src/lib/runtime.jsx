@@ -27,7 +27,8 @@ function isProductPath() {
 
 function getPolicySlugFromLocation() {
   const path = getCleanPath().replace(/^\//, "");
-  return path.endsWith("-pt.html") ? path.replace(".html", "") : "";
+  if (!path) return "";
+  return path.endsWith("-pt") ? path : "";
 }
 
 function getSearchQueryFromLocation() {
@@ -73,7 +74,7 @@ function navigateToTopPage(key) {
 }
 
 function navigateToPolicy(slug) {
-  navigateToUrl(`/${slug}.html`);
+  navigateToUrl(`/${slug}`);
 }
 
 function getPageFromHash() {
@@ -101,4 +102,20 @@ function parsePrice(value) {
 
 function formatPrice(value) {
   return `${value.toLocaleString("vi-VN")}đ`;
+}
+
+const CART_STORAGE_KEY = "everonhanquoc-cart";
+
+function getStoredCart() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) ?? "[]");
+    if (!Array.isArray(stored)) return [];
+    return stored.filter((item) => typeof item?.slug === "string" && Number(item?.quantity) > 0);
+  } catch {
+    return [];
+  }
+}
+
+function storeCart(cartItems) {
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
 }

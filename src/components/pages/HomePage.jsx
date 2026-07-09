@@ -1,5 +1,5 @@
 function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCategory, store, langTools }) {
-  const { dict, labelProduct, labelTile, labelPolicy } = langTools;
+  const { dict, labelProduct, labelTile } = langTools;
   const tileCategoryMap = {};
   const openTileCategory = (tileName) => {
     navigateToCategory(tileCategoryMap[tileName] ?? tileName);
@@ -56,8 +56,6 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
           />
         ))}
       </Flex>
-
-      <PolicyGrid policies={store.policies} labelPolicy={labelPolicy} />
     </>
   );
 }

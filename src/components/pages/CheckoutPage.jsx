@@ -1,9 +1,8 @@
-function CheckoutPage({ products, langTools }) {
+function CheckoutPage({ cartItems, langTools, onRemoveCartItem, onUpdateCartQuantity }) {
   const { dict, labelProduct } = langTools;
   const [form] = Form.useForm();
   const [paymentMethod, setPaymentMethod] = useState("cod");
   const [orderResult, setOrderResult] = useState(null);
-  const cartItems = products.slice(0, 3).map((product, index) => ({ ...product, quantity: index === 0 ? 1 : 2 }));
   const subtotal = cartItems.reduce((sum, item) => sum + parsePrice(item.price) * item.quantity, 0);
   const shippingFee = subtotal > 3000000 ? 0 : 80000;
   const discount = Math.round(subtotal * 0.05);
@@ -14,6 +13,11 @@ function CheckoutPage({ products, langTools }) {
     store: "Đơn hàng đã được giữ tại cửa hàng. Quý khách có thể đến thanh toán và nhận tư vấn trực tiếp.",
   };
   const submitOrder = async () => {
+    if (cartItems.length === 0) {
+      setOrderResult(null);
+      message.error(dict.emptyCart);
+      return;
+    }
     try {
       const values = await form.validateFields();
       setOrderResult({ values, paymentMethod, message: paymentMessages[paymentMethod] });
@@ -51,13 +55,13 @@ function CheckoutPage({ products, langTools }) {
         </Col>
         <Col xs={24} lg={9}>
           <Card className="order-summary" title={dict.orderSummary}>
-            <List itemLayout="horizontal" dataSource={cartItems} renderItem={(item) => <List.Item><List.Item.Meta avatar={<Image className="cart-thumb" preview={false} src={item.image} alt={labelProduct(item)} />} title={labelProduct(item)} description={`${dict.quantity}: ${item.quantity}`} /><Text strong>{formatPrice(parsePrice(item.price) * item.quantity)}</Text></List.Item>} />
+            {cartItems.length === 0 ? <Empty description={dict.emptyCart} /> : <List itemLayout="horizontal" dataSource={cartItems} renderItem={(item) => <List.Item actions={[<Button key={`decrease-${item.slug}`} shape="circle" icon={<Icon name="Minus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity - 1)} />, <Text key={`qty-${item.slug}`}>{item.quantity}</Text>, <Button key={`increase-${item.slug}`} shape="circle" icon={<Icon name="Plus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity + 1)} />, <Button key={`remove-${item.slug}`} danger type="text" icon={<Icon name="Trash2" size={16} />} onClick={() => onRemoveCartItem(item.slug)}>{dict.remove}</Button>]}><List.Item.Meta avatar={<Image className="cart-thumb" preview={false} src={item.image} alt={labelProduct(item)} />} title={labelProduct(item)} description={`${dict.quantity}: ${item.quantity}`} /><Text strong>{formatPrice(parsePrice(item.price) * item.quantity)}</Text></List.Item>} />}
             <Divider />
             <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.subtotal}</Text><Text>{formatPrice(subtotal)}</Text></Flex>
             <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.shippingFee}</Text><Text>{shippingFee === 0 ? dict.freeShipping : formatPrice(shippingFee)}</Text></Flex>
             <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.discount}</Text><Text>-{formatPrice(discount)}</Text></Flex>
             <Flex className="summary-row total-row" align="center" justify="space-between" gap={12}><Text strong>{dict.total}</Text><Text strong>{formatPrice(total)}</Text></Flex>
-            <Button block type="primary" size="large" icon={<Icon name="CheckCircle2" />} onClick={submitOrder}>{dict.placeOrder}</Button>
+            <Button block type="primary" size="large" icon={<Icon name="CheckCircle2" />} onClick={submitOrder} disabled={cartItems.length === 0}>{dict.placeOrder}</Button>
             <Button block onClick={() => navigateToTopPage("retail")} className="continue-shopping">{dict.continueShopping}</Button>
           </Card>
         </Col>

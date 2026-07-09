@@ -7,6 +7,7 @@ function App() {
   const [searchText, setSearchText] = useState(getSearchQueryFromLocation());
   const [query, setQuery] = useState(getSearchQueryFromLocation());
   const [buildInfo, setBuildInfo] = useState(null);
+  const [cartEntries, setCartEntries] = useState(() => getStoredCart());
   const { store, loading: storeLoading } = useStorefront("vi");
   const { localeDict, loading: localeLoading } = useLocale("vi");
   const langTools = useI18n("vi", localeDict);
@@ -43,6 +44,10 @@ function App() {
       .catch(() => {});
   }, []);
 
+  useEffect(() => {
+    storeCart(cartEntries);
+  }, [cartEntries]);
+
   const loading = storeLoading || localeLoading;
   const products = store?.products ?? [];
   const filteredProducts = useMemo(() => {
@@ -71,6 +76,32 @@ function App() {
     const relatedProducts = product ? products.filter((item) => (item.category === product.category || item.categories?.includes(product.category)) && item.name !== product.name).slice(0, 3) : [];
     return { product, relatedProducts };
   }, [activePage, activeProductSlug, products, store]);
+  const cartItems = useMemo(() => cartEntries.map((entry) => {
+    const product = products.find((item) => slugifyProduct(item) === entry.slug);
+    return product ? { ...product, slug: entry.slug, quantity: entry.quantity } : null;
+  }).filter(Boolean), [cartEntries, products]);
+  const cartCount = useMemo(() => cartItems.reduce((sum, item) => sum + item.quantity, 0), [cartItems]);
+
+  const addToCart = (product) => {
+    const slug = slugifyProduct(product);
+    setCartEntries((current) => {
+      const existing = current.find((item) => item.slug === slug);
+      if (existing) {
+        return current.map((item) => item.slug === slug ? { ...item, quantity: item.quantity + 1 } : item);
+      }
+      return [...current, { slug, quantity: 1 }];
+    });
+    message.success(dict.addedToCart);
+  };
+
+  const updateCartQuantity = (slug, quantity) => {
+    setCartEntries((current) => quantity <= 0 ? current.filter((item) => item.slug !== slug) : current.map((item) => item.slug === slug ? { ...item, quantity } : item));
+  };
+
+  const removeCartItem = (slug) => {
+    setCartEntries((current) => current.filter((item) => item.slug !== slug));
+    message.success(dict.removedFromCart);
+  };
 
   const submitSearch = () => {
     const nextQuery = searchText.trim();
@@ -91,9 +122,9 @@ function App() {
     if (activePage === "retail") return <RetailPage products={products} langTools={langTools} />;
     if (activePage === "contact") return <ContactPage dict={dict} />;
     if (activePage === "about") return <AboutPage dict={dict} />;
-    if (activePage === "checkout") return <CheckoutPage products={products} langTools={langTools} />;
+    if (activePage === "checkout") return <CheckoutPage cartItems={cartItems} langTools={langTools} onRemoveCartItem={removeCartItem} onUpdateCartQuantity={updateCartQuantity} />;
     if (activePage === "search") return <SearchPage products={products} query={query} langTools={langTools} />;
-    if (activePage === "product") return <ProductDetailPage product={productPage?.product} relatedProducts={productPage?.relatedProducts ?? []} langTools={langTools} />;
+    if (activePage === "product") return <ProductDetailPage product={productPage?.product} relatedProducts={productPage?.relatedProducts ?? []} langTools={langTools} onAddToCart={addToCart} />;
     if (activePage === "policy") return <PolicyPage slug={activePolicySlug} />;
     if (activePage === "category" && categoryPage) return <CategoryPage category={categoryPage.category} products={categoryPage.products} siblingCategories={store.categories} langTools={langTools} />;
     return <HomePage activeCategory={activeCategory} filteredProducts={filteredProducts} menuItems={menuItems} setActiveCategory={setActiveCategory} store={store} langTools={langTools} />;
@@ -135,7 +166,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             />
-            <Badge count={3}><Button onClick={() => navigateToTopPage("checkout")} shape="circle" icon={<Icon name="ShoppingCart" />} /></Badge>
+            <Badge count={cartCount}><Button onClick={() => navigateToTopPage("checkout")} shape="circle" icon={<Icon name="ShoppingCart" />} /></Badge>
           </Space>
         </Header>
         <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => navigateToTopPage(key)} />

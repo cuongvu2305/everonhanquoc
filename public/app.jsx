@@ -112,7 +112,8 @@ function isProductPath() {
 
 function getPolicySlugFromLocation() {
   const path = getCleanPath().replace(/^\//, "");
-  return path.endsWith("-pt.html") ? path.replace(".html", "") : "";
+  if (!path) return "";
+  return path.endsWith("-pt") ? path : "";
 }
 
 function getSearchQueryFromLocation() {
@@ -158,7 +159,7 @@ function navigateToTopPage(key) {
 }
 
 function navigateToPolicy(slug) {
-  navigateToUrl(`/${slug}.html`);
+  navigateToUrl(`/${slug}`);
 }
 
 function getPageFromHash() {
@@ -186,6 +187,22 @@ function parsePrice(value) {
 
 function formatPrice(value) {
   return `${value.toLocaleString("vi-VN")}đ`;
+}
+
+const CART_STORAGE_KEY = "everonhanquoc-cart";
+
+function getStoredCart() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) ?? "[]");
+    if (!Array.isArray(stored)) return [];
+    return stored.filter((item) => typeof item?.slug === "string" && Number(item?.quantity) > 0);
+  } catch {
+    return [];
+  }
+}
+
+function storeCart(cartItems) {
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
 }
 
 async function requestJson(url, fallbackMessage) {
@@ -412,7 +429,7 @@ function PolicyGrid({ policies, labelPolicy }) {
 }
 
 function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCategory, store, langTools }) {
-  const { dict, labelProduct, labelTile, labelPolicy } = langTools;
+  const { dict, labelProduct, labelTile } = langTools;
   const tileCategoryMap = {};
   const openTileCategory = (tileName) => {
     navigateToCategory(tileCategoryMap[tileName] ?? tileName);
@@ -469,8 +486,6 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
           />
         ))}
       </Flex>
-
-      <PolicyGrid policies={store.policies} labelPolicy={labelPolicy} />
     </>
   );
 }
@@ -550,7 +565,7 @@ function SearchPage({ products, query, langTools }) {
   );
 }
 
-function ProductDetailPage({ product, relatedProducts, langTools }) {
+function ProductDetailPage({ product, relatedProducts, langTools, onAddToCart }) {
   const { dict, labelCategory, labelProduct } = langTools;
 
   if (!product) {
@@ -587,7 +602,7 @@ function ProductDetailPage({ product, relatedProducts, langTools }) {
               </Flex>
             </div>
             <Space wrap>
-              <Button type="primary" size="large" icon={<Icon name="ShoppingCart" />}>{dict.addToCart}</Button>
+              <Button type="primary" size="large" icon={<Icon name="ShoppingCart" />} onClick={() => onAddToCart(product)}>{dict.addToCart}</Button>
               <Button size="large" onClick={() => navigateToTopPage("contact")} icon={<Icon name="PhoneCall" />}>{dict.contactConsulting}</Button>
             </Space>
           </Flex>
@@ -727,12 +742,11 @@ function getPolicySummary(slug) {
   return summaries[slug] ?? "";
 }
 
-function CheckoutPage({ products, langTools }) {
+function CheckoutPage({ cartItems, langTools, onRemoveCartItem, onUpdateCartQuantity }) {
   const { dict, labelProduct } = langTools;
   const [form] = Form.useForm();
   const [paymentMethod, setPaymentMethod] = useState("cod");
   const [orderResult, setOrderResult] = useState(null);
-  const cartItems = products.slice(0, 3).map((product, index) => ({ ...product, quantity: index === 0 ? 1 : 2 }));
   const subtotal = cartItems.reduce((sum, item) => sum + parsePrice(item.price) * item.quantity, 0);
   const shippingFee = subtotal > 3000000 ? 0 : 80000;
   const discount = Math.round(subtotal * 0.05);
@@ -743,6 +757,11 @@ function CheckoutPage({ products, langTools }) {
     store: "Đơn hàng đã được giữ tại cửa hàng. Quý khách có thể đến thanh toán và nhận tư vấn trực tiếp.",
   };
   const submitOrder = async () => {
+    if (cartItems.length === 0) {
+      setOrderResult(null);
+      message.error(dict.emptyCart);
+      return;
+    }
     try {
       const values = await form.validateFields();
       setOrderResult({ values, paymentMethod, message: paymentMessages[paymentMethod] });
@@ -780,13 +799,13 @@ function CheckoutPage({ products, langTools }) {
         </Col>
         <Col xs={24} lg={9}>
           <Card className="order-summary" title={dict.orderSummary}>
-            <List itemLayout="horizontal" dataSource={cartItems} renderItem={(item) => <List.Item><List.Item.Meta avatar={<Image className="cart-thumb" preview={false} src={item.image} alt={labelProduct(item)} />} title={labelProduct(item)} description={`${dict.quantity}: ${item.quantity}`} /><Text strong>{formatPrice(parsePrice(item.price) * item.quantity)}</Text></List.Item>} />
+            {cartItems.length === 0 ? <Empty description={dict.emptyCart} /> : <List itemLayout="horizontal" dataSource={cartItems} renderItem={(item) => <List.Item actions={[<Button key={`decrease-${item.slug}`} shape="circle" icon={<Icon name="Minus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity - 1)} />, <Text key={`qty-${item.slug}`}>{item.quantity}</Text>, <Button key={`increase-${item.slug}`} shape="circle" icon={<Icon name="Plus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity + 1)} />, <Button key={`remove-${item.slug}`} danger type="text" icon={<Icon name="Trash2" size={16} />} onClick={() => onRemoveCartItem(item.slug)}>{dict.remove}</Button>]}><List.Item.Meta avatar={<Image className="cart-thumb" preview={false} src={item.image} alt={labelProduct(item)} />} title={labelProduct(item)} description={`${dict.quantity}: ${item.quantity}`} /><Text strong>{formatPrice(parsePrice(item.price) * item.quantity)}</Text></List.Item>} />}
             <Divider />
             <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.subtotal}</Text><Text>{formatPrice(subtotal)}</Text></Flex>
             <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.shippingFee}</Text><Text>{shippingFee === 0 ? dict.freeShipping : formatPrice(shippingFee)}</Text></Flex>
             <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.discount}</Text><Text>-{formatPrice(discount)}</Text></Flex>
             <Flex className="summary-row total-row" align="center" justify="space-between" gap={12}><Text strong>{dict.total}</Text><Text strong>{formatPrice(total)}</Text></Flex>
-            <Button block type="primary" size="large" icon={<Icon name="CheckCircle2" />} onClick={submitOrder}>{dict.placeOrder}</Button>
+            <Button block type="primary" size="large" icon={<Icon name="CheckCircle2" />} onClick={submitOrder} disabled={cartItems.length === 0}>{dict.placeOrder}</Button>
             <Button block onClick={() => navigateToTopPage("retail")} className="continue-shopping">{dict.continueShopping}</Button>
           </Card>
         </Col>
@@ -825,6 +844,7 @@ function App() {
   const [searchText, setSearchText] = useState(getSearchQueryFromLocation());
   const [query, setQuery] = useState(getSearchQueryFromLocation());
   const [buildInfo, setBuildInfo] = useState(null);
+  const [cartEntries, setCartEntries] = useState(() => getStoredCart());
   const { store, loading: storeLoading } = useStorefront("vi");
   const { localeDict, loading: localeLoading } = useLocale("vi");
   const langTools = useI18n("vi", localeDict);
@@ -861,6 +881,10 @@ function App() {
       .catch(() => {});
   }, []);
 
+  useEffect(() => {
+    storeCart(cartEntries);
+  }, [cartEntries]);
+
   const loading = storeLoading || localeLoading;
   const products = store?.products ?? [];
   const filteredProducts = useMemo(() => {
@@ -889,6 +913,32 @@ function App() {
     const relatedProducts = product ? products.filter((item) => (item.category === product.category || item.categories?.includes(product.category)) && item.name !== product.name).slice(0, 3) : [];
     return { product, relatedProducts };
   }, [activePage, activeProductSlug, products, store]);
+  const cartItems = useMemo(() => cartEntries.map((entry) => {
+    const product = products.find((item) => slugifyProduct(item) === entry.slug);
+    return product ? { ...product, slug: entry.slug, quantity: entry.quantity } : null;
+  }).filter(Boolean), [cartEntries, products]);
+  const cartCount = useMemo(() => cartItems.reduce((sum, item) => sum + item.quantity, 0), [cartItems]);
+
+  const addToCart = (product) => {
+    const slug = slugifyProduct(product);
+    setCartEntries((current) => {
+      const existing = current.find((item) => item.slug === slug);
+      if (existing) {
+        return current.map((item) => item.slug === slug ? { ...item, quantity: item.quantity + 1 } : item);
+      }
+      return [...current, { slug, quantity: 1 }];
+    });
+    message.success(dict.addedToCart);
+  };
+
+  const updateCartQuantity = (slug, quantity) => {
+    setCartEntries((current) => quantity <= 0 ? current.filter((item) => item.slug !== slug) : current.map((item) => item.slug === slug ? { ...item, quantity } : item));
+  };
+
+  const removeCartItem = (slug) => {
+    setCartEntries((current) => current.filter((item) => item.slug !== slug));
+    message.success(dict.removedFromCart);
+  };
 
   const submitSearch = () => {
     const nextQuery = searchText.trim();
@@ -909,9 +959,9 @@ function App() {
     if (activePage === "retail") return <RetailPage products={products} langTools={langTools} />;
     if (activePage === "contact") return <ContactPage dict={dict} />;
     if (activePage === "about") return <AboutPage dict={dict} />;
-    if (activePage === "checkout") return <CheckoutPage products={products} langTools={langTools} />;
+    if (activePage === "checkout") return <CheckoutPage cartItems={cartItems} langTools={langTools} onRemoveCartItem={removeCartItem} onUpdateCartQuantity={updateCartQuantity} />;
     if (activePage === "search") return <SearchPage products={products} query={query} langTools={langTools} />;
-    if (activePage === "product") return <ProductDetailPage product={productPage?.product} relatedProducts={productPage?.relatedProducts ?? []} langTools={langTools} />;
+    if (activePage === "product") return <ProductDetailPage product={productPage?.product} relatedProducts={productPage?.relatedProducts ?? []} langTools={langTools} onAddToCart={addToCart} />;
     if (activePage === "policy") return <PolicyPage slug={activePolicySlug} />;
     if (activePage === "category" && categoryPage) return <CategoryPage category={categoryPage.category} products={categoryPage.products} siblingCategories={store.categories} langTools={langTools} />;
     return <HomePage activeCategory={activeCategory} filteredProducts={filteredProducts} menuItems={menuItems} setActiveCategory={setActiveCategory} store={store} langTools={langTools} />;
@@ -953,7 +1003,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             />
-            <Badge count={3}><Button onClick={() => navigateToTopPage("checkout")} shape="circle" icon={<Icon name="ShoppingCart" />} /></Badge>
+            <Badge count={cartCount}><Button onClick={() => navigateToTopPage("checkout")} shape="circle" icon={<Icon name="ShoppingCart" />} /></Badge>
           </Space>
         </Header>
         <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => navigateToTopPage(key)} />
