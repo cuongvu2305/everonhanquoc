@@ -799,7 +799,34 @@ function CheckoutPage({ cartItems, langTools, onRemoveCartItem, onUpdateCartQuan
         </Col>
         <Col xs={24} lg={9}>
           <Card className="order-summary" title={dict.orderSummary}>
-            {cartItems.length === 0 ? <Empty description={dict.emptyCart} /> : <List itemLayout="horizontal" dataSource={cartItems} renderItem={(item) => <List.Item actions={[<Button key={`decrease-${item.slug}`} shape="circle" icon={<Icon name="Minus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity - 1)} />, <Text key={`qty-${item.slug}`}>{item.quantity}</Text>, <Button key={`increase-${item.slug}`} shape="circle" icon={<Icon name="Plus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity + 1)} />, <Button key={`remove-${item.slug}`} danger type="text" icon={<Icon name="Trash2" size={16} />} onClick={() => onRemoveCartItem(item.slug)}>{dict.remove}</Button>]}><List.Item.Meta avatar={<Image className="cart-thumb" preview={false} src={item.image} alt={labelProduct(item)} />} title={labelProduct(item)} description={`${dict.quantity}: ${item.quantity}`} /><Text strong>{formatPrice(parsePrice(item.price) * item.quantity)}</Text></List.Item>} />}
+            {cartItems.length === 0 ? (
+              <Empty description={dict.emptyCart} />
+            ) : (
+              <List
+                className="order-summary-list"
+                dataSource={cartItems}
+                renderItem={(item) => (
+                  <List.Item className="order-summary-item">
+                    <div className="order-item-main">
+                      <Image className="cart-thumb" preview={false} src={item.image} alt={labelProduct(item)} />
+                      <div className="order-item-copy">
+                        <Text strong className="order-item-title">{labelProduct(item)}</Text>
+                        <Text type="secondary">{dict.quantity}: {item.quantity}</Text>
+                      </div>
+                    </div>
+                    <div className="order-item-actions">
+                      <Space size={10} wrap>
+                        <Button shape="circle" icon={<Icon name="Minus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity - 1)} />
+                        <Text className="order-item-qty">{item.quantity}</Text>
+                        <Button shape="circle" icon={<Icon name="Plus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity + 1)} />
+                        <Button danger type="text" icon={<Icon name="Trash2" size={16} />} onClick={() => onRemoveCartItem(item.slug)}>{dict.remove}</Button>
+                      </Space>
+                    </div>
+                    <Text strong className="order-item-total">{formatPrice(parsePrice(item.price) * item.quantity)}</Text>
+                  </List.Item>
+                )}
+              />
+            )}
             <Divider />
             <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.subtotal}</Text><Text>{formatPrice(subtotal)}</Text></Flex>
             <Flex className="summary-row" align="center" justify="space-between" gap={12}><Text>{dict.shippingFee}</Text><Text>{shippingFee === 0 ? dict.freeShipping : formatPrice(shippingFee)}</Text></Flex>
