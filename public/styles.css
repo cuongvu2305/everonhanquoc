@@ -861,6 +861,11 @@ body {
 }
 
 @media (max-width: 991px) {
+  .floating-messenger,
+  .floating-zalo {
+    display: none;
+  }
+
   .site-header {
     display: flex;
     flex-direction: column;
@@ -898,9 +903,7 @@ body {
   }
 
   .nav-bar.ant-menu,
-  .category-sider,
-  .floating-messenger,
-  .floating-zalo {
+  .category-sider {
     display: none;
   }
 
@@ -1060,6 +1063,21 @@ body {
   .product-card h5.ant-typography {
     min-height: 0;
     font-size: 14px;
+  }
+
+  .footer {
+    padding: 22px 14px 88px;
+  }
+
+  .footer-card .ant-card-body,
+  .footer-business-card .ant-card-body {
+    padding: 14px;
+  }
+
+  .footer-quick-list .ant-list-item:nth-child(n + 3),
+  .footer-company-card .footer-divider,
+  .footer-company-card .footer-business-card {
+    display: none;
   }
 
   .price {
