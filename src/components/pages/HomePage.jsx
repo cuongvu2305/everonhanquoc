@@ -19,13 +19,13 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
   const productsByCategory = (category) => store.products.filter((product) => product.category === category || product.categories?.includes(category));
   return (
     <>
-      <Card className="hero hero-compact">
-        <Flex vertical align="flex-start" gap={10}>
+      <section className="home-hero">
+        <div className="home-hero-copy">
           <Tag color="#d71920">{dict.heroTag}</Tag>
           <Title level={1}>{dict.heroTitle}</Title>
           <Paragraph>{dict.heroText}</Paragraph>
-        </Flex>
-      </Card>
+        </div>
+      </section>
 
       <section className="home-category-entry">
         <div className="home-category-entry-track">
@@ -47,9 +47,9 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
               <div className="category-card-icon category-entry-card-icon" aria-hidden="true">
                 <Icon name={tile.iconName} size={42} />
               </div>
-              <Button type="link" className="category-card-title" onClick={(event) => { event.stopPropagation(); openTileCategory(tile.name); }}>
+              <div className="category-card-title">
                 {labelTile(tile)}
-              </Button>
+              </div>
             </Card>
           ))}
         </div>

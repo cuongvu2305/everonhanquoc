@@ -8,14 +8,14 @@ function ProductCarousel({ title, products, labelProduct, emptyText, onViewAll }
 
   return (
     <Card className="product-carousel-section">
-      <Flex className="product-carousel-header" align="center" justify="space-between" gap={12}>
-        <Title level={4}>{title}</Title>
-        <Space>
+      <div className="product-carousel-header">
+        <Title level={4} className="product-carousel-title">{title}</Title>
+        <Space className="product-carousel-actions" wrap>
           {onViewAll ? <Button size="small" onClick={onViewAll}>{dictViewAllLabel()}</Button> : null}
           <Button aria-label={`Xem sản phẩm trước trong ${title}`} icon={<Icon name="ChevronLeft" />} onClick={() => scrollProducts(-1)} />
           <Button aria-label={`Xem sản phẩm tiếp trong ${title}`} icon={<Icon name="ChevronRight" />} onClick={() => scrollProducts(1)} />
         </Space>
-      </Flex>
+      </div>
       {products.length === 0 ? (
         <Empty description={emptyText} />
       ) : (

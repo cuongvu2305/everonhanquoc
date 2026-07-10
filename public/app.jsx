@@ -465,7 +465,7 @@ function ProductGrid({ products, labelProduct, emptyText, paginated = false, pag
     <>
       <Row gutter={[16, 16]}>
         {visibleProducts.map((product) => (
-          <Col xs={12} sm={12} lg={8} xl={8} key={product.sourceUrl || product.name}>
+          <Col xs={24} sm={12} lg={8} xl={8} key={product.sourceUrl || product.name}>
             <ProductCard product={product} labelProduct={labelProduct} />
           </Col>
         ))}
@@ -489,14 +489,14 @@ function ProductCarousel({ title, products, labelProduct, emptyText, onViewAll }
 
   return (
     <Card className="product-carousel-section">
-      <Flex className="product-carousel-header" align="center" justify="space-between" gap={12}>
-        <Title level={4}>{title}</Title>
-        <Space>
+      <div className="product-carousel-header">
+        <Title level={4} className="product-carousel-title">{title}</Title>
+        <Space className="product-carousel-actions" wrap>
           {onViewAll ? <Button size="small" onClick={onViewAll}>{dictViewAllLabel()}</Button> : null}
           <Button aria-label={`Xem sản phẩm trước trong ${title}`} icon={<Icon name="ChevronLeft" />} onClick={() => scrollProducts(-1)} />
           <Button aria-label={`Xem sản phẩm tiếp trong ${title}`} icon={<Icon name="ChevronRight" />} onClick={() => scrollProducts(1)} />
         </Space>
-      </Flex>
+      </div>
       {products.length === 0 ? (
         <Empty description={emptyText} />
       ) : (
@@ -545,13 +545,13 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
   const productsByCategory = (category) => store.products.filter((product) => product.category === category || product.categories?.includes(category));
   return (
     <>
-      <Card className="hero hero-compact">
-        <Flex vertical align="flex-start" gap={10}>
+      <section className="home-hero">
+        <div className="home-hero-copy">
           <Tag color="#d71920">{dict.heroTag}</Tag>
           <Title level={1}>{dict.heroTitle}</Title>
           <Paragraph>{dict.heroText}</Paragraph>
-        </Flex>
-      </Card>
+        </div>
+      </section>
 
       <section className="home-category-entry">
         <div className="home-category-entry-track">
@@ -573,9 +573,9 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
               <div className="category-card-icon category-entry-card-icon" aria-hidden="true">
                 <Icon name={tile.iconName} size={42} />
               </div>
-              <Button type="link" className="category-card-title" onClick={(event) => { event.stopPropagation(); openTileCategory(tile.name); }}>
+              <div className="category-card-title">
                 {labelTile(tile)}
-              </Button>
+              </div>
             </Card>
           ))}
         </div>

@@ -6,7 +6,7 @@ function ProductGrid({ products, labelProduct, emptyText, paginated = false, pag
     <>
       <Row gutter={[16, 16]}>
         {visibleProducts.map((product) => (
-          <Col xs={12} sm={12} lg={8} xl={8} key={product.sourceUrl || product.name}>
+          <Col xs={24} sm={12} lg={8} xl={8} key={product.sourceUrl || product.name}>
             <ProductCard product={product} labelProduct={labelProduct} />
           </Col>
         ))}

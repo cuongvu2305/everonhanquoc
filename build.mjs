@@ -16,6 +16,8 @@ const frontendParts = [
   "src/hooks/use-storefront.jsx",
   "src/components/product/ProductCard.jsx",
   "src/components/layout/PageHeader.jsx",
+  "src/components/layout/SiteHeader.jsx",
+  "src/components/layout/MobileNavDrawer.jsx",
   "src/components/product/ProductGrid.jsx",
   "src/components/product/ProductCarousel.jsx",
   "src/components/product/PolicyGrid.jsx",
