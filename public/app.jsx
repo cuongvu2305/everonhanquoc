@@ -1235,6 +1235,9 @@ function App() {
               </Card>
             </Col>
           </Row>
+          {(buildInfo?.releaseTag || buildInfo?.tag) && (
+            <Text className="build-tag">{buildInfo.releaseTag || buildInfo.tag}</Text>
+          )}
           <Button className="floating-chat floating-messenger" shape="circle" href="https://www.facebook.com/everondongda/" target="_blank" rel="noopener noreferrer" icon={<BrandIcon name="facebook" />} />
           <Button className="floating-hotline" type="primary" href="tel:0966452111">0966.452.111</Button>
           <Button className="floating-zalo" shape="circle" href="https://zalo.me/0966452111" target="_blank" rel="noopener noreferrer">Zalo</Button>
