@@ -436,7 +436,7 @@ function MobileNavDrawer({
   ];
 
   return (
-    <Drawer className="mobile-nav-drawer" placement="left" open={open} onClose={onClose} title="Điều hướng" width={320}>
+    <Drawer className="mobile-nav-drawer" placement="left" open={open} onClose={onClose} width={320}>
       <Menu
         className="mobile-top-nav"
         mode="inline"
@@ -457,10 +457,22 @@ function MobileNavDrawer({
   );
 }
 
-function ProductGrid({ products, labelProduct, emptyText, paginated = false, pageSize = 9 }) {
+function ProductGrid({ products, labelProduct, emptyText, paginated = false, pageSize = 10 }) {
   const [currentPage, setCurrentPage] = useState(1);
+  const productListKey = products.map((product) => product.sourceUrl || product.name).join("|");
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [productListKey, pageSize]);
+
   if (products.length === 0) return <Empty description={emptyText} />;
   const visibleProducts = paginated ? products.slice((currentPage - 1) * pageSize, currentPage * pageSize) : products;
+  const renderPaginationItem = (page, type, originalElement) => {
+    if (type === "prev" || type === "next") return originalElement;
+    if (type === "page" && page === currentPage) return originalElement;
+    return null;
+  };
+
   return (
     <>
       <Row gutter={[16, 16]}>
@@ -472,7 +484,14 @@ function ProductGrid({ products, labelProduct, emptyText, paginated = false, pag
       </Row>
       {paginated && products.length > pageSize ? (
         <Flex className="product-pagination" justify="center">
-          <Pagination current={currentPage} pageSize={pageSize} total={products.length} showSizeChanger={false} onChange={setCurrentPage} />
+          <Pagination
+            current={currentPage}
+            pageSize={pageSize}
+            total={products.length}
+            showSizeChanger={false}
+            itemRender={renderPaginationItem}
+            onChange={setCurrentPage}
+          />
         </Flex>
       ) : null}
     </>
@@ -619,12 +638,12 @@ function NewsPage({ dict }) {
 
 function SalePage({ products, langTools }) {
   const { dict, labelProduct } = langTools;
-  return <Card className="section-panel page-panel"><PageHeader icon="BadgePercent" title={dict.saleTitle} description={dict.saleDesc} /><ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} /></Card>;
+  return <Card className="section-panel page-panel"><PageHeader icon="BadgePercent" title={dict.saleTitle} description={dict.saleDesc} /><ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} paginated /></Card>;
 }
 
 function RetailPage({ products, langTools }) {
   const { dict, labelProduct } = langTools;
-  return <Card className="section-panel page-panel"><PageHeader icon="PackageOpen" title={dict.retailTitle} description={dict.retailDesc} /><ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} /></Card>;
+  return <Card className="section-panel page-panel"><PageHeader icon="PackageOpen" title={dict.retailTitle} description={dict.retailDesc} /><ProductGrid products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} paginated /></Card>;
 }
 
 function CategoryPage({ category, products, siblingCategories, langTools }) {
@@ -646,7 +665,7 @@ function CategoryPage({ category, products, siblingCategories, langTools }) {
           </Space>
         }
       />
-      <ProductGrid key={category} products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} paginated pageSize={9} />
+      <ProductGrid key={category} products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} paginated />
       {relatedCategories.length > 0 ? (
         <Flex className="related-categories" vertical>
           <Title level={4}>{dict.relatedCategories}</Title>
@@ -681,7 +700,7 @@ function SearchPage({ products, query, langTools }) {
           </Space>
         }
       />
-      <ProductGrid products={results} labelProduct={labelProduct} emptyText={dict.emptySearchResults} />
+      <ProductGrid products={results} labelProduct={labelProduct} emptyText={dict.emptySearchResults} paginated />
     </Card>
   );
 }

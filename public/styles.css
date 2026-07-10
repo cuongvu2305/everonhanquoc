@@ -652,6 +652,12 @@ body {
   margin-top: 22px;
 }
 
+.product-pagination .ant-pagination-item:empty,
+.product-pagination .ant-pagination-jump-next,
+.product-pagination .ant-pagination-jump-prev {
+  display: none;
+}
+
 .product-detail-page .ant-card-body {
   padding: 24px;
 }
