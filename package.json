@@ -1,11 +1,12 @@
 {
   "name": "everonhanquoc",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "python3 backend/app.py",
     "build": "node build.mjs",
+    "version:set": "node scripts/set-version.mjs",
     "backend": "python3 backend/app.py",
     "deploy:firebase": "npm run build && npx firebase-tools deploy --only hosting"
   },

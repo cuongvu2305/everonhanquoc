@@ -5,6 +5,7 @@ import { execSync } from "node:child_process";
 const appRuntime = new URL("./public/app.jsx", import.meta.url);
 const storefrontDataUrl = new URL("./backend/data/storefront.json", import.meta.url);
 const buildInfoUrl = new URL("./public/build-info.json", import.meta.url);
+const versionUrl = new URL("./VERSION", import.meta.url);
 const frontendParts = [
   "src/app/globals.jsx",
   "src/lib/antd-theme.jsx",
@@ -53,14 +54,21 @@ await cp(new URL("./public/index.html", import.meta.url), new URL("./public/prod
 const storefrontData = JSON.parse(await readFile(storefrontDataUrl, "utf8"));
 const storefrontJson = JSON.stringify(storefrontData);
 const builtAt = new Date();
+const appVersion = (await readFile(versionUrl, "utf8")).trim();
 let commit = "local";
 try {
   commit = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
 } catch {
   commit = "local";
 }
+const releaseInput = process.env.GIT_TAG || process.env.RELEASE_VERSION || "";
+const releaseTag = releaseInput && releaseInput !== "unknown"
+  ? releaseInput.replace(/^v?/, "v")
+  : `dev-${commit}`;
 const buildInfo = {
-  tag: `build-${builtAt.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z")}-${commit}`,
+  version: appVersion,
+  releaseTag,
+  tag: releaseTag,
   builtAt: builtAt.toISOString(),
   commit,
 };

@@ -1161,6 +1161,39 @@ body {
     flex: none;
   }
 
+  .content-area > .page-hero,
+  .content-area > .section-panel,
+  .content-area > .ant-row,
+  .content-area > .checkout-steps,
+  .content-area > .checkout-grid {
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+    min-width: 0;
+    flex: none;
+  }
+
+  .content-area > .ant-row,
+  .checkout-grid,
+  .section-panel .ant-row,
+  .product-detail-page .ant-row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .content-card,
+  .checkout-card,
+  .order-summary,
+  .page-hero,
+  .section-panel,
+  .policy-section-card,
+  .product-detail-page,
+  .product-detail-info {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
   .product-carousel-section .ant-card-body {
     width: 100%;
     min-width: 0;
@@ -1268,6 +1301,15 @@ body {
   .home-category-entry,
   .home-product-sections,
   .product-carousel-section.ant-card {
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+  }
+
+  .content-area > .page-hero,
+  .content-area > .section-panel,
+  .content-area > .ant-row,
+  .content-area > .checkout-steps,
+  .content-area > .checkout-grid {
     width: calc(100vw - 24px);
     max-width: calc(100vw - 24px);
   }
