@@ -63,7 +63,7 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
             products={productsByCategory(tile.name)}
             labelProduct={labelProduct}
             emptyText={dict.emptyCategory}
-            onViewAll={() => openTileCategory(tile.name)}
+            onTitleClick={() => openTileCategory(tile.name)}
           />
         ))}
       </Flex>

@@ -145,7 +145,11 @@ function App() {
     if (activePage === "category" && categoryPage) return <CategoryPage category={categoryPage.category} products={categoryPage.products} siblingCategories={store.categories} langTools={langTools} />;
     return <HomePage activeCategory={activeCategory} filteredProducts={filteredProducts} menuItems={menuItems} setActiveCategory={setActiveCategory} store={store} langTools={langTools} />;
   };
-  const footerPolicies = policyPages.map((item) => ({ label: item.title, slug: item.slug }));
+  const footerPolicies = policyPages.map((item) => ({
+    label: item.title,
+    slug: item.slug,
+    active: activePage === "policy" && activePolicySlug === item.slug,
+  }));
   const footerContacts = [
     { icon: "MapPin", text: "Địa chỉ: 234 Tôn Đức Thắng, Q. Đống Đa, Tp. Hà Nội" },
     { icon: "PhoneCall", text: "Hotline: 024.3999.4555 - 0966.452.111" },
@@ -153,24 +157,24 @@ function App() {
     { icon: "Globe", text: "Website: http://everonlongbien.com.vn/" },
   ];
   const footerQuickLinks = [
-    { icon: <BrandIcon name="facebook" />, label: "Facebook", href: "https://www.facebook.com/everondongda/" },
-    { icon: <Icon name="MapPinned" />, label: "Xem chỉ đường", href: "https://www.google.com/maps/search/?api=1&query=234%20T%C3%B4n%20%C4%90%E1%BB%A9c%20Th%E1%BA%AFng%20%C4%90%E1%BB%91ng%20%C4%90a%20H%C3%A0%20N%E1%BB%99i" },
-    { icon: <Icon name="Store" />, label: "Hệ thống đại lý", action: () => navigateToTopPage("retail") },
+    { label: "Facebook", href: "https://www.facebook.com/everondongda/" },
+    { label: "Map", href: "https://www.google.com/maps/search/?api=1&query=234%20T%C3%B4n%20%C4%90%E1%BB%A9c%20Th%E1%BA%AFng%20%C4%90%E1%BB%91ng%20%C4%90a%20H%C3%A0%20N%E1%BB%99i" },
   ];
 
   return (
     <ConfigProvider theme={globalTheme}>
       <Layout className="app-shell">
         <Flex className="top-strip" align="center" justify="space-between" gap={18}><Space><Icon name="MapPin" /><Text>{dict.address}</Text></Space><Text strong><Icon name="Phone" /> {dict.hotline}</Text></Flex>
-        <SiteHeader
-          dict={dict}
-          cartCount={cartCount}
-          searchText={searchText}
-          setSearchText={setSearchText}
-          submitSearch={submitSearch}
-          onOpenMobileNav={() => setMobileNavOpen(true)}
-        />
-        <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => navigateToTopPage(key)} />
+        <div className="sticky-navigation">
+          <SiteHeader
+            dict={dict}
+            searchText={searchText}
+            setSearchText={setSearchText}
+            submitSearch={submitSearch}
+            onOpenMobileNav={() => setMobileNavOpen(true)}
+          />
+          <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => navigateToTopPage(key)} />
+        </div>
         <MobileNavDrawer
           open={mobileNavOpen}
           onClose={() => setMobileNavOpen(false)}
@@ -219,7 +223,17 @@ function App() {
             <Col xs={24} md={12} lg={7}>
               <Card className="footer-card" bordered={false}>
                 <Title level={4}>CHÍNH SÁCH BÁN HÀNG</Title>
-                <List className="footer-policy-list" dataSource={footerPolicies} renderItem={(item) => <List.Item><Button type="link" icon={<Icon name="ChevronRight" />} onClick={() => navigateToPolicy(item.slug)}>{item.label}</Button></List.Item>} />
+                <List
+                  className="footer-policy-list"
+                  dataSource={footerPolicies}
+                  renderItem={(item) => (
+                    <List.Item className={item.active ? "is-active" : ""}>
+                      <Button className="footer-policy-button" type="text" onClick={() => navigateToPolicy(item.slug)}>
+                        {item.label}
+                      </Button>
+                    </List.Item>
+                  )}
+                />
               </Card>
             </Col>
             <Col xs={24} md={12} lg={7}>
@@ -230,7 +244,7 @@ function App() {
                   dataSource={footerQuickLinks}
                   renderItem={(item) => (
                     <List.Item>
-                      <Button className="footer-quick-button" href={item.href} target={item.href ? "_blank" : undefined} rel={item.href ? "noopener noreferrer" : undefined} onClick={item.action} icon={item.icon}>
+                      <Button className="footer-quick-button" href={item.href} target={item.href ? "_blank" : undefined} rel={item.href ? "noopener noreferrer" : undefined} onClick={item.action}>
                         {item.label}
                       </Button>
                     </List.Item>
@@ -245,9 +259,16 @@ function App() {
           {(buildInfo?.releaseTag || buildInfo?.tag) && (
             <Text className="build-tag">{buildInfo.releaseTag || buildInfo.tag}</Text>
           )}
-          <Button className="floating-chat floating-messenger" shape="circle" href="https://www.facebook.com/everondongda/" target="_blank" rel="noopener noreferrer" icon={<BrandIcon name="facebook" />} />
+          <Button className="floating-chat floating-messenger" shape="circle" href="https://www.messenger.com/t/441239679606397/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0" target="_blank" rel="noopener noreferrer">
+            <img src="/assets/messenger-logo.png" alt="" aria-hidden="true" />
+          </Button>
+          <Badge className="floating-cart-badge" count={cartCount}>
+            <Button className="floating-cart" shape="circle" onClick={() => navigateToTopPage("checkout")} icon={<Icon name="ShoppingCart" />} />
+          </Badge>
           <Button className="floating-hotline" type="primary" href="tel:0966452111">0966.452.111</Button>
-          <Button className="floating-zalo" shape="circle" href="https://zalo.me/0966452111" target="_blank" rel="noopener noreferrer">Zalo</Button>
+          <Button className="floating-zalo" shape="circle" href="https://zalo.me/0966452111" target="_blank" rel="noopener noreferrer">
+            <img src="/assets/zalo-logo.png" alt="" aria-hidden="true" />
+          </Button>
         </Footer>
       </Layout>
     </ConfigProvider>

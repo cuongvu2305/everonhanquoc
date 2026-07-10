@@ -25,6 +25,16 @@ function BrandIcon({ name }) {
     );
   }
 
+  if (name === "messenger") {
+    return (
+      <span className="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M12 2C6.5 2 2.2 6 2.2 11.3c0 2.8 1.2 5.2 3.2 6.9V22l3.5-1.9c1 .3 2 .5 3.1.5 5.5 0 9.8-4 9.8-9.3S17.5 2 12 2Zm1 12.5-2.5-2.7-5 2.7 5.5-5.9 2.6 2.7 4.9-2.7-5.5 5.9Z" />
+        </svg>
+      </span>
+    );
+  }
+
   return (
     <span className="brand-icon" aria-hidden="true">
       <svg viewBox="0 0 24 24" focusable="false">
@@ -33,4 +43,3 @@ function BrandIcon({ name }) {
     </span>
   );
 }
-

@@ -1,4 +1,4 @@
-function ProductGrid({ products, labelProduct, emptyText, paginated = false, pageSize = 10 }) {
+function ProductGrid({ products, labelProduct, emptyText, paginated = false, pageSize = 9 }) {
   const [currentPage, setCurrentPage] = useState(1);
   const productListKey = products.map((product) => product.sourceUrl || product.name).join("|");
 
@@ -8,11 +8,8 @@ function ProductGrid({ products, labelProduct, emptyText, paginated = false, pag
 
   if (products.length === 0) return <Empty description={emptyText} />;
   const visibleProducts = paginated ? products.slice((currentPage - 1) * pageSize, currentPage * pageSize) : products;
-  const renderPaginationItem = (page, type, originalElement) => {
-    if (type === "prev" || type === "next") return originalElement;
-    if (type === "page" && page === currentPage) return originalElement;
-    return null;
-  };
+  const placeholders = paginated && visibleProducts.length < pageSize ? Array.from({ length: pageSize - visibleProducts.length }) : [];
+  const placeholderProduct = visibleProducts[0] || products[0];
 
   return (
     <>
@@ -22,6 +19,13 @@ function ProductGrid({ products, labelProduct, emptyText, paginated = false, pag
             <ProductCard product={product} labelProduct={labelProduct} />
           </Col>
         ))}
+        {placeholderProduct ? placeholders.map((_, index) => (
+          <Col xs={24} sm={12} lg={8} xl={8} key={`placeholder-${index}`}>
+            <div className="product-grid-placeholder" aria-hidden="true">
+              <ProductCard product={placeholderProduct} labelProduct={labelProduct} />
+            </div>
+          </Col>
+        )) : null}
       </Row>
       {paginated && products.length > pageSize ? (
         <Flex className="product-pagination" justify="center">
@@ -29,8 +33,8 @@ function ProductGrid({ products, labelProduct, emptyText, paginated = false, pag
             current={currentPage}
             pageSize={pageSize}
             total={products.length}
+            simple
             showSizeChanger={false}
-            itemRender={renderPaginationItem}
             onChange={setCurrentPage}
           />
         </Flex>

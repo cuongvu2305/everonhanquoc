@@ -1,6 +1,5 @@
 function SiteHeader({
   dict,
-  cartCount,
   searchText,
   setSearchText,
   submitSearch,
@@ -19,11 +18,6 @@ function SiteHeader({
         <Button className="brand" type="link" onClick={() => navigateToTopPage("home")} aria-label="Everon Hàn Quốc">
           <Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" />
         </Button>
-        <Space className="header-actions header-actions-compact">
-          <Badge count={cartCount}>
-            <Button onClick={() => navigateToTopPage("checkout")} shape="circle" icon={<Icon name="ShoppingCart" />} />
-          </Badge>
-        </Space>
       </div>
       <Input
         className="search-box"

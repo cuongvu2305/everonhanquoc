@@ -250,6 +250,16 @@ function BrandIcon({ name }) {
     );
   }
 
+  if (name === "messenger") {
+    return (
+      <span className="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M12 2C6.5 2 2.2 6 2.2 11.3c0 2.8 1.2 5.2 3.2 6.9V22l3.5-1.9c1 .3 2 .5 3.1.5 5.5 0 9.8-4 9.8-9.3S17.5 2 12 2Zm1 12.5-2.5-2.7-5 2.7 5.5-5.9 2.6 2.7 4.9-2.7-5.5 5.9Z" />
+        </svg>
+      </span>
+    );
+  }
+
   return (
     <span className="brand-icon" aria-hidden="true">
       <svg viewBox="0 0 24 24" focusable="false">
@@ -367,7 +377,6 @@ function PageHeader({ icon, title, description, extra }) {
 
 function SiteHeader({
   dict,
-  cartCount,
   searchText,
   setSearchText,
   submitSearch,
@@ -386,11 +395,6 @@ function SiteHeader({
         <Button className="brand" type="link" onClick={() => navigateToTopPage("home")} aria-label="Everon Hàn Quốc">
           <Image preview={false} src="/assets/logo-everon.png" alt="Everon Hàn Quốc" />
         </Button>
-        <Space className="header-actions header-actions-compact">
-          <Badge count={cartCount}>
-            <Button onClick={() => navigateToTopPage("checkout")} shape="circle" icon={<Icon name="ShoppingCart" />} />
-          </Badge>
-        </Space>
       </div>
       <Input
         className="search-box"
@@ -436,7 +440,7 @@ function MobileNavDrawer({
   ];
 
   return (
-    <Drawer className="mobile-nav-drawer" placement="left" open={open} onClose={onClose} width={320}>
+    <Drawer className="mobile-nav-drawer" placement="left" open={open} onClose={onClose} title="Điều hướng" width={320}>
       <Menu
         className="mobile-top-nav"
         mode="inline"
@@ -457,7 +461,7 @@ function MobileNavDrawer({
   );
 }
 
-function ProductGrid({ products, labelProduct, emptyText, paginated = false, pageSize = 10 }) {
+function ProductGrid({ products, labelProduct, emptyText, paginated = false, pageSize = 9 }) {
   const [currentPage, setCurrentPage] = useState(1);
   const productListKey = products.map((product) => product.sourceUrl || product.name).join("|");
 
@@ -467,11 +471,8 @@ function ProductGrid({ products, labelProduct, emptyText, paginated = false, pag
 
   if (products.length === 0) return <Empty description={emptyText} />;
   const visibleProducts = paginated ? products.slice((currentPage - 1) * pageSize, currentPage * pageSize) : products;
-  const renderPaginationItem = (page, type, originalElement) => {
-    if (type === "prev" || type === "next") return originalElement;
-    if (type === "page" && page === currentPage) return originalElement;
-    return null;
-  };
+  const placeholders = paginated && visibleProducts.length < pageSize ? Array.from({ length: pageSize - visibleProducts.length }) : [];
+  const placeholderProduct = visibleProducts[0] || products[0];
 
   return (
     <>
@@ -481,6 +482,13 @@ function ProductGrid({ products, labelProduct, emptyText, paginated = false, pag
             <ProductCard product={product} labelProduct={labelProduct} />
           </Col>
         ))}
+        {placeholderProduct ? placeholders.map((_, index) => (
+          <Col xs={24} sm={12} lg={8} xl={8} key={`placeholder-${index}`}>
+            <div className="product-grid-placeholder" aria-hidden="true">
+              <ProductCard product={placeholderProduct} labelProduct={labelProduct} />
+            </div>
+          </Col>
+        )) : null}
       </Row>
       {paginated && products.length > pageSize ? (
         <Flex className="product-pagination" justify="center">
@@ -488,8 +496,8 @@ function ProductGrid({ products, labelProduct, emptyText, paginated = false, pag
             current={currentPage}
             pageSize={pageSize}
             total={products.length}
+            simple
             showSizeChanger={false}
-            itemRender={renderPaginationItem}
             onChange={setCurrentPage}
           />
         </Flex>
@@ -498,7 +506,7 @@ function ProductGrid({ products, labelProduct, emptyText, paginated = false, pag
   );
 }
 
-function ProductCarousel({ title, products, labelProduct, emptyText, onViewAll }) {
+function ProductCarousel({ title, products, labelProduct, emptyText, onTitleClick }) {
   const scrollerRef = useRef(null);
   const scrollProducts = (direction) => {
     const node = scrollerRef.current;
@@ -509,30 +517,29 @@ function ProductCarousel({ title, products, labelProduct, emptyText, onViewAll }
   return (
     <Card className="product-carousel-section">
       <div className="product-carousel-header">
-        <Title level={4} className="product-carousel-title">{title}</Title>
-        <Space className="product-carousel-actions" wrap>
-          {onViewAll ? <Button size="small" onClick={onViewAll}>{dictViewAllLabel()}</Button> : null}
-          <Button aria-label={`Xem sản phẩm trước trong ${title}`} icon={<Icon name="ChevronLeft" />} onClick={() => scrollProducts(-1)} />
-          <Button aria-label={`Xem sản phẩm tiếp trong ${title}`} icon={<Icon name="ChevronRight" />} onClick={() => scrollProducts(1)} />
-        </Space>
+        <button className="product-carousel-title-button" type="button" onClick={onTitleClick}>
+          <span className="product-carousel-title">{title}</span>
+        </button>
       </div>
       {products.length === 0 ? (
         <Empty description={emptyText} />
       ) : (
-        <div className="product-carousel-track" ref={scrollerRef}>
-          {products.map((product) => (
-            <div className="product-carousel-item" key={product.sourceUrl || product.name}>
-              <ProductCard product={product} labelProduct={labelProduct} />
-            </div>
-          ))}
-        </div>
+        <>
+          <div className="product-carousel-track" ref={scrollerRef}>
+            {products.map((product) => (
+              <div className="product-carousel-item" key={product.sourceUrl || product.name}>
+                <ProductCard product={product} labelProduct={labelProduct} />
+              </div>
+            ))}
+          </div>
+          <Space className="product-carousel-actions" wrap>
+            <Button aria-label={`Xem sản phẩm trước trong ${title}`} icon={<Icon name="ChevronLeft" />} onClick={() => scrollProducts(-1)} />
+            <Button aria-label={`Xem sản phẩm tiếp trong ${title}`} icon={<Icon name="ChevronRight" />} onClick={() => scrollProducts(1)} />
+          </Space>
+        </>
       )}
     </Card>
   );
-}
-
-function dictViewAllLabel() {
-  return "Xem tất cả";
 }
 
 function PolicyGrid({ policies, labelPolicy }) {
@@ -608,7 +615,7 @@ function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCatego
             products={productsByCategory(tile.name)}
             labelProduct={labelProduct}
             emptyText={dict.emptyCategory}
-            onViewAll={() => openTileCategory(tile.name)}
+            onTitleClick={() => openTileCategory(tile.name)}
           />
         ))}
       </Flex>
@@ -1157,7 +1164,11 @@ function App() {
     if (activePage === "category" && categoryPage) return <CategoryPage category={categoryPage.category} products={categoryPage.products} siblingCategories={store.categories} langTools={langTools} />;
     return <HomePage activeCategory={activeCategory} filteredProducts={filteredProducts} menuItems={menuItems} setActiveCategory={setActiveCategory} store={store} langTools={langTools} />;
   };
-  const footerPolicies = policyPages.map((item) => ({ label: item.title, slug: item.slug }));
+  const footerPolicies = policyPages.map((item) => ({
+    label: item.title,
+    slug: item.slug,
+    active: activePage === "policy" && activePolicySlug === item.slug,
+  }));
   const footerContacts = [
     { icon: "MapPin", text: "Địa chỉ: 234 Tôn Đức Thắng, Q. Đống Đa, Tp. Hà Nội" },
     { icon: "PhoneCall", text: "Hotline: 024.3999.4555 - 0966.452.111" },
@@ -1165,24 +1176,24 @@ function App() {
     { icon: "Globe", text: "Website: http://everonlongbien.com.vn/" },
   ];
   const footerQuickLinks = [
-    { icon: <BrandIcon name="facebook" />, label: "Facebook", href: "https://www.facebook.com/everondongda/" },
-    { icon: <Icon name="MapPinned" />, label: "Xem chỉ đường", href: "https://www.google.com/maps/search/?api=1&query=234%20T%C3%B4n%20%C4%90%E1%BB%A9c%20Th%E1%BA%AFng%20%C4%90%E1%BB%91ng%20%C4%90a%20H%C3%A0%20N%E1%BB%99i" },
-    { icon: <Icon name="Store" />, label: "Hệ thống đại lý", action: () => navigateToTopPage("retail") },
+    { label: "Facebook", href: "https://www.facebook.com/everondongda/" },
+    { label: "Map", href: "https://www.google.com/maps/search/?api=1&query=234%20T%C3%B4n%20%C4%90%E1%BB%A9c%20Th%E1%BA%AFng%20%C4%90%E1%BB%91ng%20%C4%90a%20H%C3%A0%20N%E1%BB%99i" },
   ];
 
   return (
     <ConfigProvider theme={globalTheme}>
       <Layout className="app-shell">
         <Flex className="top-strip" align="center" justify="space-between" gap={18}><Space><Icon name="MapPin" /><Text>{dict.address}</Text></Space><Text strong><Icon name="Phone" /> {dict.hotline}</Text></Flex>
-        <SiteHeader
-          dict={dict}
-          cartCount={cartCount}
-          searchText={searchText}
-          setSearchText={setSearchText}
-          submitSearch={submitSearch}
-          onOpenMobileNav={() => setMobileNavOpen(true)}
-        />
-        <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => navigateToTopPage(key)} />
+        <div className="sticky-navigation">
+          <SiteHeader
+            dict={dict}
+            searchText={searchText}
+            setSearchText={setSearchText}
+            submitSearch={submitSearch}
+            onOpenMobileNav={() => setMobileNavOpen(true)}
+          />
+          <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => navigateToTopPage(key)} />
+        </div>
         <MobileNavDrawer
           open={mobileNavOpen}
           onClose={() => setMobileNavOpen(false)}
@@ -1231,7 +1242,17 @@ function App() {
             <Col xs={24} md={12} lg={7}>
               <Card className="footer-card" bordered={false}>
                 <Title level={4}>CHÍNH SÁCH BÁN HÀNG</Title>
-                <List className="footer-policy-list" dataSource={footerPolicies} renderItem={(item) => <List.Item><Button type="link" icon={<Icon name="ChevronRight" />} onClick={() => navigateToPolicy(item.slug)}>{item.label}</Button></List.Item>} />
+                <List
+                  className="footer-policy-list"
+                  dataSource={footerPolicies}
+                  renderItem={(item) => (
+                    <List.Item className={item.active ? "is-active" : ""}>
+                      <Button className="footer-policy-button" type="text" onClick={() => navigateToPolicy(item.slug)}>
+                        {item.label}
+                      </Button>
+                    </List.Item>
+                  )}
+                />
               </Card>
             </Col>
             <Col xs={24} md={12} lg={7}>
@@ -1242,7 +1263,7 @@ function App() {
                   dataSource={footerQuickLinks}
                   renderItem={(item) => (
                     <List.Item>
-                      <Button className="footer-quick-button" href={item.href} target={item.href ? "_blank" : undefined} rel={item.href ? "noopener noreferrer" : undefined} onClick={item.action} icon={item.icon}>
+                      <Button className="footer-quick-button" href={item.href} target={item.href ? "_blank" : undefined} rel={item.href ? "noopener noreferrer" : undefined} onClick={item.action}>
                         {item.label}
                       </Button>
                     </List.Item>
@@ -1257,9 +1278,16 @@ function App() {
           {(buildInfo?.releaseTag || buildInfo?.tag) && (
             <Text className="build-tag">{buildInfo.releaseTag || buildInfo.tag}</Text>
           )}
-          <Button className="floating-chat floating-messenger" shape="circle" href="https://www.facebook.com/everondongda/" target="_blank" rel="noopener noreferrer" icon={<BrandIcon name="facebook" />} />
+          <Button className="floating-chat floating-messenger" shape="circle" href="https://www.messenger.com/t/441239679606397/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0" target="_blank" rel="noopener noreferrer">
+            <img src="/assets/messenger-logo.png" alt="" aria-hidden="true" />
+          </Button>
+          <Badge className="floating-cart-badge" count={cartCount}>
+            <Button className="floating-cart" shape="circle" onClick={() => navigateToTopPage("checkout")} icon={<Icon name="ShoppingCart" />} />
+          </Badge>
           <Button className="floating-hotline" type="primary" href="tel:0966452111">0966.452.111</Button>
-          <Button className="floating-zalo" shape="circle" href="https://zalo.me/0966452111" target="_blank" rel="noopener noreferrer">Zalo</Button>
+          <Button className="floating-zalo" shape="circle" href="https://zalo.me/0966452111" target="_blank" rel="noopener noreferrer">
+            <img src="/assets/zalo-logo.png" alt="" aria-hidden="true" />
+          </Button>
         </Footer>
       </Layout>
     </ConfigProvider>
