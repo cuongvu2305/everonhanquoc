@@ -1,4 +1,7 @@
-function useStorefront() {
+import { message, useEffect, useState } from "../app/globals.jsx";
+import { storefrontService } from "../services/api/storefront.service.jsx";
+
+export function useStorefront() {
   const [store, setStore] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -16,7 +19,7 @@ function useStorefront() {
   return { store, loading };
 }
 
-function useLocale(lang) {
+export function useLocale(lang) {
   const [localeDict, setLocaleDict] = useState(null);
   const [loading, setLoading] = useState(true);
 

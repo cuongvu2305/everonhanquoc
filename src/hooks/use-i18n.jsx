@@ -14,7 +14,7 @@ function template(value, params = {}) {
   return String(value ?? "").replace(/\{(\w+)\}/g, (_, key) => params[key] ?? "");
 }
 
-function useI18n(lang, localeDict) {
+export function useI18n(lang, localeDict) {
   const rawDict = localeDict ?? EMPTY_DICT;
   const dict = {
     ...EMPTY_DICT,

@@ -1,4 +1,8 @@
-function SiteHeader({
+import { Button, Header, Image, Input } from "../../app/globals.jsx";
+import { Icon } from "../icons/Icon.jsx";
+import { navigateToTopPage } from "../../lib/runtime.js";
+
+export function SiteHeader({
   dict,
   searchText,
   setSearchText,

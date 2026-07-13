@@ -1,4 +1,4 @@
-const {
+import {
   Alert,
   Badge,
   Button,
@@ -26,8 +26,49 @@ const {
   Tag,
   Typography,
   message,
-} = antd;
+} from "antd";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const { Header, Content, Sider, Footer } = Layout;
 const { Title, Text, Paragraph } = Typography;
-const { useEffect, useMemo, useRef, useState } = React;
+
+export {
+  Alert,
+  Badge,
+  Button,
+  Card,
+  Col,
+  Collapse,
+  ConfigProvider,
+  Content,
+  Divider,
+  Drawer,
+  Empty,
+  Flex,
+  Footer,
+  Form,
+  Header,
+  Image,
+  Input,
+  Layout,
+  List,
+  Menu,
+  message,
+  Pagination,
+  Paragraph,
+  Radio,
+  Row,
+  Select,
+  Skeleton,
+  Sider,
+  Space,
+  Steps,
+  Tag,
+  Text,
+  Title,
+  Typography,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+};

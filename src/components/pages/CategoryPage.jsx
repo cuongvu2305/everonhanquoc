@@ -1,4 +1,10 @@
-function CategoryPage({ category, products, siblingCategories, langTools }) {
+import { Button, Card, Flex, Space, Tag, Title } from "../../app/globals.jsx";
+import { Icon } from "../icons/Icon.jsx";
+import { PageHeader } from "../layout/PageHeader.jsx";
+import { ProductGrid } from "../product/ProductGrid.jsx";
+import { navigateToCategory, navigateToTopPage } from "../../lib/runtime.js";
+
+export function CategoryPage({ category, products, siblingCategories, langTools }) {
   const { dict, labelCategory, labelProduct } = langTools;
   const relatedCategories = siblingCategories.filter((item) => item !== category);
   const displayCategory = labelCategory(category);

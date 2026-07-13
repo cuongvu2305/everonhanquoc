@@ -15,7 +15,7 @@ const colors = {
   },
 };
 
-const globalTheme = {
+export const globalTheme = {
   token: {
     borderRadius: 6,
     colorPrimary: colors.brand.primary,

@@ -1,3 +1,4 @@
+import argparse
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
@@ -8,12 +9,22 @@ from db import init_database, load_storefront_data
 
 BACKEND_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BACKEND_DIR.parent
-PUBLIC_DIR = PROJECT_ROOT / "public"
+DIST_DIR = PROJECT_ROOT / "dist"
+
+
+def get_static_directory():
+    if DIST_DIR.is_dir():
+        return DIST_DIR
+    return None
 
 
 class StorefrontHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory=str(PUBLIC_DIR), **kwargs)
+        self.static_directory = get_static_directory()
+        # A fallback directory is required by the base handler, but is never served
+        # when no production build is available.
+        directory = self.static_directory or BACKEND_DIR
+        super().__init__(*args, directory=str(directory), **kwargs)
 
     def log_message(self, format, *args):
         return
@@ -25,6 +36,9 @@ class StorefrontHandler(SimpleHTTPRequestHandler):
             return
         if path == "/api/storefront":
             self.send_json(load_storefront_data())
+            return
+        if self.static_directory is None:
+            self.send_error(503, "Frontend build is unavailable; run npm run build")
             return
         last_segment = path.rsplit("/", 1)[-1]
         if path != "/" and "." not in last_segment:
@@ -46,9 +60,21 @@ def run(host="127.0.0.1", port=4173):
     print(f"Python backend running at http://{host}:{port}")
     print("API: /api/storefront")
     print("Database: backend/data/everonhanquoc.sqlite3")
-    print(f"Frontend: {PUBLIC_DIR}")
+    static_directory = get_static_directory()
+    if static_directory:
+        print(f"Frontend: {static_directory}")
+    else:
+        print("Frontend: unavailable (run npm run build)")
     server.serve_forever()
 
 
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--port", type=int, default=4173)
+    return parser.parse_args(argv)
+
+
 if __name__ == "__main__":
-    run()
+    args = parse_args()
+    run(host=args.host, port=args.port)

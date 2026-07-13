@@ -1,4 +1,8 @@
-function ContactPage({ dict }) {
+import { Button, Card, Col, Input, Row, Space, Text, Title } from "../../app/globals.jsx";
+import { Icon } from "../icons/Icon.jsx";
+import { PageHeader } from "../layout/PageHeader.jsx";
+
+export function ContactPage({ dict }) {
   return (
     <>
       <PageHeader icon="PhoneCall" title={dict.contactTitle} description={dict.contactDesc} />
@@ -9,4 +13,3 @@ function ContactPage({ dict }) {
     </>
   );
 }
-

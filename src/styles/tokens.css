@@ -1,0 +1,40 @@
+:root {
+  --page: #f5faf5;
+  --surface: #ffffff;
+  --surface-soft: #eaf6ed;
+  --text: #243126;
+  --muted: #657268;
+  --brand: #16842c;
+  --brand-dark: #0f6321;
+  --accent: #d71920;
+  --accent-soft: #fde9e9;
+  --footer: #103f1c;
+  --line: #d9e5dc;
+}
+
+body {
+  min-width: 0;
+  margin: 0;
+  background: var(--page);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.ant-layout,
+.ant-layout-content,
+.ant-card,
+.ant-card-body,
+.ant-flex,
+.ant-row,
+.ant-col,
+.ant-space,
+.ant-space-item,
+.ant-typography {
+  min-width: 0;
+}

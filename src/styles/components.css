@@ -1,0 +1,360 @@
+.lucide-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.ant-btn-primary {
+  box-shadow: none;
+}
+
+.ant-input-search .ant-input,
+.ant-input-search .ant-input-group-addon .ant-btn {
+  height: 42px;
+}
+
+.mobile-nav-drawer .ant-drawer-body {
+  padding: 0;
+}
+
+.mobile-top-nav.ant-menu,
+.mobile-category-collapse .ant-menu {
+  border-inline-end: 0 !important;
+}
+
+.mobile-quick-links {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.mobile-quick-links .ant-btn {
+  justify-content: flex-start;
+}
+
+.mobile-category-collapse {
+  border-radius: 0;
+  border-inline: 0;
+  border-bottom: 0;
+}
+
+.page-hero {
+  margin-bottom: 18px;
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, #ffffff, #eef8ee);
+}
+
+.page-hero .ant-card-body {
+  padding: 24px;
+}
+
+.page-hero-body {
+  width: 100%;
+  min-width: 0;
+}
+
+.page-hero-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface-soft);
+  color: var(--brand-dark);
+}
+
+.page-hero-copy {
+  flex: 1 1 0%;
+  width: 100%;
+  min-width: 0;
+}
+
+.page-hero h2.ant-typography {
+  margin: 0 0 8px;
+  color: var(--text);
+  line-height: 1.2;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.page-hero .ant-typography {
+  margin-bottom: 0;
+  color: var(--muted);
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.content-card {
+  height: 100%;
+}
+
+.content-card h4.ant-typography {
+  margin-top: 12px;
+  color: var(--text);
+}
+
+.content-card .ant-typography {
+  color: var(--muted);
+}
+
+.contact-card .ant-space {
+  width: 100%;
+}
+
+.contact-card .ant-input,
+.contact-card .ant-input-affix-wrapper {
+  width: 100%;
+}
+
+.category-card,
+.category-entry-card {
+  cursor: pointer;
+  height: 100%;
+  text-align: center;
+  border: 1px solid #dfe6db;
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.category-card .ant-card-body,
+.category-entry-card .ant-card-body {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 16px 14px;
+}
+
+.category-card-icon,
+.category-entry-card-icon {
+  display: flex;
+  width: 72px;
+  height: 72px;
+  min-height: 72px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #edf7ef 0%, #d9ecde 100%);
+  color: var(--brand-dark);
+}
+
+.category-card-icon .lucide-icon,
+.category-entry-card-icon .lucide-icon {
+  color: inherit;
+}
+
+.category-card-icon svg,
+.category-entry-card-icon svg {
+  stroke-width: 1.8;
+}
+
+.category-card-title {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.45;
+  white-space: normal;
+  text-align: center;
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+.category-entry-card:hover .category-card-title,
+.category-card:hover .category-card-title {
+  color: var(--brand-dark);
+}
+
+.product-carousel-section.ant-card {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.product-carousel-section .ant-card-body {
+  padding: 18px;
+}
+
+.product-carousel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+  min-width: 0;
+}
+
+.product-carousel-title-button {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.product-carousel-title {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: uppercase;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+.product-carousel-title-button:hover .product-carousel-title,
+.product-carousel-title-button:focus-visible .product-carousel-title {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.product-carousel-title-button:focus-visible {
+  outline: 2px solid rgba(22, 132, 44, 0.35);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.product-carousel-actions {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.product-carousel-track {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  padding: 2px 2px 12px;
+  scrollbar-width: thin;
+}
+
+.product-carousel-item {
+  flex: 0 0 clamp(210px, 24%, 270px);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.product-carousel-item .ant-ribbon-wrapper,
+.product-carousel-item .product-card {
+  height: 100%;
+}
+
+.product-card {
+  cursor: pointer;
+  height: 100%;
+}
+
+.product-card .ant-card-cover {
+  overflow: hidden;
+}
+
+.product-card .ant-image,
+.product-card img {
+  display: block;
+  width: 100%;
+}
+
+.product-card img {
+  aspect-ratio: 1.16;
+  object-fit: cover;
+  transition: transform 180ms ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.04);
+}
+
+.product-card h5.ant-typography {
+  min-height: 44px;
+  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.product-grid-placeholder {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.price {
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.product-pagination {
+  margin-top: 22px;
+}
+
+.ant-card {
+  border-color: var(--line);
+}
+
+.ant-card-hoverable:hover {
+  border-color: #b7d8be;
+  box-shadow: 0 10px 24px rgba(15, 99, 33, 0.12);
+}
+
+.ant-menu-light .ant-menu-item-selected {
+  background: var(--surface-soft);
+  color: var(--brand-dark);
+}
+
+.ant-menu-light .ant-menu-item:hover {
+  color: var(--brand-dark);
+}
+
+.policy-grid {
+  margin-top: 24px;
+}
+
+.policy-grid > .ant-card {
+  flex: 1 1 calc(25% - 12px);
+  min-width: 180px;
+}
+
+.policy-grid .ant-card-body {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+}
+
+.brand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.brand-icon svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+}

@@ -1,4 +1,7 @@
-function ProductCard({ product, labelProduct }) {
+import { Badge, Card, Image, Space, Text, Title } from "../../app/globals.jsx";
+import { navigateToProduct } from "../../lib/runtime.js";
+
+export function ProductCard({ product, labelProduct }) {
   return (
     <Badge.Ribbon text={product.sale} color="#d71920">
       <Card hoverable className="product-card" onClick={() => navigateToProduct(product)} cover={<Image preview={false} src={product.image} alt={labelProduct(product)} />}>
@@ -11,4 +14,3 @@ function ProductCard({ product, labelProduct }) {
     </Badge.Ribbon>
   );
 }
-

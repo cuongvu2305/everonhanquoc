@@ -1,4 +1,7 @@
-function MobileNavDrawer({
+import { Button, Collapse, Drawer, Menu, Skeleton, Space } from "../../app/globals.jsx";
+import { BrandIcon } from "../icons/Icon.jsx";
+
+export function MobileNavDrawer({
   open,
   onClose,
   navItems,

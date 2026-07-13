@@ -6,7 +6,7 @@ async function requestJson(url, fallbackMessage) {
   return response.json();
 }
 
-const storefrontService = {
+export const storefrontService = {
   getStorefront() {
     return requestJson("/api/storefront", "Unable to load storefront data");
   },

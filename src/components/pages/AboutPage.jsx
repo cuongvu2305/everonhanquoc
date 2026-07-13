@@ -1,4 +1,7 @@
-function AboutPage({ dict }) {
+import { Card, Col, Paragraph, Row, Title } from "../../app/globals.jsx";
+import { PageHeader } from "../layout/PageHeader.jsx";
+
+export function AboutPage({ dict }) {
   return (
     <>
       <PageHeader icon="Store" title={dict.aboutTitle} description={dict.aboutDesc} />

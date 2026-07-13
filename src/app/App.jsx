@@ -1,4 +1,25 @@
-function App() {
+import { Badge, Button, Card, Col, ConfigProvider, Content, Divider, Flex, Footer, Image, Layout, List, Menu, message, Row, Skeleton, Sider, Space, Tag, Text, Title, useEffect, useMemo, useState } from "./globals.jsx";
+import { globalTheme } from "../lib/antd-theme.jsx";
+import { Icon } from "../components/icons/Icon.jsx";
+import { MobileNavDrawer } from "../components/layout/MobileNavDrawer.jsx";
+import { SiteHeader } from "../components/layout/SiteHeader.jsx";
+import { AboutPage } from "../components/pages/AboutPage.jsx";
+import { CategoryPage } from "../components/pages/CategoryPage.jsx";
+import { CheckoutPage } from "../components/pages/CheckoutPage.jsx";
+import { ContactPage } from "../components/pages/ContactPage.jsx";
+import { HomePage } from "../components/pages/HomePage.jsx";
+import { NewsPage } from "../components/pages/NewsPage.jsx";
+import { policyPages, PolicyPage } from "../components/pages/PolicyPage.jsx";
+import { ProductDetailPage } from "../components/pages/ProductDetailPage.jsx";
+import { RetailPage } from "../components/pages/RetailPage.jsx";
+import { SalePage } from "../components/pages/SalePage.jsx";
+import { SearchPage } from "../components/pages/SearchPage.jsx";
+import { topPages } from "../constants/navigation.jsx";
+import { useI18n } from "../hooks/use-i18n.jsx";
+import { useLocale, useStorefront } from "../hooks/use-storefront.jsx";
+import { buildSearchUrl, getCategorySlugFromHash, getPageFromHash, getPolicySlugFromLocation, getProductSlugFromLocation, getSearchQueryFromLocation, getStoredCart, navigateToCategory, navigateToPolicy, navigateToTopPage, slugifyCategory, slugifyProduct, storeCart } from "../lib/runtime.js";
+
+export default function App() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("Tất cả");
   const [activePage, setActivePage] = useState(getPageFromHash());
@@ -274,5 +295,3 @@ function App() {
     </ConfigProvider>
   );
 }
-
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);

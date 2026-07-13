@@ -1,4 +1,4 @@
-const topPages = [
+export const topPages = [
   { key: "home", icon: "Home" },
   { key: "news", icon: "Newspaper" },
   { key: "sale", icon: "BadgePercent" },

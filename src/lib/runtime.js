@@ -1,4 +1,6 @@
-function slugifyCategory(value) {
+import { topPages } from "../constants/navigation.jsx";
+
+export function slugifyCategory(value) {
   return value
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -25,32 +27,32 @@ function isProductPath() {
   return getCleanPath() === "/product";
 }
 
-function getPolicySlugFromLocation() {
+export function getPolicySlugFromLocation() {
   const path = getCleanPath().replace(/^\//, "");
   if (!path) return "";
   return path.endsWith("-pt") ? path : "";
 }
 
-function getSearchQueryFromLocation() {
+export function getSearchQueryFromLocation() {
   const searchParams = new URLSearchParams(window.location.search);
   return (searchParams.get("q") ?? "").trim();
 }
 
-function getProductSlugFromLocation() {
+export function getProductSlugFromLocation() {
   const searchParams = new URLSearchParams(window.location.search);
   return (searchParams.get("slug") ?? "").trim();
 }
 
-function extractProductCode(product) {
+export function extractProductCode(product) {
   const match = product.name.match(/[A-Z]{2,}-\d{4,}/);
   return match ? match[0] : slugifyCategory(product.name).slice(0, 32);
 }
 
-function slugifyProduct(product) {
+export function slugifyProduct(product) {
   return slugifyCategory(product.name);
 }
 
-function buildProductUrl(product) {
+export function buildProductUrl(product) {
   const slug = slugifyProduct(product);
   const code = extractProductCode(product);
   return `/product/?slug=${encodeURIComponent(slug)}&code=${encodeURIComponent(code)}`;
@@ -61,23 +63,23 @@ function navigateToUrl(url) {
   window.dispatchEvent(new PopStateEvent("popstate"));
 }
 
-function navigateToProduct(product) {
+export function navigateToProduct(product) {
   navigateToUrl(buildProductUrl(product));
 }
 
-function navigateToCategory(category) {
+export function navigateToCategory(category) {
   navigateToUrl(`/#category-${slugifyCategory(category)}`);
 }
 
-function navigateToTopPage(key) {
+export function navigateToTopPage(key) {
   navigateToUrl(key === "home" ? "/" : `/#${key}`);
 }
 
-function navigateToPolicy(slug) {
+export function navigateToPolicy(slug) {
   navigateToUrl(`/${slug}`);
 }
 
-function getPageFromHash() {
+export function getPageFromHash() {
   const key = getHashKey();
   if (key.startsWith("category-")) return "category";
   if (topPages.some((page) => page.key === key)) return key;
@@ -87,26 +89,26 @@ function getPageFromHash() {
   return "home";
 }
 
-function getCategorySlugFromHash() {
+export function getCategorySlugFromHash() {
   const key = getHashKey();
   return key.startsWith("category-") ? key.replace("category-", "") : "";
 }
 
-function buildSearchUrl(query) {
+export function buildSearchUrl(query) {
   return `/search?q=${encodeURIComponent(query.trim())}`;
 }
 
-function parsePrice(value) {
+export function parsePrice(value) {
   return Number(String(value).replace(/[^0-9]/g, "")) || 0;
 }
 
-function formatPrice(value) {
+export function formatPrice(value) {
   return `${value.toLocaleString("vi-VN")}đ`;
 }
 
 const CART_STORAGE_KEY = "everonhanquoc-cart";
 
-function getStoredCart() {
+export function getStoredCart() {
   try {
     const stored = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) ?? "[]");
     if (!Array.isArray(stored)) return [];
@@ -116,6 +118,6 @@ function getStoredCart() {
   }
 }
 
-function storeCart(cartItems) {
+export function storeCart(cartItems) {
   localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
 }

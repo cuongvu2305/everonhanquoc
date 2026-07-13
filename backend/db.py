@@ -5,13 +5,13 @@ from pathlib import Path
 
 BACKEND_DIR = Path(__file__).resolve().parent
 DATA_FILE = BACKEND_DIR / "data" / "storefront.json"
-DB_FILE = BACKEND_DIR / "data" / "everonhanquoc.sqlite3"
+DATABASE_PATH = BACKEND_DIR / "data" / "everonhanquoc.sqlite3"
 SCHEMA_FILE = BACKEND_DIR / "schema.sql"
 
 
 def get_connection():
-    DB_FILE.parent.mkdir(parents=True, exist_ok=True)
-    connection = sqlite3.connect(DB_FILE)
+    DATABASE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    connection = sqlite3.connect(DATABASE_PATH)
     connection.row_factory = sqlite3.Row
     connection.execute("PRAGMA foreign_keys = ON")
     return connection

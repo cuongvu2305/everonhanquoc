@@ -1,4 +1,9 @@
-function CheckoutPage({ cartItems, langTools, onRemoveCartItem, onUpdateCartQuantity }) {
+import { Alert, Button, Card, Col, Divider, Empty, Flex, Form, Image, Input, List, message, Radio, Row, Select, Space, Steps, Text, useState } from "../../app/globals.jsx";
+import { Icon } from "../icons/Icon.jsx";
+import { PageHeader } from "../layout/PageHeader.jsx";
+import { formatPrice, navigateToTopPage, parsePrice } from "../../lib/runtime.js";
+
+export function CheckoutPage({ cartItems, langTools, onRemoveCartItem, onUpdateCartQuantity }) {
   const { dict, labelProduct } = langTools;
   const [form] = Form.useForm();
   const [paymentMethod, setPaymentMethod] = useState("cod");
@@ -22,7 +27,7 @@ function CheckoutPage({ cartItems, langTools, onRemoveCartItem, onUpdateCartQuan
       const values = await form.validateFields();
       setOrderResult({ values, paymentMethod, message: paymentMessages[paymentMethod] });
       message.success("Đã xác nhận thông tin thanh toán");
-    } catch (error) {
+    } catch {
       setOrderResult(null);
       message.error("Vui lòng nhập đủ họ tên, số điện thoại và địa chỉ giao hàng");
     }

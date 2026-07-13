@@ -1,4 +1,7 @@
-function PageHeader({ icon, title, description, extra }) {
+import { Card, Flex, Paragraph, Title } from "../../app/globals.jsx";
+import { Icon } from "../icons/Icon.jsx";
+
+export function PageHeader({ icon, title, description, extra }) {
   return (
     <Card className="page-hero">
       <Flex className="page-hero-body" align="flex-start" gap={16}>

@@ -1,4 +1,7 @@
-function NewsPage({ dict }) {
+import { Button, Card, Col, Paragraph, Row, Tag, Title } from "../../app/globals.jsx";
+import { PageHeader } from "../layout/PageHeader.jsx";
+
+export function NewsPage({ dict }) {
   return (
     <>
       <PageHeader icon="Newspaper" title={dict.newsTitle} description={dict.newsDesc} />

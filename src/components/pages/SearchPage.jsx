@@ -1,4 +1,9 @@
-function SearchPage({ products, query, langTools }) {
+import { Button, Card, Space, Tag } from "../../app/globals.jsx";
+import { Icon } from "../icons/Icon.jsx";
+import { PageHeader } from "../layout/PageHeader.jsx";
+import { ProductGrid } from "../product/ProductGrid.jsx";
+
+export function SearchPage({ products, query, langTools }) {
   const { dict, labelProduct } = langTools;
   const normalizedQuery = query.trim().toLowerCase();
   const results = products.filter((product) => {

@@ -1,4 +1,7 @@
-const policyPages = [
+import { Alert, Card, Col, Empty, List, Row, Text } from "../../app/globals.jsx";
+import { PageHeader } from "../layout/PageHeader.jsx";
+
+export const policyPages = [
   { slug: "chinh-sach-bao-mat-pt", title: "Chính sách bảo mật", icon: "ShieldCheck", component: PrivacyPolicyContent },
   { slug: "chinh-sach-bao-hanh-pt", title: "Chính sách bảo hành", icon: "BadgeCheck", component: WarrantyPolicyContent },
   { slug: "mua-hang-va-thanh-toan-pt", title: "Mua hàng và thanh toán", icon: "CreditCard", component: PurchasePaymentPolicyContent },
@@ -89,7 +92,7 @@ function getPolicyBySlug(slug) {
   return policyPages.find((item) => item.slug === slug);
 }
 
-function PolicyPage({ slug }) {
+export function PolicyPage({ slug }) {
   const page = getPolicyBySlug(slug);
 
   if (!page) {

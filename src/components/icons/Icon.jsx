@@ -1,20 +1,15 @@
-function Icon({ name, size = 18 }) {
-  const ref = React.useRef(null);
+import * as LucideIcons from "lucide-react";
 
-  useEffect(() => {
-    if (!ref.current || !window.lucide || !window.lucide.icons[name]) return;
-    const iconNode = window.lucide.createElement(window.lucide.icons[name]);
-    iconNode.setAttribute("width", size);
-    iconNode.setAttribute("height", size);
-    iconNode.setAttribute("stroke-width", "2");
-    ref.current.replaceChildren(iconNode);
-  }, [name, size]);
-
-  return <span className="lucide-icon" ref={ref} aria-hidden="true" />;
+export function Icon({ name, size = 18 }) {
+  const LucideIcon = LucideIcons[name];
+  return LucideIcon ? (
+    <span className="lucide-icon" aria-hidden="true">
+      <LucideIcon size={size} strokeWidth={2} />
+    </span>
+  ) : null;
 }
 
-
-function BrandIcon({ name }) {
+export function BrandIcon({ name }) {
   if (name === "facebook") {
     return (
       <span className="brand-icon" aria-hidden="true">

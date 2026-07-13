@@ -1,4 +1,9 @@
-function ProductDetailPage({ product, relatedProducts, langTools, onAddToCart }) {
+import { Button, Card, Col, Empty, Flex, Image, Paragraph, Row, Space, Tag, Text, Title } from "../../app/globals.jsx";
+import { Icon } from "../icons/Icon.jsx";
+import { ProductGrid } from "../product/ProductGrid.jsx";
+import { extractProductCode, navigateToCategory, navigateToTopPage } from "../../lib/runtime.js";
+
+export function ProductDetailPage({ product, relatedProducts, langTools, onAddToCart }) {
   const { dict, labelCategory, labelProduct } = langTools;
 
   if (!product) {

@@ -1,4 +1,9 @@
-function HomePage({ activeCategory, filteredProducts, menuItems, setActiveCategory, store, langTools }) {
+import { Card, Flex, Paragraph, Tag, Title } from "../../app/globals.jsx";
+import { Icon } from "../icons/Icon.jsx";
+import { ProductCarousel } from "../product/ProductCarousel.jsx";
+import { navigateToCategory } from "../../lib/runtime.js";
+
+export function HomePage({ store, langTools }) {
   const { dict, labelProduct, labelTile } = langTools;
   const tileCategoryMap = {};
   const tileIconMap = {
