@@ -18,6 +18,14 @@ class AppArgumentsTest(unittest.TestCase):
     def test_port_argument_overrides_default(self):
         self.assertEqual(app.parse_args(["--port", "4174"]).port, 4174)
 
+    def test_public_host_is_rejected(self):
+        with self.assertRaises(SystemExit):
+            app.parse_args(["--host", "0.0.0.0"])
+
+    def test_server_header_does_not_disclose_python_version(self):
+        self.assertNotIn("Python", app.StorefrontHandler.server_version)
+        self.assertEqual(app.StorefrontHandler.sys_version, "")
+
 
 class StaticDirectoryTest(unittest.TestCase):
     def test_uses_dist_when_a_production_build_exists(self):

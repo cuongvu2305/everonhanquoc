@@ -19,6 +19,9 @@ def get_static_directory():
 
 
 class StorefrontHandler(SimpleHTTPRequestHandler):
+    server_version = "EveronDevelopment"
+    sys_version = ""
+
     def __init__(self, *args, **kwargs):
         self.static_directory = get_static_directory()
         # A fallback directory is required by the base handler, but is never served
@@ -70,7 +73,12 @@ def run(host="127.0.0.1", port=4173):
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument(
+        "--host",
+        default="127.0.0.1",
+        choices=["127.0.0.1"],
+        help="Development server is intentionally restricted to loopback.",
+    )
     parser.add_argument("--port", type=int, default=4173)
     return parser.parse_args(argv)
 
