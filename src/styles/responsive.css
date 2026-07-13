@@ -65,6 +65,7 @@
 
   /* Ant Design's responsive Sider retains an inline flex width after collapse. */
   .main-layout > .category-sider.ant-layout-sider {
+    display: none !important;
     flex: 0 0 0 !important;
     width: 0 !important;
     min-width: 0 !important;
@@ -72,7 +73,7 @@
   }
 
   .main-layout {
-    display: block;
+    display: block !important;
     max-width: 100%;
     flex: none;
     width: 100%;
@@ -80,12 +81,26 @@
     padding-inline: 12px;
   }
 
+  /* Layout keeps ant-layout-has-sider while the Sider is CSS-hidden. */
+  .main-layout.ant-layout-has-sider > .content-area {
+    flex: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
   .content-area {
     display: block;
     flex: 1 1 100%;
     width: 100%;
+    min-width: 0;
     max-width: 100%;
     flex: none;
+  }
+
+  .content-area .home-hero {
+    width: 100%;
+    min-width: 0;
   }
 
   .search-box {
