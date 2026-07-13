@@ -1,7 +1,7 @@
 {
-  "version": "1.0.5",
-  "releaseTag": "dev-cc3fbb3",
-  "tag": "dev-cc3fbb3",
-  "builtAt": "2026-07-13T09:33:54.828Z",
-  "commit": "cc3fbb3"
+  "version": "1.0.7",
+  "releaseTag": "v1.0.7",
+  "tag": "v1.0.7",
+  "builtAt": "2026-07-13T10:01:01.765Z",
+  "commit": "7040253"
 }
