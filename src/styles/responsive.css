@@ -60,7 +60,15 @@
 
   .nav-bar.ant-menu,
   .category-sider {
-    display: none;
+    display: none !important;
+  }
+
+  /* Ant Design's responsive Sider retains an inline flex width after collapse. */
+  .main-layout > .category-sider.ant-layout-sider {
+    flex: 0 0 0 !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
   }
 
   .main-layout {
@@ -74,6 +82,7 @@
 
   .content-area {
     display: block;
+    flex: 1 1 100%;
     width: 100%;
     max-width: 100%;
     flex: none;
