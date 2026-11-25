@@ -2,7 +2,7 @@ import { Alert, Button, Card, Col, Descriptions, Empty, Flex, Image, Paragraph, 
 import { Icon } from "../icons/Icon.jsx";
 import { PageBreadcrumb } from "../layout/PageBreadcrumb.jsx";
 import { ProductGrid } from "../product/ProductGrid.jsx";
-import { formatRatingLabel, getDisplayProductCode, getProductRating, isOutOfStock } from "../../lib/product.js";
+import { formatRatingLabel, getDiscountLabel, getDisplayProductCode, getProductRating, isOutOfStock, shouldShowOldPrice } from "../../lib/product.js";
 import { navigateToCategory, navigateToTopPage } from "../../lib/runtime.js";
 
 // Only rows backed by real product data are shown; nothing is filled in with guesses.
@@ -65,7 +65,7 @@ export function ProductDetailPage({ product, relatedProducts, langTools, onAddTo
           <Flex vertical gap={14}>
             <Space wrap>
               <Tag color="#16842c">{labelCategory(product.category)}</Tag>
-              <Tag color="#d71920">{product.sale}</Tag>
+              {getDiscountLabel(product) ? <Tag color="#d71920">{getDiscountLabel(product)}</Tag> : null}
             </Space>
             <Title level={2}>{name}</Title>
             <div className="product-detail-rating" role="img" aria-label={formatRatingLabel(dict.ratingLabel, rating) || undefined}>
@@ -73,7 +73,7 @@ export function ProductDetailPage({ product, relatedProducts, langTools, onAddTo
             </div>
             <Space align="baseline" wrap>
               <Text className="product-detail-price">{product.price}</Text>
-              <Text delete type="secondary">{product.oldPrice}</Text>
+              {shouldShowOldPrice(product) ? <Text delete type="secondary">{product.oldPrice}</Text> : null}
             </Space>
             {outOfStock && dict.outOfStockNotice ? <Alert className="product-detail-stock-alert" type="warning" showIcon message={dict.outOfStockNotice} /> : null}
             <div className="product-detail-actions">

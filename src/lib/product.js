@@ -51,3 +51,16 @@ export function getDisplayProductCode(product) {
   const match = name.match(MODEL_CODE);
   return match ? `${match[1]}-${match[2]}` : null;
 }
+
+// Discount badge text ("-30%"), or null when the product has no real discount (data uses "-" for none).
+export function getDiscountLabel(product) {
+  const sale = String(product?.sale ?? "").trim();
+  return /\d/.test(sale) && !/^-?0+%?$/.test(sale) ? sale : null;
+}
+
+// Show the struck-through old price only when it is actually higher than the selling price.
+export function shouldShowOldPrice(product) {
+  const oldPrice = parsePrice(product?.oldPrice);
+  const price = parsePrice(product?.price);
+  return oldPrice !== null && price !== null && oldPrice > price;
+}
