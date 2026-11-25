@@ -113,5 +113,21 @@ class StorefrontApiTest(unittest.TestCase):
         self.assertIsInstance(payload["products"], list)
 
 
+class DatabaseMigrationTest(unittest.TestCase):
+    def setUp(self):
+        temp_dir = tempfile.TemporaryDirectory()
+        self.addCleanup(temp_dir.cleanup)
+        patcher = patch.object(db, "DATABASE_PATH", Path(temp_dir.name) / "legacy.sqlite3")
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def test_connection_is_closed_after_use(self):
+        with db.get_connection() as connection:
+            connection.execute("SELECT 1")
+
+        with self.assertRaises(db.sqlite3.ProgrammingError):
+            connection.execute("SELECT 1")
+
+
 if __name__ == "__main__":
     unittest.main()

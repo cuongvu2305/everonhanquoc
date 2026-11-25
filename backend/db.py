@@ -1,5 +1,6 @@
 import json
 import sqlite3
+from contextlib import contextmanager
 from pathlib import Path
 
 
@@ -9,12 +10,25 @@ DATABASE_PATH = BACKEND_DIR / "data" / "everonhanquoc.sqlite3"
 SCHEMA_FILE = BACKEND_DIR / "schema.sql"
 
 
+@contextmanager
 def get_connection():
+    """Open a connection, commit on success, roll back on error and always close.
+
+    sqlite3's own context manager only manages the transaction and leaves the
+    file open, which keeps it locked on Windows.
+    """
     DATABASE_PATH.parent.mkdir(parents=True, exist_ok=True)
     connection = sqlite3.connect(DATABASE_PATH)
-    connection.row_factory = sqlite3.Row
-    connection.execute("PRAGMA foreign_keys = ON")
-    return connection
+    try:
+        connection.row_factory = sqlite3.Row
+        connection.execute("PRAGMA foreign_keys = ON")
+        yield connection
+        connection.commit()
+    except BaseException:
+        connection.rollback()
+        raise
+    finally:
+        connection.close()
 
 
 def init_database():
