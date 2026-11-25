@@ -4,7 +4,7 @@ import { afterEach, expect, test } from "vitest";
 import { cleanup, render } from "@testing-library/react";
 import { Menu } from "../src/app/globals.jsx";
 import { topPages } from "../src/constants/navigation.jsx";
-import { buildMainNavItems, categoryKey, groupKey, mainNavSelectedKeys, parseNavKey } from "../src/lib/navigation.js";
+import { buildMainNavItems, categoryKey, FOOTER_PAGE_KEYS, groupKey, mainNavSelectedKeys, parseNavKey } from "../src/lib/navigation.js";
 
 const storefront = JSON.parse(readFileSync(join(process.cwd(), "backend", "data", "storefront.json"), "utf8"));
 const localeDict = JSON.parse(readFileSync(join(process.cwd(), "src", "locales", "vi", "storefront.json"), "utf8"));
@@ -41,15 +41,25 @@ test("every category belongs to exactly one menu group and groups point at real 
   }
 });
 
-test("main nav is Trang chủ, the category groups, then Tin tức and Liên hệ", () => {
+test("main nav lists only the category groups, in data order", () => {
   const items = buildMainNavItems({ groups: storefront.categoryGroups, pages: topPages, pageItem });
 
   expect(items.map((item) => item.label)).toEqual([
-    localeDict.topPages.home,
-    ...storefront.categoryGroups.map((group) => group.name),
-    localeDict.topPages.news,
-    localeDict.topPages.contact,
+    "Đệm Everon",
+    "Everon Giảm Giá",
+    "Bộ Chăn Ga Everon",
+    "Ruột Chăn Everon",
+    "Ruột Gối Everon",
+    "Bộ Cao Cấp Artemis",
+    "Sản Phẩm Bán Lẻ",
   ]);
+  const pageKeys = new Set(topPages.map((page) => page.key));
+  expect(items.some((item) => pageKeys.has(item.key))).toBe(false);
+});
+
+test("every page except checkout (reached through the cart) is linked from the footer", () => {
+  const expected = topPages.map((page) => page.key).filter((key) => key !== "checkout");
+  expect([...FOOTER_PAGE_KEYS].sort()).toEqual([...expected].sort());
 });
 
 test("groups with children become dropdowns; childless groups link straight to their category", () => {
@@ -57,7 +67,7 @@ test("groups with children become dropdowns; childless groups link straight to t
     { name: "Đệm", category: "Đệm Everon", children: ["Đệm Everon", "Đệm cao su Everon"] },
     { name: "Artemis", category: "Bộ sản phẩm cao cấp Artemis", children: [] },
   ];
-  const [, dem, artemis] = buildMainNavItems({ groups, pages: topPages, pageItem, labelCategory: (category) => `~${category}` });
+  const [dem, artemis] = buildMainNavItems({ groups, pages: topPages, pageItem, labelCategory: (category) => `~${category}` });
 
   expect(dem.key).toBe(groupKey("Đệm"));
   expect(dem.children).toEqual([

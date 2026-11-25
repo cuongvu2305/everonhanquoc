@@ -23,11 +23,30 @@
 
   .site-header-bar {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: auto auto minmax(0, 1fr);
     align-items: center;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 12px;
     width: 100%;
+  }
+
+  .site-header-tagline {
+    align-items: flex-end;
+    font-size: 16px;
+    text-align: right;
+  }
+
+  .site-header-side {
+    width: 100%;
+  }
+
+  .site-header-contact {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px 16px;
+    font-size: 13px;
   }
 
   .mobile-nav-trigger.ant-btn {
@@ -38,16 +57,11 @@
     justify-content: center;
   }
 
-  .brand.ant-btn {
+  .brand {
     grid-column: 2;
     grid-row: 1;
-    width: 154px;
+    width: 130px;
     justify-self: start;
-  }
-
-  .brand .ant-image,
-  .brand img {
-    width: 144px;
   }
 
   .header-actions {
@@ -58,7 +72,6 @@
     display: none;
   }
 
-  .nav-bar.ant-menu,
   .category-sider {
     display: none !important;
   }
@@ -103,17 +116,8 @@
     min-width: 0;
   }
 
-  .search-box {
-    width: 100%;
-    max-width: none;
-  }
-
   .category-sider {
     margin-bottom: 18px;
-  }
-
-  .home-category-entry-track {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .product-carousel-item {
@@ -139,10 +143,6 @@
     bottom: 92px;
   }
 
-  .floating-cart-badge {
-    right: 16px;
-    bottom: 158px;
-  }
 }
 
 @media (max-width: 767px) {
@@ -166,14 +166,6 @@
     max-width: none;
   }
 
-  .home-hero.home-banner {
-    padding: 0;
-  }
-
-  .home-banner-copy {
-    max-width: 70%;
-  }
-
   .hero h1.ant-typography {
     font-size: 30px;
     line-height: 1.12;
@@ -191,38 +183,12 @@
     margin-top: 18px;
   }
 
-  .home-category-entry-track {
-    width: calc(100vw - 24px);
-    max-width: calc(100vw - 24px);
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    scroll-snap-type: x proximity;
-  }
-
-  .category-entry-card {
-    flex: 0 0 calc((100% - 10px) / 2);
-    height: 138px;
-    min-width: 0;
-    scroll-snap-align: start;
-  }
-
-  .category-card .ant-card-body,
-  .category-entry-card .ant-card-body {
-    height: 100%;
-    gap: 8px;
-    justify-content: center;
-    padding: 12px 10px;
-  }
-
   .product-carousel-header {
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
   }
 
-  .home-category-entry,
   .home-product-sections,
   .product-carousel-section.ant-card {
     width: calc(100vw - 24px);
@@ -337,17 +303,21 @@
   }
 
   .site-header-bar {
-    grid-template-columns: auto minmax(0, 1fr);
     gap: 8px;
   }
 
-  .brand.ant-btn {
-    width: 138px;
+  .brand {
+    width: 104px;
   }
 
-  .brand .ant-image,
-  .brand img {
-    width: 132px;
+  .site-header-tagline {
+    font-size: 13px;
+    letter-spacing: 0;
+  }
+
+  .site-header-contact {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .header-actions {
@@ -375,41 +345,10 @@
     line-height: 1.55;
   }
 
-  .home-hero.home-banner {
-    padding: 0;
-  }
-
-  /* Taller crop on phones so the overlaid title keeps room to wrap. */
-  .home-banner-slide {
-    aspect-ratio: 16 / 9;
-  }
-
-  .home-banner-copy {
-    left: 16px;
-    max-width: calc(100% - 32px);
-    gap: 10px;
-  }
-
-  .home-banner-title {
-    font-size: 22px;
-  }
-
-  .home-banner-cta {
-    padding: 7px 14px;
-    font-size: 13px;
-  }
-
   .home-product-sections {
     margin-top: 18px;
   }
 
-  .home-category-entry-track {
-    width: calc(100vw - 24px);
-    max-width: calc(100vw - 24px);
-    gap: 10px;
-  }
-
-  .home-category-entry,
   .home-product-sections,
   .product-carousel-section.ant-card {
     width: calc(100vw - 24px);
@@ -423,29 +362,6 @@
   .content-area > .checkout-grid {
     width: calc(100vw - 24px);
     max-width: calc(100vw - 24px);
-  }
-
-  .category-entry-card {
-    flex-basis: calc((100% - 10px) / 2);
-    height: 138px;
-    min-width: 0;
-  }
-
-  .category-card-icon,
-  .category-entry-card-icon {
-    width: 54px;
-    height: 54px;
-    min-height: 54px;
-    border-radius: 16px;
-  }
-
-  .category-card-title {
-    display: -webkit-box;
-    font-size: 13px;
-    line-height: 1.35;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
   }
 
   .product-carousel-section .ant-card-body,
@@ -549,16 +465,6 @@
     height: 38px;
   }
 
-  .floating-cart-badge {
-    right: 16px;
-    bottom: 150px;
-  }
-
-  .floating-cart.ant-btn {
-    width: 50px;
-    height: 50px;
-  }
-
   .floating-messenger {
     left: 16px;
     bottom: 16px;
@@ -570,4 +476,397 @@
     width: 40px;
     height: 40px;
   }
+}
+
+/* Category bar: always visible; tighter spacing as the screen narrows, sideways scroll on small screens. */
+@media (max-width: 1199px) {
+  .nav-bar-row {
+    gap: 8px;
+    padding-inline: 12px;
+  }
+
+  .nav-bar.ant-menu-horizontal > .ant-menu-item,
+  .nav-bar.ant-menu-horizontal > .ant-menu-submenu {
+    padding: 0 8px;
+    font-size: 13px;
+  }
+
+  /* Fade the right edge so it is clear more entries can be scrolled into view. */
+  .nav-bar.ant-menu {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-bar-row {
+    padding-inline: 8px;
+  }
+
+  .nav-bar.ant-menu {
+    min-height: 42px;
+  }
+
+  .nav-bar.ant-menu-horizontal > .ant-menu-item,
+  .nav-bar.ant-menu-horizontal > .ant-menu-submenu {
+    min-height: 42px;
+    padding: 0 9px;
+    font-size: 13px;
+  }
+
+  .nav-cart.ant-btn {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* ===== Phone layout (<= 767px), modelled on mobile-first dealer storefronts:
+   compact non-sticky header, category chips, trust strip, 2-column product grids,
+   and a bottom tab bar with sheets instead of the hamburger and floating buttons. ===== */
+@media (max-width: 767px) {
+  .app-shell {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+
+  /* Header scrolls away; the bottom tab bar is always reachable instead. */
+  .sticky-navigation {
+    position: static;
+    box-shadow: none;
+  }
+
+  .site-header {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .site-header-bar,
+  .site-header-side {
+    display: contents;
+  }
+
+  .mobile-nav-trigger.ant-btn,
+  .site-header-tagline,
+  .site-header-contact {
+    display: none !important;
+  }
+
+  .brand {
+    grid-column: 1;
+    grid-row: 1;
+    width: 92px;
+  }
+
+  .header-search {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .header-search-form {
+    height: 42px;
+  }
+
+  .header-search-button {
+    width: 48px;
+  }
+
+  /* Category bar as outlined chips. */
+  .nav-bar-row {
+    padding: 8px 0 8px 12px;
+    background: var(--surface);
+    border-top: 0;
+  }
+
+  .nav-bar.ant-menu {
+    gap: 8px;
+    min-height: 0;
+  }
+
+  .nav-bar.ant-menu-horizontal > .ant-menu-item,
+  .nav-bar.ant-menu-horizontal > .ant-menu-submenu {
+    min-height: 34px;
+    padding: 0 14px;
+    border: 1px solid #b7d8be;
+    border-radius: 999px;
+    background: var(--surface);
+    font-size: 13px;
+  }
+
+  .nav-bar.ant-menu-horizontal > .ant-menu-submenu > .ant-menu-submenu-title {
+    min-height: 32px;
+  }
+
+  /* The cart lives in the tab bar on phones. */
+  .nav-cart-badge {
+    display: none;
+  }
+
+  .mobile-trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px 12px;
+    padding: 8px 12px;
+    background: var(--surface-soft);
+    border-bottom: 1px solid var(--line);
+    color: var(--brand-dark);
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+
+  .mobile-trust-strip > * {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: inherit;
+  }
+
+  .mobile-trust-strip a:last-child {
+    color: var(--accent);
+  }
+
+  /* Floating chat/hotline buttons move into the "Liên hệ" sheet. */
+  .floating-chat,
+  .floating-hotline,
+  .floating-zalo {
+    display: none !important;
+  }
+
+  /* Product sections: 2-column grid of the first 4 products; the title pill opens the full list. */
+  .product-carousel-track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .product-carousel-item {
+    flex: none;
+    min-width: 0;
+  }
+
+  .product-carousel-item:nth-child(n + 5),
+  .product-carousel-actions {
+    display: none !important;
+  }
+
+  .product-carousel-section .ant-card-body {
+    padding: 12px 10px;
+  }
+
+  .product-carousel-title-button,
+  .product-carousel-title-static {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 8px 6px 14px;
+    border: 1px solid #b7d8be;
+    border-radius: 999px;
+    background: var(--surface-soft);
+  }
+
+  .product-carousel-title {
+    font-size: 15px;
+  }
+
+  .product-carousel-title-button::after {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--brand);
+    color: var(--surface);
+    content: "›";
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .product-card .ant-card-body {
+    padding: 10px 8px 12px;
+  }
+
+  .product-card h5.ant-typography {
+    min-height: 40px;
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+
+  .product-card .price {
+    font-size: 15px;
+  }
+
+  /* Bottom tab bar */
+  .mobile-tab-bar {
+    position: fixed;
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    left: 10px;
+    z-index: 1200;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    padding: 6px;
+    border: 1px solid rgba(22, 132, 44, 0.18);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 10px 30px rgba(16, 63, 28, 0.18);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+
+  .mobile-tab {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 6px 2px;
+    border: 0;
+    border-radius: 16px;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .mobile-tab .lucide-icon {
+    color: inherit;
+  }
+
+  .mobile-tab-label {
+    overflow: hidden;
+    max-width: 100%;
+    font-size: 11.5px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .mobile-tab.is-active {
+    background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
+    color: var(--surface);
+  }
+
+  .mobile-tab:focus-visible {
+    outline: 2px solid var(--brand-dark);
+    outline-offset: 2px;
+  }
+}
+
+/* Bottom sheets (rendered in a portal, so outside the media query wrapper is fine). */
+.mobile-sheet .ant-drawer-content-wrapper {
+  max-height: 82vh;
+}
+
+.mobile-sheet .ant-drawer-content {
+  max-height: 82vh;
+}
+
+.mobile-sheet .ant-drawer-content {
+  border-radius: 20px 20px 0 0;
+}
+
+/* Leave room for the floating tab bar, which stays visible above the sheet. */
+.mobile-sheet .ant-drawer-body {
+  overflow-y: auto;
+  padding: 12px 16px calc(96px + env(safe-area-inset-bottom));
+}
+
+.mobile-sheet-group + .mobile-sheet-group {
+  margin-top: 14px;
+}
+
+.mobile-sheet-group h3 {
+  margin: 0 0 8px;
+  color: var(--brand-dark);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.mobile-sheet-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mobile-chip {
+  padding: 7px 12px;
+  border: 1px solid #b7d8be;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.mobile-chip:active {
+  background: var(--surface-soft);
+}
+
+.mobile-sheet-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-sheet-list button,
+.mobile-sheet-list a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 4px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.mobile-sheet-list .is-active {
+  color: var(--brand-dark);
+  font-weight: 700;
+}
+
+.mobile-contact-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.mobile-contact-action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.mobile-contact-action img {
+  width: 24px;
+  height: 24px;
+}
+
+.mobile-contact-action.is-primary {
+  border-color: transparent;
+  background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
+  color: var(--surface);
 }

@@ -2,15 +2,11 @@ import { Button, Card, Space, Tag } from "../../app/globals.jsx";
 import { Icon } from "../icons/Icon.jsx";
 import { PageHeader } from "../layout/PageHeader.jsx";
 import { ProductGrid } from "../product/ProductGrid.jsx";
+import { searchProducts } from "../../lib/search.js";
 
 export function SearchPage({ products, query, langTools }) {
   const { dict, labelProduct } = langTools;
-  const normalizedQuery = query.trim().toLowerCase();
-  const results = products.filter((product) => {
-    const displayName = labelProduct(product).toLowerCase();
-    const category = product.category.toLowerCase();
-    return normalizedQuery.length > 0 && (product.name.toLowerCase().includes(normalizedQuery) || displayName.includes(normalizedQuery) || category.includes(normalizedQuery));
-  });
+  const results = searchProducts(products, query, labelProduct);
 
   return (
     <Card className="section-panel page-panel search-page">

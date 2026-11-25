@@ -1,6 +1,4 @@
-import { Card, Flex, Paragraph, Tag, Title } from "../../app/globals.jsx";
-import { Icon } from "../icons/Icon.jsx";
-import { HomeBannerCarousel } from "../home/HomeBannerCarousel.jsx";
+import { Flex } from "../../app/globals.jsx";
 import { HomeLatestNews } from "../home/HomeLatestNews.jsx";
 import { ShowroomList } from "../layout/ShowroomList.jsx";
 import { ProductCarousel } from "../product/ProductCarousel.jsx";
@@ -8,68 +6,12 @@ import { getCollections, productsByCollection } from "../../lib/collections.js";
 import { navigateToCategory } from "../../lib/runtime.js";
 
 export function HomePage({ store, langTools }) {
-  const { dict, labelCategory, labelProduct, labelTile } = langTools;
-  const banners = store.banners ?? [];
-  const tileCategoryMap = {};
-  const tileIconMap = {
-    "Đệm lò xo everon - kingkoil": "Building2",
-    "Đệm bông ép everon": "BedDouble",
-    "Chăn - ga - gối everon": "BedSingle",
-    "Ruột chăn everon": "PackageOpen",
-    "Ruột gối everon": "Package",
-    "Đệm cao su Everon": "Layers3",
-  };
-  const categoryEntryTiles = store.tiles.map((tile) => ({
-    ...tile,
-    iconName: tileIconMap[tile.name] ?? "PackageOpen",
-  }));
-  const openTileCategory = (tileName) => {
-    navigateToCategory(tileCategoryMap[tileName] ?? tileName);
-  };
+  const { dict, labelProduct, labelTile } = langTools;
+  const openTileCategory = (tileName) => navigateToCategory(tileName);
   const productsByCategory = (category) => store.products.filter((product) => product.category === category || product.categories?.includes(category));
   const collections = getCollections(store.products);
   return (
     <>
-      {banners.length > 0 ? (
-        <HomeBannerCarousel banners={banners} ctaText={dict.viewDeals} labelCategory={labelCategory} />
-      ) : (
-        <section className="home-hero">
-          <div className="home-hero-copy">
-            <Tag color="#d71920">{dict.heroTag}</Tag>
-            <Title level={1}>{dict.heroTitle}</Title>
-            <Paragraph>{dict.heroText}</Paragraph>
-          </div>
-        </section>
-      )}
-
-      <section className="home-category-entry">
-        <div className="home-category-entry-track">
-          {categoryEntryTiles.map((tile) => (
-            <Card
-              key={tile.name}
-              hoverable
-              className="category-card category-entry-card"
-              onClick={() => openTileCategory(tile.name)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  openTileCategory(tile.name);
-                }
-              }}
-              role="button"
-              tabIndex={0}
-            >
-              <div className="category-card-icon category-entry-card-icon" aria-hidden="true">
-                <Icon name={tile.iconName} size={42} />
-              </div>
-              <div className="category-card-title">
-                {labelTile(tile)}
-              </div>
-            </Card>
-          ))}
-        </div>
-      </section>
-
       <ShowroomList showrooms={store.showrooms ?? []} dict={dict} />
 
       <Flex className="home-product-sections" vertical gap={16}>

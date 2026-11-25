@@ -57,7 +57,7 @@
   ],
   "categoryGroups": [
     {
-      "name": "Đệm",
+      "name": "Đệm Everon",
       "category": "Đệm Everon",
       "children": [
         "Đệm Everon",
@@ -69,7 +69,18 @@
       ]
     },
     {
-      "name": "Chăn ga gối",
+      "name": "Everon Giảm Giá",
+      "category": "Sản phẩm giảm giá",
+      "children": [
+        "Sản phẩm giảm giá",
+        "Bộ chăn ga giảm giá",
+        "Bộ ga chun mỏng giảm giá",
+        "Vỏ gối lẻ giảm giá",
+        "Vỏ chăn giảm giá"
+      ]
+    },
+    {
+      "name": "Bộ Chăn Ga Everon",
       "category": "Chăn - ga - gối everon",
       "children": [
         "Chăn - ga - gối everon",
@@ -88,31 +99,22 @@
       ]
     },
     {
-      "name": "Ruột chăn & gối",
+      "name": "Ruột Chăn Everon",
       "category": "Ruột chăn everon",
-      "children": [
-        "Ruột chăn everon",
-        "Ruột gối everon"
-      ]
+      "children": []
     },
     {
-      "name": "Artemis",
+      "name": "Ruột Gối Everon",
+      "category": "Ruột gối everon",
+      "children": []
+    },
+    {
+      "name": "Bộ Cao Cấp Artemis",
       "category": "Bộ sản phẩm cao cấp Artemis",
       "children": []
     },
     {
-      "name": "Giảm giá",
-      "category": "Sản phẩm giảm giá",
-      "children": [
-        "Sản phẩm giảm giá",
-        "Bộ chăn ga giảm giá",
-        "Bộ ga chun mỏng giảm giá",
-        "Vỏ gối lẻ giảm giá",
-        "Vỏ chăn giảm giá"
-      ]
-    },
-    {
-      "name": "Bán lẻ",
+      "name": "Sản Phẩm Bán Lẻ",
       "category": "Sản phẩm bán lẻ",
       "children": []
     }

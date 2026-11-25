@@ -2,8 +2,9 @@ import { Badge, Button, Card, Col, ConfigProvider, Content, Divider, Flex, Foote
 import { globalTheme } from "../lib/antd-theme.jsx";
 import { Icon } from "../components/icons/Icon.jsx";
 import { MobileNavDrawer } from "../components/layout/MobileNavDrawer.jsx";
+import { MobileTabBar, MobileTrustStrip } from "../components/layout/MobileTabBar.jsx";
 import { SiteHeader } from "../components/layout/SiteHeader.jsx";
-import { ShowroomList } from "../components/layout/ShowroomList.jsx";
+import { ShowroomList, toTelHref } from "../components/layout/ShowroomList.jsx";
 import { AboutPage } from "../components/pages/AboutPage.jsx";
 import { CategoryPage } from "../components/pages/CategoryPage.jsx";
 import { CheckoutPage } from "../components/pages/CheckoutPage.jsx";
@@ -19,8 +20,15 @@ import { topPages } from "../constants/navigation.jsx";
 import { useI18n } from "../hooks/use-i18n.jsx";
 import { useLocale, useStorefront } from "../hooks/use-storefront.jsx";
 import { isOutOfStock } from "../lib/product.js";
-import { buildMainNavItems, mainNavSelectedKeys, parseNavKey } from "../lib/navigation.js";
+import { buildMainNavItems, FOOTER_PAGE_KEYS, mainNavSelectedKeys, parseNavKey } from "../lib/navigation.js";
 import { buildSearchUrl, getCategorySlugFromHash, getPageFromHash, getPolicySlugFromLocation, getProductSlugFromLocation, getSearchQueryFromLocation, getStoredCart, navigateToCategory, navigateToPolicy, navigateToTopPage, slugifyCategory, slugifyProduct, storeCart } from "../lib/runtime.js";
+
+const MESSENGER_URL = "https://www.messenger.com/t/441239679606397/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0";
+const ZALO_URL = "https://zalo.me/0966452111";
+const SOCIAL_LINKS = [
+  { brand: "facebook", label: "Facebook", href: "https://www.facebook.com/everondongda/" },
+  { brand: "youtube", label: "YouTube", href: "https://www.youtube.com/channel/UCW8R-hC2rCWSm-T2fFyQcFw" },
+];
 
 export default function App() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -95,6 +103,8 @@ export default function App() {
   const navItems = useMemo(() => topPages.map(pageNavItem), [dict]);
   // Desktop bar: Trang chủ | category groups (dropdowns) | Tin tức | Liên hệ.
   const mainNavItems = buildMainNavItems({ groups: store?.categoryGroups, pages: topPages, pageItem: pageNavItem, labelCategory }) ?? navItems;
+  // Touch screens have no hover: open category dropdowns on tap instead.
+  const isTouchScreen = typeof window !== "undefined" && window.matchMedia?.("(hover: none)").matches === true;
   const handleMainNavClick = ({ key }) => {
     const target = parseNavKey(key);
     if (target.type === "category") handleNavigateCategory(target.value);
@@ -202,7 +212,7 @@ export default function App() {
   const footerQuickLinks = [
     // Pages that left the desktop bar when category groups took their place.
     ...(store?.categoryGroups?.length
-      ? ["sale", "retail", "about"].map((key) => ({ label: dict.topPages[key], action: () => navigateToTopPage(key) }))
+      ? FOOTER_PAGE_KEYS.map((key) => ({ label: dict.topPages[key], action: () => navigateToTopPage(key) }))
       : []),
     { label: "Facebook", href: "https://www.facebook.com/everondongda/" },
     { label: "Map", href: "https://www.google.com/maps/search/?api=1&query=234%20T%C3%B4n%20%C4%90%E1%BB%A9c%20Th%E1%BA%AFng%20%C4%90%E1%BB%91ng%20%C4%90a%20H%C3%A0%20N%E1%BB%99i" },
@@ -211,7 +221,6 @@ export default function App() {
   return (
     <ConfigProvider theme={globalTheme}>
       <Layout className="app-shell">
-        <Flex className="top-strip" align="center" justify="space-between" gap={18}><Space><Icon name="MapPin" /><Text>{dict.address}</Text></Space><Text strong><Icon name="Phone" /> {dict.hotline}</Text></Flex>
         <div className="sticky-navigation">
           <SiteHeader
             dict={dict}
@@ -219,9 +228,29 @@ export default function App() {
             setSearchText={setSearchText}
             submitSearch={submitSearch}
             onOpenMobileNav={() => setMobileNavOpen(true)}
+            mapUrl={store?.showrooms?.[0]?.mapUrl}
+            hotlineHref={toTelHref(store?.showrooms?.[0]?.phone)}
+            products={products}
+            labelProduct={langTools.labelProduct}
           />
-          <Menu className="nav-bar" mode="horizontal" selectedKeys={mainNavSelectedKeys({ activePage, activeCategory })} items={mainNavItems} onClick={handleMainNavClick} />
+          <div className="nav-bar-row">
+            <Menu
+              className="nav-bar"
+              mode="horizontal"
+              // Keep all 7 entries visible at every width (the bar scrolls sideways on small screens)
+              // instead of letting Ant Design fold them into a "…" item.
+              disabledOverflow
+              triggerSubMenuAction={isTouchScreen ? "click" : "hover"}
+              selectedKeys={mainNavSelectedKeys({ activePage, activeCategory })}
+              items={mainNavItems}
+              onClick={handleMainNavClick}
+            />
+            <Badge className="nav-cart-badge" count={cartCount} showZero size="small">
+              <Button className="nav-cart" shape="circle" aria-label={dict.cart} icon={<Icon name="ShoppingCart" size={18} />} onClick={() => navigateToTopPage("checkout")} />
+            </Badge>
+          </div>
         </div>
+        <MobileTrustStrip dict={dict} showroom={store?.showrooms?.[0]} />
         <MobileNavDrawer
           open={mobileNavOpen}
           onClose={() => setMobileNavOpen(false)}
@@ -315,17 +344,29 @@ export default function App() {
           {(buildInfo?.releaseTag || buildInfo?.tag) && (
             <Text className="build-tag">{buildInfo.releaseTag || buildInfo.tag}</Text>
           )}
-          <Button className="floating-chat floating-messenger" shape="circle" href="https://www.messenger.com/t/441239679606397/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0" target="_blank" rel="noopener noreferrer">
+          <Button className="floating-chat floating-messenger" shape="circle" href={MESSENGER_URL} target="_blank" rel="noopener noreferrer">
             <img src="/assets/messenger-logo.png" alt="" aria-hidden="true" />
           </Button>
-          <Badge className="floating-cart-badge" count={cartCount}>
-            <Button className="floating-cart" shape="circle" onClick={() => navigateToTopPage("checkout")} icon={<Icon name="ShoppingCart" />} />
-          </Badge>
           <Button className="floating-hotline" type="primary" href="tel:0966452111">0966.452.111</Button>
-          <Button className="floating-zalo" shape="circle" href="https://zalo.me/0966452111" target="_blank" rel="noopener noreferrer">
+          <Button className="floating-zalo" shape="circle" href={ZALO_URL} target="_blank" rel="noopener noreferrer">
             <img src="/assets/zalo-logo.png" alt="" aria-hidden="true" />
           </Button>
         </Footer>
+        <MobileTabBar
+          dict={dict}
+          activePage={activePage}
+          cartCount={cartCount}
+          categoryGroups={store?.categoryGroups ?? []}
+          labelCategory={labelCategory}
+          socialLinks={SOCIAL_LINKS}
+          contact={{
+            phone: store?.showrooms?.[0]?.phone,
+            telHref: toTelHref(store?.showrooms?.[0]?.phone),
+            zaloHref: ZALO_URL,
+            messengerHref: MESSENGER_URL,
+            mapUrl: store?.showrooms?.[0]?.mapUrl,
+          }}
+        />
       </Layout>
     </ConfigProvider>
   );

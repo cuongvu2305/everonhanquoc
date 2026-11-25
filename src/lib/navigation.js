@@ -1,4 +1,4 @@
-// Main navigation built from store.categoryGroups: pages and category groups share one horizontal menu.
+// Main navigation built from store.categoryGroups: the desktop bar lists product category groups only.
 
 const CATEGORY_PREFIX = "category:";
 const GROUP_PREFIX = "group:";
@@ -6,10 +6,13 @@ const GROUP_PREFIX = "group:";
 export const categoryKey = (category) => `${CATEGORY_PREFIX}${category}`;
 export const groupKey = (name) => `${GROUP_PREFIX}${name}`;
 
-// Pages kept on the main bar around the category groups. Others (sale, retail, about, checkout)
-// stay reachable from the footer, the cart button and the mobile drawer.
-export const MAIN_NAV_PAGES_BEFORE = ["home"];
-export const MAIN_NAV_PAGES_AFTER = ["news", "contact"];
+// Pages placed on the bar around the category groups. Empty: every page link lives in the footer
+// (and the mobile drawer); the logo leads home and the cart button opens checkout.
+export const MAIN_NAV_PAGES_BEFORE = [];
+export const MAIN_NAV_PAGES_AFTER = [];
+
+// Page links shown in the footer when the bar is taken by category groups.
+export const FOOTER_PAGE_KEYS = ["home", "news", "sale", "retail", "about", "contact"];
 
 // Turns a menu key back into a navigation target.
 export function parseNavKey(key) {
