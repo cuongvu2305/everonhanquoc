@@ -74,20 +74,11 @@
   ],
   "showrooms": [
     {
-      "name": "Showroom mẫu 1 (dữ liệu mẫu)",
-      "address": "Số 1 Phố Mẫu, Phường Ví Dụ, Quận Thử Nghiệm, Hà Nội (dữ liệu mẫu)",
-      "phone": "0900 000 001",
-      "openingHours": "8:30 - 21:00 (Thứ 2 - Chủ nhật)",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=H%C3%A0%20N%E1%BB%99i",
-      "isSample": true
-    },
-    {
-      "name": "Showroom mẫu 2 (dữ liệu mẫu)",
-      "address": "Số 2 Đường Mẫu, Phường Minh Họa, Quận Thử Nghiệm, Hà Nội (dữ liệu mẫu)",
-      "phone": "0900 000 002",
-      "openingHours": "9:00 - 20:30 (Thứ 2 - Chủ nhật)",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=H%C3%A0%20N%E1%BB%99i",
-      "isSample": true
+      "name": "Showroom Everon Hàn Quốc",
+      "address": "234 Tôn Đức Thắng, Q. Đống Đa, Tp. Hà Nội",
+      "phone": "0966.452.111",
+      "openingHours": "8:30 - 21:00 hàng ngày",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=234%20T%C3%B4n%20%C4%90%E1%BB%A9c%20Th%E1%BA%AFng%20%C4%90%E1%BB%91ng%20%C4%90a%20H%C3%A0%20N%E1%BB%99i"
     }
   ],
   "products": [

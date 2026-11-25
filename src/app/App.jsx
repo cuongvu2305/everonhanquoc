@@ -277,7 +277,8 @@ export default function App() {
                 </Card>
               </Card>
             </Col>
-            {store?.showrooms?.length ? (
+            {/* One showroom is already covered by the address in footerContacts; list only branches. */}
+            {store?.showrooms?.length > 1 ? (
               <Col xs={24}>
                 <Card className="footer-card footer-showroom-card" bordered={false}>
                   <Title level={4}>{dict.showroomFooterTitle}</Title>

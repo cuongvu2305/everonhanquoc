@@ -79,13 +79,17 @@ export function ShowroomList({ showrooms = [], dict, variant = "cards" }) {
     );
   }
 
+  // A single store reads as "our address", not a "system"; let its card use the full row.
+  const single = showrooms.length === 1;
+  const title = single ? dict.showroomTitleSingle ?? dict.showroomTitle : dict.showroomTitle;
+
   return (
-    <section className="home-showrooms" aria-labelledby="home-showrooms-title">
-      <Title level={3} id="home-showrooms-title" className="home-showrooms-title">{dict.showroomTitle}</Title>
+    <section className={`home-showrooms${single ? " is-single" : ""}`} aria-labelledby="home-showrooms-title">
+      <Title level={3} id="home-showrooms-title" className="home-showrooms-title">{title}</Title>
       {dict.showroomDesc ? <Paragraph className="home-showrooms-desc">{dict.showroomDesc}</Paragraph> : null}
       <Row gutter={[16, 16]}>
         {showrooms.map((showroom) => (
-          <Col xs={24} md={12} key={showroom.name}>
+          <Col xs={24} md={single ? 24 : 12} key={showroom.name}>
             <ShowroomCard showroom={showroom} dict={dict} />
           </Col>
         ))}
