@@ -27,7 +27,7 @@ export function SearchPage({ products, query, langTools }) {
           </Space>
         }
       />
-      <ProductGrid products={results} labelProduct={labelProduct} emptyText={dict.emptySearchResults} paginated />
+      <ProductGrid products={results} labelProduct={labelProduct} dict={dict} emptyText={dict.emptySearchResults} paginated />
     </Card>
   );
 }

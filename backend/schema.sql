@@ -20,6 +20,9 @@ CREATE TABLE IF NOT EXISTS products (
   old_price TEXT,
   image TEXT NOT NULL,
   source_url TEXT,
+  material TEXT,
+  rating REAL,
+  out_of_stock INTEGER NOT NULL DEFAULT 0,
   sort_order INTEGER NOT NULL DEFAULT 0,
   FOREIGN KEY (category_id) REFERENCES categories(id)
 );

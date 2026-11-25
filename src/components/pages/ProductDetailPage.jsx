@@ -54,7 +54,7 @@ export function ProductDetailPage({ product, relatedProducts, langTools, onAddTo
       {relatedProducts.length > 0 ? (
         <section className="related-products">
           <Title level={3}>{dict.relatedProducts}</Title>
-          <ProductGrid products={relatedProducts} labelProduct={labelProduct} emptyText={dict.emptyCategory} />
+          <ProductGrid products={relatedProducts} labelProduct={labelProduct} dict={dict} emptyText={dict.emptyCategory} />
         </section>
       ) : null}
     </Card>

@@ -10,6 +10,14 @@ DATABASE_PATH = BACKEND_DIR / "data" / "everonhanquoc.sqlite3"
 SCHEMA_FILE = BACKEND_DIR / "schema.sql"
 
 
+PRODUCT_MIGRATIONS = {
+    "source_url": "TEXT",
+    "material": "TEXT",
+    "rating": "REAL",
+    "out_of_stock": "INTEGER NOT NULL DEFAULT 0",
+}
+
+
 @contextmanager
 def get_connection():
     """Open a connection, commit on success, roll back on error and always close.
@@ -34,24 +42,31 @@ def get_connection():
 def init_database():
     with get_connection() as connection:
         connection.executescript(SCHEMA_FILE.read_text(encoding="utf-8"))
-        ensure_migrations(connection)
+        migrated = ensure_migrations(connection)
         data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
         product_count = connection.execute("SELECT COUNT(*) FROM products").fetchone()[0]
         category_count = connection.execute("SELECT COUNT(*) FROM categories").fetchone()[0]
-        expected_product_count = len(data.get("products", []))
-        expected_category_count = len(data.get("categories", []))
-        if product_count != expected_product_count or category_count != expected_category_count:
+        if (
+            migrated
+            or product_count != len(data.get("products", []))
+            or category_count != len(data.get("categories", []))
+        ):
             clear_database(connection)
             seed_database(connection)
 
 
 def ensure_migrations(connection):
+    """Add columns missing from older databases; return True if any were added."""
     product_columns = {
         row["name"]
         for row in connection.execute("PRAGMA table_info(products)").fetchall()
     }
-    if "source_url" not in product_columns:
-        connection.execute("ALTER TABLE products ADD COLUMN source_url TEXT")
+    migrated = False
+    for column, definition in PRODUCT_MIGRATIONS.items():
+        if column not in product_columns:
+            connection.execute(f"ALTER TABLE products ADD COLUMN {column} {definition}")
+            migrated = True
+    return migrated
 
 
 def clear_database(connection):
@@ -95,8 +110,11 @@ def seed_database(connection):
 
         cursor = connection.execute(
             """
-            INSERT INTO products (name, category_id, sale, price, old_price, image, source_url, sort_order)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO products (
+                name, category_id, sale, price, old_price, image, source_url,
+                material, rating, out_of_stock, sort_order
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 product["name"],
@@ -106,6 +124,9 @@ def seed_database(connection):
                 product.get("oldPrice"),
                 product["image"],
                 product.get("sourceUrl"),
+                product.get("material"),
+                product.get("rating"),
+                1 if product.get("outOfStock") is True else 0,
                 index,
             ),
         )
@@ -131,6 +152,28 @@ def seed_database(connection):
         )
 
 
+def serialize_product(row):
+    product = {
+        "name": row["name"],
+        "category": row["category"],
+        "categories": json.loads(row["categories"] or "[]"),
+        "sale": row["sale"],
+        "price": row["price"],
+        "oldPrice": row["old_price"],
+        "image": row["image"],
+        "sourceUrl": row["source_url"],
+    }
+    # Optional fields are only emitted when set, mirroring storefront.json and
+    # the static API so the frontend sees the same shape from both sources.
+    if row["material"] is not None:
+        product["material"] = row["material"]
+    if row["rating"] is not None:
+        product["rating"] = row["rating"]
+    if row["out_of_stock"]:
+        product["outOfStock"] = True
+    return product
+
+
 def load_storefront_data():
     init_database()
     with get_connection() as connection:
@@ -143,21 +186,13 @@ def load_storefront_data():
             for row in connection.execute("SELECT name, image FROM tiles ORDER BY sort_order, id")
         ]
         products = [
-            {
-                "name": row["name"],
-                "category": row["category"],
-                "categories": json.loads(row["categories"] or "[]"),
-                "sale": row["sale"],
-                "price": row["price"],
-                "oldPrice": row["old_price"],
-                "image": row["image"],
-                "sourceUrl": row["source_url"],
-            }
+            serialize_product(row)
             for row in connection.execute(
                 """
                 SELECT products.name, categories.name AS category, products.sale,
                        products.price, products.old_price, products.image,
-                       products.source_url,
+                       products.source_url, products.material, products.rating,
+                       products.out_of_stock,
                        json_group_array(related_categories.name) AS categories
                 FROM products
                 JOIN categories ON categories.id = products.category_id

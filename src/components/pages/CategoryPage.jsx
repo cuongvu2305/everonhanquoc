@@ -23,7 +23,7 @@ export function CategoryPage({ category, products, siblingCategories, langTools 
           </Space>
         }
       />
-      <ProductGrid key={category} products={products} labelProduct={labelProduct} emptyText={dict.emptyCategory} paginated />
+      <ProductGrid key={category} products={products} labelProduct={labelProduct} dict={dict} emptyText={dict.emptyCategory} paginated />
       {relatedCategories.length > 0 ? (
         <Flex className="related-categories" vertical>
           <Title level={4}>{dict.relatedCategories}</Title>

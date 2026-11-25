@@ -63,6 +63,8 @@
       "price": "3.430.000đ",
       "oldPrice": "4.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epc-23044-32_270x180.jpg",
+      "material": "Cotton Modal",
+      "rating": 5,
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-23044-pd.html",
       "categories": [
         "Bộ chăn ga giảm giá",
@@ -78,6 +80,8 @@
       "price": "775.000đ",
       "oldPrice": "1.550.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPC-22042%20(34).jpg",
+      "material": "Cotton Tencel",
+      "rating": 4.5,
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-22042-pd.html",
       "categories": [
         "Bộ chăn ga giảm giá",
@@ -93,6 +97,9 @@
       "price": "890.000đ",
       "oldPrice": "1.780.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPC-22056%20(9)_270x270.jpg",
+      "material": "Microfiber",
+      "rating": 4,
+      "outOfStock": true,
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-22056-pd.html",
       "categories": [
         "Bộ chăn ga giảm giá",
@@ -106,6 +113,7 @@
       "price": "2.999.500đ",
       "oldPrice": "5.999.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epm-23061-31_270x180.jpg",
+      "material": "Cotton 100%",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-23061-pd.html",
       "categories": [
         "Bộ chăn ga giảm giá",
@@ -121,6 +129,9 @@
       "price": "1.469.300đ",
       "oldPrice": "2.099.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epm-23062-30_270x180.jpg",
+      "material": "Tencel Lyocell",
+      "rating": 4.5,
+      "outOfStock": true,
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-23062-pd.html",
       "categories": [
         "Bộ chăn ga giảm giá",

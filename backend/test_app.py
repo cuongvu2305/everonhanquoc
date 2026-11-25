@@ -112,6 +112,16 @@ class StorefrontApiTest(unittest.TestCase):
         self.assertEqual(set(payload), {"categories", "tiles", "products", "policies"})
         self.assertIsInstance(payload["products"], list)
 
+    def test_storefront_endpoint_returns_optional_product_fields(self):
+        _, payload = self.get_json("/api/storefront")
+        seed = json.loads(db.DATA_FILE.read_text(encoding="utf-8"))
+        optional_fields = ("material", "rating", "outOfStock")
+
+        for expected, actual in zip(seed["products"], payload["products"], strict=True):
+            for field in optional_fields:
+                self.assertEqual(actual.get(field), expected.get(field), f"{expected['name']}: {field}")
+        self.assertTrue(any(product.get("outOfStock") for product in payload["products"]))
+
 
 class DatabaseMigrationTest(unittest.TestCase):
     def setUp(self):

@@ -67,6 +67,7 @@ export function HomePage({ store, langTools }) {
             title={labelTile(tile)}
             products={productsByCategory(tile.name)}
             labelProduct={labelProduct}
+            dict={dict}
             emptyText={dict.emptyCategory}
             onTitleClick={() => openTileCategory(tile.name)}
           />

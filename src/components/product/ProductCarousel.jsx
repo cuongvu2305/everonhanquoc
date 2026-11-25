@@ -2,7 +2,7 @@ import { Button, Card, Empty, Space, useRef } from "../../app/globals.jsx";
 import { Icon } from "../icons/Icon.jsx";
 import { ProductCard } from "./ProductCard.jsx";
 
-export function ProductCarousel({ title, products, labelProduct, emptyText, onTitleClick }) {
+export function ProductCarousel({ title, products, labelProduct, dict, emptyText, onTitleClick }) {
   const scrollerRef = useRef(null);
   const scrollProducts = (direction) => {
     const node = scrollerRef.current;
@@ -24,7 +24,7 @@ export function ProductCarousel({ title, products, labelProduct, emptyText, onTi
           <div className="product-carousel-track" ref={scrollerRef}>
             {products.map((product) => (
               <div className="product-carousel-item" key={product.sourceUrl || product.name}>
-                <ProductCard product={product} labelProduct={labelProduct} />
+                <ProductCard product={product} labelProduct={labelProduct} dict={dict} />
               </div>
             ))}
           </div>

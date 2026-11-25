@@ -293,9 +293,69 @@
 
 .product-card h5.ant-typography {
   min-height: 44px;
-  margin: 0 0 8px;
+  margin: 0 0 4px;
   font-size: 15px;
   line-height: 1.45;
+}
+
+.product-card-media {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card-stock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  padding: 6px 14px;
+  border-radius: 4px;
+  background: var(--text);
+  color: var(--surface);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.product-card.is-out-of-stock img {
+  opacity: 0.45;
+  filter: grayscale(0.6);
+}
+
+.product-card.is-out-of-stock:hover img {
+  transform: none;
+}
+
+.product-card-material.ant-typography {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-card-rating {
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.product-card-rating .ant-rate {
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.product-card-rating .ant-rate .ant-rate-star:not(:last-child) {
+  margin-inline-end: 3px;
+}
+
+.product-card-rating .ant-rate-star-zero .ant-rate-star-second {
+  color: var(--line);
 }
 
 .product-grid-placeholder {

@@ -96,6 +96,8 @@
     "Đệm lò xo Kingkoil": "Đệm lò xo Kingkoil",
     "Đệm cao su": "Đệm cao su"
   },
+  "outOfStock": "Hết hàng",
+  "ratingLabel": "Đánh giá {rating}/5",
   "productMap": {},
   "tileMap": {},
   "policyMap": {},

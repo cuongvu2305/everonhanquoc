@@ -1,7 +1,7 @@
 import { Col, Empty, Flex, Pagination, Row, useEffect, useState } from "../../app/globals.jsx";
 import { ProductCard } from "./ProductCard.jsx";
 
-export function ProductGrid({ products, labelProduct, emptyText, paginated = false, pageSize = 9 }) {
+export function ProductGrid({ products, labelProduct, dict, emptyText, paginated = false, pageSize = 9 }) {
   const [currentPage, setCurrentPage] = useState(1);
   const productListKey = products.map((product) => product.sourceUrl || product.name).join("|");
 
@@ -19,13 +19,13 @@ export function ProductGrid({ products, labelProduct, emptyText, paginated = fal
       <Row gutter={[16, 16]}>
         {visibleProducts.map((product) => (
           <Col xs={24} sm={12} lg={8} xl={8} key={product.sourceUrl || product.name}>
-            <ProductCard product={product} labelProduct={labelProduct} />
+            <ProductCard product={product} labelProduct={labelProduct} dict={dict} />
           </Col>
         ))}
         {placeholderProduct ? placeholders.map((_, index) => (
           <Col xs={24} sm={12} lg={8} xl={8} key={`placeholder-${index}`}>
             <div className="product-grid-placeholder" aria-hidden="true">
-              <ProductCard product={placeholderProduct} labelProduct={labelProduct} />
+              <ProductCard product={placeholderProduct} labelProduct={labelProduct} dict={dict} />
             </div>
           </Col>
         )) : null}
