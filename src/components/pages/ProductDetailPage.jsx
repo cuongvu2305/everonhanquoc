@@ -1,10 +1,35 @@
-import { Alert, Button, Card, Col, Empty, Flex, Image, Paragraph, Rate, Row, Space, Tag, Text, Title } from "../../app/globals.jsx";
+import { Alert, Button, Card, Col, Descriptions, Empty, Flex, Image, Paragraph, Rate, Row, Space, Tag, Text, Title } from "../../app/globals.jsx";
 import { Icon } from "../icons/Icon.jsx";
+import { PageBreadcrumb } from "../layout/PageBreadcrumb.jsx";
 import { ProductGrid } from "../product/ProductGrid.jsx";
-import { formatRatingLabel, getProductRating, isOutOfStock } from "../../lib/product.js";
-import { extractProductCode, navigateToCategory, navigateToTopPage } from "../../lib/runtime.js";
+import { formatRatingLabel, getDisplayProductCode, getProductRating, isOutOfStock } from "../../lib/product.js";
+import { navigateToCategory, navigateToTopPage } from "../../lib/runtime.js";
 
-export function ProductDetailPage({ product, relatedProducts, langTools, onAddToCart }) {
+// Only rows backed by real product data are shown; nothing is filled in with guesses.
+function buildSpecItems(product, { dict, labelCategory, outOfStock }) {
+  const code = getDisplayProductCode(product);
+  return [
+    code ? { key: "code", label: dict.productCode, children: <Text strong>{code}</Text> } : null,
+    {
+      key: "category",
+      label: dict.productCategory,
+      children: (
+        <Button type="link" className="product-spec-link" onClick={() => navigateToCategory(product.category)}>
+          {labelCategory(product.category)}
+        </Button>
+      ),
+    },
+    product.collection ? { key: "collection", label: dict.productCollection, children: product.collection } : null,
+    product.material ? { key: "material", label: dict.productMaterial, children: <Text className="product-detail-material">{product.material}</Text> } : null,
+    {
+      key: "status",
+      label: dict.productStatus,
+      children: <Text strong className={`product-detail-status ${outOfStock ? "is-out" : "is-in"}`}>{outOfStock ? dict.outOfStock : dict.inStock}</Text>,
+    },
+  ].filter(Boolean);
+}
+
+export function ProductDetailPage({ product, relatedProducts, langTools, onAddToCart, onBuyNow }) {
   const { dict, labelCategory, labelProduct } = langTools;
 
   if (!product) {
@@ -18,9 +43,17 @@ export function ProductDetailPage({ product, relatedProducts, langTools, onAddTo
   const name = labelProduct(product);
   const rating = getProductRating(product);
   const outOfStock = isOutOfStock(product);
+  const specItems = buildSpecItems(product, { dict, labelCategory, outOfStock });
 
   return (
     <Card className={`section-panel page-panel product-detail-page${outOfStock ? " is-out-of-stock" : ""}`}>
+      <PageBreadcrumb
+        dict={dict}
+        items={[
+          { label: labelCategory(product.category), onClick: () => navigateToCategory(product.category) },
+          { label: name },
+        ]}
+      />
       <Row gutter={[24, 24]} align="top">
         <Col xs={24} lg={11}>
           <div className="product-detail-media">
@@ -43,28 +76,22 @@ export function ProductDetailPage({ product, relatedProducts, langTools, onAddTo
               <Text delete type="secondary">{product.oldPrice}</Text>
             </Space>
             {outOfStock && dict.outOfStockNotice ? <Alert className="product-detail-stock-alert" type="warning" showIcon message={dict.outOfStockNotice} /> : null}
-            <Space wrap className="product-detail-actions">
-              <Button type="primary" size="large" icon={<Icon name="ShoppingCart" />} disabled={outOfStock} onClick={() => onAddToCart(product)}>
+            <div className="product-detail-actions">
+              <Button className="product-buy-now" type="primary" danger size="large" icon={<Icon name="Zap" />} disabled={outOfStock} onClick={() => onBuyNow?.(product)}>
+                {dict.buyNow}
+              </Button>
+              <Button className="product-add-to-cart" type="primary" ghost size="large" icon={<Icon name="ShoppingCart" />} disabled={outOfStock} onClick={() => onAddToCart(product)}>
                 {dict.addToCart}
               </Button>
-              <Button type={outOfStock ? "primary" : "default"} ghost={outOfStock} size="large" onClick={() => navigateToTopPage("contact")} icon={<Icon name="PhoneCall" />}>
+              <Button className="product-contact" type={outOfStock ? "primary" : "default"} size="large" onClick={() => navigateToTopPage("contact")} icon={<Icon name="PhoneCall" />}>
                 {dict.contactConsulting}
               </Button>
-            </Space>
-            <Paragraph className="product-detail-desc">{dict.productDetailDesc}</Paragraph>
-            <div className="product-detail-info">
-              <Flex vertical gap={10}>
-                <Flex justify="space-between" gap={16}><Text type="secondary">{dict.productCode}</Text><Text strong>{extractProductCode(product)}</Text></Flex>
-                {product.material ? (
-                  <Flex justify="space-between" gap={16}><Text type="secondary">{dict.productMaterial}</Text><Text className="product-detail-material">{product.material}</Text></Flex>
-                ) : null}
-                <Flex justify="space-between" gap={16}><Text type="secondary">{dict.productCategory}</Text><Button type="link" onClick={() => navigateToCategory(product.category)}>{labelCategory(product.category)}</Button></Flex>
-                <Flex justify="space-between" gap={16}>
-                  <Text type="secondary">{dict.productStatus}</Text>
-                  <Text strong className={`product-detail-status ${outOfStock ? "is-out" : "is-in"}`}>{outOfStock ? dict.outOfStock : dict.inStock}</Text>
-                </Flex>
-              </Flex>
             </div>
+            <Paragraph className="product-detail-desc">{dict.productDetailDesc}</Paragraph>
+            <section className="product-specs" aria-labelledby="product-specs-title">
+              <Title level={4} id="product-specs-title" className="product-specs-title">{dict.productSpecs}</Title>
+              <Descriptions className="product-specs-table" bordered size="small" column={1} items={specItems} />
+            </section>
           </Flex>
         </Col>
       </Row>

@@ -98,3 +98,83 @@ test("card and detail page agree on rating and stock status", () => {
   expect(filledStars(detail.container.querySelector(".product-detail-rating"))).toBe(cardStars);
   expect(detail.container.querySelector(".product-detail-page.is-out-of-stock") !== null).toBe(cardOut);
 });
+
+test("getDisplayProductCode reads model codes, skips brand words and returns null without one", async () => {
+  const { getDisplayProductCode } = await import("../src/lib/product.js");
+  const code = (name) => getDisplayProductCode({ name });
+
+  expect(code("Bộ chăn ga Everon EPC - 23044")).toBe("EPC-23044");
+  expect(code("Bộ chăn ga Everon EPM-22061")).toBe("EPM-22061");
+  expect(code("Bộ chăn ga gối Everon ESC 20003")).toBe("ESC-20003");
+  expect(code("Bộ chăn ga gối Everon EP1837 - TREE")).toBe("EP1837-TREE");
+  expect(code("Bộ chăn ga Everon Basic BPC-701")).toBe("BPC-701");
+  expect(code("Bộ chăn ga gối EVERON EST - 21031")).toBe("EST-21031");
+  expect(code("Đệm bông ép Everon")).toBeNull();
+  expect(code("Topper Everon AVIV")).toBeNull();
+});
+
+test("display codes never leak brand names across the real catalogue", async () => {
+  const { getDisplayProductCode } = await import("../src/lib/product.js");
+  const storefront = JSON.parse(readFileSync(join(process.cwd(), "backend", "data", "storefront.json"), "utf8"));
+  const codes = storefront.products.map(getDisplayProductCode).filter(Boolean);
+
+  expect(codes.length).toBeGreaterThan(300);
+  expect(codes.some((value) => /EVERON|ARTEMIS/.test(value))).toBe(false);
+});
+
+test("product links keep the existing code format", async () => {
+  const { buildProductUrl } = await import("../src/lib/runtime.js");
+  expect(buildProductUrl({ name: "Bộ chăn ga Everon EPM-22061" })).toBe("/product/?slug=bo-chan-ga-everon-epm-22061&code=EPM-22061");
+});
+
+test("breadcrumb shows Trang chủ › category › product", () => {
+  const { container } = render(<Detail product={base} />);
+  const crumbs = [...container.querySelectorAll(".page-breadcrumb .ant-breadcrumb-link, .page-breadcrumb li > span:not(.ant-breadcrumb-separator)")]
+    .map((node) => node.textContent)
+    .filter(Boolean);
+
+  expect(crumbs).toEqual([localeDict.topPages.home, base.category, base.name]);
+  expect(container.querySelector('.page-breadcrumb [aria-current="page"]').textContent).toBe(base.name);
+});
+
+test("spec table lists code, category, collection, material and status from the data only", () => {
+  const product = { ...base, collection: "Bộ sưu tập 2025", material: "Cotton Modal" };
+  const { container } = render(<Detail product={product} />);
+  const rows = [...container.querySelectorAll(".product-specs-table tr")].map((row) => [
+    row.querySelector(".ant-descriptions-item-label").textContent,
+    row.querySelector(".ant-descriptions-item-content").textContent,
+  ]);
+
+  expect(rows).toEqual([
+    [localeDict.productCode, "EPC-23044"],
+    [localeDict.productCategory, base.category],
+    [localeDict.productCollection, "Bộ sưu tập 2025"],
+    [localeDict.productMaterial, "Cotton Modal"],
+    [localeDict.productStatus, localeDict.inStock],
+  ]);
+});
+
+test("spec table hides the code row when the name has no model code", () => {
+  const { container } = render(<Detail product={{ ...base, name: "Đệm bông ép Everon" }} />);
+  const labels = [...container.querySelectorAll(".product-specs-table .ant-descriptions-item-label")].map((node) => node.textContent);
+  expect(labels).not.toContain(localeDict.productCode);
+});
+
+function DetailWithBuyNow({ product, onBuyNow }) {
+  return <ProductDetailPage product={product} relatedProducts={[]} langTools={useI18n("vi", localeDict)} onAddToCart={() => {}} onBuyNow={onBuyNow} />;
+}
+
+test("'Mua ngay' hands the product to onBuyNow and is disabled when out of stock", () => {
+  const onBuyNow = vi.fn();
+  const inStock = render(<DetailWithBuyNow product={base} onBuyNow={onBuyNow} />);
+  fireEvent.click(inStock.getByRole("button", { name: new RegExp(localeDict.buyNow) }));
+  expect(onBuyNow).toHaveBeenCalledWith(base);
+  cleanup();
+
+  onBuyNow.mockClear();
+  const soldOut = render(<DetailWithBuyNow product={{ ...base, outOfStock: true }} onBuyNow={onBuyNow} />);
+  const button = soldOut.getByRole("button", { name: new RegExp(localeDict.buyNow) });
+  expect(button.disabled).toBe(true);
+  fireEvent.click(button);
+  expect(onBuyNow).not.toHaveBeenCalled();
+});

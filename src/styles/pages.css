@@ -738,3 +738,40 @@
 .category-sort-select {
   min-width: 170px;
 }
+
+/* Product detail: actions and spec table */
+.product-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.product-buy-now.ant-btn {
+  min-width: 160px;
+  font-weight: 700;
+}
+
+.product-specs h4.product-specs-title.ant-typography {
+  margin: 4px 0 10px;
+  color: var(--brand-dark);
+  font-size: 17px;
+}
+
+.product-specs-table .ant-descriptions-item-label {
+  width: 38%;
+  background: var(--surface-soft);
+  color: var(--muted);
+}
+
+.product-specs-table .ant-descriptions-view {
+  border-color: var(--line);
+}
+
+.product-specs-table .product-detail-material.ant-typography {
+  text-align: left;
+}
+
+.product-spec-link.ant-btn {
+  height: auto;
+  padding: 0;
+}

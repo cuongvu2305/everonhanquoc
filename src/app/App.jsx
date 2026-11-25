@@ -124,6 +124,14 @@ export default function App() {
     message.success(dict.addedToCart);
   };
 
+  // "Mua ngay": make sure the product is in the cart (without bumping an existing quantity) and go to checkout.
+  const buyNow = (product) => {
+    if (isOutOfStock(product)) return;
+    const slug = slugifyProduct(product);
+    setCartEntries((current) => (current.some((item) => item.slug === slug) ? current : [...current, { slug, quantity: 1 }]));
+    navigateToTopPage("checkout");
+  };
+
   const updateCartQuantity = (slug, quantity) => {
     setCartEntries((current) => quantity <= 0 ? current.filter((item) => item.slug !== slug) : current.map((item) => item.slug === slug ? { ...item, quantity } : item));
   };
@@ -165,7 +173,7 @@ export default function App() {
     if (activePage === "about") return <AboutPage dict={dict} />;
     if (activePage === "checkout") return <CheckoutPage cartItems={cartItems} langTools={langTools} onRemoveCartItem={removeCartItem} onUpdateCartQuantity={updateCartQuantity} />;
     if (activePage === "search") return <SearchPage products={products} query={query} langTools={langTools} />;
-    if (activePage === "product") return <ProductDetailPage product={productPage?.product} relatedProducts={productPage?.relatedProducts ?? []} langTools={langTools} onAddToCart={addToCart} />;
+    if (activePage === "product") return <ProductDetailPage product={productPage?.product} relatedProducts={productPage?.relatedProducts ?? []} langTools={langTools} onAddToCart={addToCart} onBuyNow={buyNow} />;
     if (activePage === "policy") return <PolicyPage slug={activePolicySlug} />;
     if (activePage === "category" && categoryPage) return <CategoryPage key={categoryPage.category} category={categoryPage.category} products={categoryPage.products} siblingCategories={store.categories} langTools={langTools} />;
     return <HomePage activeCategory={activeCategory} filteredProducts={filteredProducts} menuItems={menuItems} setActiveCategory={setActiveCategory} store={store} langTools={langTools} />;

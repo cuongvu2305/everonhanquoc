@@ -39,3 +39,15 @@ export function sortProducts(products = [], sort = "default") {
     })
     .map(({ product }) => product);
 }
+
+// Display-only model code from the product name: "EPC - 23044" -> "EPC-23044", "ESC 20003" -> "ESC-20003",
+// "EP1837 - TREE" -> "EP1837-TREE". Returns null when the name carries no code (e.g. most mattresses).
+// Not used for URLs: runtime.extractProductCode builds product links and must stay unchanged.
+const BRAND_WORDS = /(^|[^\p{L}\d])(?:EVERON|ARTEMIS)(?=$|[^\p{L}\d])/gu;
+const MODEL_CODE = /(?<![\p{L}\d])([A-Z]{2,}\d*)(?:\s*-\s*|\s+)([A-Z]*\d[A-Z0-9]*|[A-Z]{3,})(?![\p{L}\d])/u;
+
+export function getDisplayProductCode(product) {
+  const name = String(product?.name ?? "").replace(BRAND_WORDS, "$1 ");
+  const match = name.match(MODEL_CODE);
+  return match ? `${match[1]}-${match[2]}` : null;
+}
