@@ -47,11 +47,13 @@ def init_database():
         product_count = connection.execute("SELECT COUNT(*) FROM products").fetchone()[0]
         category_count = connection.execute("SELECT COUNT(*) FROM categories").fetchone()[0]
         banner_count = connection.execute("SELECT COUNT(*) FROM banners").fetchone()[0]
+        showroom_count = connection.execute("SELECT COUNT(*) FROM showrooms").fetchone()[0]
         if (
             migrated
             or product_count != len(data.get("products", []))
             or category_count != len(data.get("categories", []))
             or banner_count != len(data.get("banners", []))
+            or showroom_count != len(data.get("showrooms", []))
         ):
             clear_database(connection)
             seed_database(connection)
@@ -76,6 +78,7 @@ def clear_database(connection):
     connection.execute("DELETE FROM products")
     connection.execute("DELETE FROM tiles")
     connection.execute("DELETE FROM banners")
+    connection.execute("DELETE FROM showrooms")
     connection.execute("DELETE FROM policies")
     connection.execute("DELETE FROM categories")
 
@@ -105,6 +108,23 @@ def seed_database(connection):
         connection.execute(
             "INSERT INTO banners (title, image, category, sort_order) VALUES (?, ?, ?, ?)",
             (banner["title"], banner["image"], banner["category"], index),
+        )
+
+    for index, showroom in enumerate(data.get("showrooms", [])):
+        connection.execute(
+            """
+            INSERT INTO showrooms (name, address, phone, opening_hours, map_url, is_sample, sort_order)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                showroom["name"],
+                showroom["address"],
+                showroom["phone"],
+                showroom.get("openingHours"),
+                showroom.get("mapUrl"),
+                1 if showroom.get("isSample") is True else 0,
+                index,
+            ),
         )
 
     for index, product in enumerate(data.get("products", [])):
@@ -183,6 +203,17 @@ def serialize_product(row):
     return product
 
 
+def serialize_showroom(row):
+    showroom = {"name": row["name"], "address": row["address"], "phone": row["phone"]}
+    if row["opening_hours"] is not None:
+        showroom["openingHours"] = row["opening_hours"]
+    if row["map_url"] is not None:
+        showroom["mapUrl"] = row["map_url"]
+    if row["is_sample"]:
+        showroom["isSample"] = True
+    return showroom
+
+
 def load_storefront_data():
     init_database()
     with get_connection() as connection:
@@ -198,6 +229,15 @@ def load_storefront_data():
             {"title": row["title"], "image": row["image"], "category": row["category"]}
             for row in connection.execute(
                 "SELECT title, image, category FROM banners ORDER BY sort_order, id"
+            )
+        ]
+        showrooms = [
+            serialize_showroom(row)
+            for row in connection.execute(
+                """
+                SELECT name, address, phone, opening_hours, map_url, is_sample
+                FROM showrooms ORDER BY sort_order, id
+                """
             )
         ]
         products = [
@@ -227,6 +267,7 @@ def load_storefront_data():
         "categories": categories,
         "tiles": tiles,
         "banners": banners,
+        "showrooms": showrooms,
         "products": products,
         "policies": policies,
     }

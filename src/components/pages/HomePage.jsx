@@ -1,6 +1,7 @@
 import { Card, Flex, Paragraph, Tag, Title } from "../../app/globals.jsx";
 import { Icon } from "../icons/Icon.jsx";
 import { HomeBannerCarousel } from "../home/HomeBannerCarousel.jsx";
+import { ShowroomList } from "../layout/ShowroomList.jsx";
 import { ProductCarousel } from "../product/ProductCarousel.jsx";
 import { navigateToCategory } from "../../lib/runtime.js";
 
@@ -65,6 +66,8 @@ export function HomePage({ store, langTools }) {
           ))}
         </div>
       </section>
+
+      <ShowroomList showrooms={store.showrooms ?? []} dict={dict} />
 
       <Flex className="home-product-sections" vertical gap={16}>
         {store.tiles.map((tile) => (

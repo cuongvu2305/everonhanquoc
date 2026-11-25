@@ -486,3 +486,78 @@
 .continue-shopping {
   margin-top: 10px;
 }
+
+/* Showroom section (home page) */
+.home-showrooms {
+  width: 100%;
+  min-width: 0;
+  margin-top: 24px;
+}
+
+.home-showrooms h3.home-showrooms-title.ant-typography {
+  margin: 0 0 4px;
+  color: var(--brand-dark);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.home-showrooms .home-showrooms-desc.ant-typography {
+  margin-bottom: 14px;
+  color: var(--muted);
+}
+
+.showroom-card.ant-card {
+  height: 100%;
+  border-color: var(--line);
+}
+
+.showroom-card-icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--surface-soft);
+  color: var(--brand);
+}
+
+.showroom-card-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.showroom-card h5.showroom-card-name.ant-typography {
+  margin: 0;
+  color: var(--text);
+  font-size: 16px;
+}
+
+.showroom-line.ant-typography {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  color: var(--muted);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.showroom-line .lucide-icon {
+  flex: none;
+  margin-top: 3px;
+  color: var(--brand);
+}
+
+.showroom-actions {
+  margin-top: 6px;
+}
+
+.showroom-sample-tag.ant-tag {
+  margin-inline: 6px 0;
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+}

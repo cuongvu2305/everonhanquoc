@@ -109,7 +109,7 @@ class StorefrontApiTest(unittest.TestCase):
     def test_storefront_endpoint_returns_expected_collections(self):
         status, payload = self.get_json("/api/storefront")
         self.assertEqual(status, 200)
-        self.assertEqual(set(payload), {"categories", "tiles", "banners", "products", "policies"})
+        self.assertEqual(set(payload), {"categories", "tiles", "banners", "showrooms", "products", "policies"})
         self.assertIsInstance(payload["products"], list)
 
     def test_storefront_endpoint_returns_banners_from_seed_data(self):
@@ -117,6 +117,12 @@ class StorefrontApiTest(unittest.TestCase):
         seed = json.loads(db.DATA_FILE.read_text(encoding="utf-8"))
 
         self.assertEqual(payload["banners"], seed["banners"])
+
+    def test_storefront_endpoint_returns_showrooms_from_seed_data(self):
+        _, payload = self.get_json("/api/storefront")
+        seed = json.loads(db.DATA_FILE.read_text(encoding="utf-8"))
+
+        self.assertEqual(payload["showrooms"], seed["showrooms"])
 
     def test_storefront_endpoint_returns_optional_product_fields(self):
         _, payload = self.get_json("/api/storefront")

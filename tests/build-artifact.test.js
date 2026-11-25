@@ -20,6 +20,7 @@ test("production build publishes static storefront API files", () => {
   expect(JSON.parse(readFileSync(storefrontPath, "utf8"))).toMatchObject({
     categories: expect.any(Array),
     banners: expect.any(Array),
+    showrooms: expect.any(Array),
     products: expect.any(Array),
   });
   expect(JSON.parse(readFileSync(healthPath, "utf8"))).toMatchObject({ ok: true });

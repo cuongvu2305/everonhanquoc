@@ -3,6 +3,7 @@ import { globalTheme } from "../lib/antd-theme.jsx";
 import { Icon } from "../components/icons/Icon.jsx";
 import { MobileNavDrawer } from "../components/layout/MobileNavDrawer.jsx";
 import { SiteHeader } from "../components/layout/SiteHeader.jsx";
+import { ShowroomList } from "../components/layout/ShowroomList.jsx";
 import { AboutPage } from "../components/pages/AboutPage.jsx";
 import { CategoryPage } from "../components/pages/CategoryPage.jsx";
 import { CheckoutPage } from "../components/pages/CheckoutPage.jsx";
@@ -276,6 +277,14 @@ export default function App() {
                 </Card>
               </Card>
             </Col>
+            {store?.showrooms?.length ? (
+              <Col xs={24}>
+                <Card className="footer-card footer-showroom-card" bordered={false}>
+                  <Title level={4}>{dict.showroomFooterTitle}</Title>
+                  <ShowroomList showrooms={store.showrooms} dict={dict} variant="compact" />
+                </Card>
+              </Col>
+            ) : null}
           </Row>
           {(buildInfo?.releaseTag || buildInfo?.tag) && (
             <Text className="build-tag">{buildInfo.releaseTag || buildInfo.tag}</Text>

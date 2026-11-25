@@ -184,6 +184,12 @@
     line-height: 1.12;
   }
 
+  .home-showrooms {
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+    margin-top: 18px;
+  }
+
   .home-category-entry-track {
     width: calc(100vw - 24px);
     max-width: calc(100vw - 24px);
