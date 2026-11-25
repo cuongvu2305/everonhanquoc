@@ -166,6 +166,14 @@
     max-width: none;
   }
 
+  .home-hero.home-banner {
+    padding: 0;
+  }
+
+  .home-banner-copy {
+    max-width: 70%;
+  }
+
   .hero h1.ant-typography {
     font-size: 30px;
     line-height: 1.12;
@@ -349,6 +357,30 @@
   .home-hero .ant-typography {
     font-size: 15px;
     line-height: 1.55;
+  }
+
+  .home-hero.home-banner {
+    padding: 0;
+  }
+
+  /* Taller crop on phones so the overlaid title keeps room to wrap. */
+  .home-banner-slide {
+    aspect-ratio: 16 / 9;
+  }
+
+  .home-banner-copy {
+    left: 16px;
+    max-width: calc(100% - 32px);
+    gap: 10px;
+  }
+
+  .home-banner-title {
+    font-size: 22px;
+  }
+
+  .home-banner-cta {
+    padding: 7px 14px;
+    font-size: 13px;
   }
 
   .home-product-sections {

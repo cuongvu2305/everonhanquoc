@@ -109,8 +109,14 @@ class StorefrontApiTest(unittest.TestCase):
     def test_storefront_endpoint_returns_expected_collections(self):
         status, payload = self.get_json("/api/storefront")
         self.assertEqual(status, 200)
-        self.assertEqual(set(payload), {"categories", "tiles", "products", "policies"})
+        self.assertEqual(set(payload), {"categories", "tiles", "banners", "products", "policies"})
         self.assertIsInstance(payload["products"], list)
+
+    def test_storefront_endpoint_returns_banners_from_seed_data(self):
+        _, payload = self.get_json("/api/storefront")
+        seed = json.loads(db.DATA_FILE.read_text(encoding="utf-8"))
+
+        self.assertEqual(payload["banners"], seed["banners"])
 
     def test_storefront_endpoint_returns_optional_product_fields(self):
         _, payload = self.get_json("/api/storefront")
@@ -130,6 +136,32 @@ class DatabaseMigrationTest(unittest.TestCase):
         patcher = patch.object(db, "DATABASE_PATH", Path(temp_dir.name) / "legacy.sqlite3")
         patcher.start()
         self.addCleanup(patcher.stop)
+
+    def test_legacy_database_is_migrated_and_reseeded_with_new_fields(self):
+        # A database created before banners and the optional product columns existed,
+        # already holding the full product/category counts, must still pick them up.
+        seed = json.loads(db.DATA_FILE.read_text(encoding="utf-8"))
+        with db.get_connection() as connection:
+            connection.executescript(
+                """
+                CREATE TABLE categories (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE, sort_order INTEGER NOT NULL DEFAULT 0);
+                CREATE TABLE products (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, category_id INTEGER NOT NULL,
+                  sale TEXT NOT NULL DEFAULT '-', price TEXT NOT NULL, old_price TEXT, image TEXT NOT NULL,
+                  source_url TEXT, sort_order INTEGER NOT NULL DEFAULT 0);
+                """
+            )
+            connection.executemany(
+                "INSERT INTO categories (name) VALUES (?)", [(name,) for name in seed["categories"]]
+            )
+            connection.executemany(
+                "INSERT INTO products (name, category_id, price, image) VALUES (?, 1, '0', '')",
+                [(product["name"],) for product in seed["products"]],
+            )
+
+        data = db.load_storefront_data()
+
+        self.assertEqual(data["banners"], seed["banners"])
+        self.assertEqual(data["products"][0].get("material"), seed["products"][0].get("material"))
 
     def test_connection_is_closed_after_use(self):
         with db.get_connection() as connection:

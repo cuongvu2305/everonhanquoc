@@ -1,10 +1,12 @@
 import { Card, Flex, Paragraph, Tag, Title } from "../../app/globals.jsx";
 import { Icon } from "../icons/Icon.jsx";
+import { HomeBannerCarousel } from "../home/HomeBannerCarousel.jsx";
 import { ProductCarousel } from "../product/ProductCarousel.jsx";
 import { navigateToCategory } from "../../lib/runtime.js";
 
 export function HomePage({ store, langTools }) {
-  const { dict, labelProduct, labelTile } = langTools;
+  const { dict, labelCategory, labelProduct, labelTile } = langTools;
+  const banners = store.banners ?? [];
   const tileCategoryMap = {};
   const tileIconMap = {
     "Đệm lò xo everon - kingkoil": "Building2",
@@ -24,13 +26,17 @@ export function HomePage({ store, langTools }) {
   const productsByCategory = (category) => store.products.filter((product) => product.category === category || product.categories?.includes(category));
   return (
     <>
-      <section className="home-hero">
-        <div className="home-hero-copy">
-          <Tag color="#d71920">{dict.heroTag}</Tag>
-          <Title level={1}>{dict.heroTitle}</Title>
-          <Paragraph>{dict.heroText}</Paragraph>
-        </div>
-      </section>
+      {banners.length > 0 ? (
+        <HomeBannerCarousel banners={banners} ctaText={dict.viewDeals} labelCategory={labelCategory} />
+      ) : (
+        <section className="home-hero">
+          <div className="home-hero-copy">
+            <Tag color="#d71920">{dict.heroTag}</Tag>
+            <Title level={1}>{dict.heroTitle}</Title>
+            <Paragraph>{dict.heroText}</Paragraph>
+          </div>
+        </section>
+      )}
 
       <section className="home-category-entry">
         <div className="home-category-entry-track">

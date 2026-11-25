@@ -46,10 +46,12 @@ def init_database():
         data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
         product_count = connection.execute("SELECT COUNT(*) FROM products").fetchone()[0]
         category_count = connection.execute("SELECT COUNT(*) FROM categories").fetchone()[0]
+        banner_count = connection.execute("SELECT COUNT(*) FROM banners").fetchone()[0]
         if (
             migrated
             or product_count != len(data.get("products", []))
             or category_count != len(data.get("categories", []))
+            or banner_count != len(data.get("banners", []))
         ):
             clear_database(connection)
             seed_database(connection)
@@ -73,6 +75,7 @@ def clear_database(connection):
     connection.execute("DELETE FROM product_categories")
     connection.execute("DELETE FROM products")
     connection.execute("DELETE FROM tiles")
+    connection.execute("DELETE FROM banners")
     connection.execute("DELETE FROM policies")
     connection.execute("DELETE FROM categories")
 
@@ -96,6 +99,12 @@ def seed_database(connection):
         connection.execute(
             "INSERT INTO tiles (name, image, sort_order) VALUES (?, ?, ?)",
             (tile["name"], tile["image"], index),
+        )
+
+    for index, banner in enumerate(data.get("banners", [])):
+        connection.execute(
+            "INSERT INTO banners (title, image, category, sort_order) VALUES (?, ?, ?, ?)",
+            (banner["title"], banner["image"], banner["category"], index),
         )
 
     for index, product in enumerate(data.get("products", [])):
@@ -185,6 +194,12 @@ def load_storefront_data():
             {"name": row["name"], "image": row["image"]}
             for row in connection.execute("SELECT name, image FROM tiles ORDER BY sort_order, id")
         ]
+        banners = [
+            {"title": row["title"], "image": row["image"], "category": row["category"]}
+            for row in connection.execute(
+                "SELECT title, image, category FROM banners ORDER BY sort_order, id"
+            )
+        ]
         products = [
             serialize_product(row)
             for row in connection.execute(
@@ -211,6 +226,7 @@ def load_storefront_data():
     return {
         "categories": categories,
         "tiles": tiles,
+        "banners": banners,
         "products": products,
         "policies": policies,
     }

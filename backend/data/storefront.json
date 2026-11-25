@@ -55,6 +55,23 @@
       "image": "https://everonhanquoc.com.vn/data/media/images/caosu_1583236533.png"
     }
   ],
+  "banners": [
+    {
+      "title": "Ưu đãi chăn ga gối đến 30%",
+      "image": "/assets/banners/banner-sale.svg",
+      "category": "Sản phẩm giảm giá"
+    },
+    {
+      "title": "Bộ sưu tập Everon 2026",
+      "image": "/assets/banners/banner-collection.svg",
+      "category": "Bộ Everon 2026"
+    },
+    {
+      "title": "Đệm Everon – ngủ ngon mỗi đêm",
+      "image": "/assets/banners/banner-mattress.svg",
+      "category": "Đệm Everon"
+    }
+  ],
   "products": [
     {
       "name": "Bộ chăn ga Everon EPC - 23044",
