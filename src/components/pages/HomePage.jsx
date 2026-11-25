@@ -1,6 +1,7 @@
 import { Card, Flex, Paragraph, Tag, Title } from "../../app/globals.jsx";
 import { Icon } from "../icons/Icon.jsx";
 import { HomeBannerCarousel } from "../home/HomeBannerCarousel.jsx";
+import { HomeLatestNews } from "../home/HomeLatestNews.jsx";
 import { ShowroomList } from "../layout/ShowroomList.jsx";
 import { ProductCarousel } from "../product/ProductCarousel.jsx";
 import { navigateToCategory } from "../../lib/runtime.js";
@@ -82,6 +83,8 @@ export function HomePage({ store, langTools }) {
           />
         ))}
       </Flex>
+
+      <HomeLatestNews dict={dict} />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import { Button, Card, Col, Paragraph, Row, Tag, Title } from "../../app/globals.jsx";
+import { sortNewsByDate } from "../../lib/news.js";
 import { PageHeader } from "../layout/PageHeader.jsx";
 
 export function NewsPage({ dict }) {
@@ -6,12 +7,12 @@ export function NewsPage({ dict }) {
     <>
       <PageHeader icon="Newspaper" title={dict.newsTitle} description={dict.newsDesc} />
       <Row gutter={[16, 16]}>
-        {dict.newsPosts.map(([title, text]) => (
+        {sortNewsByDate(dict.newsPosts).map(({ title, summary }) => (
           <Col xs={24} md={8} key={title}>
             <Card className="content-card">
               <Tag color="#16842c">{dict.advice}</Tag>
               <Title level={4}>{title}</Title>
-              <Paragraph>{text}</Paragraph>
+              <Paragraph>{summary}</Paragraph>
               <Button type="link">{dict.readMore}</Button>
             </Card>
           </Col>

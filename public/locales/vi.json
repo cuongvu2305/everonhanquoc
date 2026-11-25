@@ -110,18 +110,36 @@
   "tileMap": {},
   "policyMap": {},
   "newsPosts": [
-    [
-      "Cách chọn đệm phù hợp cho phòng ngủ nhỏ",
-      "Ưu tiên độ cao vừa phải, chất liệu thoáng và gam màu sáng để phòng ngủ nhẹ hơn."
-    ],
-    [
-      "Khi nào nên thay ruột gối và ruột chăn",
-      "Nếu ruột gối xẹp, vón hoặc gây bí nóng, nên đổi mới để giữ giấc ngủ sạch và ổn định."
-    ],
-    [
-      "Phối chăn ga theo mùa",
-      "Mùa hè hợp cotton thoáng mát, mùa lạnh nên chọn chất liệu mềm ấm và màu dịu."
-    ]
+    {
+      "title": "Cách chọn đệm phù hợp cho phòng ngủ nhỏ",
+      "summary": "Ưu tiên độ cao vừa phải, chất liệu thoáng và gam màu sáng để phòng ngủ nhẹ hơn.",
+      "image": "/assets/news/news-mattress.svg",
+      "date": "2026-11-18"
+    },
+    {
+      "title": "Khi nào nên thay ruột gối và ruột chăn",
+      "summary": "Nếu ruột gối xẹp, vón hoặc gây bí nóng, nên đổi mới để giữ giấc ngủ sạch và ổn định.",
+      "image": "/assets/news/news-pillow.svg",
+      "date": "2026-11-10"
+    },
+    {
+      "title": "Phối chăn ga theo mùa",
+      "summary": "Mùa hè hợp cotton thoáng mát, mùa lạnh nên chọn chất liệu mềm ấm và màu dịu.",
+      "image": "/assets/news/news-season.svg",
+      "date": "2026-10-28"
+    },
+    {
+      "title": "Bảo quản chăn ga cotton để bền màu",
+      "summary": "Giặt nước mát, lộn trái khi phơi và tránh nắng gắt giúp vải cotton giữ màu và độ mềm lâu hơn.",
+      "image": "/assets/news/news-care.svg",
+      "date": "2026-11-22"
+    },
+    {
+      "title": "Chọn kích thước ga phủ chuẩn cho giường",
+      "summary": "Đo dài, rộng và độ dày đệm trước khi mua để ga ôm khít, không nhăn và không tuột góc.",
+      "image": "/assets/news/news-size.svg",
+      "date": "2026-10-15"
+    }
   ],
   "aboutCards": [
     [
@@ -148,5 +166,8 @@
   "addToCart": "Thêm vào giỏ",
   "contactConsulting": "Tư vấn ngay",
   "relatedProducts": "Sản phẩm cùng danh mục",
-  "productNotFound": "Không tìm thấy sản phẩm"
+  "productNotFound": "Không tìm thấy sản phẩm",
+  "latestNewsTitle": "Tin tức & Tư vấn",
+  "viewAll": "Xem tất cả",
+  "dateLocale": "vi-VN"
 }

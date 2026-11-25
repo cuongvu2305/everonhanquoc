@@ -184,7 +184,8 @@
     line-height: 1.12;
   }
 
-  .home-showrooms {
+  .home-showrooms,
+  .home-news {
     width: calc(100vw - 24px);
     max-width: calc(100vw - 24px);
     margin-top: 18px;
