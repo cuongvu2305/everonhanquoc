@@ -19,6 +19,7 @@ import { topPages } from "../constants/navigation.jsx";
 import { useI18n } from "../hooks/use-i18n.jsx";
 import { useLocale, useStorefront } from "../hooks/use-storefront.jsx";
 import { isOutOfStock } from "../lib/product.js";
+import { buildMainNavItems, mainNavSelectedKeys, parseNavKey } from "../lib/navigation.js";
 import { buildSearchUrl, getCategorySlugFromHash, getPageFromHash, getPolicySlugFromLocation, getProductSlugFromLocation, getSearchQueryFromLocation, getStoredCart, navigateToCategory, navigateToPolicy, navigateToTopPage, slugifyCategory, slugifyProduct, storeCart } from "../lib/runtime.js";
 
 export default function App() {
@@ -89,7 +90,16 @@ export default function App() {
   }, [activeCategory, products, query, langTools]);
 
   const menuItems = useMemo(() => ["Tất cả", ...(store?.categories ?? [])].map((category) => ({ key: category, label: category === "Tất cả" ? dict.all : labelCategory(category) })), [store, dict.all, labelCategory]);
-  const navItems = useMemo(() => topPages.map((page) => ({ key: page.key, icon: <Icon name={page.icon} size={16} />, label: dict.topPages[page.key] })), [dict]);
+  const pageNavItem = (page) => ({ key: page.key, icon: <Icon name={page.icon} size={16} />, label: dict.topPages[page.key] });
+  // Full page list: used by the mobile drawer and as the desktop bar when no category groups exist.
+  const navItems = useMemo(() => topPages.map(pageNavItem), [dict]);
+  // Desktop bar: Trang chủ | category groups (dropdowns) | Tin tức | Liên hệ.
+  const mainNavItems = buildMainNavItems({ groups: store?.categoryGroups, pages: topPages, pageItem: pageNavItem, labelCategory }) ?? navItems;
+  const handleMainNavClick = ({ key }) => {
+    const target = parseNavKey(key);
+    if (target.type === "category") handleNavigateCategory(target.value);
+    else if (target.type === "page") navigateToTopPage(target.value);
+  };
   const saleProducts = useMemo(() => products.filter((product) => product.sale !== "-"), [products]);
   const categoryPage = useMemo(() => {
     if (!store) return null;
@@ -190,6 +200,10 @@ export default function App() {
     { icon: "Globe", text: "Website: http://everonlongbien.com.vn/" },
   ];
   const footerQuickLinks = [
+    // Pages that left the desktop bar when category groups took their place.
+    ...(store?.categoryGroups?.length
+      ? ["sale", "retail", "about"].map((key) => ({ label: dict.topPages[key], action: () => navigateToTopPage(key) }))
+      : []),
     { label: "Facebook", href: "https://www.facebook.com/everondongda/" },
     { label: "Map", href: "https://www.google.com/maps/search/?api=1&query=234%20T%C3%B4n%20%C4%90%E1%BB%A9c%20Th%E1%BA%AFng%20%C4%90%E1%BB%91ng%20%C4%90a%20H%C3%A0%20N%E1%BB%99i" },
   ];
@@ -206,7 +220,7 @@ export default function App() {
             submitSearch={submitSearch}
             onOpenMobileNav={() => setMobileNavOpen(true)}
           />
-          <Menu className="nav-bar" mode="horizontal" selectedKeys={[activePage]} items={navItems} onClick={({ key }) => navigateToTopPage(key)} />
+          <Menu className="nav-bar" mode="horizontal" selectedKeys={mainNavSelectedKeys({ activePage, activeCategory })} items={mainNavItems} onClick={handleMainNavClick} />
         </div>
         <MobileNavDrawer
           open={mobileNavOpen}

@@ -109,7 +109,7 @@ class StorefrontApiTest(unittest.TestCase):
     def test_storefront_endpoint_returns_expected_collections(self):
         status, payload = self.get_json("/api/storefront")
         self.assertEqual(status, 200)
-        self.assertEqual(set(payload), {"categories", "tiles", "banners", "showrooms", "products", "policies"})
+        self.assertEqual(set(payload), {"categories", "tiles", "categoryGroups", "banners", "showrooms", "products", "policies"})
         self.assertIsInstance(payload["products"], list)
 
     def test_storefront_endpoint_returns_banners_from_seed_data(self):
@@ -117,6 +117,12 @@ class StorefrontApiTest(unittest.TestCase):
         seed = json.loads(db.DATA_FILE.read_text(encoding="utf-8"))
 
         self.assertEqual(payload["banners"], seed["banners"])
+
+    def test_storefront_endpoint_returns_category_groups_from_seed_data(self):
+        _, payload = self.get_json("/api/storefront")
+        seed = json.loads(db.DATA_FILE.read_text(encoding="utf-8"))
+
+        self.assertEqual(payload["categoryGroups"], seed["categoryGroups"])
 
     def test_storefront_endpoint_returns_showrooms_from_seed_data(self):
         _, payload = self.get_json("/api/storefront")
@@ -168,6 +174,29 @@ class DatabaseMigrationTest(unittest.TestCase):
 
         self.assertEqual(data["banners"], seed["banners"])
         self.assertEqual(data["products"][0].get("material"), seed["products"][0].get("material"))
+
+    def test_editing_the_data_file_reseeds_even_when_counts_do_not_change(self):
+        seed = json.loads(db.DATA_FILE.read_text(encoding="utf-8"))
+        with tempfile.TemporaryDirectory() as data_dir:
+            data_file = Path(data_dir) / "storefront.json"
+            data_file.write_text(json.dumps(seed, ensure_ascii=False), encoding="utf-8")
+            with patch.object(db, "DATA_FILE", data_file):
+                self.assertEqual(db.load_storefront_data()["showrooms"], seed["showrooms"])
+
+                edited = json.loads(json.dumps(seed))
+                edited["showrooms"][0]["address"] = "Địa chỉ mới"
+                edited["categoryGroups"][0]["children"] = list(reversed(edited["categoryGroups"][0]["children"]))
+                data_file.write_text(json.dumps(edited, ensure_ascii=False), encoding="utf-8")
+
+                data = db.load_storefront_data()
+                self.assertEqual(data["showrooms"][0]["address"], "Địa chỉ mới")
+                self.assertEqual(data["categoryGroups"][0]["children"], edited["categoryGroups"][0]["children"])
+
+    def test_unchanged_data_file_is_not_reseeded(self):
+        db.init_database()
+        with patch.object(db, "seed_database") as seed_database:
+            db.init_database()
+        seed_database.assert_not_called()
 
     def test_connection_is_closed_after_use(self):
         with db.get_connection() as connection:

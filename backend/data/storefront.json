@@ -55,6 +55,68 @@
       "image": "https://everonhanquoc.com.vn/data/media/images/caosu_1583236533.png"
     }
   ],
+  "categoryGroups": [
+    {
+      "name": "Đệm",
+      "category": "Đệm Everon",
+      "children": [
+        "Đệm Everon",
+        "Đệm bông ép everon",
+        "Đệm lò xo everon - kingkoil",
+        "Đệm cao su Everon",
+        "Đệm bông ép",
+        "Đệm lò xo"
+      ]
+    },
+    {
+      "name": "Chăn ga gối",
+      "category": "Chăn - ga - gối everon",
+      "children": [
+        "Chăn - ga - gối everon",
+        "Chăn ga gối Everon",
+        "Bộ Everon 2027",
+        "Bộ Everon 2026",
+        "Bộ Everon 2025",
+        "Bộ Everon 2024",
+        "Bộ Everon 2023",
+        "Bộ Everon 2022",
+        "Bộ Everon 2021",
+        "Bộ Everon 2020",
+        "Bộ Everon 2019",
+        "Bộ Everon Basic",
+        "Bộ Everon Trẻ Em"
+      ]
+    },
+    {
+      "name": "Ruột chăn & gối",
+      "category": "Ruột chăn everon",
+      "children": [
+        "Ruột chăn everon",
+        "Ruột gối everon"
+      ]
+    },
+    {
+      "name": "Artemis",
+      "category": "Bộ sản phẩm cao cấp Artemis",
+      "children": []
+    },
+    {
+      "name": "Giảm giá",
+      "category": "Sản phẩm giảm giá",
+      "children": [
+        "Sản phẩm giảm giá",
+        "Bộ chăn ga giảm giá",
+        "Bộ ga chun mỏng giảm giá",
+        "Vỏ gối lẻ giảm giá",
+        "Vỏ chăn giảm giá"
+      ]
+    },
+    {
+      "name": "Bán lẻ",
+      "category": "Sản phẩm bán lẻ",
+      "children": []
+    }
+  ],
   "banners": [
     {
       "title": "Ưu đãi chăn ga gối đến 30%",

@@ -1,3 +1,4 @@
+import hashlib
 import json
 import sqlite3
 from contextlib import contextmanager
@@ -40,24 +41,29 @@ def get_connection():
         connection.close()
 
 
+def data_file_hash():
+    return hashlib.sha256(DATA_FILE.read_bytes()).hexdigest()
+
+
 def init_database():
+    """Create/migrate the schema and reseed whenever storefront.json changes.
+
+    The seed file's hash is stored in the meta table, so any edit to the data
+    (not only a change in row counts) is picked up on the next start.
+    """
     with get_connection() as connection:
         connection.executescript(SCHEMA_FILE.read_text(encoding="utf-8"))
         migrated = ensure_migrations(connection)
-        data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
-        product_count = connection.execute("SELECT COUNT(*) FROM products").fetchone()[0]
-        category_count = connection.execute("SELECT COUNT(*) FROM categories").fetchone()[0]
-        banner_count = connection.execute("SELECT COUNT(*) FROM banners").fetchone()[0]
-        showroom_count = connection.execute("SELECT COUNT(*) FROM showrooms").fetchone()[0]
-        if (
-            migrated
-            or product_count != len(data.get("products", []))
-            or category_count != len(data.get("categories", []))
-            or banner_count != len(data.get("banners", []))
-            or showroom_count != len(data.get("showrooms", []))
-        ):
+        current_hash = data_file_hash()
+        row = connection.execute("SELECT value FROM meta WHERE key = 'data_hash'").fetchone()
+        if migrated or row is None or row["value"] != current_hash:
             clear_database(connection)
             seed_database(connection)
+            connection.execute(
+                "INSERT INTO meta (key, value) VALUES ('data_hash', ?) "
+                "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
+                (current_hash,),
+            )
 
 
 def ensure_migrations(connection):
@@ -80,6 +86,8 @@ def clear_database(connection):
     connection.execute("DELETE FROM tiles")
     connection.execute("DELETE FROM banners")
     connection.execute("DELETE FROM showrooms")
+    connection.execute("DELETE FROM category_group_items")
+    connection.execute("DELETE FROM category_groups")
     connection.execute("DELETE FROM policies")
     connection.execute("DELETE FROM categories")
 
@@ -110,6 +118,17 @@ def seed_database(connection):
             "INSERT INTO banners (title, image, category, sort_order) VALUES (?, ?, ?, ?)",
             (banner["title"], banner["image"], banner["category"], index),
         )
+
+    for index, group in enumerate(data.get("categoryGroups", [])):
+        cursor = connection.execute(
+            "INSERT INTO category_groups (name, category, sort_order) VALUES (?, ?, ?)",
+            (group["name"], group.get("category"), index),
+        )
+        for child_index, category in enumerate(group.get("children", [])):
+            connection.execute(
+                "INSERT INTO category_group_items (group_id, category, sort_order) VALUES (?, ?, ?)",
+                (cursor.lastrowid, category, child_index),
+            )
 
     for index, showroom in enumerate(data.get("showrooms", [])):
         connection.execute(
@@ -206,6 +225,23 @@ def serialize_product(row):
     return product
 
 
+def load_category_groups(connection):
+    groups = []
+    for group in connection.execute("SELECT id, name, category FROM category_groups ORDER BY sort_order, id"):
+        item = {"name": group["name"]}
+        if group["category"] is not None:
+            item["category"] = group["category"]
+        item["children"] = [
+            row["category"]
+            for row in connection.execute(
+                "SELECT category FROM category_group_items WHERE group_id = ? ORDER BY sort_order",
+                (group["id"],),
+            )
+        ]
+        groups.append(item)
+    return groups
+
+
 def serialize_showroom(row):
     showroom = {"name": row["name"], "address": row["address"], "phone": row["phone"]}
     if row["opening_hours"] is not None:
@@ -234,6 +270,7 @@ def load_storefront_data():
                 "SELECT title, image, category FROM banners ORDER BY sort_order, id"
             )
         ]
+        category_groups = load_category_groups(connection)
         showrooms = [
             serialize_showroom(row)
             for row in connection.execute(
@@ -269,6 +306,7 @@ def load_storefront_data():
     return {
         "categories": categories,
         "tiles": tiles,
+        "categoryGroups": category_groups,
         "banners": banners,
         "showrooms": showrooms,
         "products": products,
