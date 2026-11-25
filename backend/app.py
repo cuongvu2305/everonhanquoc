@@ -5,11 +5,13 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from db import init_database, load_storefront_data
+from details import load_product_details
 
 
 BACKEND_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BACKEND_DIR.parent
 DIST_DIR = PROJECT_ROOT / "dist"
+PRODUCT_DETAILS_PREFIX = "/api/products/"
 
 
 def get_static_directory():
@@ -40,6 +42,13 @@ class StorefrontHandler(SimpleHTTPRequestHandler):
         if path == "/api/storefront":
             self.send_json(load_storefront_data())
             return
+        if path.startswith(PRODUCT_DETAILS_PREFIX):
+            details = load_product_details(path[len(PRODUCT_DETAILS_PREFIX):])
+            if details is None:
+                self.send_json({"error": "not_found"}, status=404)
+            else:
+                self.send_json(details)
+            return
         if self.static_directory is None:
             self.send_error(503, "Frontend build is unavailable; run npm run build")
             return
@@ -48,9 +57,9 @@ class StorefrontHandler(SimpleHTTPRequestHandler):
             self.path = "/index.html"
         return super().do_GET()
 
-    def send_json(self, payload):
+    def send_json(self, payload, status=200):
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
-        self.send_response(200)
+        self.send_response(status)
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()

@@ -37,3 +37,25 @@ export function useLocale(lang) {
 
   return { localeDict, loading };
 }
+
+// Gallery, specs and size/price variants for one product; loaded only on its detail page.
+export function useProductDetails(detailId) {
+  const [state, setState] = useState({ detailId: null, details: null, loading: false, error: false });
+
+  useEffect(() => {
+    if (!detailId) {
+      setState({ detailId: null, details: null, loading: false, error: false });
+      return undefined;
+    }
+    let active = true;
+    setState({ detailId, details: null, loading: true, error: false });
+    storefrontService
+      .getProductDetails(detailId)
+      .then((details) => { if (active) setState({ detailId, details, loading: false, error: false }); })
+      .catch(() => { if (active) setState({ detailId, details: null, loading: false, error: true }); });
+    return () => { active = false; };
+  }, [detailId]);
+
+  // Ignore a response that belongs to the previously viewed product.
+  return state.detailId === detailId ? state : { detailId, details: null, loading: Boolean(detailId), error: false };
+}

@@ -25,6 +25,15 @@ test("production build publishes static storefront API files", () => {
     products: expect.any(Array),
   });
   expect(JSON.parse(readFileSync(healthPath, "utf8"))).toMatchObject({ ok: true });
+
+  const storefront = JSON.parse(readFileSync(storefrontPath, "utf8"));
+  const [first] = storefront.products;
+  const detailPath = join(process.cwd(), "dist", "api", "products", first.detailId);
+  expect(JSON.parse(readFileSync(detailPath, "utf8"))).toMatchObject({
+    images: expect.any(Array),
+    specs: expect.any(Array),
+    variants: expect.any(Array),
+  });
 });
 
 test("production build copies generated release metadata", () => {

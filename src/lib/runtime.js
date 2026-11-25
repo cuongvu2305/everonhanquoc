@@ -112,7 +112,18 @@ export function getStoredCart() {
   try {
     const stored = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) ?? "[]");
     if (!Array.isArray(stored)) return [];
-    return stored.filter((item) => typeof item?.slug === "string" && Number(item?.quantity) > 0);
+    return stored
+      .filter((item) => typeof item?.slug === "string" && Number(item?.quantity) > 0)
+      // A variant line must carry its own price; drop anything malformed instead of showing a wrong total.
+      .filter((item) => !item.variantId || (typeof item.variantId === "string" && typeof item.price === "string"))
+      .map((item) => {
+        const entry = { slug: item.slug, quantity: Math.floor(Number(item.quantity)) };
+        if (item.variantId) {
+          Object.assign(entry, { variantId: item.variantId, variantName: String(item.variantName ?? ""), size: String(item.size ?? ""), price: item.price });
+          if (typeof item.oldPrice === "string") entry.oldPrice = item.oldPrice;
+        }
+        return entry;
+      });
   } catch {
     return [];
   }

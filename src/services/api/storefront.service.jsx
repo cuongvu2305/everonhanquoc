@@ -10,6 +10,9 @@ export const storefrontService = {
   getStorefront() {
     return requestJson("/api/storefront", "Unable to load storefront data");
   },
+  getProductDetails(detailId) {
+    return requestJson(`/api/products/${encodeURIComponent(detailId)}`, "Unable to load product details");
+  },
   getLocale(lang) {
     return requestJson(`/locales/${lang}.json?v=locale-1`, "Unable to load locale data");
   },

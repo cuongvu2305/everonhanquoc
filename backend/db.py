@@ -17,6 +17,7 @@ PRODUCT_MIGRATIONS = {
     "rating": "REAL",
     "out_of_stock": "INTEGER NOT NULL DEFAULT 0",
     "collection": "TEXT",
+    "detail_id": "TEXT",
 }
 
 
@@ -161,9 +162,9 @@ def seed_database(connection):
             """
             INSERT INTO products (
                 name, category_id, sale, price, old_price, image, source_url,
-                material, rating, out_of_stock, collection, sort_order
+                material, rating, out_of_stock, collection, detail_id, sort_order
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 product["name"],
@@ -177,6 +178,7 @@ def seed_database(connection):
                 product.get("rating"),
                 1 if product.get("outOfStock") is True else 0,
                 product.get("collection"),
+                product.get("detailId"),
                 index,
             ),
         )
@@ -214,6 +216,8 @@ def serialize_product(row):
         "image": row["image"],
         "sourceUrl": row["source_url"],
     }
+    if row["detail_id"] is not None:
+        product["detailId"] = row["detail_id"]
     # Optional fields are only emitted when set, mirroring storefront.json and
     # the static API so the frontend sees the same shape from both sources.
     if row["material"] is not None:
@@ -287,7 +291,7 @@ def load_storefront_data():
                 SELECT products.name, categories.name AS category, products.sale,
                        products.price, products.old_price, products.image,
                        products.source_url, products.material, products.rating,
-                       products.out_of_stock, products.collection,
+                       products.out_of_stock, products.collection, products.detail_id,
                        json_group_array(related_categories.name) AS categories
                 FROM products
                 JOIN categories ON categories.id = products.category_id

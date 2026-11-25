@@ -153,9 +153,9 @@
       "price": "3.430.000đ",
       "oldPrice": "4.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epc-23044-32_270x180.jpg",
-      "material": "Cotton Modal",
-      "rating": 5,
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-23044-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-23044",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -170,9 +170,9 @@
       "price": "775.000đ",
       "oldPrice": "1.550.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPC-22042%20(34).jpg",
-      "material": "Cotton Tencel",
-      "rating": 4.5,
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-22042-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-22042",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -187,10 +187,9 @@
       "price": "890.000đ",
       "oldPrice": "1.780.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPC-22056%20(9)_270x270.jpg",
-      "material": "Microfiber",
-      "rating": 4,
-      "outOfStock": true,
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-22056-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-22056",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Bộ Everon 2022"
@@ -203,8 +202,9 @@
       "price": "2.999.500đ",
       "oldPrice": "5.999.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epm-23061-31_270x180.jpg",
-      "material": "Cotton 100%",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-23061-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-23061",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -219,10 +219,9 @@
       "price": "1.469.300đ",
       "oldPrice": "2.099.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epm-23062-30_270x180.jpg",
-      "material": "Tencel Lyocell",
-      "rating": 4.5,
-      "outOfStock": true,
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-23062-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-23062",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -238,6 +237,8 @@
       "oldPrice": "2.099.999đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epm-23063-30_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-23063-pd.html",
+      "detailId": "bo-chan-ga-everon-23063",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -254,6 +255,8 @@
       "oldPrice": "2.099.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epm-23064-31_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-23064-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-23064",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -269,6 +272,8 @@
       "oldPrice": "5.999.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epm-23066-31_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-23066-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-23066",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -284,6 +289,8 @@
       "oldPrice": "5.999.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epm-23068-1_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-23068-pd.html",
+      "detailId": "bo-chan-ga-everon-23068",
+      "material": "Modal 60",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -300,6 +307,8 @@
       "oldPrice": "1.950.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22062%20(31).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22062-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22062",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -315,6 +324,8 @@
       "oldPrice": "1.850.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22063%20(11)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22063-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22063",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -330,6 +341,8 @@
       "oldPrice": "1.920.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22070%20(2)_270x186.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22070-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22070",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -346,6 +359,8 @@
       "oldPrice": "1.890.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22072%20(18)_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22072-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22072",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -362,6 +377,8 @@
       "oldPrice": "1.910.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22073%20(1)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22073-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22073",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -378,6 +395,8 @@
       "oldPrice": "3.619.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album2018/ES-1806(1)_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-es-1807-pd.html",
+      "detailId": "bo-chan-ga-everon-es-1807",
+      "material": "Cotton 100%",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá"
@@ -391,6 +410,8 @@
       "oldPrice": "1.749.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epb-23021-18_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esb-23021-pd.html",
+      "detailId": "bo-chan-ga-everon-esb-23021",
+      "material": "Bamboo (sợi tre)",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -406,6 +427,8 @@
       "oldPrice": "1.210.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/ESC-22003%20(25).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esc-22003-pd.html",
+      "detailId": "bo-chan-ga-everon-esc-22003",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -421,6 +444,7 @@
       "oldPrice": "5.849.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epm-23013-30_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-esm-23013-pd.html",
+      "detailId": "bo-chan-ga-esm-23013",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -436,6 +460,8 @@
       "oldPrice": "1.760.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/ESM-22013%20(1)_270x193.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-22013-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-22013",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Bộ Everon 2022",
@@ -450,6 +476,8 @@
       "oldPrice": "5.430.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/ESM-22013%20(14)_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-22013-giam-gia-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-22013-giam-gia",
+      "material": "Modal 40",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá"
@@ -463,6 +491,8 @@
       "oldPrice": "1.760.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/ESM-22015%20(1)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-22015-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-22015",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -478,6 +508,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epm-23012-31_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-23012-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-23012",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -493,6 +525,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-ept-23036-31_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-23036-pd.html",
+      "detailId": "bo-chan-ga-everon-est-23036",
+      "material": "Tencel",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -508,6 +542,8 @@
       "oldPrice": "1.449.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-eptr-23054-31_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estr-23054-pd.html",
+      "detailId": "bo-chan-ga-everon-estr-23054",
+      "material": "Tencel",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -523,6 +559,8 @@
       "oldPrice": "1.449.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-eptr-23055-31_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estr-23055-pd.html",
+      "detailId": "bo-chan-ga-everon-estr-23055",
+      "material": "Tencel",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -538,6 +576,8 @@
       "oldPrice": "4.004.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album2018/ES-1802%20(1)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-evern-es-1802-pd.html",
+      "detailId": "bo-chan-ga-goi-evern-es-1802",
+      "material": "Modal 40",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá"
@@ -551,6 +591,8 @@
       "oldPrice": "4.125.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album2018/EP-1810%20(3)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-ep-1810-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-ep-1810",
+      "material": "Tencel",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá"
@@ -564,6 +606,8 @@
       "oldPrice": "4.829.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album2018/EP-1837%20(11).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-ep1837-tree-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-ep1837-tree",
+      "material": "Bamboo (sợi tre)",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá"
@@ -577,6 +621,8 @@
       "oldPrice": "3.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPC-21053%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epc-21053-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epc-21053",
+      "material": "Cotton 100%",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -592,6 +638,8 @@
       "oldPrice": "4.610.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/EPM-19065%20(2)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-19065-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-19065",
+      "material": "Modal 60",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -606,6 +654,8 @@
       "oldPrice": "4.700.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/EPM%2020061%20(1).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-20061-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-20061",
+      "material": "Modal 40",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -621,6 +671,8 @@
       "oldPrice": "4.630.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/EPM-20066%20(4)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-20066-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-20066",
+      "material": "Modal 40",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -635,6 +687,8 @@
       "oldPrice": "5.420.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPM-21067%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-21067-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-21067",
+      "material": "Modal 40",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -651,6 +705,7 @@
       "oldPrice": "5.340.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/bo-chan-ga-everon-EPM-21061.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-21061-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-21061",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -665,6 +720,8 @@
       "oldPrice": "4.830.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/EPT20044%20(32).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-ept-20044-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-ept-20044",
+      "material": "Tencel",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -681,6 +738,8 @@
       "oldPrice": "3.993.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album2018/es-1801%20(8)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-es-1801-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-es-1801",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá"
       ]
@@ -693,6 +752,8 @@
       "oldPrice": "3.751.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album2018/ES-1803%20(2)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-es-1803-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-es-1803",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá"
       ]
@@ -705,6 +766,8 @@
       "oldPrice": "4.136.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album2018/ES-1805%20(1)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-es-1805-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-es-1805",
+      "material": "Modal 40",
       "categories": [
         "Bộ chăn ga giảm giá"
       ]
@@ -717,6 +780,8 @@
       "oldPrice": "3.993.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album2018/ES-1808_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-es-1808-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-es-1808",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ chăn ga giảm giá"
       ]
@@ -729,6 +794,8 @@
       "oldPrice": "5.480.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/ESB-22051%20(11)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esb-22051-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esb-22051",
+      "material": "Bamboo (sợi tre)",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -744,6 +811,8 @@
       "oldPrice": "1.660.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/esb22053-1_51307571787_o_270x184.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esb-22053-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esb-22053",
+      "material": "Bamboo (sợi tre)",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -759,6 +828,8 @@
       "oldPrice": "1.660.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/ESB-22055%20(1)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esb-22055-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esb-22055",
+      "material": "Bamboo (sợi tre)",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -775,6 +846,8 @@
       "oldPrice": "4.420.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/ESC-19001%20(17)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esc-19001-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esc-19001",
+      "material": "Cotton Satin",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -789,6 +862,8 @@
       "oldPrice": "4.260.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/ESC-19002%20(1)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esc-19002-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esc-19002",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Bộ Everon 2019"
@@ -802,6 +877,8 @@
       "oldPrice": "3.276.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/ESC-20001%20(1)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esc-20001-952-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esc-20001-952",
+      "material": "Cotton Satin",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -816,6 +893,8 @@
       "oldPrice": "4.140.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/ESM-19017%20(1)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-19017-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-19017",
+      "material": "Modal 40",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -830,6 +909,8 @@
       "oldPrice": "4.800.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/ESM20014%20(11).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-20014-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-20014",
+      "material": "Modal 40",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -844,6 +925,8 @@
       "oldPrice": "4.340.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/ESM-20015%20(1)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-20015-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-20015",
+      "material": "Modal 40",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -858,6 +941,8 @@
       "oldPrice": "5.750.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/EST-20031%20(4)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-20031-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-20031",
+      "material": "Tencel",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -872,6 +957,8 @@
       "oldPrice": "5.520.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/EST-20034%20(9)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-20034-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-20034",
+      "material": "Tencel",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -886,6 +973,8 @@
       "oldPrice": "1.410.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EST-21037%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-21037-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-21037",
+      "material": "Tencel",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá",
@@ -900,6 +989,8 @@
       "oldPrice": "5.770.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EST-22030%20(1)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-22030-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-22030",
+      "material": "Tencel",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -915,6 +1006,8 @@
       "oldPrice": "1.800.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EST-22032%20(1)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-22032-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-22032",
+      "material": "Tencel",
       "categories": [
         "Bộ chăn ga giảm giá",
         "Chăn - ga - gối everon",
@@ -930,6 +1023,8 @@
       "oldPrice": "1.890.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPC-21053-22.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/chan-he-thu-everon-epc-21053-pd.html",
+      "detailId": "chan-he-thu-everon-epc-21053",
+      "material": "Cotton 100%",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ chăn ga giảm giá"
@@ -943,6 +1038,8 @@
       "oldPrice": "3.540.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album-2019-moi/EPC-19055%20(2)_270x193.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epc-19055-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epc-19055",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2019",
         "Bộ Everon Trẻ Em"
@@ -956,6 +1053,8 @@
       "oldPrice": "3.670.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album-2019-moi/EPC-19056%20(2)_270x193.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epc-19056-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epc-19056",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2019",
         "Bộ Everon Trẻ Em"
@@ -969,6 +1068,8 @@
       "oldPrice": "3.600.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/EPC-19041%20(1)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-19041-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-19041",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -981,6 +1082,8 @@
       "oldPrice": "4.330.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/EPM-19062%20(18)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-19062-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-19062",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -993,6 +1096,8 @@
       "oldPrice": "3.950.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album-2019-moi/EPM-19063%20(1)_270x193.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-19063-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-19063",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1005,6 +1110,8 @@
       "oldPrice": "3.570.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album-2019-moi/EPM-19064%20(2)_270x193.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-19064-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-19064",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1017,6 +1124,8 @@
       "oldPrice": "4.420.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album-2019-moi/EPM-19068%20(1)_270x193.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-19068-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-19068",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1029,6 +1138,8 @@
       "oldPrice": "4.650.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/EPM-19069%20(9)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-19069-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-19069",
+      "material": "Modal 60",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1041,6 +1152,8 @@
       "oldPrice": "4.760.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/ept-19081%20(23)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-ept-19081-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-ept-19081",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1053,6 +1166,8 @@
       "oldPrice": "4.250.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/esm-19011%20(17)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-19011-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-19011",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1065,6 +1180,8 @@
       "oldPrice": "4.430.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/esm-19012%20(6)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-19012-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-19012",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1077,6 +1194,8 @@
       "oldPrice": "4.310.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/esm-19013%20(2)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-19013-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-19013",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1089,6 +1208,8 @@
       "oldPrice": "4.630.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/ESM-19014%20(4)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-19014-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-19014",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1101,6 +1222,8 @@
       "oldPrice": "4.710.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album-2019-moi/ESM-19015%20(2)_270x193.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-19015-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-19015",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1113,6 +1236,8 @@
       "oldPrice": "4.140.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album-2019-moi/ESM-19016%20(1)_270x193.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-19016-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-19016",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1125,6 +1250,8 @@
       "oldPrice": "4.410.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/esm-19018%20(2)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-19018-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-19018",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1137,6 +1264,8 @@
       "oldPrice": "5.110.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/EST-19031%20(2)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-19031-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-19031",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1149,6 +1278,8 @@
       "oldPrice": "4.880.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album-2019-moi/EST-19032%20(1)_270x193.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-19032-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-19032",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1161,6 +1292,8 @@
       "oldPrice": "5.540.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%202019/EST-19033%20(4)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-19033-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-19033",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2019"
       ]
@@ -1173,6 +1306,8 @@
       "oldPrice": "5.180.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/EST20035(3).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-est-20035-pd.html",
+      "detailId": "bo-chan-ga-goi-est-20035",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1185,6 +1320,8 @@
       "oldPrice": "3.940.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/sp/EPC-20051(1).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epc-20051-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epc-20051",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ Everon 2020",
         "Bộ Everon Trẻ Em"
@@ -1198,6 +1335,8 @@
       "oldPrice": "4.700.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/EPM20060%20(11).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-20060-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-20060",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1210,6 +1349,8 @@
       "oldPrice": "4.590.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/sp/EPM20062%20(91).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-20062-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-20062",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1222,6 +1363,8 @@
       "oldPrice": "4.670.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/EPM20063%20(5).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-20063-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-20063",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1234,6 +1377,8 @@
       "oldPrice": "4.660.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/EPM20064%20(2).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-20064-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-20064",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1246,6 +1391,8 @@
       "oldPrice": "4.470.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/EPM-20069_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-ga-phu-everon-epm-20065-pd.html",
+      "detailId": "bo-ga-phu-everon-epm-20065",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1258,6 +1405,8 @@
       "oldPrice": "4.880.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/EPM20067%20(1).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-20067-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-20067",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1270,6 +1419,8 @@
       "oldPrice": "4.730.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/EPM-20068%20(13)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-20068-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-20068",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1282,6 +1433,8 @@
       "oldPrice": "3.920.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/EPM20069%20(2).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-20069-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-20069",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1294,6 +1447,8 @@
       "oldPrice": "4.290.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/EPM-20070%20(5)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-20070-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-20070",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1306,6 +1461,8 @@
       "oldPrice": "4.670.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/EPM20071%20(11).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-20071-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-20071",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1318,6 +1475,8 @@
       "oldPrice": "4.400.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/EPT-20041%20(8)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-ept-20041-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-ept-20041",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1330,6 +1489,8 @@
       "oldPrice": "5.050.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/EST-20043%20(4)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-ept-20043-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-ept-20043",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2020",
@@ -1344,6 +1505,8 @@
       "oldPrice": "2.960.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/ESC-20002%20(19).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esc-20002-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esc-20002",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1356,6 +1519,8 @@
       "oldPrice": "3.450.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/ESC20004%20(22).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esc-20004-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esc-20004",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1368,6 +1533,8 @@
       "oldPrice": "3.000.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/ESC20005%20(15).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esc-20005-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esc-20005",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1380,6 +1547,8 @@
       "oldPrice": "3.110.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/ESC20006%20(2).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esc-20006-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esc-20006",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1392,6 +1561,8 @@
       "oldPrice": "4.570.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020%20cty/ESC20003%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esc-20003-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esc-20003",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1404,6 +1575,8 @@
       "oldPrice": "5.170.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/ESM-20012%20(12)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-20012-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-20012",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2020",
@@ -1418,6 +1591,8 @@
       "oldPrice": "4.530.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/ESM-20013%20(3)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-20013-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-20013",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2020",
@@ -1432,6 +1607,8 @@
       "oldPrice": "4.920.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/esm-20011%20(14)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-20011-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-20011",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2020",
@@ -1446,6 +1623,8 @@
       "oldPrice": "5.230.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/EST-20033%20(1)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-20033-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-20033",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2020"
       ]
@@ -1458,6 +1637,8 @@
       "oldPrice": "4.960.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/album/EST-20037%20(16)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-20037-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-20037",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2020",
@@ -1472,6 +1653,8 @@
       "oldPrice": "1.560.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2020/EST-20032%20(20)_270x202.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-20032-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-20032",
+      "material": "Tencel",
       "categories": [
         "Sản phẩm giảm giá",
         "Bộ Everon 2020"
@@ -1485,6 +1668,8 @@
       "oldPrice": "3.780.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPC-21052%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epc-21052-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epc-21052",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2021",
         "Bộ Everon Trẻ Em"
@@ -1498,6 +1683,8 @@
       "oldPrice": "4.360.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPC-21054%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epc-21054-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epc-21054",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2021",
         "Bộ Everon Trẻ Em"
@@ -1511,6 +1698,8 @@
       "oldPrice": "4.090.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPC-21055%20(6)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epc-21055-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epc-21055",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2021",
         "Bộ Everon Trẻ Em"
@@ -1524,6 +1713,8 @@
       "oldPrice": "4.330.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPC-21056%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epc-21056-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epc-21056",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1536,6 +1727,8 @@
       "oldPrice": "3.780.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPC-21051%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epc-21051-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epc-21051",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2021",
         "Bộ Everon Trẻ Em"
@@ -1549,6 +1742,8 @@
       "oldPrice": "5.170.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/bo-chan-ga-everon-EPM-21065-6.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-21065-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-21065",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2021",
@@ -1563,6 +1758,8 @@
       "oldPrice": "5.030.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/bo-chan-ga-everon-EPM-21070.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-21070-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-21070",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1575,6 +1772,8 @@
       "oldPrice": "4.860.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPM-21071%20(6)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-21071-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-21071",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2021",
@@ -1589,6 +1788,8 @@
       "oldPrice": "5.080.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/bo-chan-ga-everon-EPM-21072-1.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-21072-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-21072",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1601,6 +1802,8 @@
       "oldPrice": "4.970.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPM-21060%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-21060-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-21060",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1613,6 +1816,8 @@
       "oldPrice": "5.030.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/bo-chan-ga-goi-everon-EPM-21062-9.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-21062-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-21062",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1625,6 +1830,8 @@
       "oldPrice": "5.110.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/bo-chan-ga-everon-EPM-21063-1.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-21063-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-21063",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1637,6 +1844,8 @@
       "oldPrice": "5.270.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPM-21064%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-21064-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-21064",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1649,6 +1858,8 @@
       "oldPrice": "4.980.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/bo-chan-ga-everon-EPM-21068-1.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-21068-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-21068",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1661,6 +1872,8 @@
       "oldPrice": "5.810.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPT-21041%20(3)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-ept-21041-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-ept-21041",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1673,6 +1886,8 @@
       "oldPrice": "4.370.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPT-21042%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-ept-21042-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-ept-21042",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1685,6 +1900,8 @@
       "oldPrice": "5.100.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPT-21044%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-ept-21044-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-ept-21044",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1697,6 +1914,8 @@
       "oldPrice": "4.450.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPT-21045%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-ept-21045-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-ept-21045",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1709,6 +1928,8 @@
       "oldPrice": "5.380.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/ESC-21057%20(4)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esc-21057-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esc-21057",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1721,6 +1942,8 @@
       "oldPrice": "4.820.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/ESM-21014%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-21014-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-21014",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2021",
@@ -1735,6 +1958,8 @@
       "oldPrice": "4.690.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/ESM-21015%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-21015-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-21015",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1747,6 +1972,8 @@
       "oldPrice": "4.440.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/ESM-21016%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-21016-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-21016",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1759,6 +1986,8 @@
       "oldPrice": "4.450.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/bo-chan-ga-everon-ESM-21011-1.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-21011-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-21011",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2021",
@@ -1773,6 +2002,8 @@
       "oldPrice": "4.760.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/ESM-21012%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-21012-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-21012",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1785,6 +2016,8 @@
       "oldPrice": "4.700.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/bo-chan-ga-everon-ESM-21013-1.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esm-21013-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esm-21013",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2021",
@@ -1799,6 +2032,8 @@
       "oldPrice": "4.730.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EST-21031%20(3)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-21031-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-21031",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2021",
@@ -1813,6 +2048,8 @@
       "oldPrice": "5.060.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EST-21032%20(8)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-21032-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-21032",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1825,6 +2062,8 @@
       "oldPrice": "4.830.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EST-21035%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-21035-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-21035",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1837,6 +2076,8 @@
       "oldPrice": "5.180.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EST-21036%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-21036-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-21036",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1849,6 +2090,8 @@
       "oldPrice": "5.830.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EST-21030%20(3)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-21030-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-21030",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1861,6 +2104,8 @@
       "oldPrice": "5.020.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/bo-chan-ga-everon-EST-21033-1.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-21033-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-21033",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2021",
@@ -1875,6 +2120,8 @@
       "oldPrice": "6.610.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EST-21034%20(4)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-21034-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-21034",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2021",
@@ -1889,6 +2136,8 @@
       "oldPrice": "5.020.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPM-21069%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-ga-chun-chan-epm-21069-pd.html",
+      "detailId": "bo-ga-chun-chan-epm-21069",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2021",
@@ -1903,6 +2152,8 @@
       "oldPrice": "4.550.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20web%20m%E1%BB%9Bi%202021/EPM-21066%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-ga-chun-chan-everon-epm-21066-pd.html",
+      "detailId": "bo-ga-chun-chan-everon-epm-21066",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2021"
       ]
@@ -1915,6 +2166,8 @@
       "oldPrice": "1.570.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPC-22041%20(33).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-22041-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-22041",
+      "material": "Cotton Satin",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2022",
@@ -1930,6 +2183,8 @@
       "oldPrice": "1.780.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPC-22045%20(22)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-22045-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-22045",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ Everon 2022"
       ]
@@ -1942,6 +2197,8 @@
       "oldPrice": "1.700.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPC-22046%20(1)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-22046-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-22046",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ Everon 2022"
       ]
@@ -1954,6 +2211,8 @@
       "oldPrice": "1.910.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22060%20(35).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22060-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22060",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2022",
@@ -1969,6 +2228,8 @@
       "oldPrice": "1.930.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22061%20(32).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22061-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22061",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2022",
@@ -1984,6 +2245,8 @@
       "oldPrice": "1.890.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22064%20(1)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22064-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22064",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2022"
       ]
@@ -1996,6 +2259,8 @@
       "oldPrice": "1.860.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22065%20(7)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22065-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22065",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2022",
@@ -2010,6 +2275,8 @@
       "oldPrice": "1.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22066%20(3)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22066-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22066",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2022",
@@ -2024,6 +2291,8 @@
       "oldPrice": "1.890.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22067%20(1)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22067-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22067",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2022",
@@ -2038,6 +2307,8 @@
       "oldPrice": "1.890.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22068%20(1)_270x178.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22068-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22068",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2022"
       ]
@@ -2050,6 +2321,8 @@
       "oldPrice": "1.910.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22069%20(1)_270x170.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22069-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22069",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2022"
       ]
@@ -2062,6 +2335,8 @@
       "oldPrice": "1.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22071%20(6)_270x174.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22071-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22071",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2022",
@@ -2077,6 +2352,8 @@
       "oldPrice": "2.030.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22074%20(10)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22074-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22074",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2022",
@@ -2092,6 +2369,8 @@
       "oldPrice": "1.910.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EPM-22075%20(5)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-22075-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-22075",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2022",
@@ -2107,6 +2386,8 @@
       "oldPrice": "1.440.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/ESC-22020%20(18).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esb-22020-pd.html",
+      "detailId": "bo-chan-ga-everon-esb-22020",
+      "material": "Bamboo (sợi tre)",
       "categories": [
         "Bộ Everon 2022"
       ]
@@ -2119,6 +2400,8 @@
       "oldPrice": "1.800.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/ESM-22014%20(1)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-22014-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-22014",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2022"
       ]
@@ -2131,6 +2414,8 @@
       "oldPrice": "1.680.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/ESM-22016%20(1)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-22016-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-22016",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2022"
       ]
@@ -2143,6 +2428,8 @@
       "oldPrice": "1.660.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/ESM-22019%20(21).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-22019-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-22019",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2022"
       ]
@@ -2155,6 +2442,8 @@
       "oldPrice": "1.660.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/ESB-22052%20(2)_270x187.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esb-22052-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esb-22052",
+      "material": "Bamboo (sợi tre)",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2022",
@@ -2169,6 +2458,8 @@
       "oldPrice": "1.580.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/ESB-22054%20(2)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-esb-22054-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-esb-22054",
+      "material": "Bamboo (sợi tre)",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2022",
@@ -2184,6 +2475,8 @@
       "oldPrice": "5.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EST-22031%20(7)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-22031-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-22031",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2022",
@@ -2199,6 +2492,8 @@
       "oldPrice": "1.700.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2022/EST-22034%20(11)_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-est-22034-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-est-22034",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2022",
@@ -2213,6 +2508,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epm-23011-31_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-esm-23011-pd.html",
+      "detailId": "bo-chan-ga-esm-23011",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2023"
       ]
@@ -2225,6 +2522,8 @@
       "oldPrice": "1.799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epc-23043-30_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-23043-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-23043",
+      "material": "Cotton 100%",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2023",
@@ -2239,6 +2538,8 @@
       "oldPrice": "1.799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epc-23045-31_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-epc-23045-pd.html",
+      "detailId": "bo-chan-ga-epc-23045",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ Everon 2023"
       ]
@@ -2251,6 +2552,8 @@
       "oldPrice": "1.799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epc-23046-31_270x226.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-23046-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-23046",
+      "material": "Cotton Satin",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2023",
@@ -2265,6 +2568,8 @@
       "oldPrice": "1.799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epc-23047-30_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-23047-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-23047",
+      "material": "Cotton Satin",
       "categories": [
         "Bộ Everon 2023"
       ]
@@ -2277,6 +2582,8 @@
       "oldPrice": "1.799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epc-23048-30_270x183.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-23048-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-23048",
+      "material": "Cotton 100%",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2023",
@@ -2292,6 +2599,8 @@
       "oldPrice": "1.799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epc-23050-1_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-23050-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-23050",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2023"
       ]
@@ -2304,6 +2613,8 @@
       "oldPrice": "2.099.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epm-23065-31_270x169.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-epm-23065-pd.html",
+      "detailId": "bo-chan-ga-epm-23065",
+      "material": "Modal 60",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2023",
@@ -2318,6 +2629,8 @@
       "oldPrice": "2.099.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epm-23067-31_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-23067-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-23067",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2023",
@@ -2332,6 +2645,8 @@
       "oldPrice": "1.749.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epb-23022-31_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esb-23022-pd.html",
+      "detailId": "bo-chan-ga-everon-esb-23022",
+      "material": "Bamboo (sợi tre)",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2023",
@@ -2346,6 +2661,8 @@
       "oldPrice": "1.990.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-epc-23001-30_270x236.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esc-23001-pd.html",
+      "detailId": "bo-chan-ga-everon-esc-23001",
+      "material": "Cotton Satin",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2023",
@@ -2360,6 +2677,8 @@
       "oldPrice": "1.649.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-est-23002-19_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esc-23002-pd.html",
+      "detailId": "bo-chan-ga-everon-esc-23002",
+      "material": "Cotton Satin",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2023",
@@ -2374,6 +2693,7 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-ept-23031-30_270x159.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-23031-pd.html",
+      "detailId": "bo-chan-ga-everon-est-23031",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2023",
@@ -2388,6 +2708,7 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-ept-23032-31_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-23032-pd.html",
+      "detailId": "bo-chan-ga-everon-est-23032",
       "categories": [
         "Bộ Everon 2023"
       ]
@@ -2400,6 +2721,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-ept-23034-30_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-23034-pd.html",
+      "detailId": "bo-chan-ga-everon-est-23034",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2023"
       ]
@@ -2412,6 +2735,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-ept-23037-31_270x183.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-23037-pd.html",
+      "detailId": "bo-chan-ga-everon-est-23037",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2023"
       ]
@@ -2424,6 +2749,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-ept-23035-31_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-23035-pd.html",
+      "detailId": "bo-chan-ga-everon-est-23035",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2023",
@@ -2438,6 +2765,8 @@
       "oldPrice": "1.449.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-eptr-23051-30_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estr-23051-pd.html",
+      "detailId": "bo-chan-ga-everon-estr-23051",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2023"
       ]
@@ -2450,6 +2779,8 @@
       "oldPrice": "1.449.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-eptr-23052-31_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estr-23052-pd.html",
+      "detailId": "bo-chan-ga-everon-estr-23052",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2023"
       ]
@@ -2462,6 +2793,8 @@
       "oldPrice": "1.449.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2023/bo-chan-ga-goi-everon-eptr-23056-31_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-estr-23056-pd.html",
+      "detailId": "bo-chan-ga-estr-23056",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2023"
       ]
@@ -2474,6 +2807,8 @@
       "oldPrice": "1.989.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/Bo-chan-ga-Everon-EPC-24041-5.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-24041-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-24041",
+      "material": "Cotton 100%",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2489,6 +2824,8 @@
       "oldPrice": "1.989.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/Bo-chan-ga-everon-EPM-24060-50.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-epm-24060-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-epm-24060",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2503,6 +2840,8 @@
       "oldPrice": "2.139.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EPM-24062-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-24062-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-24062",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2517,6 +2856,8 @@
       "oldPrice": "2.139.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EPM-24063-3_270x198.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-24063-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-24063",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2531,6 +2872,8 @@
       "oldPrice": "2.139.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EPM-24064-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-24064-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-24064",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2545,6 +2888,8 @@
       "oldPrice": "2.139.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EPM-24065-3_270x198.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-24065-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-24065",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2559,6 +2904,8 @@
       "oldPrice": "2.139.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EPM-24066-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-24066-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-24066",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2574,6 +2921,8 @@
       "oldPrice": "2.139.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EPM-24067-3_270x198.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-24067-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-24067",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2588,6 +2937,8 @@
       "oldPrice": "2.139.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EPM-24068-3_270x198.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-24068-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-24068",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2024"
       ]
@@ -2600,6 +2951,8 @@
       "oldPrice": "2.139.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EPM-24069-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-24069-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-24069",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2614,6 +2967,8 @@
       "oldPrice": "2.139.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EPM-24061(1)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-24061-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-24061",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2628,6 +2983,8 @@
       "oldPrice": "1.989.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EPT-24081-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-ept-24081-pd.html",
+      "detailId": "bo-chan-ga-everon-ept-24081",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2642,6 +2999,8 @@
       "oldPrice": "1.989.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EPT-24083-3_270x198.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-ept-24083-pd.html",
+      "detailId": "bo-chan-ga-everon-ept-24083",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2656,6 +3015,8 @@
       "oldPrice": "1.989.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EPT-24084-3_270x200.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-ept-24084-pd.html",
+      "detailId": "bo-chan-ga-everon-ept-24084",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2670,6 +3031,8 @@
       "oldPrice": "1.989.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EPT%2024082-3.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-ept-24082-pd.html",
+      "detailId": "bo-chan-ga-everon-ept-24082",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2684,6 +3047,8 @@
       "oldPrice": "1.939.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-ESJ-24030-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esj-24030-pd.html",
+      "detailId": "bo-chan-ga-everon-esj-24030",
+      "material": "Tencel Jaquard",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2698,6 +3063,8 @@
       "oldPrice": "2.039.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-ESM-24013-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-24013-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-24013",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2712,6 +3079,8 @@
       "oldPrice": "2.039.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-ESM-24014-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-24014-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-24014",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2726,6 +3095,8 @@
       "oldPrice": "2.039.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-ESM-24015-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-24015-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-24015",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2740,6 +3111,8 @@
       "oldPrice": "2.039.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-ESM-24016-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-24016-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-24016",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2754,6 +3127,8 @@
       "oldPrice": "3.039.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-ESMS-24011-3.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-24011-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-24011",
+      "material": "Silk Modal",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2768,6 +3143,8 @@
       "oldPrice": "3.039.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-ESMS-24012-3_270x198.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esms-24012-pd.html",
+      "detailId": "bo-chan-ga-everon-esms-24012",
+      "material": "Silk Modal",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2782,6 +3159,8 @@
       "oldPrice": "1.939.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EST-24033-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-24033-pd.html",
+      "detailId": "bo-chan-ga-everon-est-24033",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2796,6 +3175,8 @@
       "oldPrice": "1.939.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EST-24034-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-24034-pd.html",
+      "detailId": "bo-chan-ga-everon-est-24034",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2810,6 +3191,8 @@
       "oldPrice": "1.939.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EST-24035_270x245.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-24035-pd.html",
+      "detailId": "bo-chan-ga-everon-est-24035",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2824,6 +3207,8 @@
       "oldPrice": "1.939.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-EST-24036-3_270x198.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-24036-pd.html",
+      "detailId": "bo-chan-ga-everon-est-24036",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2838,6 +3223,8 @@
       "oldPrice": "1.989.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-ESTJ-24032-3_270x198.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estj-24032-pd.html",
+      "detailId": "bo-chan-ga-everon-estj-24032",
+      "material": "Tencel Jaquard",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2024",
@@ -2853,6 +3240,8 @@
       "oldPrice": "1.529.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-tre-em-cpc-25201-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-cpc-25201-pd.html",
+      "detailId": "bo-chan-ga-everon-cpc-25201",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2025",
         "Bộ Everon Trẻ Em"
@@ -2867,6 +3256,8 @@
       "oldPrice": "1.529.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-tre-em-everon-cpc-25204-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-cpc-25204-pd.html",
+      "detailId": "bo-chan-ga-everon-cpc-25204",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2025",
         "Bộ Everon Trẻ Em"
@@ -2881,6 +3272,8 @@
       "oldPrice": "1.529.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-tre-em-everon-cpm-25202-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-cpm-25202-pd.html",
+      "detailId": "bo-chan-ga-everon-cpm-25202",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2025",
         "Bộ Everon Trẻ Em"
@@ -2895,6 +3288,8 @@
       "oldPrice": "1.529.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-tre-em-cpm-25203-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-cpm-25203-pd.html",
+      "detailId": "bo-chan-ga-everon-cpm-25203",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2025",
         "Bộ Everon Trẻ Em"
@@ -2909,6 +3304,8 @@
       "oldPrice": "1.529.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-tre-em-cpm-25205-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-cpm-25205-pd.html",
+      "detailId": "bo-chan-ga-everon-cpm-25205",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2025",
         "Bộ Everon Trẻ Em"
@@ -2923,6 +3320,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/xu%C3%A2n%20h%C3%A8%202024/Bo-chan-ga-Everon-EPM-25014-8_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epbc-25014-pd.html",
+      "detailId": "bo-chan-ga-everon-epbc-25014",
+      "material": "Modal 60",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2025",
@@ -2938,6 +3337,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-epbc-25025-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epbc-25025-pd.html",
+      "detailId": "bo-chan-ga-everon-epbc-25025",
+      "material": "Bamboo (sợi tre)",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -2951,6 +3352,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-epc-25029_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-25029-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-25029",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -2964,6 +3367,8 @@
       "oldPrice": "1.739.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/Bo-chan-ga-everon-epc-25035-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-25035-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-25035",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -2977,6 +3382,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ch%C3%A2n%20tr%E1%BB%9Di%20m%E1%BB%9Bi%202025/bo-chan-ga-everon-epm-25010-88.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-25010-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-25010",
+      "material": "Modal 60",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2025",
@@ -2992,6 +3399,8 @@
       "oldPrice": "1.739.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-epm-25039-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-25039-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-25039",
+      "material": "Modal 60",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3005,6 +3414,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/xu%C3%A2n%20h%C3%A8%202024/Bo-chan-ga-Everon-EPM-25012-5_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-25012-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-25012",
+      "material": "Modal 60",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2025",
@@ -3020,6 +3431,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/xu%C3%A2n%20h%C3%A8%202024/Bo-chan-ga-Everon-EPM-25013-7_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-25013-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-25013",
+      "material": "Modal 60",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2025",
@@ -3035,6 +3448,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ch%C3%A2n%20tr%E1%BB%9Di%20m%E1%BB%9Bi%202025/bo-chan-ga-everon-epm-25016-6-33.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-25016-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-25016",
+      "material": "Modal 60",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2025",
@@ -3050,6 +3465,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-epm-25021-b_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-25021-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-25021",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3063,6 +3480,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-epm-25026-b_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-25026-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-25026",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3076,6 +3495,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-epm-25028-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-25028-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-25028",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3089,6 +3510,8 @@
       "oldPrice": "1.739.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-epm-25031-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-25031-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-25031",
+      "material": "Modal 60",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3102,6 +3525,8 @@
       "oldPrice": "1.739.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-epm-25032-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-25032-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-25032",
+      "material": "Modal 60",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3115,6 +3540,8 @@
       "oldPrice": "1.739.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-epm-25038-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-25038-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-25038",
+      "material": "Modal 60",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3128,6 +3555,8 @@
       "oldPrice": "1.739.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-epm-25041-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-25041-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-25041",
+      "material": "Modal 40",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3141,6 +3570,8 @@
       "oldPrice": "1.739.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-epm-25043-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-25043-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-25043",
+      "material": "Modal 60",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2025",
@@ -3156,6 +3587,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/xu%C3%A2n%20h%C3%A8%202024/Bo-chan-ga-Everon-EPM-2509-33.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-2509-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-2509",
+      "material": "Modal 60",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2025",
@@ -3171,6 +3604,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/xu%C3%A2n%20h%C3%A8%202024/Bo-chan-ga-Everon-EPT-25015-2_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-ept-25015-pd.html",
+      "detailId": "bo-chan-ga-everon-ept-25015",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2025",
@@ -3186,6 +3621,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-ept-25017-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-ept-25017-pd.html",
+      "detailId": "bo-chan-ga-everon-ept-25017",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3199,6 +3636,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-ept-25018-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-ept-25018-pd.html",
+      "detailId": "bo-chan-ga-everon-ept-25018",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3212,6 +3651,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-ept-25020-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-ept-25020-pd.html",
+      "detailId": "bo-chan-ga-everon-ept-25020",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3225,6 +3666,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-ept-25027-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-ept-25027-pd.html",
+      "detailId": "bo-chan-ga-everon-ept-25027",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3238,6 +3681,8 @@
       "oldPrice": "1.739.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-ept-25036-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-ept-25036-pd.html",
+      "detailId": "bo-chan-ga-everon-ept-25036",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3251,6 +3696,8 @@
       "oldPrice": "1.739.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-eptc-25037-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-eptc-25037-pd.html",
+      "detailId": "bo-chan-ga-everon-eptc-25037",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3264,6 +3711,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-est-25023-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-25023-pd.html",
+      "detailId": "bo-chan-ga-everon-est-25023",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2025",
@@ -3279,6 +3728,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-est-25019-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-25019-pd.html",
+      "detailId": "bo-chan-ga-everon-est-25019",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3292,6 +3743,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-est-25022-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-25022-pd.html",
+      "detailId": "bo-chan-ga-everon-est-25022",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3305,6 +3758,8 @@
       "oldPrice": "1.899.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-est-25024-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-25024-pd.html",
+      "detailId": "bo-chan-ga-everon-est-25024",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3318,6 +3773,8 @@
       "oldPrice": "1.739.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-est-25034-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-25034-pd.html",
+      "detailId": "bo-chan-ga-everon-est-25034",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3331,6 +3788,8 @@
       "oldPrice": "1.739.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/bo-chan-ga-everon-est-25040-a_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-est-25040-pd.html",
+      "detailId": "bo-chan-ga-everon-est-25040",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3344,6 +3803,8 @@
       "oldPrice": "1.739.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2025/3_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-estc-25042-pd.html",
+      "detailId": "bo-chan-ga-estc-25042",
+      "material": "Tencel",
       "categories": [
         "Bộ Everon 2025"
       ]
@@ -3357,6 +3818,8 @@
       "oldPrice": "1.629.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-tre-em-everon-CPC26203.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-cpc-26203-pd.html",
+      "detailId": "bo-chan-ga-everon-cpc-26203",
+      "material": "Cotton 100%",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3373,6 +3836,8 @@
       "oldPrice": "1.259.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-tre-em-CPC26204.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-cpc-26204-pd.html",
+      "detailId": "bo-chan-ga-everon-cpc-26204",
+      "material": "Cotton 100%",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3389,6 +3854,8 @@
       "oldPrice": "1.259.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-tre-em-everon-CPT26201.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-cpt-26201-pd.html",
+      "detailId": "bo-chan-ga-everon-cpt-26201",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3405,6 +3872,8 @@
       "oldPrice": "1.259.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-CPT26202.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-cpt-26202-pd.html",
+      "detailId": "bo-chan-ga-everon-cpt-26202",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3421,6 +3890,8 @@
       "oldPrice": "1.539.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-EPC26012.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-26012-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-26012",
+      "material": "Cotton Satin",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3436,6 +3907,8 @@
       "oldPrice": "1.539.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-epc-26013-11.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-26013-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-26013",
+      "material": "Cotton Satin",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3451,6 +3924,8 @@
       "oldPrice": "1.539.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/26014.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-26014-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-26014",
+      "material": "Cotton Satin",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3466,6 +3941,8 @@
       "oldPrice": "1.239.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-epc-26015.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-ept-26015-pd.html",
+      "detailId": "bo-chan-ga-everon-ept-26015",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3481,6 +3958,8 @@
       "oldPrice": "1.679.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-EPTC26011.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-eptc-26011-pd.html",
+      "detailId": "bo-chan-ga-everon-eptc-26011",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3496,6 +3975,8 @@
       "oldPrice": "1.679.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-epc-26017.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-eptc-26017-pd.html",
+      "detailId": "bo-chan-ga-everon-eptc-26017",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3511,6 +3992,8 @@
       "oldPrice": "1.679.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-eptc-26018--15.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-eptc-26018-pd.html",
+      "detailId": "bo-chan-ga-everon-eptc-26018",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3526,6 +4009,8 @@
       "oldPrice": "1.569.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-epm-26002.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-26002-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-26002",
+      "material": "Modal 60",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3541,6 +4026,8 @@
       "oldPrice": "1.569.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-esm-26004(1).png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esm-26004-pd.html",
+      "detailId": "bo-chan-ga-everon-esm-26004",
+      "material": "Modal 60",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3556,6 +4043,8 @@
       "oldPrice": "1.549.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-ESTC26003.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estc-26003-pd.html",
+      "detailId": "bo-chan-ga-everon-estc-26003",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3571,6 +4060,8 @@
       "oldPrice": "1.549.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/ESTC-26005_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estc-26005-pd.html",
+      "detailId": "bo-chan-ga-everon-estc-26005",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3586,6 +4077,8 @@
       "oldPrice": "1.779.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-estj-26008.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estj-26008-pd.html",
+      "detailId": "bo-chan-ga-everon-estj-26008",
+      "material": "Tencel Jaquard",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3601,6 +4094,8 @@
       "oldPrice": "1.779.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/26009(1).png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estj-26009-pd.html",
+      "detailId": "bo-chan-ga-everon-estj-26009",
+      "material": "Tencel Jaquard",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3616,6 +4111,8 @@
       "oldPrice": "1.799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-ESTMC26001.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estmc-26001-pd.html",
+      "detailId": "bo-chan-ga-everon-estmc-26001",
+      "material": "Modal 60",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3631,6 +4128,8 @@
       "oldPrice": "1.799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/26006_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estmc-26006-pd.html",
+      "detailId": "bo-chan-ga-everon-estmc-26006",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3646,6 +4145,8 @@
       "oldPrice": "1.539.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-epc-26016.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-ga-goi-everon-epc-26016-pd.html",
+      "detailId": "bo-ga-goi-everon-epc-26016",
+      "material": "Cotton 100%",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3661,6 +4162,8 @@
       "oldPrice": "1.549.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2026/bo-chan-ga-everon-ESTC26007.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-ga-goi-everon-estc-26007-pd.html",
+      "detailId": "bo-ga-goi-everon-estc-26007",
+      "material": "Tencel",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2026",
@@ -3676,6 +4179,8 @@
       "oldPrice": "1.699.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/27027-1_270x236.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-27027-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-27027",
+      "material": "Cotton 100%",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3691,6 +4196,8 @@
       "oldPrice": "1.699.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/everon-epc-27031.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-27031-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-27031",
+      "material": "Cotton 100%",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3706,6 +4213,8 @@
       "oldPrice": "1.699.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/Bo-chan-ga-everon-epc-27032.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epc-27032-pd.html",
+      "detailId": "bo-chan-ga-everon-epc-27032",
+      "material": "Cotton 100%",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3721,6 +4230,8 @@
       "oldPrice": "1.869.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/everon-epm-27034.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-27034-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-27034",
+      "material": "Modal 40",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3736,6 +4247,8 @@
       "oldPrice": "1.699.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/everon-epc-27036.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epm-27036-pd.html",
+      "detailId": "bo-chan-ga-everon-epm-27036",
+      "material": "Cotton 100%",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3751,6 +4264,8 @@
       "oldPrice": "2.209.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/Bo-chan-ga-everon-esb-27007%20(3).png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epmoc-27024-pd.html",
+      "detailId": "bo-chan-ga-everon-epmoc-27024",
+      "material": "Modal Cotton",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3766,6 +4281,8 @@
       "oldPrice": "2.209.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-epmoc-27025.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-epmoc-27025-pd.html",
+      "detailId": "bo-chan-ga-everon-epmoc-27025",
+      "material": "Modal Cotton",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3781,6 +4298,8 @@
       "oldPrice": "1.769.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-eptc-27021.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-eptc-27021-pd.html",
+      "detailId": "bo-chan-ga-everon-eptc-27021",
+      "material": "Tencel Blend",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3796,6 +4315,8 @@
       "oldPrice": "1.769.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-eptc-27023.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-eptc-27023-pd.html",
+      "detailId": "bo-chan-ga-everon-eptc-27023",
+      "material": "Tencel Blend",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3811,6 +4332,8 @@
       "oldPrice": "1.769.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/everon-eptc-27033.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-eptc-27033-pd.html",
+      "detailId": "bo-chan-ga-everon-eptc-27033",
+      "material": "Tencel Blend",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3826,6 +4349,8 @@
       "oldPrice": "2.079.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-eptmc-27022.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-eptmc-27022-pd.html",
+      "detailId": "bo-chan-ga-everon-eptmc-27022",
+      "material": "Sự kết hợp giữa Tencel-Modal-Cotton",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3841,6 +4366,8 @@
       "oldPrice": "2.079.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-eptmc-27028.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-eptmc-27028-pd.html",
+      "detailId": "bo-chan-ga-everon-eptmc-27028",
+      "material": "Sự kết hợp giữa Tencel-Modal-Cotton",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3856,6 +4383,8 @@
       "oldPrice": "1.809.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/Bo-chan-ga-everon-esb-27007%20-5.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esb-27007-pd.html",
+      "detailId": "bo-chan-ga-everon-esb-27007",
+      "material": "Bamboo (sợi tre)",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3871,6 +4400,8 @@
       "oldPrice": "1.809.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-esb-27014(1)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esb-27014-pd.html",
+      "detailId": "bo-chan-ga-everon-esb-27014",
+      "material": "Bamboo (sợi tre)",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3886,6 +4417,8 @@
       "oldPrice": "2.209.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/Bo-chan-ga-everon-esmoc-27008.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-esmoc-27008-pd.html",
+      "detailId": "bo-chan-ga-everon-esmoc-27008",
+      "material": "Modal Cotton",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3901,6 +4434,8 @@
       "oldPrice": "1.789.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-estc-27001.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estc-27001-pd.html",
+      "detailId": "bo-chan-ga-everon-estc-27001",
+      "material": "Tencel Blend",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3916,6 +4451,8 @@
       "oldPrice": "1.789.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-estc-27004.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estc-27004-pd.html",
+      "detailId": "bo-chan-ga-everon-estc-27004",
+      "material": "Tencel Blend",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3931,6 +4468,8 @@
       "oldPrice": "1.789.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-estc-27005.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estc-27005-pd.html",
+      "detailId": "bo-chan-ga-everon-estc-27005",
+      "material": "Tencel Blend",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3946,6 +4485,8 @@
       "oldPrice": "1.789.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-estc-27006-1.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estc-27006-pd.html",
+      "detailId": "bo-chan-ga-everon-estc-27006",
+      "material": "Tencel Blend",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3961,6 +4502,7 @@
       "oldPrice": "1.949.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/Bo-chan-ga-everon-estj-27017-1.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estj-27017-pd.html",
+      "detailId": "bo-chan-ga-everon-estj-27017",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3976,6 +4518,8 @@
       "oldPrice": "1.949.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-estj-27020.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estj-27020-pd.html",
+      "detailId": "bo-chan-ga-everon-estj-27020",
+      "material": "Tencel Jaquard",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -3991,6 +4535,8 @@
       "oldPrice": "2.079.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/Bo-chan-ga-everon-estmc-27002%20(3).png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estmc-27002-pd.html",
+      "detailId": "bo-chan-ga-everon-estmc-27002",
+      "material": "Sự kết hợp giữa Tencel-Modal-Cotton",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -4006,6 +4552,8 @@
       "oldPrice": "2.079.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-estmc-27003%20(1).png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estmc-27003-pd.html",
+      "detailId": "bo-chan-ga-everon-estmc-27003",
+      "material": "Sự kết hợp giữa Tencel-Modal-Cotton",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -4021,6 +4569,8 @@
       "oldPrice": "2.079.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-estmc-27011%20(2).png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estmc-27011-pd.html",
+      "detailId": "bo-chan-ga-everon-estmc-27011",
+      "material": "Sự kết hợp giữa Tencel-Modal-Cotton",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -4036,6 +4586,8 @@
       "oldPrice": "2.079.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-estmc-27012.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-estmc-27012-pd.html",
+      "detailId": "bo-chan-ga-everon-estmc-27012",
+      "material": "Sự kết hợp giữa Tencel-Modal-Cotton",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon 2027",
@@ -4050,6 +4602,8 @@
       "oldPrice": "1.229.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/Everon-EPC-701.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-basic-bpc-701-pd.html",
+      "detailId": "bo-chan-ga-everon-basic-bpc-701",
+      "material": "Lyocell",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon Basic",
@@ -4064,6 +4618,8 @@
       "oldPrice": "1.229.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/everon-basic-bpc-702.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-basic-bpc-702-pd.html",
+      "detailId": "bo-chan-ga-everon-basic-bpc-702",
+      "material": "Lyocell",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon Basic",
@@ -4078,6 +4634,8 @@
       "oldPrice": "1.229.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/everon-bpc-703.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-basic-bpc-703-pd.html",
+      "detailId": "bo-chan-ga-everon-basic-bpc-703",
+      "material": "Cotton 100%",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon Basic",
@@ -4092,6 +4650,8 @@
       "oldPrice": "1.229.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/bo-chan-ga-everon-basic-bpc-704.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-basic-bpc-704-pd.html",
+      "detailId": "bo-chan-ga-everon-basic-bpc-704",
+      "material": "Cotton 100%",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon Basic",
@@ -4106,6 +4666,8 @@
       "oldPrice": "1.349.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/everon-basic-bsl-8710.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-basic-bsl-710-pd.html",
+      "detailId": "bo-chan-ga-everon-basic-bsl-710",
+      "material": "Lyocell",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon Basic",
@@ -4120,6 +4682,8 @@
       "oldPrice": "1.349.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/everon-bsl-711.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-basic-bsl-711-pd.html",
+      "detailId": "bo-chan-ga-everon-basic-bsl-711",
+      "material": "Lyocell",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon Basic",
@@ -4134,6 +4698,8 @@
       "oldPrice": "1.349.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/everon-bsl-712.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-basic-bsl-712-pd.html",
+      "detailId": "bo-chan-ga-everon-basic-bsl-712",
+      "material": "Lyocell",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon Basic",
@@ -4148,6 +4714,8 @@
       "oldPrice": "1.349.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/everon-basic-bsl-713.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-basic-bsl-713-pd.html",
+      "detailId": "bo-chan-ga-everon-basic-bsl-713",
+      "material": "Lyocell",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon Basic",
@@ -4162,6 +4730,8 @@
       "oldPrice": "1.349.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2027/everon-bsl-714.png",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-everon-basic-bsl-714-pd.html",
+      "detailId": "bo-chan-ga-everon-basic-bsl-714",
+      "material": "Lyocell",
       "categories": [
         "Chăn - ga - gối everon",
         "Bộ Everon Basic",
@@ -4176,6 +4746,8 @@
       "oldPrice": "650.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/kh%C3%A1ch%20s%E1%BA%A1n/chan-ga-khach-san.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-khach-san-everon-pd.html",
+      "detailId": "bo-chan-ga-khach-san-everon",
+      "material": "Cotton 100%",
       "categories": [
         "Bộ ga chun mỏng giảm giá"
       ]
@@ -4188,6 +4760,8 @@
       "oldPrice": "20.949.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-atermis-ASHM%2024101.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-artemis-ashm-24101-pd.html",
+      "detailId": "bo-chan-ga-artemis-ashm-24101",
+      "material": "Hanji-Modal",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4200,6 +4774,8 @@
       "oldPrice": "19.349.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-atermis-ASHM%2024102-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-artemis-ashm-24102-pd.html",
+      "detailId": "bo-chan-ga-artemis-ashm-24102",
+      "material": "Hanji-Modal",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4212,6 +4788,8 @@
       "oldPrice": "20.949.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-atermis-ASHM%2024103-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-artemis-ashm-24103-pd.html",
+      "detailId": "bo-chan-ga-artemis-ashm-24103",
+      "material": "Hanji-Modal",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4224,6 +4802,8 @@
       "oldPrice": "19.349.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-atermis-ASHM%2024104-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-artemis-ashm-24104-pd.html",
+      "detailId": "bo-chan-ga-artemis-ashm-24104",
+      "material": "Hanji-Modal",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4236,6 +4816,8 @@
       "oldPrice": "19.349.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2024/bo-chan-ga-everon-atermis-ASHM%2024105-n.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-artemis-ashm-24105-pd.html",
+      "detailId": "bo-chan-ga-artemis-ashm-24105",
+      "material": "Hanji-Modal",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4248,6 +4830,8 @@
       "oldPrice": "19.399.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ATM-2023/ASHM%2023101_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-cao-cap-artemis-ashm-23101-pd.html",
+      "detailId": "bo-chan-ga-cao-cap-artemis-ashm-23101",
+      "material": "Hanji-Modal",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4260,6 +4844,8 @@
       "oldPrice": "19.399.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ATM-2023/ASHM%2023102_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-cao-cap-artemis-ashm-23102-pd.html",
+      "detailId": "bo-chan-ga-cao-cap-artemis-ashm-23102",
+      "material": "Hanji-Modal",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4272,6 +4858,8 @@
       "oldPrice": "21.799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ATM-2023/ASHM-23103(1).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-cao-cap-artemis-ashm-23103-pd.html",
+      "detailId": "bo-chan-ga-goi-cao-cap-artemis-ashm-23103",
+      "material": "Hanji-Modal",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4284,6 +4872,8 @@
       "oldPrice": "21.799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ATM-2023/ASHM%2023104_270x299.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-cao-cap-artemis-ashm-23104-pd.html",
+      "detailId": "bo-chan-ga-cao-cap-artemis-ashm-23104",
+      "material": "Hanji-Modal",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4296,6 +4886,8 @@
       "oldPrice": "21.799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ATM-2023/ASHM-23105_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-cao-cap-artemis-ashm-23105-pd.html",
+      "detailId": "bo-chan-ga-cao-cap-artemis-ashm-23105",
+      "material": "Hanji-Modal",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4308,6 +4900,8 @@
       "oldPrice": "21.799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ATM-2023/ASHM%2023106_2_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-cao-cap-artemis-ashm-23106-pd.html",
+      "detailId": "bo-chan-ga-cao-cap-artemis-ashm-23106",
+      "material": "Hanji-Modal",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4320,6 +4914,8 @@
       "oldPrice": "11.870.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ATM_CTY/APB-19151(1).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-cao-cap-artemis-apb-19151-pd.html",
+      "detailId": "bo-chan-ga-goi-cao-cap-artemis-apb-19151",
+      "material": "Bamboo (sợi tre)",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4332,6 +4928,8 @@
       "oldPrice": "14.280.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ATM/ASM-19001_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-cao-cap-artemis-asm-19101-pd.html",
+      "detailId": "bo-chan-ga-goi-cao-cap-artemis-asm-19101",
+      "material": "Modal 60",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4344,6 +4942,8 @@
       "oldPrice": "16.690.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ATM/ASM-19103(1)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-cao-cap-artemis-asm-19103-pd.html",
+      "detailId": "bo-chan-ga-goi-cao-cap-artemis-asm-19103",
+      "material": "Modal 60",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4356,6 +4956,8 @@
       "oldPrice": "17.390.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ATM/ASM-20103(7)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-cao-cap-artemis-asm-20103-pd.html",
+      "detailId": "bo-chan-ga-goi-cao-cap-artemis-asm-20103",
+      "material": "Modal 60",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4368,6 +4970,8 @@
       "oldPrice": "14.250.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ATM/APT-20152(2)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-cao-cap-artermis-apt-20152-pd.html",
+      "detailId": "bo-chan-ga-goi-cao-cap-artermis-apt-20152",
+      "material": "Tencel",
       "categories": [
         "Bộ sản phẩm cao cấp Artemis"
       ]
@@ -4380,6 +4984,7 @@
       "oldPrice": "2.214.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%C4%91%E1%BB%87m%20b%C3%B4ng%20%C3%A9p/1-b%E1%BA%A3ng%20gia%20b%C3%B4ng%20%C3%A9p.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bang-gia-dem-everon-moi-nhat-2024-pd.html",
+      "detailId": "bang-gia-dem-everon-moi-nhat-2024",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4394,6 +4999,8 @@
       "oldPrice": "7.750.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem%20artemis/dem-everon-artemis_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-bong-ep-cao-cap-artemis-pd.html",
+      "detailId": "dem-bong-ep-cao-cap-artemis",
+      "material": "Ruột bông ép, vỏ gấm",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4408,6 +5015,8 @@
       "oldPrice": "2.415.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%C4%91%E1%BB%87m%20b%C3%B4ng%20%C3%A9p/dem-bong-ep-everon_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-bong-ep-everon-gap-3-tam-vo-gam-pd.html",
+      "detailId": "dem-bong-ep-everon-gap-3-tam-vo-gam",
+      "material": "Ruột bông ép, vỏ gấm",
       "categories": [
         "Sản phẩm giảm giá",
         "Đệm Everon",
@@ -4423,6 +5032,8 @@
       "oldPrice": "4.790.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/files/dem/demA%20(11).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-bong-ep-everon-15cm-pd.html",
+      "detailId": "dem-bong-ep-everon-15cm",
+      "material": "Ruột bông ép, vỏ gấm",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4437,6 +5048,8 @@
       "oldPrice": "5.490.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%C4%91%E1%BB%87m%20b%C3%B4ng%20%C3%A9p/dem-bong-ep-3_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-bong-ep-everon-18cm-pd.html",
+      "detailId": "dem-bong-ep-everon-18cm",
+      "material": "Ruột bông ép, vỏ gấm",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4451,6 +5064,8 @@
       "oldPrice": "5.379.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem-4.0/dem-bong-ep-everon-4-0-l_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-bong-ep-everon-40-pd.html",
+      "detailId": "dem-bong-ep-everon-40",
+      "material": "Ruột bông ép, vỏ gấm",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4465,6 +5080,8 @@
       "oldPrice": "6.450.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%20topplus/dem-bong-ep-everon-topplus-8.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-bong-ep-everon-top-plus-pd.html",
+      "detailId": "dem-bong-ep-everon-top-plus",
+      "material": "Ruột bông ép, vỏ gấm",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4479,6 +5096,8 @@
       "oldPrice": "6.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem%20topplus%20new/%C4%90%E1%BB%87m%20topplus_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-bong-ep-everon-topplus-new-pd.html",
+      "detailId": "dem-bong-ep-everon-topplus-new",
+      "material": "Ruột bông ép + Foam, vỏ cotton chần bông",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4493,6 +5112,8 @@
       "oldPrice": "2.590.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%C4%91%E1%BB%87m%20b%C3%B4ng%20%C3%A9p/%C4%90%E1%BB%87m%20b%C3%B4ng%20%C3%A9p_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-bong-ep-everon-vo-chan-phien-ban-moi-pd.html",
+      "detailId": "dem-bong-ep-everon-vo-chan-phien-ban-moi",
+      "material": "Ruột bông ép, vỏ gấm",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4507,6 +5128,8 @@
       "oldPrice": "5.170.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%C4%91%E1%BB%87m%20than%20ho%E1%BA%A1t%20t%C3%ADnh/%C4%90%E1%BB%87m%20b%C3%B4ng%20%C3%A9p%20Everon%204_0%20(900%20x%20900%20px)%20(1920%20x%201280%20px)_270x180.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-bong-ep-than-hoat-tinh-everon-pd.html",
+      "detailId": "dem-bong-ep-than-hoat-tinh-everon",
+      "material": "Ruột bông ép, vỏ gấm",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4521,6 +5144,8 @@
       "oldPrice": "11.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem%20foam%20artemis/%C4%90%E1%BB%87m%20gentle%20dream_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-foam-artemis-gentle-dream-pd.html",
+      "detailId": "dem-foam-artemis-gentle-dream",
+      "material": "Bông ép kết hợp lớp Foam kép",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4535,6 +5160,8 @@
       "oldPrice": "9.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem%20foam%20artemis/%C4%90%E1%BB%87m%20l%C3%B2%20xo%20nature%20original_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-foam-artemis-nature-dream-original-pd.html",
+      "detailId": "dem-foam-artemis-nature-dream-original",
+      "material": "Foam kết hợp cùng latex (cao su)",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4549,6 +5176,8 @@
       "oldPrice": "13.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem%20foam%20artemis/%C4%90%E1%BB%87m%20nature%20support_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-foam-artemis-nature-dream-support-pd.html",
+      "detailId": "dem-foam-artemis-nature-dream-support",
+      "material": "Bông ép kết hợp Foam và cao su",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4563,6 +5192,7 @@
       "oldPrice": "2.048.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ph%E1%BB%A5%20ki%E1%BB%87n%20%C4%91%E1%BB%87m/topper%20aviv%20web%20profile.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/topper-everon-aviv-pd.html",
+      "detailId": "topper-everon-aviv",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4577,6 +5207,7 @@
       "oldPrice": "949.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%C4%91%E1%BB%87m%20b%C3%B4ng%20%C3%A9p/v%E1%BB%8F%20%C4%91%E1%BB%87m%20ghi.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/vo-boc-dem-bong-ep-chat-lieu-gam-everon-pd.html",
+      "detailId": "vo-boc-dem-bong-ep-chat-lieu-gam-everon",
       "categories": [
         "Đệm Everon",
         "Đệm bông ép everon",
@@ -4591,6 +5222,8 @@
       "oldPrice": "14.000.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem%20latex/%C4%90%E1%BB%87m%20cao%20su%20Natural%20Charcoal%20Latex%20Plus_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-cao-su-natural-charcoal-latex-plus-pd.html",
+      "detailId": "dem-cao-su-natural-charcoal-latex-plus",
+      "material": "Cao su than hoạt tính 100% thiên nhiên",
       "categories": [
         "Đệm Everon",
         "Đệm cao su Everon"
@@ -4604,6 +5237,8 @@
       "oldPrice": "9.500.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem%20latex/dem-cao-su-than-hoat-tinh-everon_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-cao-su-than-hoat-tinh-everon-natural-charcoal-latex-everon-pd.html",
+      "detailId": "dem-cao-su-than-hoat-tinh-everon-natural-charcoal-latex-everon",
+      "material": "Cao su than hoạt tính 100% thiên nhiên",
       "categories": [
         "Đệm Everon",
         "Đệm cao su Everon"
@@ -4617,6 +5252,8 @@
       "oldPrice": "1.890.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem%C4%91a%20n%C4%83ng/dem-da-nang-everon-1_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-da-nang-everon-giam-gia-50-pd.html",
+      "detailId": "dem-da-nang-everon-giam-gia-50",
+      "material": "Ruột bông ép, vỏ gấm",
       "categories": [
         "Đệm Everon"
       ]
@@ -4629,6 +5266,7 @@
       "oldPrice": "1.610.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%C4%90%E1%BB%87m%20%C4%91i%E1%BB%87n/dem-dien-han-quoc-5.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-dien-han-quoc-xach-tay-chinh-hang-pd.html",
+      "detailId": "dem-dien-han-quoc-xach-tay-chinh-hang",
       "categories": [
         "Đệm Everon"
       ]
@@ -4641,6 +5279,8 @@
       "oldPrice": "460.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/b%E1%BA%A3o%20v%E1%BB%87%20%C4%91%E1%BB%87m/bao-ve-dem-everon-1.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/tam-bao-ve-dem-everon-pd.html",
+      "detailId": "tam-bao-ve-dem-everon",
+      "material": "Cotton 100%",
       "categories": [
         "Đệm Everon"
       ]
@@ -4653,6 +5293,8 @@
       "oldPrice": "1.199.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ph%E1%BB%A5%20ki%E1%BB%87n%20%C4%91%E1%BB%87m/Topper-downfeel-everon-4_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/topper-downfeel-everon-pd.html",
+      "detailId": "topper-downfeel-everon",
+      "material": "Bông sợi mảnh",
       "categories": [
         "Đệm Everon"
       ]
@@ -4665,6 +5307,8 @@
       "oldPrice": "4.730.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem%20lx%20everon%20m%E1%BB%9Bi/%C4%90%E1%BB%87m%20l%C3%B2%20xo%20Bonnel_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-lo-xo-everon-medic-bonnell-pops-pd.html",
+      "detailId": "dem-lo-xo-everon-medic-bonnell-pops",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Đệm Everon",
         "Đệm lò xo everon - kingkoil",
@@ -4679,6 +5323,8 @@
       "oldPrice": "6.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem%20lx%20everon%20m%E1%BB%9Bi/%C4%90%E1%BB%87m%20l%C3%B2%20xo%20Pocket%20Pops_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-lo-xo-everon-medic-pocket-pops-pd.html",
+      "detailId": "dem-lo-xo-everon-medic-pocket-pops",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Đệm Everon",
         "Đệm lò xo everon - kingkoil",
@@ -4693,6 +5339,8 @@
       "oldPrice": "1.799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/Arise%20kingkoil/dem-lo-xo-kingkoil-arise-pure-1_270x181.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-lo-xo-king-koil-arise-pure-pd.html",
+      "detailId": "dem-lo-xo-king-koil-arise-pure",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Đệm lò xo everon - kingkoil",
         "Đệm lò xo"
@@ -4706,6 +5354,8 @@
       "oldPrice": "33.990.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/Arise%20kingkoil/dem-lo-xo-kingkoil-arise-lux_270x180.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-lo-xo-kingkoil-arise-lux-pd.html",
+      "detailId": "dem-lo-xo-kingkoil-arise-lux",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Đệm Everon",
         "Đệm lò xo everon - kingkoil",
@@ -4720,6 +5370,8 @@
       "oldPrice": "27.990.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/Arise%20kingkoil/dem-lo-xo-kingkoil-ariseplus-15.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-lo-xo-kingkoil-arise-plus-pd.html",
+      "detailId": "dem-lo-xo-kingkoil-arise-plus",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Đệm Everon",
         "Đệm lò xo everon - kingkoil",
@@ -4734,6 +5386,8 @@
       "oldPrice": "10.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem%20kingkoil%20new%202024/dem-lo-xo-kingkoil-cloud-lux%20-5_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-lo-xo-kingkoil-cloud-lux-pd.html",
+      "detailId": "dem-lo-xo-kingkoil-cloud-lux",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Đệm Everon",
         "Đệm lò xo everon - kingkoil",
@@ -4748,6 +5402,8 @@
       "oldPrice": "11.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem%20kingkoil%20new%202024/dem-lo-xo-kingkoil-cloud-plus_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-lo-xo-kingkoil-cloud-plus-pd.html",
+      "detailId": "dem-lo-xo-kingkoil-cloud-plus",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Đệm Everon",
         "Đệm lò xo everon - kingkoil",
@@ -4762,6 +5418,8 @@
       "oldPrice": "8.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/dem%20kingkoil%20new%202024/dem-lo-xo-kingkoil-cloud-pure-4_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-lo-xo-kingkoil-cloud-pure-pd.html",
+      "detailId": "dem-lo-xo-kingkoil-cloud-pure",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Đệm Everon",
         "Đệm lò xo everon - kingkoil",
@@ -4776,6 +5434,8 @@
       "oldPrice": "24.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20%C4%91%E1%BB%87m%20lx%20kingkoil%20m%E1%BB%9Bi/dem-lo-xo-everon-kingkoil-haet-81.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-lo-xo-kingkoil-hamony-euro-top-pd.html",
+      "detailId": "dem-lo-xo-kingkoil-hamony-euro-top",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Đệm Everon",
         "Đệm lò xo everon - kingkoil",
@@ -4790,6 +5450,8 @@
       "oldPrice": "18.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/%E1%BA%A3nh%20%C4%91%E1%BB%87m%20lx%20kingkoil%20m%E1%BB%9Bi/dem-lo-xo-everon-kingkoil-ha-51.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-lo-xo-kingkoil-harmony-pd.html",
+      "detailId": "dem-lo-xo-kingkoil-harmony",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Đệm Everon",
         "Đệm lò xo everon - kingkoil",
@@ -4804,6 +5466,8 @@
       "oldPrice": "22.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/Revive%20Kingkoil/dem-lo-xo-kingkoil-rlux_270x181.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-lo-xo-kingkoil-revive-lux-pd.html",
+      "detailId": "dem-lo-xo-kingkoil-revive-lux",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Đệm Everon",
         "Đệm lò xo everon - kingkoil",
@@ -4818,6 +5482,8 @@
       "oldPrice": "17.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/Revive%20Kingkoil/dem-lo-xo-kingkoil-revive-plus-6_270x181.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-lo-xo-kingkoil-revive-plus-pd.html",
+      "detailId": "dem-lo-xo-kingkoil-revive-plus",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Đệm Everon",
         "Đệm lò xo everon - kingkoil",
@@ -4832,6 +5498,8 @@
       "oldPrice": "12.900.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/Revive%20Kingkoil/dem-lo-xo-kingkoil-revive-pure_270x181.png",
       "sourceUrl": "https://everonhanquoc.com.vn/dem-lo-xo-kingkoil-revive-pure-pd.html",
+      "detailId": "dem-lo-xo-kingkoil-revive-pure",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Đệm lò xo everon - kingkoil",
         "Đệm lò xo"
@@ -4845,6 +5513,8 @@
       "oldPrice": "1.459.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20ch%C4%83n/Chan-he-dual-comfort_270x270.png",
       "sourceUrl": "https://everonhanquoc.com.vn/chan-thun-lanh-dual-comfort-everon-pd.html",
+      "detailId": "chan-thun-lanh-dual-comfort-everon",
+      "material": "Tencel",
       "categories": [
         "Ruột chăn everon"
       ]
@@ -4857,6 +5527,8 @@
       "oldPrice": "1.099.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20ch%C4%83n/chan-ni-everon.png",
       "sourceUrl": "https://everonhanquoc.com.vn/chan-ni-everon-pd.html",
+      "detailId": "chan-ni-everon",
+      "material": "Nỉ",
       "categories": [
         "Ruột chăn everon"
       ]
@@ -4869,6 +5541,8 @@
       "oldPrice": "1.459.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ch%C4%83n%20n%E1%BB%89/Chan-ni-popcorn-everon-7.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/chan-ni-popcorn-everon-pd.html",
+      "detailId": "chan-ni-popcorn-everon",
+      "material": "Nỉ",
       "categories": [
         "Ruột chăn everon"
       ]
@@ -4881,6 +5555,8 @@
       "oldPrice": "999.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20ch%C4%83n/ruot-chan-everon-5s_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-chan-everon-5-giay-pd.html",
+      "detailId": "ruot-chan-everon-5-giay",
+      "material": "Bông sợi mảnh",
       "categories": [
         "Ruột chăn everon"
       ]
@@ -4893,6 +5569,8 @@
       "oldPrice": "2.570.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%20ruot/ruot-chan-aqua(1)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-chan-everon-invista-aqua-pd.html",
+      "detailId": "ruot-chan-everon-invista-aqua",
+      "material": "Bông sợi mảnh",
       "categories": [
         "Ruột chăn everon"
       ]
@@ -4905,6 +5583,8 @@
       "oldPrice": "880.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20ch%C4%83n/ruot-chan-everon-OH.png",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-chan-everon-original-high-pd.html",
+      "detailId": "ruot-chan-everon-original-high",
+      "material": "Bông hạt",
       "categories": [
         "Ruột chăn everon"
       ]
@@ -4917,6 +5597,8 @@
       "oldPrice": "830.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20ch%C4%83n/ruot-chan-everon-OL.png",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-chan-bong-truyen-thong-everon-pd.html",
+      "detailId": "ruot-chan-bong-truyen-thong-everon",
+      "material": "Bông hạt",
       "categories": [
         "Ruột chăn everon"
       ]
@@ -4929,6 +5611,8 @@
       "oldPrice": "1.840.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20ch%C4%83n/ruot-chan-everon-micro.png",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-chan-everon-ultra-micro-pd.html",
+      "detailId": "ruot-chan-everon-ultra-micro",
+      "material": "Bông sợi mảnh",
       "categories": [
         "Ruột chăn everon"
       ]
@@ -4941,6 +5625,8 @@
       "oldPrice": "2.689.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20g%E1%BB%91i%20m%E1%BB%9Bi/ru%E1%BB%99t%20ch%C4%83n%20sorona%20web_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-chan-sorona-quallofil-pd.html",
+      "detailId": "ruot-chan-sorona-quallofil",
+      "material": "Bông sợi mảnh",
       "categories": [
         "Ruột chăn everon"
       ]
@@ -4953,6 +5639,8 @@
       "oldPrice": "1.249.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20ch%C4%83n/ruot-chan-everon-xo-dau-nanh(1).png",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-chan-xo-dau-nanh-pd.html",
+      "detailId": "ruot-chan-xo-dau-nanh",
+      "material": "Xơ đậu nành",
       "categories": [
         "Ruột chăn everon"
       ]
@@ -4965,6 +5653,8 @@
       "oldPrice": "395.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/g%E1%BB%91i%20t%E1%BB%B1a%20tam%20gi%C3%A1c/goi-tua-tam-giac-everon_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/goi-tua-tam-giac-everon-pd.html",
+      "detailId": "goi-tua-tam-giac-everon",
+      "material": "Bông hạt",
       "categories": [
         "Ruột gối everon"
       ]
@@ -4977,6 +5667,7 @@
       "oldPrice": "1.099.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20g%E1%BB%91i%20m%E1%BB%9Bi/tpe-pillow-insert-9.png",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-cao-cap-tpe-everon-pd.html",
+      "detailId": "ruot-goi-cao-cap-tpe-everon",
       "categories": [
         "Ruột gối everon"
       ]
@@ -4989,6 +5680,8 @@
       "oldPrice": "599.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20g%E1%BB%91i%20m%E1%BB%9Bi/ruot-goi-cao-su-everon.png",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-cao-su-everon-latex-pd.html",
+      "detailId": "ruot-goi-cao-su-everon-latex",
+      "material": "Cao su non",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5001,6 +5694,7 @@
       "oldPrice": "799.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/LATEX%20MASSAGE.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-cao-su-everon-latex-contour-massage-pd.html",
+      "detailId": "ruot-goi-cao-su-everon-latex-contour-massage",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5013,6 +5707,7 @@
       "oldPrice": "290.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20g%E1%BB%91i%20m%E1%BB%9Bi/ruot-goi-flexible_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-dieu-chinh-do-cao-flexible-pd.html",
+      "detailId": "ruot-goi-dieu-chinh-do-cao-flexible",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5025,6 +5720,8 @@
       "oldPrice": "279.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20g%E1%BB%91i%20m%E1%BB%9Bi/ruot-goi-everon-5s-6_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-everon-5-giay-pd.html",
+      "detailId": "ruot-goi-everon-5-giay",
+      "material": "Bông sợi mảnh",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5037,6 +5734,8 @@
       "oldPrice": "789.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20g%E1%BB%91i%20m%E1%BB%9Bi/ruot-goi-everon-cao-cap-sorona-1_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-everon-cao-cap-sorona-quallofil-pd.html",
+      "detailId": "ruot-goi-everon-cao-cap-sorona-quallofil",
+      "material": "Bông sợi mảnh",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5049,6 +5748,8 @@
       "oldPrice": "510.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%20ruot/ruot-goi-lavender_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-everon-lavender-pd.html",
+      "detailId": "ruot-goi-everon-lavender",
+      "material": "Bông sợi mảnh",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5061,6 +5762,8 @@
       "oldPrice": "370.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20g%E1%BB%91i%20m%E1%BB%9Bi/ruot-goi-everon-micro.png",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-everon-micro-pd.html",
+      "detailId": "ruot-goi-everon-micro",
+      "material": "Bông sợi mảnh",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5073,6 +5776,8 @@
       "oldPrice": "325.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%20ruot/ruot-expo%20(1).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-everon-micro-expo-pd.html",
+      "detailId": "ruot-goi-everon-micro-expo",
+      "material": "Bông sợi mảnh",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5085,6 +5790,8 @@
       "oldPrice": "199.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20g%E1%BB%91i%20m%E1%BB%9Bi/ruot-goi-everon-OH.png",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-oh-pd.html",
+      "detailId": "ruot-goi-oh",
+      "material": "Bông hạt",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5097,6 +5804,8 @@
       "oldPrice": "189.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20g%E1%BB%91i%20m%E1%BB%9Bi/ruot-goi-everon-OL.png",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-everon-ol-pd.html",
+      "detailId": "ruot-goi-everon-ol",
+      "material": "Bông hạt",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5109,6 +5818,8 @@
       "oldPrice": "1.599.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20g%E1%BB%91i%20m%E1%BB%9Bi/spring-pillow-insert-1_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-lo-xo-everon-pd.html",
+      "detailId": "ruot-goi-lo-xo-everon",
+      "material": "Lò xo thép carbon",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5121,6 +5832,8 @@
       "oldPrice": "370.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album%20ruot/ruot-goi-everon-newlavender-1_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-newlavender-20-pd.html",
+      "detailId": "ruot-goi-newlavender-20",
+      "material": "Bông sợi mảnh",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5133,6 +5846,8 @@
       "oldPrice": "220.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20g%E1%BB%91i%20m%E1%BB%9Bi/ruot-goi-om-everon.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-om-everon-pd.html",
+      "detailId": "ruot-goi-om-everon",
+      "material": "Bông hạt",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5145,6 +5860,7 @@
       "oldPrice": "369.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20g%E1%BB%91i%20m%E1%BB%9Bi/ruot-goi-everon-memory-foam.png",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-shredded-memory-foam-pd.html",
+      "detailId": "ruot-goi-shredded-memory-foam",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5157,6 +5873,8 @@
       "oldPrice": "269.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/ru%E1%BB%99t%20g%E1%BB%91i%20m%E1%BB%9Bi/ruot-goi-everon-thu-gian-co.png",
       "sourceUrl": "https://everonhanquoc.com.vn/ruot-goi-thu-gian-co-everon-pd.html",
+      "detailId": "ruot-goi-thu-gian-co-everon",
+      "material": "Bông hạt",
       "categories": [
         "Ruột gối everon"
       ]
@@ -5169,6 +5887,8 @@
       "oldPrice": "3.443.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album2018/EP-1828(6).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-ep1828-lilac-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-ep1828-lilac",
+      "material": "Cotton 100%",
       "categories": [
         "Sản phẩm giảm giá"
       ]
@@ -5181,6 +5901,8 @@
       "oldPrice": "4.675.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album2018/es-1804%20(16)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-es-1804-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-es-1804",
+      "material": "Modal 40",
       "categories": [
         "Sản phẩm giảm giá"
       ]
@@ -5193,6 +5915,8 @@
       "oldPrice": "3.828.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album2018/ES-1806%20(3)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-es-1806-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-es-1806",
+      "material": "Modal 40",
       "categories": [
         "Sản phẩm giảm giá"
       ]
@@ -5205,6 +5929,8 @@
       "oldPrice": "4.631.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album2018/ES-1838(12).jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/bo-chan-ga-goi-everon-es1838-wedding-pd.html",
+      "detailId": "bo-chan-ga-goi-everon-es1838-wedding",
+      "material": "Cotton 100%",
       "categories": [
         "Sản phẩm giảm giá"
       ]
@@ -5217,6 +5943,8 @@
       "oldPrice": "1.870.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/sp%202019/esm-19011%20(24)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/chan-he-thu-epm-19011-pd.html",
+      "detailId": "chan-he-thu-epm-19011",
+      "material": "Modal 40",
       "categories": [
         "Sản phẩm giảm giá"
       ]
@@ -5229,6 +5957,8 @@
       "oldPrice": "2.310.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album-2019-moi/EST-19031%20(2)_273x195.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/chan-he-thu-est-19031-pd.html",
+      "detailId": "chan-he-thu-est-19031",
+      "material": "Tencel",
       "categories": [
         "Sản phẩm giảm giá"
       ]
@@ -5241,6 +5971,8 @@
       "oldPrice": "2.475.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/2017-2018/ES1720_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/vo-chan-everon-es-1720-pd.html",
+      "detailId": "vo-chan-everon-es-1720",
+      "material": "Tencel",
       "categories": [
         "Sản phẩm giảm giá",
         "Vỏ chăn giảm giá"
@@ -5254,6 +5986,8 @@
       "oldPrice": "1.837.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/album2018/ES-1809%20(1)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/vo-chan-everon-es-1809-pd.html",
+      "detailId": "vo-chan-everon-es-1809",
+      "material": "Tencel",
       "categories": [
         "Sản phẩm giảm giá",
         "Vỏ chăn giảm giá"
@@ -5267,6 +6001,8 @@
       "oldPrice": "2.030.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/sp%202019/esm-19012%20(9)_270x203.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/vo-chan-everon-esm-19012-pd.html",
+      "detailId": "vo-chan-everon-esm-19012",
+      "material": "Modal 60",
       "categories": [
         "Sản phẩm giảm giá",
         "Vỏ chăn giảm giá"
@@ -5280,6 +6016,8 @@
       "oldPrice": "308.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/v%E1%BB%8F%20g%E1%BB%91i/vo-goi-dau-everon-1804-6_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/vo-goi-dau-everon-esm-1804-pd.html",
+      "detailId": "vo-goi-dau-everon-esm-1804",
+      "material": "Modal 40",
       "categories": [
         "Sản phẩm giảm giá",
         "Vỏ gối lẻ giảm giá"
@@ -5293,6 +6031,8 @@
       "oldPrice": "319.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/v%E1%BB%8F%20g%E1%BB%91i/1809-1_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/vo-goi-dau-everon-est-1809-pd.html",
+      "detailId": "vo-goi-dau-everon-est-1809",
+      "material": "Tencel",
       "categories": [
         "Sản phẩm giảm giá",
         "Vỏ gối lẻ giảm giá"
@@ -5306,6 +6046,8 @@
       "oldPrice": "253.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/v%E1%BB%8F%20g%E1%BB%91i/1837-3_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/vo-goi-dau-everon-est-1837-pd.html",
+      "detailId": "vo-goi-dau-everon-est-1837",
+      "material": "Tencel",
       "categories": [
         "Sản phẩm giảm giá",
         "Vỏ gối lẻ giảm giá"
@@ -5319,6 +6061,8 @@
       "oldPrice": "340.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/v%E1%BB%8F%20g%E1%BB%91i/20031-14_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/vo-goi-dau-everon-est-20031-pd.html",
+      "detailId": "vo-goi-dau-everon-est-20031",
+      "material": "Tencel",
       "categories": [
         "Sản phẩm giảm giá",
         "Vỏ gối lẻ giảm giá"
@@ -5332,6 +6076,8 @@
       "oldPrice": "300.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/v%E1%BB%8F%20g%E1%BB%91i/20013_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/vo-goi-dau-pd.html",
+      "detailId": "vo-goi-dau",
+      "material": "Modal 40",
       "categories": [
         "Vỏ gối lẻ giảm giá"
       ]
@@ -5344,6 +6090,8 @@
       "oldPrice": "300.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/v%E1%BB%8F%20g%E1%BB%91i/20041.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/vo-goi-everon-epm-21041-pd.html",
+      "detailId": "vo-goi-everon-epm-21041",
+      "material": "Tencel",
       "categories": [
         "Vỏ gối lẻ giảm giá"
       ]
@@ -5356,6 +6104,8 @@
       "oldPrice": "290.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/v%E1%BB%8F%20g%E1%BB%91i/20066_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/vo-goi-everon-epm-20066-pd.html",
+      "detailId": "vo-goi-everon-epm-20066",
+      "material": "Modal 40",
       "categories": [
         "Vỏ gối lẻ giảm giá"
       ]
@@ -5368,6 +6118,8 @@
       "oldPrice": "360.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/v%E1%BB%8F%20g%E1%BB%91i/21064_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/vo-goi-everon-epm-21064-pd.html",
+      "detailId": "vo-goi-everon-epm-21064",
+      "material": "Modal 40",
       "categories": [
         "Vỏ gối lẻ giảm giá"
       ]
@@ -5380,6 +6132,8 @@
       "oldPrice": "290.000đ",
       "image": "https://everonhanquoc.com.vn/data/media/images/v%E1%BB%8F%20g%E1%BB%91i/21042-2_270x270.jpg",
       "sourceUrl": "https://everonhanquoc.com.vn/vo-goi-everon-esm-21042-pd.html",
+      "detailId": "vo-goi-everon-esm-21042",
+      "material": "Tencel",
       "categories": [
         "Vỏ gối lẻ giảm giá"
       ]

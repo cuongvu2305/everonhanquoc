@@ -2,6 +2,7 @@ import { Alert, Button, Card, Col, Divider, Empty, Flex, Form, Image, Input, Lis
 import { Icon } from "../icons/Icon.jsx";
 import { PageHeader } from "../layout/PageHeader.jsx";
 import { formatPrice, navigateToTopPage, parsePrice } from "../../lib/runtime.js";
+import { variantLabel } from "../../lib/variants.js";
 
 export function CheckoutPage({ cartItems, langTools, onRemoveCartItem, onUpdateCartQuantity }) {
   const { dict, labelProduct } = langTools;
@@ -66,22 +67,24 @@ export function CheckoutPage({ cartItems, langTools, onRemoveCartItem, onUpdateC
               <List
                 className="order-summary-list"
                 dataSource={cartItems}
+                rowKey="cartKey"
                 renderItem={(item) => (
                   <List.Item className="order-summary-item">
                     <div className="order-item-main">
                       <Image className="cart-thumb" preview={false} src={item.image} alt={labelProduct(item)} />
                       <div className="order-item-copy">
                         <Text strong className="order-item-title">{labelProduct(item)}</Text>
+                        {item.variant ? <Text type="secondary" className="order-item-variant">{variantLabel(item.variant)}</Text> : null}
                         <Text type="secondary">{dict.quantity}: {item.quantity}</Text>
                       </div>
                     </div>
                     <div className="order-item-meta">
                       <div className="order-item-actions">
                         <Space size={10} wrap>
-                          <Button shape="circle" icon={<Icon name="Minus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity - 1)} />
+                          <Button shape="circle" icon={<Icon name="Minus" size={14} />} onClick={() => onUpdateCartQuantity(item.cartKey, item.quantity - 1)} />
                           <Text className="order-item-qty">{item.quantity}</Text>
-                          <Button shape="circle" icon={<Icon name="Plus" size={14} />} onClick={() => onUpdateCartQuantity(item.slug, item.quantity + 1)} />
-                          <Button danger type="text" icon={<Icon name="Trash2" size={16} />} onClick={() => onRemoveCartItem(item.slug)}>
+                          <Button shape="circle" icon={<Icon name="Plus" size={14} />} onClick={() => onUpdateCartQuantity(item.cartKey, item.quantity + 1)} />
+                          <Button danger type="text" icon={<Icon name="Trash2" size={16} />} onClick={() => onRemoveCartItem(item.cartKey)}>
                             {dict.remove}
                           </Button>
                         </Space>

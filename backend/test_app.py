@@ -12,6 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import app
 import db
+import details
 
 
 class AppArgumentsTest(unittest.TestCase):
@@ -118,6 +119,35 @@ class StorefrontApiTest(unittest.TestCase):
 
         self.assertEqual(payload["banners"], seed["banners"])
 
+    def test_product_details_endpoint_returns_gallery_specs_and_variants(self):
+        _, storefront = self.get_json("/api/storefront")
+        product = storefront["products"][0]
+        all_details = json.loads(details.DETAILS_FILE.read_text(encoding="utf-8"))
+
+        status, payload = self.get_json(f"/api/products/{product['detailId']}")
+
+        self.assertEqual(status, 200)
+        self.assertEqual(payload, all_details[product["detailId"]])
+        self.assertGreater(len(payload["images"]), 1)
+        self.assertTrue(all({"id", "name", "size", "price"} <= set(v) for v in payload["variants"]))
+
+    def test_product_details_endpoint_rejects_unknown_and_malformed_ids(self):
+        for path in ("/api/products/khong-ton-tai", "/api/products/..%2Fdb", "/api/products/", "/api/products/ABC"):
+            status, payload = self.get_json(path)
+            self.assertEqual(status, 404, path)
+            self.assertEqual(payload, {"error": "not_found"})
+
+    def test_every_product_has_a_detail_id_with_details(self):
+        _, storefront = self.get_json("/api/storefront")
+        all_details = json.loads(details.DETAILS_FILE.read_text(encoding="utf-8"))
+        ids = [product.get("detailId") for product in storefront["products"]]
+
+        self.assertTrue(all(ids))
+        self.assertEqual(len(set(ids)), len(ids))
+        for detail_id in ids:
+            self.assertIn(detail_id, all_details)
+            self.assertTrue(all_details[detail_id]["images"])
+
     def test_storefront_endpoint_returns_category_groups_from_seed_data(self):
         _, payload = self.get_json("/api/storefront")
         seed = json.loads(db.DATA_FILE.read_text(encoding="utf-8"))
@@ -133,12 +163,11 @@ class StorefrontApiTest(unittest.TestCase):
     def test_storefront_endpoint_returns_optional_product_fields(self):
         _, payload = self.get_json("/api/storefront")
         seed = json.loads(db.DATA_FILE.read_text(encoding="utf-8"))
-        optional_fields = ("material", "rating", "outOfStock", "collection")
+        optional_fields = ("material", "rating", "outOfStock", "collection", "detailId")
 
         for expected, actual in zip(seed["products"], payload["products"], strict=True):
             for field in optional_fields:
                 self.assertEqual(actual.get(field), expected.get(field), f"{expected['name']}: {field}")
-        self.assertTrue(any(product.get("outOfStock") for product in payload["products"]))
 
 
 class DatabaseMigrationTest(unittest.TestCase):
@@ -191,6 +220,20 @@ class DatabaseMigrationTest(unittest.TestCase):
                 data = db.load_storefront_data()
                 self.assertEqual(data["showrooms"][0]["address"], "Địa chỉ mới")
                 self.assertEqual(data["categoryGroups"][0]["children"], edited["categoryGroups"][0]["children"])
+
+    def test_out_of_stock_and_rating_pass_through_when_set(self):
+        seed = json.loads(db.DATA_FILE.read_text(encoding="utf-8"))
+        seed["products"][0]["outOfStock"] = True
+        seed["products"][0]["rating"] = 4.5
+        with tempfile.TemporaryDirectory() as data_dir:
+            data_file = Path(data_dir) / "storefront.json"
+            data_file.write_text(json.dumps(seed, ensure_ascii=False), encoding="utf-8")
+            with patch.object(db, "DATA_FILE", data_file):
+                first, second = db.load_storefront_data()["products"][:2]
+
+        self.assertIs(first["outOfStock"], True)
+        self.assertEqual(first["rating"], 4.5)
+        self.assertNotIn("outOfStock", second)
 
     def test_unchanged_data_file_is_not_reseeded(self):
         db.init_database()

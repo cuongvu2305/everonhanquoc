@@ -21,6 +21,7 @@ import { useI18n } from "../hooks/use-i18n.jsx";
 import { useLocale, useStorefront } from "../hooks/use-storefront.jsx";
 import { isOutOfStock } from "../lib/product.js";
 import { buildMainNavItems, FOOTER_PAGE_KEYS, mainNavSelectedKeys, parseNavKey } from "../lib/navigation.js";
+import { cartKey } from "../lib/variants.js";
 import { buildSearchUrl, getCategorySlugFromHash, getPageFromHash, getPolicySlugFromLocation, getProductSlugFromLocation, getSearchQueryFromLocation, getStoredCart, navigateToCategory, navigateToPolicy, navigateToTopPage, slugifyCategory, slugifyProduct, storeCart } from "../lib/runtime.js";
 
 const MESSENGER_URL = "https://www.messenger.com/t/441239679606397/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0";
@@ -124,40 +125,58 @@ export default function App() {
     const relatedProducts = product ? products.filter((item) => (item.category === product.category || item.categories?.includes(product.category)) && item.name !== product.name).slice(0, 3) : [];
     return { product, relatedProducts };
   }, [activePage, activeProductSlug, products, store]);
+  // A cart line is a product plus, when chosen on the detail page, a size/price variant.
   const cartItems = useMemo(() => cartEntries.map((entry) => {
     const product = products.find((item) => slugifyProduct(item) === entry.slug);
-    return product ? { ...product, slug: entry.slug, quantity: entry.quantity } : null;
+    if (!product) return null;
+    const variant = entry.variantId ? { id: entry.variantId, name: entry.variantName, size: entry.size } : null;
+    return {
+      ...product,
+      slug: entry.slug,
+      cartKey: cartKey(entry.slug, entry.variantId),
+      quantity: entry.quantity,
+      variant,
+      price: variant ? entry.price : product.price,
+      oldPrice: variant ? entry.oldPrice : product.oldPrice,
+    };
   }).filter(Boolean), [cartEntries, products]);
   const cartCount = useMemo(() => cartItems.reduce((sum, item) => sum + item.quantity, 0), [cartItems]);
 
-  const addToCart = (product) => {
+  const entryKey = (entry) => cartKey(entry.slug, entry.variantId);
+  const newCartEntry = (product, variant) => ({
+    slug: slugifyProduct(product),
+    quantity: 1,
+    ...(variant
+      ? { variantId: variant.id, variantName: variant.name, size: variant.size, price: variant.price, ...(variant.oldPrice ? { oldPrice: variant.oldPrice } : {}) }
+      : {}),
+  });
+
+  const addToCart = (product, variant) => {
     // The detail page disables the button too; this guards any other caller.
     if (isOutOfStock(product)) return;
-    const slug = slugifyProduct(product);
-    setCartEntries((current) => {
-      const existing = current.find((item) => item.slug === slug);
-      if (existing) {
-        return current.map((item) => item.slug === slug ? { ...item, quantity: item.quantity + 1 } : item);
-      }
-      return [...current, { slug, quantity: 1 }];
-    });
+    const entry = newCartEntry(product, variant);
+    const key = entryKey(entry);
+    setCartEntries((current) => (current.some((item) => entryKey(item) === key)
+      ? current.map((item) => (entryKey(item) === key ? { ...item, quantity: item.quantity + 1 } : item))
+      : [...current, entry]));
     message.success(dict.addedToCart);
   };
 
-  // "Mua ngay": make sure the product is in the cart (without bumping an existing quantity) and go to checkout.
-  const buyNow = (product) => {
+  // "Mua ngay": make sure this product/size is in the cart (without bumping an existing quantity) and go to checkout.
+  const buyNow = (product, variant) => {
     if (isOutOfStock(product)) return;
-    const slug = slugifyProduct(product);
-    setCartEntries((current) => (current.some((item) => item.slug === slug) ? current : [...current, { slug, quantity: 1 }]));
+    const entry = newCartEntry(product, variant);
+    const key = entryKey(entry);
+    setCartEntries((current) => (current.some((item) => entryKey(item) === key) ? current : [...current, entry]));
     navigateToTopPage("checkout");
   };
 
-  const updateCartQuantity = (slug, quantity) => {
-    setCartEntries((current) => quantity <= 0 ? current.filter((item) => item.slug !== slug) : current.map((item) => item.slug === slug ? { ...item, quantity } : item));
+  const updateCartQuantity = (key, quantity) => {
+    setCartEntries((current) => quantity <= 0 ? current.filter((item) => entryKey(item) !== key) : current.map((item) => entryKey(item) === key ? { ...item, quantity } : item));
   };
 
-  const removeCartItem = (slug) => {
-    setCartEntries((current) => current.filter((item) => item.slug !== slug));
+  const removeCartItem = (key) => {
+    setCartEntries((current) => current.filter((item) => entryKey(item) !== key));
     message.success(dict.removedFromCart);
   };
 

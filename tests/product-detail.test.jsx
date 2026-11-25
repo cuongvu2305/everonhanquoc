@@ -2,6 +2,12 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { afterEach, expect, test, vi } from "vitest";
 import { cleanup, fireEvent, render } from "@testing-library/react";
+
+// Product details come from the API; tests use no detailId (=> no request) unless they mock it.
+vi.mock("../src/services/api/storefront.service.jsx", () => ({
+  storefrontService: { getProductDetails: vi.fn(() => new Promise(() => {})) },
+}));
+
 import { ProductDetailPage } from "../src/components/pages/ProductDetailPage.jsx";
 import { ProductCard } from "../src/components/product/ProductCard.jsx";
 import { useI18n } from "../src/hooks/use-i18n.jsx";
@@ -62,7 +68,8 @@ test("in-stock product shows 'Còn hàng', material, rating and an enabled add-t
   const addButton = getByRole("button", { name: new RegExp(localeDict.addToCart) });
   expect(addButton.disabled).toBe(false);
   fireEvent.click(addButton);
-  expect(onAddToCart).toHaveBeenCalledWith(product);
+  // No details loaded for this product, so there is no variant to pass along.
+  expect(onAddToCart).toHaveBeenCalledWith(product, null);
 });
 
 test("out-of-stock product shows 'Hết hàng', a notice, and cannot be added to the cart", () => {
@@ -168,7 +175,7 @@ test("'Mua ngay' hands the product to onBuyNow and is disabled when out of stock
   const onBuyNow = vi.fn();
   const inStock = render(<DetailWithBuyNow product={base} onBuyNow={onBuyNow} />);
   fireEvent.click(inStock.getByRole("button", { name: new RegExp(localeDict.buyNow) }));
-  expect(onBuyNow).toHaveBeenCalledWith(base);
+  expect(onBuyNow).toHaveBeenCalledWith(base, null);
   cleanup();
 
   onBuyNow.mockClear();
