@@ -17,3 +17,25 @@ export function isOutOfStock(product) {
 export function formatRatingLabel(template, rating) {
   return String(template ?? "").replace("{rating}", rating);
 }
+
+// "3.430.000đ" -> 3430000. Returns null when there is no price to compare (e.g. "Liên hệ").
+export function parsePrice(price) {
+  if (typeof price === "number") return Number.isFinite(price) ? price : null;
+  const digits = String(price ?? "").replace(/[^\d]/g, "");
+  return digits ? Number(digits) : null;
+}
+
+export const PRODUCT_SORTS = ["default", "priceAsc", "priceDesc"];
+
+// Stable sort by price; products without a parsable price always go last. Never mutates the input.
+export function sortProducts(products = [], sort = "default") {
+  if (sort !== "priceAsc" && sort !== "priceDesc") return products;
+  const direction = sort === "priceAsc" ? 1 : -1;
+  return products
+    .map((product, index) => ({ product, index, price: parsePrice(product.price) }))
+    .sort((a, b) => {
+      if (a.price === null || b.price === null) return (a.price === null) - (b.price === null) || a.index - b.index;
+      return (a.price - b.price) * direction || a.index - b.index;
+    })
+    .map(({ product }) => product);
+}

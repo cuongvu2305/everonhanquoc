@@ -1,6 +1,7 @@
 import {
   Alert,
   Badge,
+  Breadcrumb,
   Button,
   Card,
   Carousel,
@@ -37,6 +38,7 @@ const { Title, Text, Paragraph } = Typography;
 export {
   Alert,
   Badge,
+  Breadcrumb,
   Button,
   Card,
   Carousel,

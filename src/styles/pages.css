@@ -698,3 +698,43 @@
   -webkit-line-clamp: 2;
   line-clamp: 2;
 }
+
+/* Breadcrumb (category and other inner pages) */
+.page-breadcrumb {
+  margin-bottom: 14px;
+}
+
+.page-breadcrumb .ant-breadcrumb {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.page-breadcrumb .ant-breadcrumb a {
+  color: var(--brand-dark);
+}
+
+.page-breadcrumb .ant-breadcrumb a:hover {
+  background: var(--surface-soft);
+  color: var(--brand);
+}
+
+.page-breadcrumb [aria-current="page"] {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Category toolbar (sorting) */
+.category-toolbar {
+  margin: 16px 0 14px;
+}
+
+.category-toolbar-label.ant-typography {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+}
+
+.category-sort-select {
+  min-width: 170px;
+}

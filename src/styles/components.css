@@ -426,3 +426,17 @@
   height: 17px;
   fill: currentColor;
 }
+
+/* Keep the first row of a new page clear of the sticky header after scrollIntoView. */
+.product-grid {
+  scroll-margin-top: 140px;
+}
+
+.product-pagination .ant-pagination-item-active {
+  border-color: var(--brand);
+}
+
+.product-pagination .ant-pagination-item-active a {
+  color: var(--brand-dark);
+  font-weight: 700;
+}

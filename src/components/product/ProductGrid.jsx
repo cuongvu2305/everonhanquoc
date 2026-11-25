@@ -1,8 +1,9 @@
-import { Col, Empty, Flex, Pagination, Row, useEffect, useState } from "../../app/globals.jsx";
+import { Col, Empty, Flex, Pagination, Row, useEffect, useRef, useState } from "../../app/globals.jsx";
 import { ProductCard } from "./ProductCard.jsx";
 
 export function ProductGrid({ products, labelProduct, dict, emptyText, paginated = false, pageSize = 9 }) {
   const [currentPage, setCurrentPage] = useState(1);
+  const gridRef = useRef(null);
   const productListKey = products.map((product) => product.sourceUrl || product.name).join("|");
 
   useEffect(() => {
@@ -13,10 +14,15 @@ export function ProductGrid({ products, labelProduct, dict, emptyText, paginated
   const visibleProducts = paginated ? products.slice((currentPage - 1) * pageSize, currentPage * pageSize) : products;
   const placeholders = paginated && visibleProducts.length < pageSize ? Array.from({ length: pageSize - visibleProducts.length }) : [];
   const placeholderProduct = visibleProducts[0] || products[0];
+  const changePage = (page) => {
+    setCurrentPage(page);
+    // Bring the top of the new page into view instead of leaving the user at the pager.
+    gridRef.current?.scrollIntoView?.({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <>
-      <Row gutter={[16, 16]}>
+      <Row gutter={[16, 16]} ref={gridRef} className="product-grid">
         {visibleProducts.map((product) => (
           <Col xs={24} sm={12} lg={8} xl={8} key={product.sourceUrl || product.name}>
             <ProductCard product={product} labelProduct={labelProduct} dict={dict} />
@@ -36,9 +42,10 @@ export function ProductGrid({ products, labelProduct, dict, emptyText, paginated
             current={currentPage}
             pageSize={pageSize}
             total={products.length}
-            simple
             showSizeChanger={false}
-            onChange={setCurrentPage}
+            showLessItems
+            responsive
+            onChange={changePage}
           />
         </Flex>
       ) : null}

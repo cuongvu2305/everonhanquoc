@@ -167,7 +167,7 @@ export default function App() {
     if (activePage === "search") return <SearchPage products={products} query={query} langTools={langTools} />;
     if (activePage === "product") return <ProductDetailPage product={productPage?.product} relatedProducts={productPage?.relatedProducts ?? []} langTools={langTools} onAddToCart={addToCart} />;
     if (activePage === "policy") return <PolicyPage slug={activePolicySlug} />;
-    if (activePage === "category" && categoryPage) return <CategoryPage category={categoryPage.category} products={categoryPage.products} siblingCategories={store.categories} langTools={langTools} />;
+    if (activePage === "category" && categoryPage) return <CategoryPage key={categoryPage.category} category={categoryPage.category} products={categoryPage.products} siblingCategories={store.categories} langTools={langTools} />;
     return <HomePage activeCategory={activeCategory} filteredProducts={filteredProducts} menuItems={menuItems} setActiveCategory={setActiveCategory} store={store} langTools={langTools} />;
   };
   const footerPolicies = policyPages.map((item) => ({

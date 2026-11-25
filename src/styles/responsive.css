@@ -318,6 +318,15 @@
 }
 
 @media (max-width: 576px) {
+  .category-toolbar {
+    justify-content: space-between;
+  }
+
+  .category-sort-select {
+    flex: 1;
+    min-width: 0;
+  }
+
   .top-strip {
     font-size: 12px;
   }
