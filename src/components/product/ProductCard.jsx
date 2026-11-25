@@ -1,19 +1,12 @@
 import { Badge, Card, Image, Rate, Space, Text, Title } from "../../app/globals.jsx";
+import { formatRatingLabel, getProductRating, isOutOfStock } from "../../lib/product.js";
 import { navigateToProduct } from "../../lib/runtime.js";
-
-const DEFAULT_RATING = 5;
-
-function getRating(product) {
-  if (product.rating === null || product.rating === undefined || product.rating === "") return DEFAULT_RATING;
-  const rating = Number(product.rating);
-  return Number.isFinite(rating) && rating >= 0 && rating <= 5 ? rating : DEFAULT_RATING;
-}
 
 export function ProductCard({ product, labelProduct, dict = {} }) {
   const name = labelProduct(product);
-  const rating = getRating(product);
-  const outOfStock = product.outOfStock === true;
-  const ratingLabel = String(dict.ratingLabel ?? "").replace("{rating}", rating);
+  const rating = getProductRating(product);
+  const outOfStock = isOutOfStock(product);
+  const ratingLabel = formatRatingLabel(dict.ratingLabel, rating);
 
   return (
     <Badge.Ribbon text={product.sale} color="#d71920">

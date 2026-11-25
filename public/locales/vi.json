@@ -164,6 +164,8 @@
   "productCategory": "Danh mục",
   "productStatus": "Tình trạng",
   "inStock": "Còn hàng",
+  "productMaterial": "Chất liệu",
+  "outOfStockNotice": "Sản phẩm tạm hết hàng. Vui lòng liên hệ để được tư vấn mẫu tương tự hoặc đặt trước.",
   "addToCart": "Thêm vào giỏ",
   "contactConsulting": "Tư vấn ngay",
   "relatedProducts": "Sản phẩm cùng danh mục",

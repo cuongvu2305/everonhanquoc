@@ -18,6 +18,7 @@ import { SearchPage } from "../components/pages/SearchPage.jsx";
 import { topPages } from "../constants/navigation.jsx";
 import { useI18n } from "../hooks/use-i18n.jsx";
 import { useLocale, useStorefront } from "../hooks/use-storefront.jsx";
+import { isOutOfStock } from "../lib/product.js";
 import { buildSearchUrl, getCategorySlugFromHash, getPageFromHash, getPolicySlugFromLocation, getProductSlugFromLocation, getSearchQueryFromLocation, getStoredCart, navigateToCategory, navigateToPolicy, navigateToTopPage, slugifyCategory, slugifyProduct, storeCart } from "../lib/runtime.js";
 
 export default function App() {
@@ -110,6 +111,8 @@ export default function App() {
   const cartCount = useMemo(() => cartItems.reduce((sum, item) => sum + item.quantity, 0), [cartItems]);
 
   const addToCart = (product) => {
+    // The detail page disables the button too; this guards any other caller.
+    if (isOutOfStock(product)) return;
     const slug = slugifyProduct(product);
     setCartEntries((current) => {
       const existing = current.find((item) => item.slug === slug);

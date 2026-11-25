@@ -1,6 +1,7 @@
-import { Button, Card, Col, Empty, Flex, Image, Paragraph, Row, Space, Tag, Text, Title } from "../../app/globals.jsx";
+import { Alert, Button, Card, Col, Empty, Flex, Image, Paragraph, Rate, Row, Space, Tag, Text, Title } from "../../app/globals.jsx";
 import { Icon } from "../icons/Icon.jsx";
 import { ProductGrid } from "../product/ProductGrid.jsx";
+import { formatRatingLabel, getProductRating, isOutOfStock } from "../../lib/product.js";
 import { extractProductCode, navigateToCategory, navigateToTopPage } from "../../lib/runtime.js";
 
 export function ProductDetailPage({ product, relatedProducts, langTools, onAddToCart }) {
@@ -14,11 +15,18 @@ export function ProductDetailPage({ product, relatedProducts, langTools, onAddTo
     );
   }
 
+  const name = labelProduct(product);
+  const rating = getProductRating(product);
+  const outOfStock = isOutOfStock(product);
+
   return (
-    <Card className="section-panel page-panel product-detail-page">
+    <Card className={`section-panel page-panel product-detail-page${outOfStock ? " is-out-of-stock" : ""}`}>
       <Row gutter={[24, 24]} align="top">
         <Col xs={24} lg={11}>
-          <Image className="product-detail-image" preview={false} src={product.image} alt={labelProduct(product)} />
+          <div className="product-detail-media">
+            <Image className="product-detail-image" preview={false} src={product.image} alt={name} />
+            {outOfStock ? <span className="product-detail-stock-badge">{dict.outOfStock}</span> : null}
+          </div>
         </Col>
         <Col xs={24} lg={13}>
           <Flex vertical gap={14}>
@@ -26,16 +34,20 @@ export function ProductDetailPage({ product, relatedProducts, langTools, onAddTo
               <Tag color="#16842c">{labelCategory(product.category)}</Tag>
               <Tag color="#d71920">{product.sale}</Tag>
             </Space>
-            <Title level={2}>{labelProduct(product)}</Title>
+            <Title level={2}>{name}</Title>
+            <div className="product-detail-rating" role="img" aria-label={formatRatingLabel(dict.ratingLabel, rating) || undefined}>
+              <Rate disabled allowHalf value={rating} />
+            </div>
             <Space align="baseline" wrap>
               <Text className="product-detail-price">{product.price}</Text>
               <Text delete type="secondary">{product.oldPrice}</Text>
             </Space>
+            {outOfStock && dict.outOfStockNotice ? <Alert className="product-detail-stock-alert" type="warning" showIcon message={dict.outOfStockNotice} /> : null}
             <Space wrap className="product-detail-actions">
-              <Button type="primary" size="large" icon={<Icon name="ShoppingCart" />} onClick={() => onAddToCart(product)}>
+              <Button type="primary" size="large" icon={<Icon name="ShoppingCart" />} disabled={outOfStock} onClick={() => onAddToCart(product)}>
                 {dict.addToCart}
               </Button>
-              <Button size="large" onClick={() => navigateToTopPage("contact")} icon={<Icon name="PhoneCall" />}>
+              <Button type={outOfStock ? "primary" : "default"} ghost={outOfStock} size="large" onClick={() => navigateToTopPage("contact")} icon={<Icon name="PhoneCall" />}>
                 {dict.contactConsulting}
               </Button>
             </Space>
@@ -43,8 +55,14 @@ export function ProductDetailPage({ product, relatedProducts, langTools, onAddTo
             <div className="product-detail-info">
               <Flex vertical gap={10}>
                 <Flex justify="space-between" gap={16}><Text type="secondary">{dict.productCode}</Text><Text strong>{extractProductCode(product)}</Text></Flex>
+                {product.material ? (
+                  <Flex justify="space-between" gap={16}><Text type="secondary">{dict.productMaterial}</Text><Text className="product-detail-material">{product.material}</Text></Flex>
+                ) : null}
                 <Flex justify="space-between" gap={16}><Text type="secondary">{dict.productCategory}</Text><Button type="link" onClick={() => navigateToCategory(product.category)}>{labelCategory(product.category)}</Button></Flex>
-                <Flex justify="space-between" gap={16}><Text type="secondary">{dict.productStatus}</Text><Text>{dict.inStock}</Text></Flex>
+                <Flex justify="space-between" gap={16}>
+                  <Text type="secondary">{dict.productStatus}</Text>
+                  <Text strong className={`product-detail-status ${outOfStock ? "is-out" : "is-in"}`}>{outOfStock ? dict.outOfStock : dict.inStock}</Text>
+                </Flex>
               </Flex>
             </div>
           </Flex>
