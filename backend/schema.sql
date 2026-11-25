@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS products (
   material TEXT,
   rating REAL,
   out_of_stock INTEGER NOT NULL DEFAULT 0,
+  collection TEXT,
   sort_order INTEGER NOT NULL DEFAULT 0,
   FOREIGN KEY (category_id) REFERENCES categories(id)
 );

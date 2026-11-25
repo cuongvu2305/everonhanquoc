@@ -207,6 +207,14 @@
   text-align: left;
 }
 
+.product-carousel-title-static {
+  display: flex;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  font-size: inherit;
+}
+
 .product-carousel-title {
   margin: 0;
   flex: 1 1 auto;

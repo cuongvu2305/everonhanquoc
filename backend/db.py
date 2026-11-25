@@ -15,6 +15,7 @@ PRODUCT_MIGRATIONS = {
     "material": "TEXT",
     "rating": "REAL",
     "out_of_stock": "INTEGER NOT NULL DEFAULT 0",
+    "collection": "TEXT",
 }
 
 
@@ -141,9 +142,9 @@ def seed_database(connection):
             """
             INSERT INTO products (
                 name, category_id, sale, price, old_price, image, source_url,
-                material, rating, out_of_stock, sort_order
+                material, rating, out_of_stock, collection, sort_order
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 product["name"],
@@ -156,6 +157,7 @@ def seed_database(connection):
                 product.get("material"),
                 product.get("rating"),
                 1 if product.get("outOfStock") is True else 0,
+                product.get("collection"),
                 index,
             ),
         )
@@ -185,6 +187,7 @@ def serialize_product(row):
     product = {
         "name": row["name"],
         "category": row["category"],
+        **({"collection": row["collection"]} if row["collection"] is not None else {}),
         "categories": json.loads(row["categories"] or "[]"),
         "sale": row["sale"],
         "price": row["price"],
@@ -247,7 +250,7 @@ def load_storefront_data():
                 SELECT products.name, categories.name AS category, products.sale,
                        products.price, products.old_price, products.image,
                        products.source_url, products.material, products.rating,
-                       products.out_of_stock,
+                       products.out_of_stock, products.collection,
                        json_group_array(related_categories.name) AS categories
                 FROM products
                 JOIN categories ON categories.id = products.category_id

@@ -127,7 +127,7 @@ class StorefrontApiTest(unittest.TestCase):
     def test_storefront_endpoint_returns_optional_product_fields(self):
         _, payload = self.get_json("/api/storefront")
         seed = json.loads(db.DATA_FILE.read_text(encoding="utf-8"))
-        optional_fields = ("material", "rating", "outOfStock")
+        optional_fields = ("material", "rating", "outOfStock", "collection")
 
         for expected, actual in zip(seed["products"], payload["products"], strict=True):
             for field in optional_fields:

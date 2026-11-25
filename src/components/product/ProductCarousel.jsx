@@ -13,9 +13,15 @@ export function ProductCarousel({ title, products, labelProduct, dict, emptyText
   return (
     <Card className="product-carousel-section">
       <div className="product-carousel-header">
-        <button className="product-carousel-title-button" type="button" onClick={onTitleClick}>
-          <span className="product-carousel-title">{title}</span>
-        </button>
+        {onTitleClick ? (
+          <button className="product-carousel-title-button" type="button" onClick={onTitleClick}>
+            <span className="product-carousel-title">{title}</span>
+          </button>
+        ) : (
+          <h2 className="product-carousel-title-static">
+            <span className="product-carousel-title">{title}</span>
+          </h2>
+        )}
       </div>
       {products.length === 0 ? (
         <Empty description={emptyText} />
